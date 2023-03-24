@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import NMapsMap
+import MapKit
 import RxCocoa
 import RxSwift
 
@@ -14,12 +14,9 @@ class RunningStartViewController: UIViewController {
     
     //MARK: - UI Properties
     
-    lazy var mapView: NMFNaverMapView = {
-       let mapView = NMFNaverMapView()
+    lazy var mapView: MKMapView = {
+       let mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
-        mapView.mapView.zoomLevel = 16
-        mapView.showLocationButton = true
-        mapView.showZoomControls = false
         
         return mapView
     }()
@@ -120,6 +117,7 @@ class RunningStartViewController: UIViewController {
         viewModel?.goalTimeRelay.asDriver()
             .drive(timeSettingStackView.goalSettingLabelStackView.destinationLabel.rx.text)
             .disposed(by: disposeBag)
+        self.title = viewModel?.viewTitle
     }
     
     //MARK: - UI Settings

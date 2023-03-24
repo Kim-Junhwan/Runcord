@@ -6,12 +6,10 @@
 //
 
 import UIKit
-import NMapsMap
 
 class SaveRecordRunningViewController: UIViewController {
     
     @IBOutlet weak var runningCommentTextField: UITextField!
-    @IBOutlet weak var mapView: NMFMapView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
@@ -19,7 +17,6 @@ class SaveRecordRunningViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setCommentTextField()
-        setMapView()
         setSaveButton()
         setImageCollectionView()
     }
@@ -31,11 +28,6 @@ class SaveRecordRunningViewController: UIViewController {
         runningCommentTextField.layer.borderColor = UIColor.black.cgColor
     }
     
-    func setMapView() {
-        mapView.layer.borderWidth = 0.5
-        mapView.layer.borderColor = UIColor.black.cgColor
-        mapView.isScrollGestureEnabled = false
-    }
     
     func setSaveButton() {
         saveButton.layer.cornerRadius = 10

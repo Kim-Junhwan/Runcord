@@ -137,7 +137,6 @@
 		C7A4CE5C29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		C7BA067B29A25AF100D2227A /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		C7BA067D29A25B6B00D2227A /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
-		C7BA068229A3A52700D2227A /* DEBUG.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DEBUG.xcconfig; sourceTree = "<group>"; };
 		C7D5FB6A29C829ED00F54568 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C7DE67F22998DFC200C824A9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C7DE67F52998E4D300C824A9 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -363,7 +362,6 @@
 				C730C16329A259720076C83C /* Font */,
 				C7670EF52995460900E3CD77 /* Info.plist */,
 				C7670EF02995460900E3CD77 /* Assets.xcassets */,
-				C7BA068229A3A52700D2227A /* DEBUG.xcconfig */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1007,7 +1005,6 @@
 /* Begin XCBuildConfiguration section */
 		C7670F0C2995460900E3CD77 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7BA068229A3A52700D2227A /* DEBUG.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1131,6 +1128,10 @@
 				DEVELOPMENT_TEAM = SBAHW5F54N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RunningCrew/Resources/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "사진을 촬영하여 게시물에 사진을 첨부하는 기능 사용을 위해 카메라에 접근하도록 허용합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자의 위치를 받습니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진을 촬영하여 게시물에 사진을 첨부하는 기능 사용을 위해 사진 라이브러리에 접근하도록 허용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -1161,6 +1162,10 @@
 				DEVELOPMENT_TEAM = SBAHW5F54N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RunningCrew/Resources/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "사진을 촬영하여 게시물에 사진을 첨부하는 기능 사용을 위해 카메라에 접근하도록 허용합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자의 위치를 받습니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진을 촬영하여 게시물에 사진을 첨부하는 기능 사용을 위해 사진 라이브러리에 접근하도록 허용합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

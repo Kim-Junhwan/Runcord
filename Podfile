@@ -8,7 +8,6 @@ target 'RunningCrew' do
   # Pods for RunningCrew
     pod 'RxSwift', '6.5.0'
     pod 'RxCocoa', '6.5.0'
-    pod 'NMapsMap', '3.15.0'
     pod 'SwiftLint', '0.48.0'
   target 'RunningCrewTests' do
     inherit! :search_paths

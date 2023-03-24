@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +21,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SaveRecordRunningViewController" customModule="RunningCrew" customModuleProvider="target">
             <connections>
                 <outlet property="imageCollectionView" destination="Uql-Xo-dPg" id="jQJ-Uq-Qze"/>
-                <outlet property="mapView" destination="h4S-as-1ZI" id="FxY-bz-PU3"/>
                 <outlet property="runningCommentTextField" destination="y9r-Ui-9gA" id="5gm-PG-lP5"/>
                 <outlet property="saveButton" destination="nJI-Kz-CK5" id="Bgm-xg-0Pq"/>
                 <outlet property="scrollView" destination="nQf-4V-BXN" id="jFM-CU-tg6"/>
@@ -300,14 +300,13 @@
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4S-as-1ZI" customClass="NMFMapView">
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sot-SF-xE8">
                                                     <rect key="frame" x="0.0" y="257.33333333333331" width="345" height="344.99999999999994"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="h4S-as-1ZI" secondAttribute="height" multiplier="1:1" id="2Jz-sj-GPZ"/>
+                                                        <constraint firstAttribute="width" secondItem="Sot-SF-xE8" secondAttribute="height" multiplier="1:1" id="NGp-k3-rN1"/>
                                                     </constraints>
-                                                    <edgeInsets key="layoutMargins" top="14" left="14" bottom="8" right="8"/>
-                                                </view>
+                                                    <standardMapConfiguration key="preferredConfiguration"/>
+                                                </mapView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sQk-9u-sod">
                                                     <rect key="frame" x="0.0" y="628.33333333333337" width="345" height="133.33333333333337"/>
                                                     <subviews>
@@ -374,13 +373,13 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="sv6-Zn-xzi" secondAttribute="trailing" id="4QO-ax-ghp"/>
                                                 <constraint firstAttribute="trailing" secondItem="brD-dI-dyI" secondAttribute="trailing" id="B6h-SW-6kY"/>
-                                                <constraint firstAttribute="trailing" secondItem="h4S-as-1ZI" secondAttribute="trailing" id="DvB-WH-4LA"/>
                                                 <constraint firstItem="sQk-9u-sod" firstAttribute="leading" secondItem="5jf-wz-vaV" secondAttribute="leading" id="FXk-to-kBy"/>
                                                 <constraint firstAttribute="trailing" secondItem="sQk-9u-sod" secondAttribute="trailing" id="Pyb-ZH-ION"/>
                                                 <constraint firstItem="nJI-Kz-CK5" firstAttribute="leading" secondItem="5jf-wz-vaV" secondAttribute="leading" id="ZTc-5I-yIf"/>
                                                 <constraint firstItem="brD-dI-dyI" firstAttribute="leading" secondItem="5jf-wz-vaV" secondAttribute="leading" id="gHE-fz-XOW"/>
+                                                <constraint firstAttribute="trailing" secondItem="Sot-SF-xE8" secondAttribute="trailing" id="gmT-x2-Ied"/>
                                                 <constraint firstItem="sv6-Zn-xzi" firstAttribute="leading" secondItem="5jf-wz-vaV" secondAttribute="leading" id="ilM-tQ-DcZ"/>
-                                                <constraint firstItem="h4S-as-1ZI" firstAttribute="leading" secondItem="5jf-wz-vaV" secondAttribute="leading" id="yGb-VV-1T3"/>
+                                                <constraint firstItem="Sot-SF-xE8" firstAttribute="leading" secondItem="5jf-wz-vaV" secondAttribute="leading" id="m3I-f3-Fl1"/>
                                                 <constraint firstAttribute="trailing" secondItem="nJI-Kz-CK5" secondAttribute="trailing" id="ybW-hH-Qz1"/>
                                             </constraints>
                                         </stackView>
