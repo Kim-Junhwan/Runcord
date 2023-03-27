@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A17FEA9E28A7F0046755DDCE /* Pods_RunningCrew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D82C19D66319609FF717AF /* Pods_RunningCrew.framework */; };
+		3E5140CFAE941C52CA7E4BFB /* Pods_Runcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9FEB07F270024C7F18FF99 /* Pods_Runcord.framework */; };
+		7174C71B1326032E3CACAEF3 /* Pods_Runcord_RuncordUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C62AF0F2B3BA683EA92FD0 /* Pods_Runcord_RuncordUITests.framework */; };
 		C7211E3129B9664D00ADA90C /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7211E3029B9664D00ADA90C /* UIViewController+.swift */; };
 		C7211E3529B9721E00ADA90C /* AddImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7211E3329B9721E00ADA90C /* AddImageCollectionViewCell.swift */; };
 		C7211E3629B9721E00ADA90C /* AddImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7211E3429B9721E00ADA90C /* AddImageCollectionViewCell.xib */; };
@@ -70,8 +71,7 @@
 		C7E00A2329C36F4900B39709 /* CameraCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E00A2129C36F4900B39709 /* CameraCollectionViewCell.swift */; };
 		C7E00A2429C36F4900B39709 /* CameraCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E00A2229C36F4900B39709 /* CameraCollectionViewCell.xib */; };
 		C7F95B2E29AF803200C69D1B /* RunningStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F95B2D29AF803200C69D1B /* RunningStartViewModel.swift */; };
-		D8FCCC736C08611D78F2F5DA /* Pods_RunningCrew_RunningCrewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49645AC81E6AA34CA37B1351 /* Pods_RunningCrew_RunningCrewUITests.framework */; };
-		E912946796E36DF3B40E1925 /* Pods_RunningCrewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B83D40D954F061F36AABF30C /* Pods_RunningCrewTests.framework */; };
+		D3BF4C1EAF7E2662EFB5DD5C /* Pods_RuncordTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F4E49B23A18F2DB926C672 /* Pods_RuncordTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,11 +93,16 @@
 
 /* Begin PBXFileReference section */
 		03C919EEFAB1F2E8071FD34F /* Pods-RunningCrew-RunningCrewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningCrew-RunningCrewUITests.release.xcconfig"; path = "Target Support Files/Pods-RunningCrew-RunningCrewUITests/Pods-RunningCrew-RunningCrewUITests.release.xcconfig"; sourceTree = "<group>"; };
+		35BC98B5D419921026630336 /* Pods-Runcord-RuncordUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runcord-RuncordUITests.debug.xcconfig"; path = "Target Support Files/Pods-Runcord-RuncordUITests/Pods-Runcord-RuncordUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3D9FEB07F270024C7F18FF99 /* Pods_Runcord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runcord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EE7E053F68F0ACF4A2EB417 /* Pods-Runcord.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runcord.debug.xcconfig"; path = "Target Support Files/Pods-Runcord/Pods-Runcord.debug.xcconfig"; sourceTree = "<group>"; };
 		444E77919FDC0F8D936ECE3D /* Pods-RunningCrewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningCrewTests.debug.xcconfig"; path = "Target Support Files/Pods-RunningCrewTests/Pods-RunningCrewTests.debug.xcconfig"; sourceTree = "<group>"; };
-		49645AC81E6AA34CA37B1351 /* Pods_RunningCrew_RunningCrewUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunningCrew_RunningCrewUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		65D82C19D66319609FF717AF /* Pods_RunningCrew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunningCrew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B3642D17E702F9F6A5ADCCB /* Pods-RuncordTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RuncordTests.debug.xcconfig"; path = "Target Support Files/Pods-RuncordTests/Pods-RuncordTests.debug.xcconfig"; sourceTree = "<group>"; };
+		71F4E49B23A18F2DB926C672 /* Pods_RuncordTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RuncordTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C77F9270D9E16B52A675F23 /* Pods-Runcord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runcord.release.xcconfig"; path = "Target Support Files/Pods-Runcord/Pods-Runcord.release.xcconfig"; sourceTree = "<group>"; };
 		7D992A5C10CA9AF1EAAE9D5A /* Pods-RunningCrew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningCrew.debug.xcconfig"; path = "Target Support Files/Pods-RunningCrew/Pods-RunningCrew.debug.xcconfig"; sourceTree = "<group>"; };
-		B83D40D954F061F36AABF30C /* Pods_RunningCrewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunningCrewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97236542A52558CE404FC32B /* Pods-RuncordTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RuncordTests.release.xcconfig"; path = "Target Support Files/Pods-RuncordTests/Pods-RuncordTests.release.xcconfig"; sourceTree = "<group>"; };
+		A5C62AF0F2B3BA683EA92FD0 /* Pods_Runcord_RuncordUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runcord_RuncordUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4430C2AE358A87631BAC200 /* Pods-RunningCrew-RunningCrewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningCrew-RunningCrewUITests.debug.xcconfig"; path = "Target Support Files/Pods-RunningCrew-RunningCrewUITests/Pods-RunningCrew-RunningCrewUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7211E3029B9664D00ADA90C /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		C7211E3329B9721E00ADA90C /* AddImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -115,14 +120,14 @@
 		C7663E7A29A9F1260046068B /* GoalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTextField.swift; sourceTree = "<group>"; };
 		C7663E7C29AA125B0046068B /* GoalSettingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingStackView.swift; sourceTree = "<group>"; };
 		C7663E8029ABA5720046068B /* GoalSettingLabelStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingLabelStackView.swift; sourceTree = "<group>"; };
-		C7670EE42995460800E3CD77 /* RunningCrew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunningCrew.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7670EE42995460800E3CD77 /* Runcord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runcord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7670EE72995460800E3CD77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7670EE92995460800E3CD77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C7670EF02995460900E3CD77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7670EF52995460900E3CD77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C7670EFA2995460900E3CD77 /* RunningCrewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunningCrewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7670EFA2995460900E3CD77 /* RuncordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuncordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7670EFE2995460900E3CD77 /* RunningCrewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCrewTests.swift; sourceTree = "<group>"; };
-		C7670F042995460900E3CD77 /* RunningCrewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunningCrewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7670F042995460900E3CD77 /* RuncordUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuncordUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7670F082995460900E3CD77 /* RunningCrewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCrewUITests.swift; sourceTree = "<group>"; };
 		C7670F0A2995460900E3CD77 /* RunningCrewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCrewUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C7811F6D29A0F51E00801E6B /* MyRunningCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRunningCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -167,6 +172,7 @@
 		C7F95B2D29AF803200C69D1B /* RunningStartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningStartViewModel.swift; sourceTree = "<group>"; };
 		C8E83F46D38D17331033544B /* Pods-RunningCrew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningCrew.release.xcconfig"; path = "Target Support Files/Pods-RunningCrew/Pods-RunningCrew.release.xcconfig"; sourceTree = "<group>"; };
 		D0BCB0478C25AB8849DDAF93 /* Pods-RunningCrewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningCrewTests.release.xcconfig"; path = "Target Support Files/Pods-RunningCrewTests/Pods-RunningCrewTests.release.xcconfig"; sourceTree = "<group>"; };
+		E700CDD995CADEA7BB203E22 /* Pods-Runcord-RuncordUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runcord-RuncordUITests.release.xcconfig"; path = "Target Support Files/Pods-Runcord-RuncordUITests/Pods-Runcord-RuncordUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A17FEA9E28A7F0046755DDCE /* Pods_RunningCrew.framework in Frameworks */,
+				3E5140CFAE941C52CA7E4BFB /* Pods_Runcord.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E912946796E36DF3B40E1925 /* Pods_RunningCrewTests.framework in Frameworks */,
+				D3BF4C1EAF7E2662EFB5DD5C /* Pods_RuncordTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8FCCC736C08611D78F2F5DA /* Pods_RunningCrew_RunningCrewUITests.framework in Frameworks */,
+				7174C71B1326032E3CACAEF3 /* Pods_Runcord_RuncordUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +212,12 @@
 				03C919EEFAB1F2E8071FD34F /* Pods-RunningCrew-RunningCrewUITests.release.xcconfig */,
 				444E77919FDC0F8D936ECE3D /* Pods-RunningCrewTests.debug.xcconfig */,
 				D0BCB0478C25AB8849DDAF93 /* Pods-RunningCrewTests.release.xcconfig */,
+				3EE7E053F68F0ACF4A2EB417 /* Pods-Runcord.debug.xcconfig */,
+				7C77F9270D9E16B52A675F23 /* Pods-Runcord.release.xcconfig */,
+				35BC98B5D419921026630336 /* Pods-Runcord-RuncordUITests.debug.xcconfig */,
+				E700CDD995CADEA7BB203E22 /* Pods-Runcord-RuncordUITests.release.xcconfig */,
+				4B3642D17E702F9F6A5ADCCB /* Pods-RuncordTests.debug.xcconfig */,
+				97236542A52558CE404FC32B /* Pods-RuncordTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -300,9 +312,9 @@
 			isa = PBXGroup;
 			children = (
 				C7D5FB6A29C829ED00F54568 /* .swiftlint.yml */,
-				C7670EE62995460800E3CD77 /* RunningCrew */,
-				C7670EFD2995460900E3CD77 /* RunningCrewTests */,
-				C7670F072995460900E3CD77 /* RunningCrewUITests */,
+				C7670EE62995460800E3CD77 /* Runcord */,
+				C7670EFD2995460900E3CD77 /* RuncordTests */,
+				C7670F072995460900E3CD77 /* RuncordUITests */,
 				C7670EE52995460800E3CD77 /* Products */,
 				B177AEB6EAB444E45D0937E0 /* Pods */,
 				E0411EDA38A4BEEFC0698F7C /* Frameworks */,
@@ -312,38 +324,38 @@
 		C7670EE52995460800E3CD77 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C7670EE42995460800E3CD77 /* RunningCrew.app */,
-				C7670EFA2995460900E3CD77 /* RunningCrewTests.xctest */,
-				C7670F042995460900E3CD77 /* RunningCrewUITests.xctest */,
+				C7670EE42995460800E3CD77 /* Runcord.app */,
+				C7670EFA2995460900E3CD77 /* RuncordTests.xctest */,
+				C7670F042995460900E3CD77 /* RuncordUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C7670EE62995460800E3CD77 /* RunningCrew */ = {
+		C7670EE62995460800E3CD77 /* Runcord */ = {
 			isa = PBXGroup;
 			children = (
 				C7811F7729A258C200801E6B /* Resources */,
 				C7811F7829A258CE00801E6B /* Sources */,
 				C7DE681B299A84B500C824A9 /* Launch Screen.storyboard */,
 			);
-			path = RunningCrew;
+			path = Runcord;
 			sourceTree = "<group>";
 		};
-		C7670EFD2995460900E3CD77 /* RunningCrewTests */ = {
+		C7670EFD2995460900E3CD77 /* RuncordTests */ = {
 			isa = PBXGroup;
 			children = (
 				C7670EFE2995460900E3CD77 /* RunningCrewTests.swift */,
 			);
-			path = RunningCrewTests;
+			path = RuncordTests;
 			sourceTree = "<group>";
 		};
-		C7670F072995460900E3CD77 /* RunningCrewUITests */ = {
+		C7670F072995460900E3CD77 /* RuncordUITests */ = {
 			isa = PBXGroup;
 			children = (
 				C7670F082995460900E3CD77 /* RunningCrewUITests.swift */,
 				C7670F0A2995460900E3CD77 /* RunningCrewUITestsLaunchTests.swift */,
 			);
-			path = RunningCrewUITests;
+			path = RuncordUITests;
 			sourceTree = "<group>";
 		};
 		C7811F6429A0AA3A00801E6B /* Cell */ = {
@@ -647,9 +659,9 @@
 		E0411EDA38A4BEEFC0698F7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				65D82C19D66319609FF717AF /* Pods_RunningCrew.framework */,
-				49645AC81E6AA34CA37B1351 /* Pods_RunningCrew_RunningCrewUITests.framework */,
-				B83D40D954F061F36AABF30C /* Pods_RunningCrewTests.framework */,
+				3D9FEB07F270024C7F18FF99 /* Pods_Runcord.framework */,
+				A5C62AF0F2B3BA683EA92FD0 /* Pods_Runcord_RuncordUITests.framework */,
+				71F4E49B23A18F2DB926C672 /* Pods_RuncordTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -657,9 +669,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C7670EE32995460800E3CD77 /* RunningCrew */ = {
+		C7670EE32995460800E3CD77 /* Runcord */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C7670F0E2995460900E3CD77 /* Build configuration list for PBXNativeTarget "RunningCrew" */;
+			buildConfigurationList = C7670F0E2995460900E3CD77 /* Build configuration list for PBXNativeTarget "Runcord" */;
 			buildPhases = (
 				78BF3DA6249B2B1CA1BF03A9 /* [CP] Check Pods Manifest.lock */,
 				C7670EE02995460800E3CD77 /* Sources */,
@@ -672,14 +684,14 @@
 			);
 			dependencies = (
 			);
-			name = RunningCrew;
+			name = Runcord;
 			productName = RunningCrew;
-			productReference = C7670EE42995460800E3CD77 /* RunningCrew.app */;
+			productReference = C7670EE42995460800E3CD77 /* Runcord.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C7670EF92995460900E3CD77 /* RunningCrewTests */ = {
+		C7670EF92995460900E3CD77 /* RuncordTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C7670F112995460900E3CD77 /* Build configuration list for PBXNativeTarget "RunningCrewTests" */;
+			buildConfigurationList = C7670F112995460900E3CD77 /* Build configuration list for PBXNativeTarget "RuncordTests" */;
 			buildPhases = (
 				4CE4D71177F0DB342ADA92BF /* [CP] Check Pods Manifest.lock */,
 				C7670EF62995460900E3CD77 /* Sources */,
@@ -691,14 +703,14 @@
 			dependencies = (
 				C7670EFC2995460900E3CD77 /* PBXTargetDependency */,
 			);
-			name = RunningCrewTests;
+			name = RuncordTests;
 			productName = RunningCrewTests;
-			productReference = C7670EFA2995460900E3CD77 /* RunningCrewTests.xctest */;
+			productReference = C7670EFA2995460900E3CD77 /* RuncordTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C7670F032995460900E3CD77 /* RunningCrewUITests */ = {
+		C7670F032995460900E3CD77 /* RuncordUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C7670F142995460900E3CD77 /* Build configuration list for PBXNativeTarget "RunningCrewUITests" */;
+			buildConfigurationList = C7670F142995460900E3CD77 /* Build configuration list for PBXNativeTarget "RuncordUITests" */;
 			buildPhases = (
 				478D377DD1D8D702B8AE3CE4 /* [CP] Check Pods Manifest.lock */,
 				C7670F002995460900E3CD77 /* Sources */,
@@ -711,9 +723,9 @@
 			dependencies = (
 				C7670F062995460900E3CD77 /* PBXTargetDependency */,
 			);
-			name = RunningCrewUITests;
+			name = RuncordUITests;
 			productName = RunningCrewUITests;
-			productReference = C7670F042995460900E3CD77 /* RunningCrewUITests.xctest */;
+			productReference = C7670F042995460900E3CD77 /* RuncordUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -739,7 +751,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C7670EDF2995460800E3CD77 /* Build configuration list for PBXProject "RunningCrew" */;
+			buildConfigurationList = C7670EDF2995460800E3CD77 /* Build configuration list for PBXProject "Runcord" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -752,9 +764,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C7670EE32995460800E3CD77 /* RunningCrew */,
-				C7670EF92995460900E3CD77 /* RunningCrewTests */,
-				C7670F032995460900E3CD77 /* RunningCrewUITests */,
+				C7670EE32995460800E3CD77 /* Runcord */,
+				C7670EF92995460900E3CD77 /* RuncordTests */,
+				C7670F032995460900E3CD77 /* RuncordUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -805,15 +817,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RunningCrew-RunningCrewUITests/Pods-RunningCrew-RunningCrewUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Runcord-RuncordUITests/Pods-Runcord-RuncordUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RunningCrew-RunningCrewUITests/Pods-RunningCrew-RunningCrewUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Runcord-RuncordUITests/Pods-Runcord-RuncordUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RunningCrew-RunningCrewUITests/Pods-RunningCrew-RunningCrewUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runcord-RuncordUITests/Pods-Runcord-RuncordUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		478D377DD1D8D702B8AE3CE4 /* [CP] Check Pods Manifest.lock */ = {
@@ -831,7 +843,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RunningCrew-RunningCrewUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Runcord-RuncordUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -853,7 +865,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RunningCrewTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RuncordTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -875,7 +887,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RunningCrew-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Runcord-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -888,15 +900,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RunningCrew/Pods-RunningCrew-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Runcord/Pods-Runcord-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RunningCrew/Pods-RunningCrew-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Runcord/Pods-Runcord-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RunningCrew/Pods-RunningCrew-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runcord/Pods-Runcord-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C7D5FB6929C8293600F54568 /* ShellScript */ = {
@@ -992,12 +1004,12 @@
 /* Begin PBXTargetDependency section */
 		C7670EFC2995460900E3CD77 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C7670EE32995460800E3CD77 /* RunningCrew */;
+			target = C7670EE32995460800E3CD77 /* Runcord */;
 			targetProxy = C7670EFB2995460900E3CD77 /* PBXContainerItemProxy */;
 		};
 		C7670F062995460900E3CD77 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C7670EE32995460800E3CD77 /* RunningCrew */;
+			target = C7670EE32995460800E3CD77 /* Runcord */;
 			targetProxy = C7670F052995460900E3CD77 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1119,7 +1131,7 @@
 		};
 		C7670F0F2995460900E3CD77 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D992A5C10CA9AF1EAAE9D5A /* Pods-RunningCrew.debug.xcconfig */;
+			baseConfigurationReference = 3EE7E053F68F0ACF4A2EB417 /* Pods-Runcord.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1127,7 +1139,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SBAHW5F54N;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RunningCrew/Resources/Info.plist;
+				INFOPLIST_FILE = Runcord/Resources/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "사진을 촬영하여 게시물에 사진을 첨부하는 기능 사용을 위해 카메라에 접근하도록 허용합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자의 위치를 받습니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
@@ -1143,7 +1155,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kimjunhwan.RunningCrew;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kimjunhwan.Runcord;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1153,7 +1165,7 @@
 		};
 		C7670F102995460900E3CD77 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C8E83F46D38D17331033544B /* Pods-RunningCrew.release.xcconfig */;
+			baseConfigurationReference = 7C77F9270D9E16B52A675F23 /* Pods-Runcord.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1161,7 +1173,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SBAHW5F54N;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RunningCrew/Resources/Info.plist;
+				INFOPLIST_FILE = Runcord/Resources/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "사진을 촬영하여 게시물에 사진을 첨부하는 기능 사용을 위해 카메라에 접근하도록 허용합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자의 위치를 받습니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
@@ -1177,7 +1189,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kimjunhwan.RunningCrew;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kimjunhwan.Runcord;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1187,7 +1199,7 @@
 		};
 		C7670F122995460900E3CD77 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 444E77919FDC0F8D936ECE3D /* Pods-RunningCrewTests.debug.xcconfig */;
+			baseConfigurationReference = 4B3642D17E702F9F6A5ADCCB /* Pods-RuncordTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1202,13 +1214,13 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RunningCrew.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RunningCrew";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runcord.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runcord";
 			};
 			name = Debug;
 		};
 		C7670F132995460900E3CD77 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0BCB0478C25AB8849DDAF93 /* Pods-RunningCrewTests.release.xcconfig */;
+			baseConfigurationReference = 97236542A52558CE404FC32B /* Pods-RuncordTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1223,13 +1235,13 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RunningCrew.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RunningCrew";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runcord.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runcord";
 			};
 			name = Release;
 		};
 		C7670F152995460900E3CD77 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4430C2AE358A87631BAC200 /* Pods-RunningCrew-RunningCrewUITests.debug.xcconfig */;
+			baseConfigurationReference = 35BC98B5D419921026630336 /* Pods-Runcord-RuncordUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1248,7 +1260,7 @@
 		};
 		C7670F162995460900E3CD77 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 03C919EEFAB1F2E8071FD34F /* Pods-RunningCrew-RunningCrewUITests.release.xcconfig */;
+			baseConfigurationReference = E700CDD995CADEA7BB203E22 /* Pods-Runcord-RuncordUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1268,7 +1280,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C7670EDF2995460800E3CD77 /* Build configuration list for PBXProject "RunningCrew" */ = {
+		C7670EDF2995460800E3CD77 /* Build configuration list for PBXProject "Runcord" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C7670F0C2995460900E3CD77 /* Debug */,
@@ -1277,7 +1289,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C7670F0E2995460900E3CD77 /* Build configuration list for PBXNativeTarget "RunningCrew" */ = {
+		C7670F0E2995460900E3CD77 /* Build configuration list for PBXNativeTarget "Runcord" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C7670F0F2995460900E3CD77 /* Debug */,
@@ -1286,7 +1298,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C7670F112995460900E3CD77 /* Build configuration list for PBXNativeTarget "RunningCrewTests" */ = {
+		C7670F112995460900E3CD77 /* Build configuration list for PBXNativeTarget "RuncordTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C7670F122995460900E3CD77 /* Debug */,
@@ -1295,7 +1307,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C7670F142995460900E3CD77 /* Build configuration list for PBXNativeTarget "RunningCrewUITests" */ = {
+		C7670F142995460900E3CD77 /* Build configuration list for PBXNativeTarget "RuncordUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C7670F152995460900E3CD77 /* Debug */,

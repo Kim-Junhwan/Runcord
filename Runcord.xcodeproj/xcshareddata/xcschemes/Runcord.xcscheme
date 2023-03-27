@@ -15,9 +15,37 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C7670EE32995460800E3CD77"
-               BuildableName = "RunningCrew.app"
-               BlueprintName = "RunningCrew"
-               ReferencedContainer = "container:RunningCrew.xcodeproj">
+               BuildableName = "Runcord.app"
+               BlueprintName = "Runcord"
+               ReferencedContainer = "container:Runcord.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C7670EF92995460900E3CD77"
+               BuildableName = "RuncordTests.xctest"
+               BlueprintName = "RuncordTests"
+               ReferencedContainer = "container:Runcord.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C7670F032995460900E3CD77"
+               BuildableName = "RuncordUITests.xctest"
+               BlueprintName = "RuncordUITests"
+               ReferencedContainer = "container:Runcord.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,28 +56,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C7670EF92995460900E3CD77"
-               BuildableName = "RunningCrewTests.xctest"
-               BlueprintName = "RunningCrewTests"
-               ReferencedContainer = "container:RunningCrew.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C7670F032995460900E3CD77"
-               BuildableName = "RunningCrewUITests.xctest"
-               BlueprintName = "RunningCrewUITests"
-               ReferencedContainer = "container:RunningCrew.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -68,9 +74,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C7670EE32995460800E3CD77"
-            BuildableName = "RunningCrew.app"
-            BlueprintName = "RunningCrew"
-            ReferencedContainer = "container:RunningCrew.xcodeproj">
+            BuildableName = "Runcord.app"
+            BlueprintName = "Runcord"
+            ReferencedContainer = "container:Runcord.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -80,16 +86,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C7670EE32995460800E3CD77"
-            BuildableName = "RunningCrew.app"
-            BlueprintName = "RunningCrew"
-            ReferencedContainer = "container:RunningCrew.xcodeproj">
+            BuildableName = "Runcord.app"
+            BlueprintName = "Runcord"
+            ReferencedContainer = "container:Runcord.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
