@@ -31,9 +31,6 @@
 		C7670EFF2995460900E3CD77 /* RunningCrewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7670EFE2995460900E3CD77 /* RunningCrewTests.swift */; };
 		C7670F092995460900E3CD77 /* RunningCrewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7670F082995460900E3CD77 /* RunningCrewUITests.swift */; };
 		C7670F0B2995460900E3CD77 /* RunningCrewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7670F0A2995460900E3CD77 /* RunningCrewUITestsLaunchTests.swift */; };
-		C7811F6F29A0F51E00801E6B /* MyRunningCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7811F6D29A0F51E00801E6B /* MyRunningCollectionViewCell.swift */; };
-		C7811F7029A0F51E00801E6B /* MyRunningCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7811F6E29A0F51E00801E6B /* MyRunningCollectionViewCell.xib */; };
-		C7811F7429A201B700801E6B /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7811F7329A201B700801E6B /* DotView.swift */; };
 		C7A1F21629BA1194009AE7BA /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1F21429BA1194009AE7BA /* CustomAlertViewController.swift */; };
 		C7A1F21729BA1194009AE7BA /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A1F21529BA1194009AE7BA /* CustomAlertViewController.xib */; };
 		C7A1F21929BA385A009AE7BA /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1F21829BA385A009AE7BA /* UIView+.swift */; };
@@ -41,32 +38,20 @@
 		C7A4CE5529BC2135000DAE8B /* ImagePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A4CE5329BC2135000DAE8B /* ImagePickerViewController.xib */; };
 		C7A4CE5D29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A4CE5B29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.swift */; };
 		C7A4CE5E29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A4CE5C29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.xib */; };
+		C7AD00EC29D1E1A6001D275E /* DesignedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AD00EB29D1E1A6001D275E /* DesignedTabBarController.swift */; };
 		C7BA067C29A25AF100D2227A /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C7BA067B29A25AF100D2227A /* NotoSansKR-Bold.otf */; };
 		C7BA067E29A25B6B00D2227A /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C7BA067D29A25B6B00D2227A /* NotoSansKR-Medium.otf */; };
 		C7D5FB6B29C829ED00F54568 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C7D5FB6A29C829ED00F54568 /* .swiftlint.yml */; };
 		C7DE67F32998DFC200C824A9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67F22998DFC200C824A9 /* Coordinator.swift */; };
 		C7DE67F62998E4D300C824A9 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67F52998E4D300C824A9 /* TabBarCoordinator.swift */; };
-		C7DE67F929992A2C00C824A9 /* RecordRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67F829992A2C00C824A9 /* RecordRunningViewController.swift */; };
 		C7DE67FB29992A5E00C824A9 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67FA29992A5E00C824A9 /* TabBarItem.swift */; };
 		C7DE67FD2999301800C824A9 /* RecordRunningCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67FC2999301800C824A9 /* RecordRunningCoordinator.swift */; };
 		C7DE68022999376800C824A9 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE68012999376800C824A9 /* MyPageViewController.swift */; };
-		C7DE68042999377800C824A9 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE68032999377800C824A9 /* AlarmViewController.swift */; };
-		C7DE68062999378300C824A9 /* CrewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE68052999378300C824A9 /* CrewViewController.swift */; };
-		C7DE680C299939E800C824A9 /* CrewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE680B299939E800C824A9 /* CrewCoordinator.swift */; };
-		C7DE680E29993A5400C824A9 /* AlarmCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE680D29993A5400C824A9 /* AlarmCoordinator.swift */; };
 		C7DE681029993A7000C824A9 /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE680F29993A7000C824A9 /* MyPageCoordinator.swift */; };
 		C7DE681C299A84B500C824A9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE681B299A84B500C824A9 /* Launch Screen.storyboard */; };
-		C7DE6822299A858300C824A9 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6821299A858300C824A9 /* CustomTabBar.swift */; };
 		C7DE6825299A85DF00C824A9 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6824299A85DF00C824A9 /* Color+.swift */; };
 		C7DE682C299B934800C824A9 /* RunningButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE682B299B934800C824A9 /* RunningButton.swift */; };
 		C7DE682E299BD61300C824A9 /* LocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE682D299BD61300C824A9 /* LocationButton.swift */; };
-		C7DE6834299CF15F00C824A9 /* CustomMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6833299CF15F00C824A9 /* CustomMenuBar.swift */; };
-		C7DE683A299D1A1C00C824A9 /* CustomTopTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6839299D1A1C00C824A9 /* CustomTopTabBarController.swift */; };
-		C7DE683D299D272A00C824A9 /* MenuBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE683C299D272A00C824A9 /* MenuBarCell.swift */; };
-		C7DE683F299E58CA00C824A9 /* CrewAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE683E299E58CA00C824A9 /* CrewAlarmViewController.swift */; };
-		C7DE6841299E590D00C824A9 /* MyRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6840299E590D00C824A9 /* MyRunningViewController.swift */; };
-		C7DE6848299FD4AC00C824A9 /* CrewAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6846299FD4AC00C824A9 /* CrewAlarmTableViewCell.swift */; };
-		C7DE6849299FD4AC00C824A9 /* CrewAlarmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7DE6847299FD4AC00C824A9 /* CrewAlarmTableViewCell.xib */; };
 		C7E00A1C29C1AF8D00B39709 /* ImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E00A1B29C1AF8D00B39709 /* ImagePickerViewModel.swift */; };
 		C7E00A2329C36F4900B39709 /* CameraCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E00A2129C36F4900B39709 /* CameraCollectionViewCell.swift */; };
 		C7E00A2429C36F4900B39709 /* CameraCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E00A2229C36F4900B39709 /* CameraCollectionViewCell.xib */; };
@@ -130,9 +115,6 @@
 		C7670F042995460900E3CD77 /* RuncordUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuncordUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7670F082995460900E3CD77 /* RunningCrewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCrewUITests.swift; sourceTree = "<group>"; };
 		C7670F0A2995460900E3CD77 /* RunningCrewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCrewUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		C7811F6D29A0F51E00801E6B /* MyRunningCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRunningCollectionViewCell.swift; sourceTree = "<group>"; };
-		C7811F6E29A0F51E00801E6B /* MyRunningCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRunningCollectionViewCell.xib; sourceTree = "<group>"; };
-		C7811F7329A201B700801E6B /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		C7A1F21429BA1194009AE7BA /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		C7A1F21529BA1194009AE7BA /* CustomAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
 		C7A1F21829BA385A009AE7BA /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -140,32 +122,20 @@
 		C7A4CE5329BC2135000DAE8B /* ImagePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePickerViewController.xib; sourceTree = "<group>"; };
 		C7A4CE5B29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		C7A4CE5C29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePickerCollectionViewCell.xib; sourceTree = "<group>"; };
+		C7AD00EB29D1E1A6001D275E /* DesignedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignedTabBarController.swift; sourceTree = "<group>"; };
 		C7BA067B29A25AF100D2227A /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		C7BA067D29A25B6B00D2227A /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		C7D5FB6A29C829ED00F54568 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C7DE67F22998DFC200C824A9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C7DE67F52998E4D300C824A9 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
-		C7DE67F829992A2C00C824A9 /* RecordRunningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRunningViewController.swift; sourceTree = "<group>"; };
 		C7DE67FA29992A5E00C824A9 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		C7DE67FC2999301800C824A9 /* RecordRunningCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRunningCoordinator.swift; sourceTree = "<group>"; };
 		C7DE68012999376800C824A9 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
-		C7DE68032999377800C824A9 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
-		C7DE68052999378300C824A9 /* CrewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewViewController.swift; sourceTree = "<group>"; };
-		C7DE680B299939E800C824A9 /* CrewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCoordinator.swift; sourceTree = "<group>"; };
-		C7DE680D29993A5400C824A9 /* AlarmCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCoordinator.swift; sourceTree = "<group>"; };
 		C7DE680F29993A7000C824A9 /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
 		C7DE681B299A84B500C824A9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		C7DE6821299A858300C824A9 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		C7DE6824299A85DF00C824A9 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		C7DE682B299B934800C824A9 /* RunningButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningButton.swift; sourceTree = "<group>"; };
 		C7DE682D299BD61300C824A9 /* LocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationButton.swift; sourceTree = "<group>"; };
-		C7DE6833299CF15F00C824A9 /* CustomMenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuBar.swift; sourceTree = "<group>"; };
-		C7DE6839299D1A1C00C824A9 /* CustomTopTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTopTabBarController.swift; sourceTree = "<group>"; };
-		C7DE683C299D272A00C824A9 /* MenuBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarCell.swift; sourceTree = "<group>"; };
-		C7DE683E299E58CA00C824A9 /* CrewAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewAlarmViewController.swift; sourceTree = "<group>"; };
-		C7DE6840299E590D00C824A9 /* MyRunningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRunningViewController.swift; sourceTree = "<group>"; };
-		C7DE6846299FD4AC00C824A9 /* CrewAlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewAlarmTableViewCell.swift; sourceTree = "<group>"; };
-		C7DE6847299FD4AC00C824A9 /* CrewAlarmTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CrewAlarmTableViewCell.xib; sourceTree = "<group>"; };
 		C7E00A1B29C1AF8D00B39709 /* ImagePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewModel.swift; sourceTree = "<group>"; };
 		C7E00A2129C36F4900B39709 /* CameraCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionViewCell.swift; sourceTree = "<group>"; };
 		C7E00A2229C36F4900B39709 /* CameraCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -358,16 +328,6 @@
 			path = RuncordUITests;
 			sourceTree = "<group>";
 		};
-		C7811F6429A0AA3A00801E6B /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				C7811F6D29A0F51E00801E6B /* MyRunningCollectionViewCell.swift */,
-				C7811F6E29A0F51E00801E6B /* MyRunningCollectionViewCell.xib */,
-				C7811F7329A201B700801E6B /* DotView.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		C7811F7729A258C200801E6B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +377,14 @@
 			path = ImagePickerCell;
 			sourceTree = "<group>";
 		};
+		C7AD00EA29D1E175001D275E /* DesignedTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C7AD00EB29D1E1A6001D275E /* DesignedTabBarController.swift */,
+			);
+			path = DesignedTabBar;
+			sourceTree = "<group>";
+		};
 		C7DE67E92997AA3600C824A9 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,10 +417,8 @@
 		C7DE67F02998DF6300C824A9 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				C7DE6820299A857400C824A9 /* CustomTabBar */,
+				C7AD00EA29D1E175001D275E /* DesignedTabBar */,
 				C7DE68002999374300C824A9 /* MyPage */,
-				C7DE67FF2999373B00C824A9 /* Alarm */,
-				C7DE67FE2999372A00C824A9 /* Crew */,
 				C7DE67F72999296B00C824A9 /* RecordRunning */,
 				C7DE67F42998E4B900C824A9 /* Coordinator */,
 			);
@@ -482,29 +448,8 @@
 				C7663E5129A4BF6E0046068B /* MeasureRunning */,
 				C7DE6826299B890500C824A9 /* Button */,
 				C7DE6808299939BE00C824A9 /* Coordinator */,
-				C7DE67F829992A2C00C824A9 /* RecordRunningViewController.swift */,
 			);
 			path = RecordRunning;
-			sourceTree = "<group>";
-		};
-		C7DE67FE2999372A00C824A9 /* Crew */ = {
-			isa = PBXGroup;
-			children = (
-				C7DE6809299939CC00C824A9 /* Coordinator */,
-				C7DE68052999378300C824A9 /* CrewViewController.swift */,
-			);
-			path = Crew;
-			sourceTree = "<group>";
-		};
-		C7DE67FF2999373B00C824A9 /* Alarm */ = {
-			isa = PBXGroup;
-			children = (
-				C7DE6831299CEEBA00C824A9 /* MyRunning */,
-				C7DE6830299CEEA500C824A9 /* Crew */,
-				C7DE680A299939D100C824A9 /* Coordinator */,
-				C7DE68032999377800C824A9 /* AlarmViewController.swift */,
-			);
-			path = Alarm;
 			sourceTree = "<group>";
 		};
 		C7DE68002999374300C824A9 /* MyPage */ = {
@@ -532,31 +477,6 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		C7DE6809299939CC00C824A9 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				C7DE680B299939E800C824A9 /* CrewCoordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		C7DE680A299939D100C824A9 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				C7DE680D29993A5400C824A9 /* AlarmCoordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		C7DE6820299A857400C824A9 /* CustomTabBar */ = {
-			isa = PBXGroup;
-			children = (
-				C7DE6832299CF0FE00C824A9 /* CustomTopTabBar */,
-				C7DE6821299A858300C824A9 /* CustomTabBar.swift */,
-			);
-			path = CustomTabBar;
-			sourceTree = "<group>";
-		};
 		C7DE6823299A85D400C824A9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,51 +495,6 @@
 				C7DE682D299BD61300C824A9 /* LocationButton.swift */,
 			);
 			path = Button;
-			sourceTree = "<group>";
-		};
-		C7DE6830299CEEA500C824A9 /* Crew */ = {
-			isa = PBXGroup;
-			children = (
-				C7DE6845299FD49D00C824A9 /* Cell */,
-				C7DE683E299E58CA00C824A9 /* CrewAlarmViewController.swift */,
-			);
-			path = Crew;
-			sourceTree = "<group>";
-		};
-		C7DE6831299CEEBA00C824A9 /* MyRunning */ = {
-			isa = PBXGroup;
-			children = (
-				C7811F6429A0AA3A00801E6B /* Cell */,
-				C7DE6840299E590D00C824A9 /* MyRunningViewController.swift */,
-			);
-			path = MyRunning;
-			sourceTree = "<group>";
-		};
-		C7DE6832299CF0FE00C824A9 /* CustomTopTabBar */ = {
-			isa = PBXGroup;
-			children = (
-				C7DE683B299D26CB00C824A9 /* MenuBar */,
-				C7DE6839299D1A1C00C824A9 /* CustomTopTabBarController.swift */,
-			);
-			path = CustomTopTabBar;
-			sourceTree = "<group>";
-		};
-		C7DE683B299D26CB00C824A9 /* MenuBar */ = {
-			isa = PBXGroup;
-			children = (
-				C7DE683C299D272A00C824A9 /* MenuBarCell.swift */,
-				C7DE6833299CF15F00C824A9 /* CustomMenuBar.swift */,
-			);
-			path = MenuBar;
-			sourceTree = "<group>";
-		};
-		C7DE6845299FD49D00C824A9 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				C7DE6846299FD4AC00C824A9 /* CrewAlarmTableViewCell.swift */,
-				C7DE6847299FD4AC00C824A9 /* CrewAlarmTableViewCell.xib */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		C7E00A1A29C1AF7E00B39709 /* ViewModel */ = {
@@ -781,11 +656,9 @@
 				C7BA067E29A25B6B00D2227A /* NotoSansKR-Medium.otf in Resources */,
 				C7A4CE5E29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.xib in Resources */,
 				C751528129B79981003D8987 /* SaveRecordRunningViewController.xib in Resources */,
-				C7DE6849299FD4AC00C824A9 /* CrewAlarmTableViewCell.xib in Resources */,
 				C7A1F21729BA1194009AE7BA /* CustomAlertViewController.xib in Resources */,
 				C7211E3B29B9EA9700ADA90C /* ImageCollectionViewCell.xib in Resources */,
 				C7A4CE5529BC2135000DAE8B /* ImagePickerViewController.xib in Resources */,
-				C7811F7029A0F51E00801E6B /* MyRunningCollectionViewCell.xib in Resources */,
 				C7211E3629B9721E00ADA90C /* AddImageCollectionViewCell.xib in Resources */,
 				C7DE681C299A84B500C824A9 /* Launch Screen.storyboard in Resources */,
 				C7670EF12995460900E3CD77 /* Assets.xcassets in Resources */,
@@ -936,7 +809,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C75DECFA29AE7E7D00A4EC47 /* RecordViewController.swift in Sources */,
-				C7DE6848299FD4AC00C824A9 /* CrewAlarmTableViewCell.swift in Sources */,
 				C7DE67FD2999301800C824A9 /* RecordRunningCoordinator.swift in Sources */,
 				C7663E7B29A9F1260046068B /* GoalTextField.swift in Sources */,
 				C7A1F21929BA385A009AE7BA /* UIView+.swift in Sources */,
@@ -944,39 +816,27 @@
 				C7DE67FB29992A5E00C824A9 /* TabBarItem.swift in Sources */,
 				C7A4CE5429BC2135000DAE8B /* ImagePickerViewController.swift in Sources */,
 				C7DE682C299B934800C824A9 /* RunningButton.swift in Sources */,
-				C7DE6841299E590D00C824A9 /* MyRunningViewController.swift in Sources */,
+				C7AD00EC29D1E1A6001D275E /* DesignedTabBarController.swift in Sources */,
 				C7211E3529B9721E00ADA90C /* AddImageCollectionViewCell.swift in Sources */,
-				C7DE6822299A858300C824A9 /* CustomTabBar.swift in Sources */,
 				C7663E7D29AA125B0046068B /* GoalSettingStackView.swift in Sources */,
 				C7663E5329A4BFB70046068B /* RunningStartViewController.swift in Sources */,
 				C7670EE82995460800E3CD77 /* AppDelegate.swift in Sources */,
 				C751527929B27038003D8987 /* UIImage+.swift in Sources */,
-				C7DE683D299D272A00C824A9 /* MenuBarCell.swift in Sources */,
 				C7211E3129B9664D00ADA90C /* UIViewController+.swift in Sources */,
 				C7670EEA2995460800E3CD77 /* SceneDelegate.swift in Sources */,
 				C7DE681029993A7000C824A9 /* MyPageCoordinator.swift in Sources */,
 				C7211E3A29B9EA9700ADA90C /* ImageCollectionViewCell.swift in Sources */,
 				C7E00A2329C36F4900B39709 /* CameraCollectionViewCell.swift in Sources */,
-				C7DE683A299D1A1C00C824A9 /* CustomTopTabBarController.swift in Sources */,
 				C7A1F21629BA1194009AE7BA /* CustomAlertViewController.swift in Sources */,
 				C7E00A1C29C1AF8D00B39709 /* ImagePickerViewModel.swift in Sources */,
 				C751527C29B34224003D8987 /* RecordViewModel.swift in Sources */,
-				C7DE683F299E58CA00C824A9 /* CrewAlarmViewController.swift in Sources */,
 				C7F95B2E29AF803200C69D1B /* RunningStartViewModel.swift in Sources */,
-				C7DE680C299939E800C824A9 /* CrewCoordinator.swift in Sources */,
 				C7DE67F62998E4D300C824A9 /* TabBarCoordinator.swift in Sources */,
-				C7DE680E29993A5400C824A9 /* AlarmCoordinator.swift in Sources */,
 				C751528029B79981003D8987 /* SaveRecordRunningViewController.swift in Sources */,
 				C7A4CE5D29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.swift in Sources */,
-				C7DE6834299CF15F00C824A9 /* CustomMenuBar.swift in Sources */,
-				C7DE68062999378300C824A9 /* CrewViewController.swift in Sources */,
-				C7DE68042999377800C824A9 /* AlarmViewController.swift in Sources */,
 				C7663E8129ABA5720046068B /* GoalSettingLabelStackView.swift in Sources */,
-				C7DE67F929992A2C00C824A9 /* RecordRunningViewController.swift in Sources */,
-				C7811F6F29A0F51E00801E6B /* MyRunningCollectionViewCell.swift in Sources */,
 				C7DE67F32998DFC200C824A9 /* Coordinator.swift in Sources */,
 				C7DE68022999376800C824A9 /* MyPageViewController.swift in Sources */,
-				C7811F7429A201B700801E6B /* DotView.swift in Sources */,
 				C75DECF729ABB3AF00A4EC47 /* GoalSettingViewController.swift in Sources */,
 				C7DE682E299BD61300C824A9 /* LocationButton.swift in Sources */,
 			);

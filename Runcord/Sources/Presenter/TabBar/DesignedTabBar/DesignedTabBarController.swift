@@ -1,22 +1,20 @@
 //
-//  CustomTabBar.swift
-//  RunningCrew
+//  DesignedTabBarController.swift
+//  Runcord
 //
-//  Created by JunHwan Kim on 2023/02/13.
+//  Created by JunHwan Kim on 2023/03/27.
 //
 
 import UIKit
 
-class CustomTabBarController: UITabBarController {
-    
-    var items: [UIViewController]?
+class DesignedTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTabBar()
     }
     
-    func configureTabBarController() {
-        self.setViewControllers(items, animated: false)
+    private func setTabBar() {
         tabBar.backgroundColor = .white
         tabBar.unselectedItemTintColor = .black
         tabBar.tintColor = .tabBarSelect

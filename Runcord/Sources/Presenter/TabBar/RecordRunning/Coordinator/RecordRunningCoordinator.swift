@@ -22,27 +22,13 @@ final class RecordRunningCoordinator: Coordinator {
     }
     
     func showRecordRunningViewController() {
-        let recordVC: RecordRunningViewController = RecordRunningViewController()
-        self.navigationController.pushViewController(recordVC, animated: false)
-        recordVC.delegate = self
+        let runningStartVC = RunningStartViewController(viewModel: RunningStartViewModel())
+        self.navigationController.pushViewController(runningStartVC, animated: false)
+        //runningStartVC.delegate = self
     }
     
     deinit {
         print("deinit recordRunningCoordinator")
     }
-    
-}
-
-
-extension RecordRunningCoordinator: RecordRunningViewControllerDelegate {
-    
-    func showIndividualView() {
-        self.navigationController.pushViewController(RunningStartViewController(viewModel: RunningStartViewModel(viewTitle: "개인러닝")), animated: true)
-    }
-    
-    func showCrewView() {
-        self.navigationController.pushViewController(MyRunningViewController(), animated: true)
-    }
-    
     
 }

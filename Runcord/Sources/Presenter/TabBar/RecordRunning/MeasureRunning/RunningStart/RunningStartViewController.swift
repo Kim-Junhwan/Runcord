@@ -117,18 +117,17 @@ class RunningStartViewController: UIViewController {
         viewModel?.goalTimeRelay.asDriver()
             .drive(timeSettingStackView.goalSettingLabelStackView.destinationLabel.rx.text)
             .disposed(by: disposeBag)
-        self.title = viewModel?.viewTitle
     }
     
-    //MARK: - UI Settings
+    // MARK: - UI Settings
     
     func setMapView() {
         view.addSubview(mapView)
         NSLayoutConstraint.activate([
-            mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mapView.topAnchor.constraint(equalTo: view.topAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mapView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.45)
+            mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
