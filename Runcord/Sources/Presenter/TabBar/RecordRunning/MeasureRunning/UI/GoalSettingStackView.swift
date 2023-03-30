@@ -46,42 +46,6 @@ class GoalSettingStackView: UIStackView {
         return config
     }()
     
-    lazy var beforeButtonBackgroundView: UIView = {
-       let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .clear
-        
-        return view
-    }()
-    
-    lazy var beforeButton: UIButton = {
-        let button = UIButton()
-        let image = UIImage(systemName: "chevron.backward")?.resizeImageTo(size: CGSize(width: 20, height: 30))
-        button.setImage(image, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = .black
-        
-        return button
-    }()
-    
-    lazy var nextButtonBackgroundView: UIView = {
-       let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .clear
-        
-        return view
-    }()
-    
-    lazy var nextButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(systemName: "chevron.forward")?.resizeImageTo(size: CGSize(width: 20, height: 30))
-        button.setImage(image, for: .normal)
-        button.tintColor = .black
-        
-        return button
-    }()
-    
     var goalType: GoalType
     
     init(goalType: GoalType) {
@@ -89,7 +53,6 @@ class GoalSettingStackView: UIStackView {
         super.init(frame: .zero)
         setCurrentLabelStackView()
         setDestinationStackView()
-        setButtonConstraint()
         setTitle()
         spacing = 11
     }
@@ -115,36 +78,12 @@ class GoalSettingStackView: UIStackView {
     }
     
     private func setCurrentLabelStackView() {
-        currentLabelStackView.addArrangedSubview(beforeButtonBackgroundView)
         currentLabelStackView.addArrangedSubview(currentLabel)
-        currentLabelStackView.addArrangedSubview(nextButtonBackgroundView)
         NSLayoutConstraint.activate([
             currentLabel.heightAnchor.constraint(equalToConstant: 32)
         ])
     }
     
-    private func setButtonConstraint() {
-        beforeButtonBackgroundView.addSubview(beforeButton)
-        nextButtonBackgroundView.addSubview(nextButton)
-        
-        NSLayoutConstraint.activate([
-            beforeButtonBackgroundView.heightAnchor.constraint(equalToConstant: 44),
-            beforeButtonBackgroundView.widthAnchor.constraint(equalToConstant: 44),
-            
-            nextButtonBackgroundView.heightAnchor.constraint(equalToConstant: 44),
-            nextButtonBackgroundView.widthAnchor.constraint(equalToConstant: 44),
-            
-            beforeButton.topAnchor.constraint(equalTo: beforeButtonBackgroundView.topAnchor),
-            beforeButton.leadingAnchor.constraint(equalTo: beforeButtonBackgroundView.leadingAnchor),
-            beforeButton.trailingAnchor.constraint(equalTo: beforeButtonBackgroundView.trailingAnchor),
-            beforeButton.bottomAnchor.constraint(equalTo: beforeButtonBackgroundView.bottomAnchor),
-            
-            nextButton.topAnchor.constraint(equalTo: nextButtonBackgroundView.topAnchor),
-            nextButton.leadingAnchor.constraint(equalTo: nextButtonBackgroundView.leadingAnchor),
-            nextButton.trailingAnchor.constraint(equalTo: nextButtonBackgroundView.trailingAnchor),
-            nextButton.bottomAnchor.constraint(equalTo: nextButtonBackgroundView.bottomAnchor),
-        ])
-    }
     
 }
 
