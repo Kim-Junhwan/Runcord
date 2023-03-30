@@ -46,6 +46,9 @@
                             <state key="normal" title="시작">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="tabStartButton:" destination="-1" eventType="touchUpInside" id="loc-jR-e8w"/>
+                            </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Lkw-hq-3US">
                             <rect key="frame" x="0.0" y="76" width="293" height="100"/>

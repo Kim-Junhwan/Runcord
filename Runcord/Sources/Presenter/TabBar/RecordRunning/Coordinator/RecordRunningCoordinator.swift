@@ -23,9 +23,8 @@ final class RecordRunningCoordinator: Coordinator {
     
     func showRecordRunningViewController() {
         self.navigationController.isNavigationBarHidden = true
-        let runningStartVC = RunningStartViewController()
+        let runningStartVC = RunningStartViewController(locationRepository: CoreLocationRepository())
         self.navigationController.pushViewController(runningStartVC, animated: false)
-        //runningStartVC.delegate = self
     }
     
     deinit {

@@ -10,7 +10,7 @@ import UIKit
 protocol Alertable {}
 
 extension Alertable where Self: UIViewController {
-    func showAlert(title: String = "", message: String, defaultActionTitle: String, cancelActionTitle: String, defaultActionBlock: ((UIAlertAction)->Void)? = nil) {
+    func showAlert(title: String = "", message: String, defaultActionTitle: String, cancelActionTitle: String, defaultActionBlock: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: defaultActionTitle, style: .default, handler: defaultActionBlock)
         let cancelAction = UIAlertAction(title: cancelActionTitle, style: .cancel)

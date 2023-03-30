@@ -17,14 +17,11 @@ class CoreLocationRepository: NSObject, LocationRepository {
     }
     
     func checkLocationAuthorization() -> Bool {
-        print(coreLocationManager.authorizationStatus.rawValue)
         switch coreLocationManager.authorizationStatus {
-        case .notDetermined, .restricted, .denied:
+        case .denied, .restricted, .notDetermined:
             return false
         case .authorizedAlways, .authorizedWhenInUse:
             return true
-        case .denied:
-            coreLocationManager.requestWhenInUseAuthorization()
         @unknown default:
             fatalError()
         }

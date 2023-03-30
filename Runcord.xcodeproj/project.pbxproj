@@ -14,6 +14,7 @@
 		C703496429D5253400BF28D7 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C703496329D5253400BF28D7 /* Alertable.swift */; };
 		C703496729D582CC00BF28D7 /* RunningStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C703496529D582CC00BF28D7 /* RunningStartViewController.swift */; };
 		C703496829D582CC00BF28D7 /* RunningStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C703496629D582CC00BF28D7 /* RunningStartViewController.xib */; };
+		C703496C29D5B2B000BF28D7 /* UsingLocationable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C703496B29D5B2B000BF28D7 /* UsingLocationable.swift */; };
 		C7211E3129B9664D00ADA90C /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7211E3029B9664D00ADA90C /* UIViewController+.swift */; };
 		C7211E3529B9721E00ADA90C /* AddImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7211E3329B9721E00ADA90C /* AddImageCollectionViewCell.swift */; };
 		C7211E3629B9721E00ADA90C /* AddImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7211E3429B9721E00ADA90C /* AddImageCollectionViewCell.xib */; };
@@ -98,6 +99,7 @@
 		C703496329D5253400BF28D7 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		C703496529D582CC00BF28D7 /* RunningStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningStartViewController.swift; sourceTree = "<group>"; };
 		C703496629D582CC00BF28D7 /* RunningStartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RunningStartViewController.xib; sourceTree = "<group>"; };
+		C703496B29D5B2B000BF28D7 /* UsingLocationable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingLocationable.swift; sourceTree = "<group>"; };
 		C7211E3029B9664D00ADA90C /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		C7211E3329B9721E00ADA90C /* AddImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C7211E3429B9721E00ADA90C /* AddImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 		C703495D29D49C5F00BF28D7 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				C703496A29D5B28200BF28D7 /* UseCases */,
 				C703495E29D49C6600BF28D7 /* Repositories */,
 			);
 			path = Domain;
@@ -235,6 +238,7 @@
 		C703496129D524E500BF28D7 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				C703496B29D5B2B000BF28D7 /* UsingLocationable.swift */,
 				C703496329D5253400BF28D7 /* Alertable.swift */,
 			);
 			path = Protocols;
@@ -249,6 +253,21 @@
 				C7A1F21829BA385A009AE7BA /* UIView+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C703496929D5B27500BF28D7 /* RunningScene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RunningScene;
+			sourceTree = "<group>";
+		};
+		C703496A29D5B28200BF28D7 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				C703496929D5B27500BF28D7 /* RunningScene */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 		C7211E3229B9717D00ADA90C /* AddImageButtonCell */ = {
@@ -880,6 +899,7 @@
 				C7AD00EC29D1E1A6001D275E /* DesignedTabBarController.swift in Sources */,
 				C7211E3529B9721E00ADA90C /* AddImageCollectionViewCell.swift in Sources */,
 				C7663E7D29AA125B0046068B /* GoalSettingStackView.swift in Sources */,
+				C703496C29D5B2B000BF28D7 /* UsingLocationable.swift in Sources */,
 				C703496429D5253400BF28D7 /* Alertable.swift in Sources */,
 				C703495C29D4917900BF28D7 /* LocationRepository.swift in Sources */,
 				C7670EE82995460800E3CD77 /* AppDelegate.swift in Sources */,
