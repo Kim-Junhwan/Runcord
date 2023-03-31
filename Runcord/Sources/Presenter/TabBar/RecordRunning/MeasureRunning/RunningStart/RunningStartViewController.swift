@@ -14,13 +14,7 @@ class RunningStartViewController: UIViewController, UsingLocationable {
     
     var locationRepository: LocationRepository
     
-    lazy var mapView: MKMapView = {
-        let mapView = MKMapView()
-        mapView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return mapView
-    }()
-    
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var goalStackView: UIStackView!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var goalDistanceLabel: UILabel!
@@ -28,6 +22,9 @@ class RunningStartViewController: UIViewController, UsingLocationable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setButton()
+        setMapView()
+        locationRepository.requestAuthorization()
+        locationRepository.delegate = self
     }
     
     init(locationRepository: LocationRepository) {
@@ -40,13 +37,9 @@ class RunningStartViewController: UIViewController, UsingLocationable {
     }
     
     private func setMapView() {
-        view.addSubview(mapView)
-        NSLayoutConstraint.activate([
-            mapView.topAnchor.constraint(equalTo: view.topAnchor),
-            mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        mapView.setUserTrackingMode(.follow, animated: false)
     }
     
     func setButton() {
@@ -54,11 +47,27 @@ class RunningStartViewController: UIViewController, UsingLocationable {
     }
     
     @IBAction func tabStartButton(_ sender: Any) {
-        excute()
+        checkLocationAuthorization {
+            let vc = RecordViewController(viewModel: RecordViewModel())
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+        }
     }
     
     deinit {
         print("deinit runningStart view")
     }
+    
+}
+
+extension RunningStartViewController: LocationRepositoryDelegate {
+    
+    func getCurrentLocation(latitude: Double, longitude: Double) {
+        print(latitude)
+        print(longitude)
+    }
+}
+
+extension RunningStartViewController: MKMapViewDelegate {
     
 }
