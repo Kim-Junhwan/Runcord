@@ -9,6 +9,8 @@ import CoreLocation
 
 class CoreLocationRepository: NSObject, LocationRepository {
     
+    var delegate: LocationRepositoryDelegate?
+    
     let coreLocationManager = CLLocationManager()
     
     override init() {
@@ -16,12 +18,23 @@ class CoreLocationRepository: NSObject, LocationRepository {
         coreLocationManager.delegate = self
     }
     
-    func checkLocationAuthorization() -> Bool {
+    func requestAuthorization() {
+        coreLocationManager.requestWhenInUseAuthorization()
+        DispatchQueue.global().async {
+            if CLLocationManager.locationServicesEnabled() {
+                self.coreLocationManager.startUpdatingLocation()
+            }
+        }
+    }
+    
+    func getLocationAuthorization() -> locationAuthorizationStatus {
         switch coreLocationManager.authorizationStatus {
-        case .denied, .restricted, .notDetermined:
-            return false
+        case .denied, .restricted:
+            return .needAuthorization
         case .authorizedAlways, .authorizedWhenInUse:
-            return true
+            return .hasAuthorization
+        case .notDetermined:
+            return .notYet
         @unknown default:
             fatalError()
         }
@@ -30,5 +43,8 @@ class CoreLocationRepository: NSObject, LocationRepository {
 }
 
 extension CoreLocationRepository: CLLocationManagerDelegate {
-    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else { return }
+        delegate?.getCurrentLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+    }
 }
