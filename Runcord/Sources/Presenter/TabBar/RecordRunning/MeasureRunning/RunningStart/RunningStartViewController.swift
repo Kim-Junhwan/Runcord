@@ -7,12 +7,9 @@
 
 import UIKit
 import MapKit
-import RxCocoa
-import RxSwift
 
-class RunningStartViewController: UIViewController, UsingLocationable {
-    
-    var locationRepository: LocationRepository
+class RunningStartViewController: UIViewController, LocationAlertable {
+    var locationManager: CoreLocationManager
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var goalStackView: UIStackView!
@@ -22,13 +19,11 @@ class RunningStartViewController: UIViewController, UsingLocationable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setButton()
-        setMapView()
-        locationRepository.requestAuthorization()
-        locationRepository.delegate = self
+        locationManager.delegate = self
     }
     
-    init(locationRepository: LocationRepository) {
-        self.locationRepository = locationRepository
+    init(locationManager: CoreLocationManager) {
+        self.locationManager = locationManager
         super.init(nibName: "RunningStartViewController", bundle: nil)
     }
     
@@ -48,9 +43,7 @@ class RunningStartViewController: UIViewController, UsingLocationable {
     
     @IBAction func tabStartButton(_ sender: Any) {
         checkLocationAuthorization {
-            let vc = RecordViewController(viewModel: RecordViewModel())
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true)
+            print("권한 있음")
         }
     }
     
@@ -60,12 +53,20 @@ class RunningStartViewController: UIViewController, UsingLocationable {
     
 }
 
-extension RunningStartViewController: LocationRepositoryDelegate {
+extension RunningStartViewController: CoreLocationManagerDelegate {
+    
+    func didChangeAuthorization(status: AuthorizationStatus) {
+        if status == .hasAuthorization {
+            setMapView()
+        }
+    }
     
     func getCurrentLocation(latitude: Double, longitude: Double) {
+        print("GET COORDINATOR")
         print(latitude)
         print(longitude)
     }
+    
 }
 
 extension RunningStartViewController: MKMapViewDelegate {
