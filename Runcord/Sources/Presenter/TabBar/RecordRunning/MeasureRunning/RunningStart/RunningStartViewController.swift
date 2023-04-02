@@ -14,7 +14,8 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var goalStackView: UIStackView!
     @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var goalDistanceLabel: UILabel!
+    @IBOutlet weak var goalDistanceStackView: UIStackView!
+    @IBOutlet weak var goalTimeStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         self.locationManager.delegate = self
         locationManager.viewDidLoad()
         setButton()
+        setGoalView()
     }
     
     init(locationManager: CoreLocationManager) {
@@ -47,6 +49,17 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         checkLocationAuthorization {
             print("원하는 작업")
         }
+    }
+    
+    func setGoalView() {
+        goalDistanceStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentGoalSettingView)))
+    }
+    
+    @objc func presentGoalSettingView() {
+        let vc = GoalSettingViewController(goalType: .distance)
+        let nvc = UINavigationController(rootViewController: vc)
+        nvc.modalPresentationStyle = .fullScreen
+        present(nvc, animated: false)
     }
     
     deinit {

@@ -38,6 +38,7 @@ class GoalSettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        self.navigationController?.isNavigationBarHidden = false
         setNavigationBarItem()
         setBindingTextField()
         setGoalLabel()
