@@ -18,21 +18,23 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
+        self.locationManager.delegate = self
+        locationManager.viewDidLoad()
         setButton()
-        locationManager.delegate = self
     }
     
     init(locationManager: CoreLocationManager) {
         self.locationManager = locationManager
         super.init(nibName: "RunningStartViewController", bundle: nil)
+        
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     private func setMapView() {
-        mapView.delegate = self
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.follow, animated: false)
     }
@@ -43,7 +45,7 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     
     @IBAction func tabStartButton(_ sender: Any) {
         checkLocationAuthorization {
-            print("권한 있음")
+            print("원하는 작업")
         }
     }
     

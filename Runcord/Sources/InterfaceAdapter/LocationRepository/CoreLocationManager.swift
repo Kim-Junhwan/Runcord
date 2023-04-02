@@ -23,6 +23,15 @@ class CoreLocationManager: NSObject, AuthorizationManager {
         coreLocationManager.delegate = self
     }
     
+    func viewDidLoad() {
+        switch coreLocationManager.authorizationStatus {
+        case .authorizedAlways, .authorizedWhenInUse:
+            delegate?.didChangeAuthorization(status: .hasAuthorization)
+        default:
+            break
+        }
+    }
+    
     func getAuthorizationStatus() -> AuthorizationStatus {
         switch coreLocationManager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
@@ -46,7 +55,8 @@ extension CoreLocationManager: CLLocationManagerDelegate {
         switch manager.authorizationStatus {
         case .authorizedWhenInUse:
             manager.startUpdatingLocation()
-            delegate?.didChangeAuthorization(status: .hasAuthorization)
+            guard let delegate = delegate else { return }
+            delegate.didChangeAuthorization(status: .hasAuthorization)
         default:
             break
         }

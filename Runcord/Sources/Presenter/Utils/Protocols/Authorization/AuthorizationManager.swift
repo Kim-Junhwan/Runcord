@@ -5,8 +5,6 @@
 //  Created by JunHwan Kim on 2023/03/31.
 //
 
-import Foundation
-
 enum AuthorizationStatus {
     case hasAuthorization
     case needAuthorization
