@@ -108,8 +108,14 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         vc.goalLabelBindingTextField.text = "\(viewModel.goalHour.value)\(viewModel.goalMinute.value)"
         vc.setGoalHandler = { [weak self] goalStr in
             let goal = goalStr.split(separator: ":").map { Int($0)! }
-            self?.viewModel.goalHour.accept(goal[0])
-            self?.viewModel.goalMinute.accept(goal[1])
+            var hour = goal[0]
+            var minute = goal[1]
+            if minute >= 60 {
+                minute = minute % 60
+                hour += 1
+            }
+            self?.viewModel.goalHour.accept(hour)
+            self?.viewModel.goalMinute.accept(minute)
         }
         present(nvc, animated: false)
     }
