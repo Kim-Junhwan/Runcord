@@ -92,13 +92,25 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         let vc = GoalSettingViewController(goalType: .distance)
         let nvc = UINavigationController(rootViewController: vc)
         nvc.modalPresentationStyle = .fullScreen
+        vc.goalLabelBindingTextField.text = "\(viewModel.goalDistance.value)"
+        vc.setGoalHandler = { [weak self] goalStr in
+            let goal = (goalStr as NSString).floatValue
+            self?.viewModel.goalDistance.accept(goal)
+        }
         present(nvc, animated: false)
     }
     
     @objc func presentTimeGoalSettingView() {
         let vc = GoalSettingViewController(goalType: .time)
+        vc.modalPresentationStyle = .fullScreen
         let nvc = UINavigationController(rootViewController: vc)
         nvc.modalPresentationStyle = .fullScreen
+        vc.goalLabelBindingTextField.text = "\(viewModel.goalHour.value)\(viewModel.goalMinute.value)"
+        vc.setGoalHandler = { [weak self] goalStr in
+            let goal = goalStr.split(separator: ":").map { Int($0)! }
+            self?.viewModel.goalHour.accept(goal[0])
+            self?.viewModel.goalMinute.accept(goal[1])
+        }
         present(nvc, animated: false)
     }
     
@@ -121,9 +133,5 @@ extension RunningStartViewController: CLLocationManagerDelegate {
         default:
             break
         }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations.first?.coordinate)
     }
 }

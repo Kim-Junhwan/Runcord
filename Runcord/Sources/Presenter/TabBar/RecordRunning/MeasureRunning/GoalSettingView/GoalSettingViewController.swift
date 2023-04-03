@@ -9,10 +9,6 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-protocol GoalSettingViewDelegate: AnyObject {
-    func tapSettingButton(goalType: GoalType, goal: String)
-}
-
 class GoalSettingViewController: UIViewController {
     
     lazy var goalLabelBindingTextField: GoalTextField = {
@@ -33,7 +29,7 @@ class GoalSettingViewController: UIViewController {
     
     let goalType: GoalType
     
-    weak var delegate: GoalSettingViewDelegate?
+    var setGoalHandler: ((String) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,24 +105,35 @@ class GoalSettingViewController: UIViewController {
     
     private func distanceBind() {
         goalLabelBindingTextField.rx.text.orEmpty
-            .map{ [weak self] input -> String? in
+            .withUnretained(self)
+            .map({ owner, input in
                 if input.isEmpty {
                     return "0"
                 }
-                if input == "0" {
-                    self?.goalLabelBindingTextField.text?.removeLast()
+                if input == "00" {
+                    owner.goalLabelBindingTextField.text?.removeLast()
                     return "0"
                 }
+                if input.filter({ $0 == "." }).count > 1 {
+                    owner.goalLabelBindingTextField.text?.removeLast()
+                    return owner.goalLabelBindingTextField.text
+                }
+                
                 return input
-            }
+            })
             .bind(to: self.goalLabel.goalSettingLabelStackView.destinationLabel.rx.text)
             .disposed(by: disposeBag)
     }
     
     private func timeBind() {
         goalLabelBindingTextField.rx.text.orEmpty
-            .map{ input -> String? in
+            .withUnretained(self)
+            .map { owner, input in
                 if input.isEmpty {
+                    return "00:00"
+                }
+                if input == "0" {
+                    owner.goalLabelBindingTextField.text?.removeLast()
                     return "00:00"
                 }
                 let len = input.count
@@ -134,7 +141,6 @@ class GoalSettingViewController: UIViewController {
                 let index1 = paddedStr.index(paddedStr.startIndex, offsetBy: 2)
                 let index2 = paddedStr.index(paddedStr.startIndex, offsetBy: 4)
                 let result = "\(paddedStr[..<index1]):\(paddedStr[index1..<index2])"
-                
                 return result
             }
             .bind(to: self.goalLabel.goalSettingLabelStackView.destinationLabel.rx.text)
@@ -147,19 +153,25 @@ class GoalSettingViewController: UIViewController {
         }
     }
     
-    func closeKeyboard(completion: @escaping()-> ()) {
+    private func closeKeyboard(completion: @escaping () -> Void) {
         view.endEditing(true)
         completion()
     }
     
     @objc func tapDoneButton() {
-        delegate?.tapSettingButton(goalType: goalType, goal: goalLabel.goalSettingLabelStackView.destinationLabel.text ?? "")
+        if goalType == .distance {
+            guard let goalText = goalLabelBindingTextField.text else { fatalError() }
+            setGoalHandler?(goalText)
+        } else {
+            guard let goalText = goalLabel.goalSettingLabelStackView.destinationLabel.text else { fatalError() }
+            setGoalHandler?(goalText)
+        }
         closeKeyboard {
             self.dismiss(animated: false)
         }
     }
     
-    func convertToTime(num: Int) {
+    private func convertToTime(num: Int) {
         
     }
     
