@@ -105,7 +105,11 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         vc.modalPresentationStyle = .fullScreen
         let nvc = UINavigationController(rootViewController: vc)
         nvc.modalPresentationStyle = .fullScreen
-        vc.goalLabelBindingTextField.text = "\(viewModel.goalHour.value)\(viewModel.goalMinute.value)"
+        if viewModel.goalMinute.value == 0 {
+            vc.goalLabelBindingTextField.text = "\(viewModel.goalHour.value)00"
+        } else {
+            vc.goalLabelBindingTextField.text = "\(viewModel.goalHour.value)\(viewModel.goalMinute.value)"
+        }
         vc.setGoalHandler = { [weak self] goalStr in
             let goal = goalStr.split(separator: ":").map { Int($0)! }
             var hour = goal[0]
