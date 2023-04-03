@@ -11,9 +11,9 @@ import RxSwift
 
 class RunningStartViewModel {
     
-    var goalDistance: BehaviorRelay<Float> = BehaviorRelay<Float>(value: 5.00)
-    var goalHour: BehaviorRelay<Int> = BehaviorRelay<Int>(value: 0)
-    var goalMinute: BehaviorRelay<Int> = BehaviorRelay<Int>(value: 0)
+    var goalDistance: BehaviorRelay<Float> = BehaviorRelay<Float>(value: 1.23)
+    var goalHour: BehaviorRelay<Int> = BehaviorRelay<Int>(value: 3)
+    var goalMinute: BehaviorRelay<Int> = BehaviorRelay<Int>(value: 23)
     var goalTimeRelay = BehaviorRelay<String>(value: "")
     
     let disposeBag = DisposeBag()

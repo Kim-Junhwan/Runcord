@@ -7,29 +7,61 @@
 
 import UIKit
 import MapKit
+import RxSwift
 
 class RunningStartViewController: UIViewController, LocationAlertable {
-    var locationManager: CoreLocationManager
+    var locationManager: CLLocationManager
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var goalStackView: UIStackView!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var goalDistanceStackView: UIStackView!
     @IBOutlet weak var goalTimeStackView: UIStackView!
+    @IBOutlet weak var goalHourLabel: UILabel!
+    @IBOutlet weak var goalMinuteLabel: UILabel!
+    @IBOutlet weak var goalDistanceLabel: UILabel!
+    
+    let viewModel: RunningStartViewModel
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-        self.locationManager.delegate = self
-        locationManager.viewDidLoad()
         setButton()
         setGoalView()
+        bind()
+        setLocationManager()
     }
     
-    init(locationManager: CoreLocationManager) {
-        self.locationManager = locationManager
-        super.init(nibName: "RunningStartViewController", bundle: nil)
+    func setLocationManager() {
+        locationManager.delegate = self
+        switch locationManager.authorizationStatus {
+        case .authorizedAlways, .authorizedWhenInUse:
+            setMapView()
+            locationManager.startUpdatingLocation()
+        default:
+            break
+        }
+    }
+    
+    private func bind() {
+        viewModel.goalDistance.subscribe { distance in
+            guard let distance = distance.element else { return }
+            self.goalDistanceLabel.text = "\(distance)"
+        }.disposed(by: disposeBag)
         
+        viewModel.goalTimeRelay.subscribe { time in
+            guard let time = time.element else { return }
+            let timeStr = time.split(separator: ":").map { String($0) }
+            self.goalHourLabel.text = timeStr[0]
+            self.goalMinuteLabel.text = timeStr[1]
+        }.disposed(by: disposeBag)
+    }
+    
+    init(locationManager: CLLocationManager, viewModel: RunningStartViewModel) {
+        self.locationManager = locationManager
+        self.viewModel = viewModel
+        super.init(nibName: "RunningStartViewController", bundle: nil)
     }
 
     required init?(coder: NSCoder) {
@@ -52,11 +84,19 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     }
     
     func setGoalView() {
-        goalDistanceStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentGoalSettingView)))
+        goalDistanceStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentDistanceGoalSettingView)))
+        goalTimeStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentTimeGoalSettingView)))
     }
     
-    @objc func presentGoalSettingView() {
+    @objc func presentDistanceGoalSettingView() {
         let vc = GoalSettingViewController(goalType: .distance)
+        let nvc = UINavigationController(rootViewController: vc)
+        nvc.modalPresentationStyle = .fullScreen
+        present(nvc, animated: false)
+    }
+    
+    @objc func presentTimeGoalSettingView() {
+        let vc = GoalSettingViewController(goalType: .time)
         let nvc = UINavigationController(rootViewController: vc)
         nvc.modalPresentationStyle = .fullScreen
         present(nvc, animated: false)
@@ -68,22 +108,22 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     
 }
 
-extension RunningStartViewController: CoreLocationManagerDelegate {
-    
-    func didChangeAuthorization(status: AuthorizationStatus) {
-        if status == .hasAuthorization {
-            setMapView()
-        }
-    }
-    
-    func getCurrentLocation(latitude: Double, longitude: Double) {
-        print("GET COORDINATOR")
-        print(latitude)
-        print(longitude)
-    }
+extension RunningStartViewController: MKMapViewDelegate {
     
 }
 
-extension RunningStartViewController: MKMapViewDelegate {
+extension RunningStartViewController: CLLocationManagerDelegate {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedAlways, .authorizedWhenInUse:
+            setMapView()
+            manager.startUpdatingLocation()
+        default:
+            break
+        }
+    }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(locations.first?.coordinate)
+    }
 }

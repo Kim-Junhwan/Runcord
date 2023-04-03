@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol LocationAlertable: AuthorizationAlertable {
-    var locationManager: CoreLocationManager { get }
+    var locationManager: CLLocationManager { get }
 }
 
 extension LocationAlertable where Self: UIViewController {

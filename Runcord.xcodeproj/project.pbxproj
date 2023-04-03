@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3E5140CFAE941C52CA7E4BFB /* Pods_Runcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9FEB07F270024C7F18FF99 /* Pods_Runcord.framework */; };
 		7174C71B1326032E3CACAEF3 /* Pods_Runcord_RuncordUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C62AF0F2B3BA683EA92FD0 /* Pods_Runcord_RuncordUITests.framework */; };
-		C703496029D49CB500BF28D7 /* CoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C703495F29D49CB500BF28D7 /* CoreLocationManager.swift */; };
+		C703496029D49CB500BF28D7 /* CLLocationManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C703495F29D49CB500BF28D7 /* CLLocationManager+.swift */; };
 		C703496429D5253400BF28D7 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C703496329D5253400BF28D7 /* Alertable.swift */; };
 		C703496729D582CC00BF28D7 /* RunningStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C703496529D582CC00BF28D7 /* RunningStartViewController.swift */; };
 		C703496829D582CC00BF28D7 /* RunningStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C703496629D582CC00BF28D7 /* RunningStartViewController.xib */; };
@@ -95,7 +95,7 @@
 		97236542A52558CE404FC32B /* Pods-RuncordTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RuncordTests.release.xcconfig"; path = "Target Support Files/Pods-RuncordTests/Pods-RuncordTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5C62AF0F2B3BA683EA92FD0 /* Pods_Runcord_RuncordUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runcord_RuncordUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4430C2AE358A87631BAC200 /* Pods-RunningCrew-RunningCrewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningCrew-RunningCrewUITests.debug.xcconfig"; path = "Target Support Files/Pods-RunningCrew-RunningCrewUITests/Pods-RunningCrew-RunningCrewUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		C703495F29D49CB500BF28D7 /* CoreLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationManager.swift; sourceTree = "<group>"; };
+		C703495F29D49CB500BF28D7 /* CLLocationManager+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+.swift"; sourceTree = "<group>"; };
 		C703496329D5253400BF28D7 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		C703496529D582CC00BF28D7 /* RunningStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningStartViewController.swift; sourceTree = "<group>"; };
 		C703496629D582CC00BF28D7 /* RunningStartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RunningStartViewController.xib; sourceTree = "<group>"; };
@@ -207,17 +207,17 @@
 		C703495929D48F0200BF28D7 /* InterfaceAdapter */ = {
 			isa = PBXGroup;
 			children = (
-				C703495A29D4915F00BF28D7 /* LocationRepository */,
+				C703495A29D4915F00BF28D7 /* Extensions */,
 			);
 			path = InterfaceAdapter;
 			sourceTree = "<group>";
 		};
-		C703495A29D4915F00BF28D7 /* LocationRepository */ = {
+		C703495A29D4915F00BF28D7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C703495F29D49CB500BF28D7 /* CoreLocationManager.swift */,
+				C703495F29D49CB500BF28D7 /* CLLocationManager+.swift */,
 			);
-			path = LocationRepository;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C703495D29D49C5F00BF28D7 /* Domain */ = {
@@ -920,7 +920,7 @@
 				C7670EEA2995460800E3CD77 /* SceneDelegate.swift in Sources */,
 				C7DE681029993A7000C824A9 /* MyPageCoordinator.swift in Sources */,
 				C7211E3A29B9EA9700ADA90C /* ImageCollectionViewCell.swift in Sources */,
-				C703496029D49CB500BF28D7 /* CoreLocationManager.swift in Sources */,
+				C703496029D49CB500BF28D7 /* CLLocationManager+.swift in Sources */,
 				C7E00A2329C36F4900B39709 /* CameraCollectionViewCell.swift in Sources */,
 				C7A1F21629BA1194009AE7BA /* CustomAlertViewController.swift in Sources */,
 				C7E00A1C29C1AF8D00B39709 /* ImagePickerViewModel.swift in Sources */,

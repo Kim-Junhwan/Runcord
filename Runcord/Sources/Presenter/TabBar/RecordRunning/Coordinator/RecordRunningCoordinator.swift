@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 final class RecordRunningCoordinator: Coordinator {
     var navigationController: UINavigationController
@@ -23,8 +24,8 @@ final class RecordRunningCoordinator: Coordinator {
     
     func showRecordRunningViewController() {
         self.navigationController.isNavigationBarHidden = true
-        let locationManager = CoreLocationManager()
-        let runningStartVC = RunningStartViewController(locationManager: locationManager)
+        let locationManager = CLLocationManager()
+        let runningStartVC = RunningStartViewController(locationManager: locationManager, viewModel: RunningStartViewModel())
         self.navigationController.pushViewController(runningStartVC, animated: false)
     }
     
