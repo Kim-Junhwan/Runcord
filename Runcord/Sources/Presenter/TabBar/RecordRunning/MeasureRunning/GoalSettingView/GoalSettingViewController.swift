@@ -132,8 +132,8 @@ class GoalSettingViewController: UIViewController {
                 if input.isEmpty {
                     return "00:00"
                 }
-                if input == "0" {
-                    owner.goalLabelBindingTextField.text?.removeLast()
+                if input == "0" || input == "00"{
+                    owner.goalLabelBindingTextField.text?.removeAll()
                     return "00:00"
                 }
                 let len = input.count
