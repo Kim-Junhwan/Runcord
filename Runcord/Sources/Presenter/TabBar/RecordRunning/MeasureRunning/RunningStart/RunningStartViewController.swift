@@ -38,7 +38,6 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         switch locationManager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
             setMapView()
-            locationManager.startUpdatingLocation()
         default:
             break
         }
@@ -89,39 +88,38 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     }
     
     @objc func presentDistanceGoalSettingView() {
-        let vc = GoalSettingViewController(goalType: .distance)
+        let vc = makeGoalSettingView(goalType: .distance)
         let nvc = UINavigationController(rootViewController: vc)
         nvc.modalPresentationStyle = .fullScreen
-        vc.goalLabelBindingTextField.text = "\(viewModel.goalDistance.value)"
         vc.setGoalHandler = { [weak self] goalStr in
-            let goal = (goalStr as NSString).floatValue
-            self?.viewModel.goalDistance.accept(goal)
+            self?.viewModel.setGoalDistance(goal: goalStr)
         }
         present(nvc, animated: false)
     }
     
     @objc func presentTimeGoalSettingView() {
-        let vc = GoalSettingViewController(goalType: .time)
-        vc.modalPresentationStyle = .fullScreen
+        let vc = makeGoalSettingView(goalType: .time)
         let nvc = UINavigationController(rootViewController: vc)
         nvc.modalPresentationStyle = .fullScreen
-        if viewModel.goalMinute.value == 0 {
-            vc.goalLabelBindingTextField.text = "\(viewModel.goalHour.value)00"
-        } else {
-            vc.goalLabelBindingTextField.text = "\(viewModel.goalHour.value)\(viewModel.goalMinute.value)"
-        }
         vc.setGoalHandler = { [weak self] goalStr in
-            let goal = goalStr.split(separator: ":").map { Int($0)! }
-            var hour = goal[0]
-            var minute = goal[1]
-            if minute >= 60 {
-                minute = minute % 60
-                hour += 1
-            }
-            self?.viewModel.goalHour.accept(hour)
-            self?.viewModel.goalMinute.accept(minute)
+            self?.viewModel.setGoalTime(goal: goalStr)
         }
         present(nvc, animated: false)
+    }
+    
+    private func makeGoalSettingView(goalType: GoalType) -> GoalSettingViewController {
+        let vc = GoalSettingViewController(goalType: goalType)
+        if vc.goalType == .distance {
+            vc.goalLabelBindingTextField.text = "\(viewModel.goalDistance.value)"
+            return vc
+        } else {
+            if viewModel.goalMinute.value == 0 {
+                vc.goalLabelBindingTextField.text = "\(viewModel.goalHour.value)00"
+            } else {
+                vc.goalLabelBindingTextField.text = "\(viewModel.goalHour.value)\(viewModel.goalMinute.value)"
+            }
+            return vc
+        }
     }
     
     deinit {
@@ -139,7 +137,6 @@ extension RunningStartViewController: CLLocationManagerDelegate {
         switch manager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
             setMapView()
-            manager.startUpdatingLocation()
         default:
             break
         }
