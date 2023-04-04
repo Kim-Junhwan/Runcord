@@ -37,7 +37,9 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         locationManager.delegate = self
         switch locationManager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
-            setMapView()
+            setMapUserTracking()
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
         default:
             break
         }
@@ -57,9 +59,9 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         }.disposed(by: disposeBag)
     }
     
-    init(locationManager: CLLocationManager, viewModel: RunningStartViewModel) {
-        self.locationManager = locationManager
+    init(viewModel: RunningStartViewModel) {
         self.viewModel = viewModel
+        self.locationManager = CLLocationManager()
         super.init(nibName: "RunningStartViewController", bundle: nil)
     }
 
@@ -67,9 +69,14 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setMapView() {
+    private func setMapUserTracking() {
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.follow, animated: false)
+    }
+    
+    private func setMapUserUnTracking() {
+        mapView.showsUserLocation = false
+        mapView.setUserTrackingMode(.none, animated: false)
     }
     
     func setButton() {
@@ -78,7 +85,7 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     
     @IBAction func tabStartButton(_ sender: Any) {
         checkLocationAuthorization {
-            print("원하는 작업")
+            viewModel.presentRecordView()
         }
     }
     
@@ -133,10 +140,15 @@ extension RunningStartViewController: MKMapViewDelegate {
 }
 
 extension RunningStartViewController: CLLocationManagerDelegate {
+    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
-            setMapView()
+            setMapUserTracking()
+        case .restricted, .denied:
+            setMapUserUnTracking()
+        case .notDetermined:
+            manager.requestWhenInUseAuthorization()
         default:
             break
         }

@@ -11,6 +11,8 @@ import RxSwift
 
 class RunningStartViewModel {
     
+    private let coordinator: RunningCoordinator
+    
     var goalDistance: BehaviorRelay<Float> = BehaviorRelay<Float>(value: 3.00)
     var goalHour: BehaviorRelay<Int> = BehaviorRelay<Int>(value: 0)
     var goalMinute: BehaviorRelay<Int> = BehaviorRelay<Int>(value: 30)
@@ -18,7 +20,8 @@ class RunningStartViewModel {
     
     let disposeBag = DisposeBag()
     
-    init() {
+    init(coordinator: RunningCoordinator) {
+        self.coordinator = coordinator
         Observable.combineLatest(goalHour, goalMinute).map({ hour, minute in
             "\(String(format: "%.2d", hour)):\(String(format: "%.2d", minute))"
         }).bind(to: goalTimeRelay)
@@ -40,6 +43,10 @@ class RunningStartViewModel {
         }
         goalHour.accept(hour)
         goalMinute.accept(minute)
+    }
+    
+    func presentRecordView() {
+        coordinator.showRecordRunningView()
     }
     
 }

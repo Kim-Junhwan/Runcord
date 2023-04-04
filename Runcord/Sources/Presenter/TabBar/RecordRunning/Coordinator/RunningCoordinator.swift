@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-final class RecordRunningCoordinator: Coordinator {
+final class RunningCoordinator: Coordinator {
     var navigationController: UINavigationController
     
     var childCoordinators: [Coordinator]
@@ -19,14 +19,20 @@ final class RecordRunningCoordinator: Coordinator {
     }
     
     func start() {
-        showRecordRunningViewController()
+        showStartRunningView()
     }
     
-    func showRecordRunningViewController() {
+    func showStartRunningView() {
         self.navigationController.isNavigationBarHidden = true
         let locationManager = CLLocationManager()
-        let runningStartVC = RunningStartViewController(locationManager: locationManager, viewModel: RunningStartViewModel())
+        let runningStartVC = RunningStartViewController(viewModel: RunningStartViewModel(coordinator: self))
         self.navigationController.pushViewController(runningStartVC, animated: false)
+    }
+    
+    func showRecordRunningView() {
+        let recordRunningViewController = RecordViewController(viewModel: RecordViewModel())
+        recordRunningViewController.modalPresentationStyle = .fullScreen
+        navigationController.present(recordRunningViewController, animated: false)
     }
     
     deinit {

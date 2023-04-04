@@ -51,7 +51,7 @@
 		C7DE67F32998DFC200C824A9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67F22998DFC200C824A9 /* Coordinator.swift */; };
 		C7DE67F62998E4D300C824A9 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67F52998E4D300C824A9 /* TabBarCoordinator.swift */; };
 		C7DE67FB29992A5E00C824A9 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67FA29992A5E00C824A9 /* TabBarItem.swift */; };
-		C7DE67FD2999301800C824A9 /* RecordRunningCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67FC2999301800C824A9 /* RecordRunningCoordinator.swift */; };
+		C7DE67FD2999301800C824A9 /* RunningCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67FC2999301800C824A9 /* RunningCoordinator.swift */; };
 		C7DE68022999376800C824A9 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE68012999376800C824A9 /* MyPageViewController.swift */; };
 		C7DE681029993A7000C824A9 /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE680F29993A7000C824A9 /* MyPageCoordinator.swift */; };
 		C7DE681C299A84B500C824A9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE681B299A84B500C824A9 /* Launch Screen.storyboard */; };
@@ -141,7 +141,7 @@
 		C7DE67F22998DFC200C824A9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C7DE67F52998E4D300C824A9 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		C7DE67FA29992A5E00C824A9 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
-		C7DE67FC2999301800C824A9 /* RecordRunningCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRunningCoordinator.swift; sourceTree = "<group>"; };
+		C7DE67FC2999301800C824A9 /* RunningCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCoordinator.swift; sourceTree = "<group>"; };
 		C7DE68012999376800C824A9 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		C7DE680F29993A7000C824A9 /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
 		C7DE681B299A84B500C824A9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -563,7 +563,7 @@
 		C7DE6808299939BE00C824A9 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				C7DE67FC2999301800C824A9 /* RecordRunningCoordinator.swift */,
+				C7DE67FC2999301800C824A9 /* RunningCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -901,7 +901,7 @@
 			files = (
 				C75DECFA29AE7E7D00A4EC47 /* RecordViewController.swift in Sources */,
 				C7A5AFE829D69F7900E4D851 /* AuthorizationAlertable.swift in Sources */,
-				C7DE67FD2999301800C824A9 /* RecordRunningCoordinator.swift in Sources */,
+				C7DE67FD2999301800C824A9 /* RunningCoordinator.swift in Sources */,
 				C7663E7B29A9F1260046068B /* GoalTextField.swift in Sources */,
 				C7A1F21929BA385A009AE7BA /* UIView+.swift in Sources */,
 				C7DE6825299A85DF00C824A9 /* Color+.swift in Sources */,

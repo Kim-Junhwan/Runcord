@@ -38,7 +38,7 @@ final class TabBarCoordinator {
         var coordinator: Coordinator? = nil
         switch item {
         case .recordRunning:
-            coordinator = RecordRunningCoordinator(navigationController)
+            coordinator = RunningCoordinator(navigationController)
         case .myPage:
             coordinator = MyPageCoordinator(navigationController)
         }
