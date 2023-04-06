@@ -11,15 +11,21 @@ import RxCocoa
 
 class RecordViewModel {
     
-    //MARK: - Timer Properties
+    // MARK: - Timer Properties
     private var runningHour: Int = 0
     private var runningMinute: Int = 0
     private var runningSecond: Int = 0
     private var timer: Timer?
     let timerText: BehaviorRelay<String> = BehaviorRelay(value: "00:00:00")
     var isRunning: Bool = false
-    
     var runningDistance: BehaviorRelay<Float> = BehaviorRelay(value: 0.0)
+    var goalTime: Int
+    var goalDistance: Double
+    
+    init(goalTime: Int, goalDistance: Double) {
+        self.goalTime = goalTime
+        self.goalDistance = goalDistance
+    }
     
     func startTimer() {
         isRunning = true

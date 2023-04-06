@@ -18,11 +18,13 @@ class RecordViewController: UIViewController {
     @IBOutlet weak var completeButtonContainerView: UIView!
     @IBOutlet weak var runningTimerLabel: UILabel!
     private var completeButtonRingLayer: CAShapeLayer?
+    @IBOutlet weak var goalDistanceProgressView: GoalProcessView!
+    @IBOutlet weak var goalTimeProgressView: GoalProcessView!
     
-    //MARK: - Properties
+    // MARK: - Properties
     private var timer: Timer?
     private var readyTimerNum = 5
-    var viewModel: RecordViewModel?
+    var viewModel: RecordViewModel
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -33,9 +35,10 @@ class RecordViewController: UIViewController {
         setCompleteButton()
         setCompleteButtonRing()
         bind()
+        goalDistanceProgressView.setCurrentValue(current: 10)
     }
     
-    //MARK: - Initalizer
+    // MARK: - Initalizer
     init(viewModel: RecordViewModel) {
         self.viewModel = viewModel
         super.init(nibName: "RecordViewController", bundle: Bundle(for: RecordViewController.self))
@@ -45,7 +48,7 @@ class RecordViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Ready Time Method
+    // MARK: - Ready Time Method
     private func startReadyTimer() {
         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(readyTimerCallBack), userInfo: nil, repeats: true)
     }
@@ -57,12 +60,12 @@ class RecordViewController: UIViewController {
             timer = nil
             hiddenTimerLabel()
             runningMeasuringView.isHidden = false
-            viewModel?.startTimer()
+            viewModel.startTimer()
         }
         readyTimerLabel.text = String(readyTimerNum)
     }
     
-    //MARK: - Set UI Constraint
+    // MARK: - Set UI Constraint
     private func setControlButtonCornerRadius() {
         pauseAndPlayButton.layer.cornerRadius = pauseAndPlayButton.frame.height / 2
         
@@ -78,18 +81,17 @@ class RecordViewController: UIViewController {
         return .lightContent
     }
     
-    //MARK: - bind
+    // MARK: - bind
     private func bind() {
-        viewModel?.timerText.asDriver()
+        viewModel.timerText.asDriver()
             .drive(runningTimerLabel.rx
                 .text)
             .disposed(by: disposeBag)
     }
     
-    //MARK: - Action Method
+    // MARK: - Action Method
 
     @IBAction func tapPauseOrPlayButton(_ sender: Any) {
-        guard let viewModel = viewModel else { return }
         if viewModel.isRunning {
             pauseAndPlayButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
             viewModel.stopTimer()
@@ -144,14 +146,13 @@ class RecordViewController: UIViewController {
         completeButtonRingLayer.strokeEnd = 0
     }
     
-    //MARK: - CompleteButton Action Method
+    // MARK: - CompleteButton Action Method
     
-    
-    //MARK: - deinit
+    // MARK: - deinit
     deinit {
         timer?.invalidate()
         timer = nil
-        viewModel?.deinitViewModel()
+        viewModel.deinitViewModel()
         print("deinit record viewcontroller")
     }
 }

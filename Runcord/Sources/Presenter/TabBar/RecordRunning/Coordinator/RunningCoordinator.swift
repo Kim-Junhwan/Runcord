@@ -24,13 +24,12 @@ final class RunningCoordinator: Coordinator {
     
     func showStartRunningView() {
         self.navigationController.isNavigationBarHidden = true
-        let locationManager = CLLocationManager()
         let runningStartVC = RunningStartViewController(viewModel: RunningStartViewModel(coordinator: self))
         self.navigationController.pushViewController(runningStartVC, animated: false)
     }
     
-    func showRecordRunningView() {
-        let recordRunningViewController = RecordViewController(viewModel: RecordViewModel())
+    func showRecordRunningView(goalTime: Int, goalDistance: Double) {
+        let recordRunningViewController = RecordViewController(viewModel: RecordViewModel(goalTime: goalTime, goalDistance: goalDistance))
         recordRunningViewController.modalPresentationStyle = .fullScreen
         navigationController.present(recordRunningViewController, animated: false)
     }

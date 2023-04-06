@@ -13,7 +13,7 @@ class RunningStartViewModel {
     
     private let coordinator: RunningCoordinator
     
-    var goalDistance: BehaviorRelay<Float> = BehaviorRelay<Float>(value: 3.00)
+    var goalDistance: BehaviorRelay<Double> = BehaviorRelay<Double>(value: 3.00)
     var goalHour: BehaviorRelay<Int> = BehaviorRelay<Int>(value: 0)
     var goalMinute: BehaviorRelay<Int> = BehaviorRelay<Int>(value: 30)
     var goalTimeRelay = BehaviorRelay<String>(value: "")
@@ -29,7 +29,7 @@ class RunningStartViewModel {
     }
     
     func setGoalDistance(goal: String) {
-        let distance = (goal as NSString).floatValue
+        let distance = (goal as NSString).doubleValue
         goalDistance.accept(distance)
     }
     
@@ -46,7 +46,12 @@ class RunningStartViewModel {
     }
     
     func presentRecordView() {
-        coordinator.showRecordRunningView()
+        coordinator.showRecordRunningView(goalTime: convertTimeToMinute(hour: goalHour.value, minute: goalMinute.value), goalDistance: goalDistance.value)
+    }
+    
+    private func convertTimeToMinute(hour: Int, minute: Int) -> Int {
+        let hourToMinute = hour*60
+        return minute + hourToMinute
     }
     
 }

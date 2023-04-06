@@ -18,6 +18,8 @@
 		C7211E3629B9721E00ADA90C /* AddImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7211E3429B9721E00ADA90C /* AddImageCollectionViewCell.xib */; };
 		C7211E3A29B9EA9700ADA90C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7211E3829B9EA9700ADA90C /* ImageCollectionViewCell.swift */; };
 		C7211E3B29B9EA9700ADA90C /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7211E3929B9EA9700ADA90C /* ImageCollectionViewCell.xib */; };
+		C7233CF829DDBFE00003A290 /* GoalProcessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7233CF729DDBFE00003A290 /* GoalProcessView.swift */; };
+		C7233CFC29DDC0770003A290 /* GoalProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7233CFB29DDC0770003A290 /* GoalProcessView.xib */; };
 		C751527929B27038003D8987 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527829B27038003D8987 /* UIImage+.swift */; };
 		C751527C29B34224003D8987 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527B29B34224003D8987 /* RecordViewModel.swift */; };
 		C751528029B79981003D8987 /* SaveRecordRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527E29B79981003D8987 /* SaveRecordRunningViewController.swift */; };
@@ -56,8 +58,6 @@
 		C7DE681029993A7000C824A9 /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE680F29993A7000C824A9 /* MyPageCoordinator.swift */; };
 		C7DE681C299A84B500C824A9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE681B299A84B500C824A9 /* Launch Screen.storyboard */; };
 		C7DE6825299A85DF00C824A9 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6824299A85DF00C824A9 /* Color+.swift */; };
-		C7DE682C299B934800C824A9 /* RunningButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE682B299B934800C824A9 /* RunningButton.swift */; };
-		C7DE682E299BD61300C824A9 /* LocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE682D299BD61300C824A9 /* LocationButton.swift */; };
 		C7E00A1C29C1AF8D00B39709 /* ImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E00A1B29C1AF8D00B39709 /* ImagePickerViewModel.swift */; };
 		C7E00A2329C36F4900B39709 /* CameraCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E00A2129C36F4900B39709 /* CameraCollectionViewCell.swift */; };
 		C7E00A2429C36F4900B39709 /* CameraCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E00A2229C36F4900B39709 /* CameraCollectionViewCell.xib */; };
@@ -104,6 +104,8 @@
 		C7211E3429B9721E00ADA90C /* AddImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		C7211E3829B9EA9700ADA90C /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C7211E3929B9EA9700ADA90C /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		C7233CF729DDBFE00003A290 /* GoalProcessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProcessView.swift; sourceTree = "<group>"; };
+		C7233CFB29DDC0770003A290 /* GoalProcessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalProcessView.xib; sourceTree = "<group>"; };
 		C751527829B27038003D8987 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		C751527B29B34224003D8987 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
 		C751527E29B79981003D8987 /* SaveRecordRunningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveRecordRunningViewController.swift; sourceTree = "<group>"; };
@@ -146,8 +148,6 @@
 		C7DE680F29993A7000C824A9 /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
 		C7DE681B299A84B500C824A9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C7DE6824299A85DF00C824A9 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
-		C7DE682B299B934800C824A9 /* RunningButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningButton.swift; sourceTree = "<group>"; };
-		C7DE682D299BD61300C824A9 /* LocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationButton.swift; sourceTree = "<group>"; };
 		C7E00A1B29C1AF8D00B39709 /* ImagePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewModel.swift; sourceTree = "<group>"; };
 		C7E00A2129C36F4900B39709 /* CameraCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionViewCell.swift; sourceTree = "<group>"; };
 		C7E00A2229C36F4900B39709 /* CameraCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -289,6 +289,25 @@
 			path = ImageCell;
 			sourceTree = "<group>";
 		};
+		C7233CF529DD4DE50003A290 /* GoalSetting */ = {
+			isa = PBXGroup;
+			children = (
+				C7663E7C29AA125B0046068B /* GoalSettingStackView.swift */,
+				C7663E8029ABA5720046068B /* GoalSettingLabelStackView.swift */,
+				C7663E7A29A9F1260046068B /* GoalTextField.swift */,
+			);
+			path = GoalSetting;
+			sourceTree = "<group>";
+		};
+		C7233CF629DD4DF20003A290 /* GoalProcessView */ = {
+			isa = PBXGroup;
+			children = (
+				C7233CF729DDBFE00003A290 /* GoalProcessView.swift */,
+				C7233CFB29DDC0770003A290 /* GoalProcessView.xib */,
+			);
+			path = GoalProcessView;
+			sourceTree = "<group>";
+		};
 		C730C16329A259720076C83C /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,9 +339,8 @@
 		C75DECF529ABB36B00A4EC47 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				C7663E7C29AA125B0046068B /* GoalSettingStackView.swift */,
-				C7663E8029ABA5720046068B /* GoalSettingLabelStackView.swift */,
-				C7663E7A29A9F1260046068B /* GoalTextField.swift */,
+				C7233CF629DD4DF20003A290 /* GoalProcessView */,
+				C7233CF529DD4DE50003A290 /* GoalSetting */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -537,7 +555,6 @@
 			isa = PBXGroup;
 			children = (
 				C7663E5129A4BF6E0046068B /* MeasureRunning */,
-				C7DE6826299B890500C824A9 /* Button */,
 				C7DE6808299939BE00C824A9 /* Coordinator */,
 			);
 			path = RecordRunning;
@@ -575,15 +592,6 @@
 				C703496129D524E500BF28D7 /* Protocols */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		C7DE6826299B890500C824A9 /* Button */ = {
-			isa = PBXGroup;
-			children = (
-				C7DE682B299B934800C824A9 /* RunningButton.swift */,
-				C7DE682D299BD61300C824A9 /* LocationButton.swift */,
-			);
-			path = Button;
 			sourceTree = "<group>";
 		};
 		C7E00A1A29C1AF7E00B39709 /* ViewModel */ = {
@@ -753,6 +761,7 @@
 				C7211E3629B9721E00ADA90C /* AddImageCollectionViewCell.xib in Resources */,
 				C7DE681C299A84B500C824A9 /* Launch Screen.storyboard in Resources */,
 				C7670EF12995460900E3CD77 /* Assets.xcassets in Resources */,
+				C7233CFC29DDC0770003A290 /* GoalProcessView.xib in Resources */,
 				C7BA067C29A25AF100D2227A /* NotoSansKR-Bold.otf in Resources */,
 				C7E00A2429C36F4900B39709 /* CameraCollectionViewCell.xib in Resources */,
 			);
@@ -902,12 +911,12 @@
 				C75DECFA29AE7E7D00A4EC47 /* RecordViewController.swift in Sources */,
 				C7A5AFE829D69F7900E4D851 /* AuthorizationAlertable.swift in Sources */,
 				C7DE67FD2999301800C824A9 /* RunningCoordinator.swift in Sources */,
+				C7233CF829DDBFE00003A290 /* GoalProcessView.swift in Sources */,
 				C7663E7B29A9F1260046068B /* GoalTextField.swift in Sources */,
 				C7A1F21929BA385A009AE7BA /* UIView+.swift in Sources */,
 				C7DE6825299A85DF00C824A9 /* Color+.swift in Sources */,
 				C7DE67FB29992A5E00C824A9 /* TabBarItem.swift in Sources */,
 				C7A4CE5429BC2135000DAE8B /* ImagePickerViewController.swift in Sources */,
-				C7DE682C299B934800C824A9 /* RunningButton.swift in Sources */,
 				C7AD00EC29D1E1A6001D275E /* DesignedTabBarController.swift in Sources */,
 				C7211E3529B9721E00ADA90C /* AddImageCollectionViewCell.swift in Sources */,
 				C7663E7D29AA125B0046068B /* GoalSettingStackView.swift in Sources */,
@@ -934,7 +943,6 @@
 				C7DE67F32998DFC200C824A9 /* Coordinator.swift in Sources */,
 				C7DE68022999376800C824A9 /* MyPageViewController.swift in Sources */,
 				C75DECF729ABB3AF00A4EC47 /* GoalSettingViewController.swift in Sources */,
-				C7DE682E299BD61300C824A9 /* LocationButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
