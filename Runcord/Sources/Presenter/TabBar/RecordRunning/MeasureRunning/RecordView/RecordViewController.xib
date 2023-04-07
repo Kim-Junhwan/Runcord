@@ -7,6 +7,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,7 +45,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="mLZ-bP-uxG">
                             <rect key="frame" x="20" y="60" width="388" height="735"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="o1o-O9-QQ1">
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="o1o-O9-QQ1">
                                     <rect key="frame" x="19" y="0.0" width="350" height="499.33333333333331"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-16" translatesAutoresizingMaskIntoConstraints="NO" id="ynh-GV-6VX">
@@ -65,7 +66,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="pAP-Ac-hoX">
-                                            <rect key="frame" x="91.333333333333357" y="206.66666666666669" width="167.66666666666663" height="135"/>
+                                            <rect key="frame" x="91.333333333333357" y="201.66666666666669" width="167.66666666666663" height="135"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Uq-dW-nRt">
                                                     <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="116"/>
@@ -82,18 +83,18 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M6B-Eq-NMU">
-                                            <rect key="frame" x="0.0" y="419.33333333333337" width="350" height="80"/>
+                                            <rect key="frame" x="0.0" y="409.33333333333337" width="350" height="90"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K6t-Tv-hDJ" customClass="GoalProcessView" customModule="Runcord" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="35"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="9ht-hB-AXk"/>
+                                                        <constraint firstAttribute="height" constant="40" id="9ht-hB-AXk"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tr6-Vq-iJ5" customClass="GoalProcessView" customModule="Runcord" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="45" width="350" height="35"/>
+                                                    <rect key="frame" x="0.0" y="50" width="350" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="D1s-XT-a0o"/>
+                                                        <constraint firstAttribute="height" constant="40" id="D1s-XT-a0o"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>

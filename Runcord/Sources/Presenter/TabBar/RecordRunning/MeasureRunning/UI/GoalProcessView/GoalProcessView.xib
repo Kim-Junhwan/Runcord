@@ -11,52 +11,53 @@
             <connections>
                 <outlet property="currentUserFigureLabel" destination="XbI-dL-DjT" id="Nmk-ws-0zF"/>
                 <outlet property="goalProgressView" destination="lhQ-fQ-gtu" id="GBW-RS-Qgs"/>
+                <outlet property="runningFigureBaseView" destination="n3n-gC-33a" id="OK6-He-q7f"/>
+                <outlet property="runningFigureStackView" destination="DZC-PV-DGQ" id="j1W-3d-xco"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="389" height="34"/>
+            <rect key="frame" x="0.0" y="0.0" width="1230" height="57"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nv4-FB-jk5">
-                    <rect key="frame" x="0.0" y="0.0" width="389" height="34"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Nv4-FB-jk5">
+                    <rect key="frame" x="0.0" y="0.0" width="1230" height="57"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="DZC-PV-DGQ">
-                            <rect key="frame" x="0.0" y="0.0" width="389" height="30"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3n-gC-33a">
+                            <rect key="frame" x="0.0" y="0.0" width="1230" height="30"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XbI-dL-DjT">
-                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="DZC-PV-DGQ">
+                                    <rect key="frame" x="1196" y="0.0" width="34" height="30"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XbI-dL-DjT">
+                                            <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="8se-1e-Xcx"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="30" id="8se-1e-Xcx"/>
-                                        <constraint firstAttribute="width" secondItem="XbI-dL-DjT" secondAttribute="height" multiplier="1:1" id="SYC-V4-tcw"/>
+                                        <constraint firstAttribute="height" constant="30" id="DfL-Xp-VXg"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypj-xn-hCK">
-                                    <rect key="frame" x="359" y="0.0" width="30" height="30"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="30" id="1rI-av-ly9"/>
-                                        <constraint firstAttribute="width" secondItem="Ypj-xn-hCK" secondAttribute="height" multiplier="1:1" id="oS4-lg-B6g"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                </stackView>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="DfL-Xp-VXg"/>
+                                <constraint firstAttribute="trailing" secondItem="DZC-PV-DGQ" secondAttribute="trailing" id="ApI-mQ-l7J"/>
+                                <constraint firstAttribute="bottom" secondItem="DZC-PV-DGQ" secondAttribute="bottom" id="e1c-cg-Xmm"/>
+                                <constraint firstItem="DZC-PV-DGQ" firstAttribute="top" secondItem="n3n-gC-33a" secondAttribute="top" id="jkm-Ql-Nb8"/>
                             </constraints>
-                        </stackView>
+                        </view>
                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lhQ-fQ-gtu">
-                            <rect key="frame" x="19.333333333333343" y="30" width="350.33333333333326" height="4"/>
+                            <rect key="frame" x="61.666666666666629" y="53" width="1107" height="4"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="trackTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </progressView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="DZC-PV-DGQ" firstAttribute="leading" secondItem="Nv4-FB-jk5" secondAttribute="leading" id="HCm-kV-yjD"/>
-                        <constraint firstAttribute="trailing" secondItem="DZC-PV-DGQ" secondAttribute="trailing" id="j9g-Ji-ntp"/>
+                        <constraint firstAttribute="trailing" secondItem="n3n-gC-33a" secondAttribute="trailing" id="wG5-ws-2Pc"/>
                     </constraints>
                 </stackView>
             </subviews>
@@ -68,7 +69,7 @@
                 <constraint firstAttribute="bottom" secondItem="Nv4-FB-jk5" secondAttribute="bottom" id="aug-qc-mbU"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="249.61832061068702" y="95.774647887323951"/>
+            <point key="canvasLocation" x="-442.74809160305341" y="57.394366197183103"/>
         </view>
     </objects>
 </document>

@@ -46,12 +46,13 @@ class RunningStartViewModel {
     }
     
     func presentRecordView() {
-        coordinator.showRecordRunningView(goalTime: convertTimeToMinute(hour: goalHour.value, minute: goalMinute.value), goalDistance: goalDistance.value)
+        coordinator.showRecordRunningView(goalTime: convertTimeToSecond(hour: goalHour.value, minute: goalMinute.value), goalDistance: goalDistance.value)
     }
     
-    private func convertTimeToMinute(hour: Int, minute: Int) -> Int {
-        let hourToMinute = hour*60
-        return minute + hourToMinute
+    private func convertTimeToSecond(hour: Int, minute: Int) -> Int {
+        let hourToSecond = hour*60 * 60
+        let minuteToSecond = minute * 60
+        return hourToSecond + minuteToSecond
     }
     
 }

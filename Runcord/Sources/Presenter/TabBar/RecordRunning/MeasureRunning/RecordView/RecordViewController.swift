@@ -34,8 +34,9 @@ class RecordViewController: UIViewController {
         startReadyTimer()
         setCompleteButton()
         setCompleteButtonRing()
+        setGoalTimeProgress()
+        setGoalDistanceProgress()
         bind()
-        goalDistanceProgressView.setCurrentValue(current: 10)
     }
     
     // MARK: - Initalizer
@@ -65,6 +66,21 @@ class RecordViewController: UIViewController {
         readyTimerLabel.text = String(readyTimerNum)
     }
     
+    // MARK: - Set Goal Progress
+    
+    private func setGoalDistanceProgress() {
+        goalDistanceProgressView.setMaxValue(max: Float(viewModel.goalDistance))
+        goalDistanceProgressView.reversecurrentUserFigureLabel()
+        goalDistanceProgressView.setCurrentValue(current: 0)
+    }
+    
+    private func setGoalTimeProgress() {
+        goalTimeProgressView.setMaxValue(max: Float(viewModel.goalTime))
+//        goalTimeProgressView.currentUserFigureLabel.text = "⏳"
+//        goalTimeProgressView.goalLabel.text = "⌛"
+        goalTimeProgressView.setCurrentValue(current: 0)
+    }
+    
     // MARK: - Set UI Constraint
     private func setControlButtonCornerRadius() {
         pauseAndPlayButton.layer.cornerRadius = pauseAndPlayButton.frame.height / 2
@@ -87,6 +103,11 @@ class RecordViewController: UIViewController {
             .drive(runningTimerLabel.rx
                 .text)
             .disposed(by: disposeBag)
+        
+        viewModel.totalRunningSecond.subscribe { currentTime in
+            self.goalTimeProgressView.setCurrentValue(current: Float(currentTime))
+        }
+        .disposed(by: disposeBag)
     }
     
     // MARK: - Action Method
