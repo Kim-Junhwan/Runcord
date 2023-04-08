@@ -71,14 +71,11 @@ class RecordViewController: UIViewController {
     private func setGoalDistanceProgress() {
         goalDistanceProgressView.setMaxValue(max: Float(viewModel.goalDistance))
         goalDistanceProgressView.reversecurrentUserFigureLabel()
-        goalDistanceProgressView.setCurrentValue(current: 0)
     }
     
     private func setGoalTimeProgress() {
         goalTimeProgressView.setMaxValue(max: Float(viewModel.goalTime))
-//        goalTimeProgressView.currentUserFigureLabel.text = "⏳"
-//        goalTimeProgressView.goalLabel.text = "⌛"
-        goalTimeProgressView.setCurrentValue(current: 0)
+        goalTimeProgressView.currentUserFigureLabel.text = "⏰"
     }
     
     // MARK: - Set UI Constraint

@@ -11,9 +11,7 @@ class GoalProcessView: UIView {
     
     @IBOutlet weak var goalProgressView: UIProgressView!
     @IBOutlet weak var currentUserFigureLabel: UILabel!
-    @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var runningFigureBaseView: UIView!
-    @IBOutlet weak var runningFigureStackView: UIStackView!
     private var maxValue: Float?
     private var currentValue: Float = 0 {
         didSet {
@@ -25,8 +23,8 @@ class GoalProcessView: UIView {
         }
     }
     
-    private lazy var runningFigureStackViewConstraint: NSLayoutConstraint = {
-        return runningFigureStackView.leadingAnchor.constraint(equalTo: runningFigureBaseView.leadingAnchor)
+    private lazy var currentUserFigureLabelConstraint: NSLayoutConstraint = {
+        return currentUserFigureLabel.leadingAnchor.constraint(equalTo: runningFigureBaseView.leadingAnchor)
     }()
     
     override init(frame: CGRect) {
@@ -43,8 +41,12 @@ class GoalProcessView: UIView {
         guard let view = Bundle.main.loadNibNamed("GoalProcessView", owner: self, options: nil)?.first as? UIView else { return }
         view.frame = bounds
         addSubview(view)
-        runningFigureStackView.translatesAutoresizingMaskIntoConstraints = false
-        runningFigureStackViewConstraint.isActive = true
+        currentUserFigureLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            currentUserFigureLabel.centerYAnchor.constraint(equalTo: runningFigureBaseView.centerYAnchor),
+            currentUserFigureLabel.widthAnchor.constraint(equalTo: runningFigureBaseView.widthAnchor, multiplier: 0.1),
+            currentUserFigureLabelConstraint
+        ])
     }
     
     func setMaxValue(max: Float) {
@@ -63,8 +65,7 @@ class GoalProcessView: UIView {
         guard let maxValue = maxValue else { return }
         let currentProgressBarLength = CGFloat((Float(currentValue)/Float(maxValue))) * goalProgressView.frame.width
         self.goalProgressView.setProgress((Float(currentValue)/Float(maxValue)), animated: true)
-        runningFigureStackViewConstraint.constant = currentProgressBarLength
-        print(currentProgressBarLength)
+        currentUserFigureLabelConstraint.constant = currentProgressBarLength
     }
     
 }
