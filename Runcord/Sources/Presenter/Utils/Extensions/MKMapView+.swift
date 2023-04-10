@@ -23,8 +23,9 @@ extension MKMapView {
         addOverlay(polyline)
     }
     
-    func updateUserRoute(route: MKPolyline, newCoordinate: CLLocation) {
-        let newCoordinate = newCoordinate.coordinate
-        
+    func updateUserRoute(lastCoordinate: CLLocation, newCoordinate: CLLocation) {
+        let coordinates: [CLLocationCoordinate2D] = [lastCoordinate.coordinate, newCoordinate.coordinate]
+        let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
+        addOverlay(polyline)
     }
 }

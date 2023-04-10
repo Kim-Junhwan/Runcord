@@ -36,6 +36,7 @@
 		C7670EFF2995460900E3CD77 /* RunningCrewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7670EFE2995460900E3CD77 /* RunningCrewTests.swift */; };
 		C7670F092995460900E3CD77 /* RunningCrewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7670F082995460900E3CD77 /* RunningCrewUITests.swift */; };
 		C7670F0B2995460900E3CD77 /* RunningCrewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7670F0A2995460900E3CD77 /* RunningCrewUITestsLaunchTests.swift */; };
+		C769EA3729E412E7004717B3 /* MKMapView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C769EA3629E412E7004717B3 /* MKMapView+.swift */; };
 		C7A1F21629BA1194009AE7BA /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1F21429BA1194009AE7BA /* CustomAlertViewController.swift */; };
 		C7A1F21729BA1194009AE7BA /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A1F21529BA1194009AE7BA /* CustomAlertViewController.xib */; };
 		C7A1F21929BA385A009AE7BA /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1F21829BA385A009AE7BA /* UIView+.swift */; };
@@ -126,6 +127,7 @@
 		C7670F042995460900E3CD77 /* RuncordUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuncordUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7670F082995460900E3CD77 /* RunningCrewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCrewUITests.swift; sourceTree = "<group>"; };
 		C7670F0A2995460900E3CD77 /* RunningCrewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCrewUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C769EA3629E412E7004717B3 /* MKMapView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+.swift"; sourceTree = "<group>"; };
 		C7A1F21429BA1194009AE7BA /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		C7A1F21529BA1194009AE7BA /* CustomAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
 		C7A1F21829BA385A009AE7BA /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				C751527829B27038003D8987 /* UIImage+.swift */,
 				C7211E3029B9664D00ADA90C /* UIViewController+.swift */,
 				C7A1F21829BA385A009AE7BA /* UIView+.swift */,
+				C769EA3629E412E7004717B3 /* MKMapView+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -923,6 +926,7 @@
 				C703496429D5253400BF28D7 /* Alertable.swift in Sources */,
 				C7670EE82995460800E3CD77 /* AppDelegate.swift in Sources */,
 				C751527929B27038003D8987 /* UIImage+.swift in Sources */,
+				C769EA3729E412E7004717B3 /* MKMapView+.swift in Sources */,
 				C7211E3129B9664D00ADA90C /* UIViewController+.swift in Sources */,
 				C7A5AFED29D6ADB400E4D851 /* LocationAlertable.swift in Sources */,
 				C703496729D582CC00BF28D7 /* RunningStartViewController.swift in Sources */,

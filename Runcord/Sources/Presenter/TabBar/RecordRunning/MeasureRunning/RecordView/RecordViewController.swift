@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import CoreLocation
 
 class RecordViewController: UIViewController {
     
@@ -47,6 +48,12 @@ class RecordViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Set MapView
+    
+    private func setMapView() {
+        
     }
     
     // MARK: - Ready Time Method
@@ -173,4 +180,8 @@ class RecordViewController: UIViewController {
         viewModel.deinitViewModel()
         print("deinit record viewcontroller")
     }
+}
+
+extension RecordViewController: CLLocationManagerDelegate {
+    
 }

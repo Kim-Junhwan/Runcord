@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import CoreLocation
 
 class RecordViewModel {
     
@@ -21,6 +22,9 @@ class RecordViewModel {
     // MARK: - Goal Properties
     var goalTime: Int
     var goalDistance: Double
+    
+    // MARK: - Route Properties
+    var route: [CLLocation] = []
     
     init(goalTime: Int, goalDistance: Double) {
         self.goalTime = goalTime
@@ -57,5 +61,4 @@ class RecordViewModel {
     deinit {
         print("deinit record viewModel")
     }
-    
 }
