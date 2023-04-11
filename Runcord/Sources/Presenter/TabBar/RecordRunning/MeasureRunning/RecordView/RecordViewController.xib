@@ -27,9 +27,12 @@
                 <outlet property="completeButtonContainerView" destination="hoV-vj-Ho7" id="vND-nv-7EK"/>
                 <outlet property="goalDistanceProgressView" destination="K6t-Tv-hDJ" id="WaU-hm-NyB"/>
                 <outlet property="goalTimeProgressView" destination="Tr6-Vq-iJ5" id="g3G-ak-q7J"/>
+                <outlet property="mapView" destination="50Y-FU-Evc" id="ZcL-EF-a4x"/>
                 <outlet property="pauseAndPlayButton" destination="2HC-tE-siq" id="g3W-g3-7qh"/>
                 <outlet property="readyDiscussionLabel" destination="vay-W8-NzT" id="KL6-dD-In9"/>
                 <outlet property="readyTimerLabel" destination="E9f-6d-nuA" id="D3R-It-96z"/>
+                <outlet property="recordProgressStackView" destination="o1o-O9-QQ1" id="uOU-EQ-lId"/>
+                <outlet property="runningDistanceLabel" destination="0Uq-dW-nRt" id="OY9-D9-xrB"/>
                 <outlet property="runningMeasuringView" destination="WQ8-ny-CUm" id="YEz-1y-d8Y"/>
                 <outlet property="runningTimerLabel" destination="pf3-vx-iVb" id="1cT-P6-8qe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

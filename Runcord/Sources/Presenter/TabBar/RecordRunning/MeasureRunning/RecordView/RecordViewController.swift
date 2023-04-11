@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import CoreLocation
+import MapKit
 
 class RecordViewController: UIViewController {
     
@@ -18,10 +19,14 @@ class RecordViewController: UIViewController {
     @IBOutlet weak var completeButton: UIButton!
     @IBOutlet weak var completeButtonContainerView: UIView!
     @IBOutlet weak var runningTimerLabel: UILabel!
+    
+    @IBOutlet weak var runningDistanceLabel: UILabel!
     private var completeButtonRingLayer: CAShapeLayer?
     @IBOutlet weak var goalDistanceProgressView: GoalProcessView!
     @IBOutlet weak var goalTimeProgressView: GoalProcessView!
     
+    @IBOutlet weak var recordProgressStackView: UIStackView!
+    @IBOutlet weak var mapView: MKMapView!
     // MARK: - Properties
     private var timer: Timer?
     private var readyTimerNum = 5
@@ -30,6 +35,7 @@ class RecordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.viewDidLoad()
         runningMeasuringView.isHidden = true
         setControlButtonCornerRadius()
         startReadyTimer()
@@ -37,6 +43,8 @@ class RecordViewController: UIViewController {
         setCompleteButtonRing()
         setGoalTimeProgress()
         setGoalDistanceProgress()
+        setMapView()
+        
         bind()
     }
     
@@ -53,8 +61,10 @@ class RecordViewController: UIViewController {
     // MARK: - Set MapView
     
     private func setMapView() {
-        
+        mapView.delegate = self
     }
+    
+    // MARK: - Set LocationManager
     
     // MARK: - Ready Time Method
     private func startReadyTimer() {
@@ -69,6 +79,7 @@ class RecordViewController: UIViewController {
             hiddenTimerLabel()
             runningMeasuringView.isHidden = false
             viewModel.startTimer()
+            viewModel.startTrackUserLocation()
         }
         readyTimerLabel.text = String(readyTimerNum)
     }
@@ -112,6 +123,13 @@ class RecordViewController: UIViewController {
             self.goalTimeProgressView.setCurrentValue(current: Float(currentTime))
         }
         .disposed(by: disposeBag)
+        
+        viewModel.runningDistance.asDriver()
+            .drive(onNext: { distance in
+                self.runningDistanceLabel.text = String(format: "%.2f", distance)
+                self.goalDistanceProgressView.setCurrentValue(current: distance)
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - Action Method
@@ -120,10 +138,22 @@ class RecordViewController: UIViewController {
         if viewModel.isRunning {
             pauseAndPlayButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
             viewModel.stopTimer()
+            showPauseStatusView()
         } else {
             pauseAndPlayButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             viewModel.startTimer()
+            showPlayStatusView()
         }
+    }
+    
+    private func showPauseStatusView() {
+        recordProgressStackView.isHidden = true
+        mapView.isHidden = false
+    }
+    
+    private func showPlayStatusView() {
+        recordProgressStackView.isHidden = false
+        mapView.isHidden = true
     }
     
     func setCompleteButton() {
@@ -183,5 +213,29 @@ class RecordViewController: UIViewController {
 }
 
 extension RecordViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let currentLocation = locations.last else { return }
+        if !viewModel.route.isEmpty {
+            mapView.updateUserRoute(lastCoordinate: viewModel.route.last!, newCoordinate: currentLocation)
+        }
+        mapView.centerToLocation(location: currentLocation)
+        viewModel.route.append(currentLocation)
+    }
+}
+
+extension RecordViewController: MKMapViewDelegate {
     
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        mapView.setUserTrackingMode(.follow, animated: true)
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        guard let polyLine = overlay as? MKPolyline else { fatalError() }
+        let renderer = MKPolylineRenderer(polyline: polyLine)
+        renderer.strokeColor = .orange
+        renderer.lineWidth = 5.0
+        renderer.alpha = 1.0
+        
+        return renderer
+    }
 }
