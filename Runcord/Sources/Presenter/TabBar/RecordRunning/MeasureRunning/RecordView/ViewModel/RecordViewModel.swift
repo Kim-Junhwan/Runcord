@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import CoreLocation
 
-class RecordViewModel {
+class RecordViewModel: NSObject {
     
     // MARK: - Timer Properties
     private var timer: Timer?
@@ -18,18 +18,33 @@ class RecordViewModel {
     let totalRunningSecond: BehaviorRelay<Int> = BehaviorRelay(value: 0)
     var isRunning: Bool = false
     var runningDistance: BehaviorRelay<Float> = BehaviorRelay(value: 0.0)
+    let locationManager: CLLocationManager
     
     // MARK: - Goal Properties
     var goalTime: Int
     var goalDistance: Double
     
     // MARK: - Route Properties
-    var route: [CLLocation] = []
+    private let route: BehaviorRelay<[CLLocation]> = BehaviorRelay(value: [])
+    var routeObservable: Observable<[CLLocation]> {
+        return route
+            .filter { $0.count >= 2 }
+            .map { $0.suffix(2) }
+            .asObservable()
+    }
     
-    init(goalTime: Int, goalDistance: Double) {
+    func viewDidLoad() {
+        locationManager.delegate = self
+        
+    }
+    
+    init(goalTime: Int, goalDistance: Double, locationManager: CLLocationManager) {
         self.goalTime = goalTime
         self.goalDistance = goalDistance
+        self.locationManager = locationManager
     }
+    
+    // MARK: - Timer Method
     
     func startTimer() {
         isRunning = true
@@ -58,7 +73,34 @@ class RecordViewModel {
         timerText.accept("\(String(format: "%02d", hours)):\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))")
     }
     
+    // MARK: - Location Method
+    func startTrackUserLocation() {
+        locationManager.startUpdatingLocation()
+    }
+    
+    func calculateDistanceKilometerBetweenCoordinators(_ firstCoordinate: CLLocation, _ secondCoordinate: CLLocation) -> Float {
+        let distance = firstCoordinate.distance(from: secondCoordinate)
+        let kmDistance = distance/1000
+        
+        return Float(kmDistance)
+    }
+    
     deinit {
         print("deinit record viewModel")
+    }
+}
+
+extension RecordViewModel: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let currentLocation = locations.last else { return }
+        
+        if !route.value.isEmpty {
+            guard let lastLocation = route.value.last else { return }
+            
+            if isRunning {
+                runningDistance.accept(runningDistance.value + calculateDistanceKilometerBetweenCoordinators(lastLocation, currentLocation))
+            }
+        }
+        route.accept(route.value + [currentLocation])
     }
 }

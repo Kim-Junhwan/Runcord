@@ -26,7 +26,6 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self
         setButton()
         setGoalView()
         bind()
@@ -37,6 +36,7 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         locationManager.delegate = self
         switch locationManager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
+            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
             setMapUserTracking()
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
@@ -59,9 +59,9 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         }.disposed(by: disposeBag)
     }
     
-    init(viewModel: RunningStartViewModel) {
+    init(viewModel: RunningStartViewModel, locationManager: CLLocationManager) {
         self.viewModel = viewModel
-        self.locationManager = CLLocationManager()
+        self.locationManager = locationManager
         super.init(nibName: "RunningStartViewController", bundle: nil)
     }
 
@@ -132,10 +132,6 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     deinit {
         print("deinit runningStart view")
     }
-    
-}
-
-extension RunningStartViewController: MKMapViewDelegate {
     
 }
 

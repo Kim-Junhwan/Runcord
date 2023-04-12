@@ -130,6 +130,14 @@ class RecordViewController: UIViewController {
                 self.goalDistanceProgressView.setCurrentValue(current: distance)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.routeObservable.subscribe { route in
+            if let routeValue = route.element,
+               let lastCoordinate = routeValue.first,
+               let currentCoordinate = routeValue.last {
+                self.mapView.updateUserRoute(lastCoordinate: lastCoordinate, newCoordinate: currentCoordinate)
+            }
+        }.disposed(by: disposeBag)
     }
     
     // MARK: - Action Method
@@ -212,17 +220,6 @@ class RecordViewController: UIViewController {
     }
 }
 
-extension RecordViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let currentLocation = locations.last else { return }
-        if !viewModel.route.isEmpty {
-            mapView.updateUserRoute(lastCoordinate: viewModel.route.last!, newCoordinate: currentLocation)
-        }
-        mapView.centerToLocation(location: currentLocation)
-        viewModel.route.append(currentLocation)
-    }
-}
-
 extension RecordViewController: MKMapViewDelegate {
     
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
@@ -232,7 +229,7 @@ extension RecordViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let polyLine = overlay as? MKPolyline else { fatalError() }
         let renderer = MKPolylineRenderer(polyline: polyLine)
-        renderer.strokeColor = .orange
+        renderer.strokeColor = .tabBarSelect
         renderer.lineWidth = 5.0
         renderer.alpha = 1.0
         

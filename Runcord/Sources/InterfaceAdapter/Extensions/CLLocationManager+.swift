@@ -25,4 +25,5 @@ extension CLLocationManager: AuthorizationManager {
     func requestAuthorization() {
         requestWhenInUseAuthorization()
     }
+    
 }
