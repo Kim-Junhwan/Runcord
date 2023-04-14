@@ -26,7 +26,9 @@ class RecordViewController: UIViewController {
     @IBOutlet weak var goalTimeProgressView: GoalProcessView!
     
     @IBOutlet weak var recordProgressStackView: UIStackView!
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var runningMapView: MKMapView!
+    lazy var runningMapViewHeighyConstraint = runningMapView.heightAnchor.constraint(equalToConstant: 0)
+    
     // MARK: - Properties
     private var timer: Timer?
     private var readyTimerNum = 5
@@ -61,7 +63,8 @@ class RecordViewController: UIViewController {
     // MARK: - Set MapView
     
     private func setMapView() {
-        mapView.delegate = self
+        runningMapViewHeighyConstraint.isActive = true
+        runningMapView.delegate = self
     }
     
     // MARK: - Set LocationManager
@@ -135,7 +138,7 @@ class RecordViewController: UIViewController {
             if let routeValue = route.element,
                let lastCoordinate = routeValue.first,
                let currentCoordinate = routeValue.last {
-                self.mapView.updateUserRoute(lastCoordinate: lastCoordinate, newCoordinate: currentCoordinate)
+                self.runningMapView.updateUserRoute(lastCoordinate: lastCoordinate, newCoordinate: currentCoordinate)
             }
         }.disposed(by: disposeBag)
     }
@@ -155,13 +158,21 @@ class RecordViewController: UIViewController {
     }
     
     private func showPauseStatusView() {
-        recordProgressStackView.isHidden = true
-        mapView.isHidden = false
+        runningMapView.isHidden = false
+        runningMapViewHeighyConstraint.constant = self.view.frame.height * 0.3
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.2, delay: 0) {
+            self.view.layoutIfNeeded()
+        }
+        
     }
     
     private func showPlayStatusView() {
         recordProgressStackView.isHidden = false
-        mapView.isHidden = true
+        runningMapViewHeighyConstraint.constant = 0
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.7, delay: 0) {
+            self.runningMapView.layoutIfNeeded()
+        }
+        runningMapView.isHidden = true
     }
     
     func setCompleteButton() {
