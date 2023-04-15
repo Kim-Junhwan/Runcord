@@ -22,6 +22,7 @@ class GoalProcessView: UIView {
             bindFigureLabel()
         }
     }
+    private var isMax: Bool = false
     
     private lazy var currentUserFigureLabelConstraint: NSLayoutConstraint = {
         return currentUserFigureLabel.leadingAnchor.constraint(equalTo: runningFigureBaseView.leadingAnchor)
@@ -50,11 +51,23 @@ class GoalProcessView: UIView {
     }
     
     func setMaxValue(max: Float) {
-        self.maxValue = max
+        if max == 0 {
+            self.maxValue = 1
+            self.currentValue = 1
+            isMax = true
+        } else {
+            self.maxValue = max
+        }
     }
     
     func setCurrentValue(current: Float) {
-        self.currentValue = current
+        guard let maxValue = maxValue else { return }
+        if !isMax {
+            if currentValue >= maxValue {
+                isMax = true
+            }
+            self.currentValue = current
+        }
     }
     
     func reversecurrentUserFigureLabel() {

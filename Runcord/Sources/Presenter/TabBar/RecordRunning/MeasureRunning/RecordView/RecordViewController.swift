@@ -43,11 +43,13 @@ class RecordViewController: UIViewController {
         startReadyTimer()
         setCompleteButton()
         setCompleteButtonRing()
+        setMapView()
+        bind()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         setGoalTimeProgress()
         setGoalDistanceProgress()
-        setMapView()
-        
-        bind()
     }
     
     // MARK: - Initalizer
@@ -92,11 +94,13 @@ class RecordViewController: UIViewController {
     private func setGoalDistanceProgress() {
         goalDistanceProgressView.setMaxValue(max: Float(viewModel.goalDistance))
         goalDistanceProgressView.reversecurrentUserFigureLabel()
+        goalDistanceProgressView.setCurrentValue(current: 0)
     }
     
     private func setGoalTimeProgress() {
         goalTimeProgressView.setMaxValue(max: Float(viewModel.goalTime))
         goalTimeProgressView.currentUserFigureLabel.text = "⏰"
+        goalTimeProgressView.setCurrentValue(current: 0)
     }
     
     // MARK: - Set UI Constraint
@@ -182,7 +186,7 @@ class RecordViewController: UIViewController {
     
     @objc func completeButtonTouchDown() {
         if timer == nil {
-            timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: {[weak self] timer in
+            timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: {[weak self] _ in
                 let vc = SaveRecordRunningViewController()
                 vc.modalPresentationStyle = .fullScreen
                 self?.present(vc, animated: true)
