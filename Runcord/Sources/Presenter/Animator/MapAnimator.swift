@@ -13,6 +13,8 @@ class MapAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     var presenting = true
     var originFrame = CGRect.zero
     
+    var dismissCompletion: (() -> Void)?
+    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return animationInterval
     }
@@ -45,9 +47,11 @@ class MapAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             recordView.transform = self.presenting ? .identity : scaleTransform
             recordView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
         } completion: { _ in
+            if !self.presenting {
+                self.dismissCompletion?()
+            }
             transitionContext.completeTransition(true)
         }
-
     }
     
 }
