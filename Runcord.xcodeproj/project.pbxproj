@@ -27,6 +27,8 @@
 		C75DECF729ABB3AF00A4EC47 /* GoalSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75DECF629ABB3AF00A4EC47 /* GoalSettingViewController.swift */; };
 		C75DECFA29AE7E7D00A4EC47 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75DECF829AE7E7D00A4EC47 /* RecordViewController.swift */; };
 		C75DECFB29AE7E7D00A4EC47 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C75DECF929AE7E7D00A4EC47 /* RecordViewController.xib */; };
+		C762DEB029EC1B1400C24C21 /* MapAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C762DEAF29EC1B1400C24C21 /* MapAnimator.swift */; };
+		C762DED929EC5AC700C24C21 /* RunningRecordMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C762DED829EC5AC700C24C21 /* RunningRecordMapViewController.swift */; };
 		C7663E7B29A9F1260046068B /* GoalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7663E7A29A9F1260046068B /* GoalTextField.swift */; };
 		C7663E7D29AA125B0046068B /* GoalSettingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7663E7C29AA125B0046068B /* GoalSettingStackView.swift */; };
 		C7663E8129ABA5720046068B /* GoalSettingLabelStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7663E8029ABA5720046068B /* GoalSettingLabelStackView.swift */; };
@@ -114,6 +116,8 @@
 		C75DECF629ABB3AF00A4EC47 /* GoalSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingViewController.swift; sourceTree = "<group>"; };
 		C75DECF829AE7E7D00A4EC47 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		C75DECF929AE7E7D00A4EC47 /* RecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordViewController.xib; sourceTree = "<group>"; };
+		C762DEAF29EC1B1400C24C21 /* MapAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnimator.swift; sourceTree = "<group>"; };
+		C762DED829EC5AC700C24C21 /* RunningRecordMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordMapViewController.swift; sourceTree = "<group>"; };
 		C7663E7A29A9F1260046068B /* GoalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTextField.swift; sourceTree = "<group>"; };
 		C7663E7C29AA125B0046068B /* GoalSettingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingStackView.swift; sourceTree = "<group>"; };
 		C7663E8029ABA5720046068B /* GoalSettingLabelStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingLabelStackView.swift; sourceTree = "<group>"; };
@@ -343,7 +347,6 @@
 			isa = PBXGroup;
 			children = (
 				C7233CF629DD4DF20003A290 /* GoalProcessView */,
-				C7233CF529DD4DE50003A290 /* GoalSetting */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 		C75DECFC29AE7E8300A4EC47 /* RecordView */ = {
 			isa = PBXGroup;
 			children = (
+				C75DECF529ABB36B00A4EC47 /* UI */,
 				C751527A29B34212003D8987 /* ViewModel */,
 				C75DECF829AE7E7D00A4EC47 /* RecordViewController.swift */,
 				C75DECF929AE7E7D00A4EC47 /* RecordViewController.xib */,
@@ -358,14 +362,37 @@
 			path = RecordView;
 			sourceTree = "<group>";
 		};
+		C762DEAD29EC192300C24C21 /* RunningHome */ = {
+			isa = PBXGroup;
+			children = (
+				C7663E7929A9F1090046068B /* GoalSettingView */,
+				C7F95B2B29AF7F8A00C69D1B /* RunningStart */,
+				C7DE6808299939BE00C824A9 /* Coordinator */,
+			);
+			path = RunningHome;
+			sourceTree = "<group>";
+		};
+		C762DEAE29EC1ADC00C24C21 /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				C762DEAF29EC1B1400C24C21 /* MapAnimator.swift */,
+			);
+			path = Animator;
+			sourceTree = "<group>";
+		};
+		C762DED729EC5A9300C24C21 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				C762DED829EC5AC700C24C21 /* RunningRecordMapViewController.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
 		C7663E5129A4BF6E0046068B /* MeasureRunning */ = {
 			isa = PBXGroup;
 			children = (
 				C751527D29B7994B003D8987 /* SaveRunningRecord */,
-				C75DECF529ABB36B00A4EC47 /* UI */,
-				C7F95B2B29AF7F8A00C69D1B /* RunningStart */,
 				C75DECFC29AE7E8300A4EC47 /* RecordView */,
-				C7663E7929A9F1090046068B /* GoalSettingView */,
 			);
 			path = MeasureRunning;
 			sourceTree = "<group>";
@@ -373,6 +400,7 @@
 		C7663E7929A9F1090046068B /* GoalSettingView */ = {
 			isa = PBXGroup;
 			children = (
+				C7233CF529DD4DE50003A290 /* GoalSetting */,
 				C75DECF629ABB3AF00A4EC47 /* GoalSettingViewController.swift */,
 			);
 			path = GoalSettingView;
@@ -509,6 +537,7 @@
 		C7DE67EE2998DF2900C824A9 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				C762DEAE29EC1ADC00C24C21 /* Animator */,
 				C7DE6823299A85D400C824A9 /* Utils */,
 				C7DE67EF2998DF5D00C824A9 /* Common */,
 				C7DE67F02998DF6300C824A9 /* TabBar */,
@@ -530,8 +559,9 @@
 			isa = PBXGroup;
 			children = (
 				C7AD00EA29D1E175001D275E /* DesignedTabBar */,
-				C7DE68002999374300C824A9 /* MyPage */,
+				C762DEAD29EC192300C24C21 /* RunningHome */,
 				C7DE67F72999296B00C824A9 /* RecordRunning */,
+				C7DE68002999374300C824A9 /* MyPage */,
 				C7DE67F42998E4B900C824A9 /* Coordinator */,
 			);
 			path = TabBar;
@@ -557,8 +587,8 @@
 		C7DE67F72999296B00C824A9 /* RecordRunning */ = {
 			isa = PBXGroup;
 			children = (
+				C762DED729EC5A9300C24C21 /* MapView */,
 				C7663E5129A4BF6E0046068B /* MeasureRunning */,
-				C7DE6808299939BE00C824A9 /* Coordinator */,
 			);
 			path = RecordRunning;
 			sourceTree = "<group>";
@@ -915,6 +945,7 @@
 				C7A5AFE829D69F7900E4D851 /* AuthorizationAlertable.swift in Sources */,
 				C7DE67FD2999301800C824A9 /* RunningCoordinator.swift in Sources */,
 				C7233CF829DDBFE00003A290 /* GoalProcessView.swift in Sources */,
+				C762DEB029EC1B1400C24C21 /* MapAnimator.swift in Sources */,
 				C7663E7B29A9F1260046068B /* GoalTextField.swift in Sources */,
 				C7A1F21929BA385A009AE7BA /* UIView+.swift in Sources */,
 				C7DE6825299A85DF00C824A9 /* Color+.swift in Sources */,
@@ -930,6 +961,7 @@
 				C7211E3129B9664D00ADA90C /* UIViewController+.swift in Sources */,
 				C7A5AFED29D6ADB400E4D851 /* LocationAlertable.swift in Sources */,
 				C703496729D582CC00BF28D7 /* RunningStartViewController.swift in Sources */,
+				C762DED929EC5AC700C24C21 /* RunningRecordMapViewController.swift in Sources */,
 				C7670EEA2995460800E3CD77 /* SceneDelegate.swift in Sources */,
 				C7DE681029993A7000C824A9 /* MyPageCoordinator.swift in Sources */,
 				C7211E3A29B9EA9700ADA90C /* ImageCollectionViewCell.swift in Sources */,

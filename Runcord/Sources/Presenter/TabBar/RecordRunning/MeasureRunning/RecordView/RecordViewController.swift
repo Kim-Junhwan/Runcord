@@ -34,6 +34,7 @@ class RecordViewController: UIViewController {
     private var readyTimerNum = 5
     var viewModel: RecordViewModel
     let disposeBag = DisposeBag()
+    let transition = MapAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,8 +66,17 @@ class RecordViewController: UIViewController {
     // MARK: - Set MapView
     
     private func setMapView() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentMapView))
+        runningMapView.addGestureRecognizer(tapGesture)
         runningMapViewHeighyConstraint.isActive = true
         runningMapView.delegate = self
+    }
+    
+    @objc func presentMapView() {
+        let runningRecordMapView = RunningRecordMapViewController(mapView: runningMapView)
+        runningRecordMapView.transitioningDelegate = self
+        runningRecordMapView.modalPresentationStyle = .overFullScreen
+        self.present(runningRecordMapView, animated: true)
     }
     
     // MARK: - Set LocationManager
@@ -249,5 +259,17 @@ extension RecordViewController: MKMapViewDelegate {
         renderer.alpha = 1.0
         
         return renderer
+    }
+}
+
+extension RecordViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        guard let mapSuperView = runningMapView.superview else { return nil }
+        transition.originFrame = mapSuperView.convert(runningMapView.frame, to: nil)
+        transition.presenting = true
+        
+        return transition
     }
 }
