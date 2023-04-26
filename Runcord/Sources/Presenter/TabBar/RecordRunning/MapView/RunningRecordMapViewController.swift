@@ -13,11 +13,23 @@ class RunningRecordMapViewController: UIViewController {
     var mapView: MKMapView!
     
     let closeButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.widthAnchor.constraint(equalToConstant: 90).isActive = true
         button.heightAnchor.constraint(equalToConstant: 90).isActive = true
-        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.setImage(UIImage(systemName: "xmark")?.resizeImageTo(size: CGSize(width: 44.0, height: 44.0)), for: .normal)
+        button.backgroundColor = .black
+        button.tintColor = .white
+        return button
+    }()
+
+    let userTrackingButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        button.setImage(UIImage(systemName: "location.circle.fill")?.resizeImageTo(size: CGSize(width: 44.0, height: 44.0)), for: .normal)
+        button.tintColor = .white
         button.backgroundColor = .black
         return button
     }()
@@ -28,7 +40,6 @@ class RunningRecordMapViewController: UIViewController {
          button.widthAnchor.constraint(equalToConstant: 90).isActive = true
          button.heightAnchor.constraint(equalToConstant: 90).isActive = true
         button.setImage(UIImage(systemName: "camera"), for: .normal)
-        
          return button
     }()
     
@@ -51,15 +62,26 @@ class RunningRecordMapViewController: UIViewController {
     }
     
     private func setButton() {
+        userTrackingButton.addTarget(self, action: #selector(setUserTracking), for: .touchUpInside)
+        mapView.addSubview(userTrackingButton)
+        NSLayoutConstraint.activate([
+            userTrackingButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            userTrackingButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        userTrackingButton.layer.cornerRadius = userTrackingButton.frame.height/2
+        
         closeButton.addTarget(self, action: #selector(dismissMapView), for: .touchUpInside)
         mapView.addSubview(closeButton)
         NSLayoutConstraint.activate([
             closeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             closeButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+        closeButton.layer.cornerRadius = closeButton.frame.height/2
     }
     
     private func setMapView() {
+        mapView.isZoomEnabled = true
+        mapView.isScrollEnabled = true
         mapView.translatesAutoresizingMaskIntoConstraints = false
         mapView.removeConstraints(mapView.constraints)
         view.addSubview(mapView)
@@ -72,7 +94,13 @@ class RunningRecordMapViewController: UIViewController {
     }
     
     @objc func dismissMapView() {
-        self.dismiss(animated: false)
+        closeButton.removeFromSuperview()
+        userTrackingButton.removeFromSuperview()
+        self.dismiss(animated: true)
+    }
+    
+    @objc func setUserTracking() {
+        mapView.setUserTrackingMode(.follow, animated: true)
     }
     
     deinit {

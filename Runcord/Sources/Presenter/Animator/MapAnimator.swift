@@ -22,11 +22,12 @@ class MapAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         let containerView = transitionContext.containerView
-        guard let toView = transitionContext.view(forKey: .to) else { fatalError() }
-        guard let recordView = presenting ? toView : transitionContext.view(forKey: .from) else { fatalError() }
         
-        let initialFrame = presenting ? originFrame : recordView.frame
-        let finalFrame = presenting ? recordView.frame : originFrame
+        let toView = transitionContext.viewController(forKey: .to)!.view!
+        guard let fromView = presenting ? toView : transitionContext.view(forKey: .from) else { fatalError() }
+        
+        let initialFrame = presenting ? originFrame : fromView.frame
+        let finalFrame = presenting ? fromView.frame : originFrame
 
         let yScaleFactor = presenting ?
           initialFrame.height / finalFrame.height :
@@ -35,22 +36,22 @@ class MapAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let scaleTransform = CGAffineTransform(scaleX: 1.0, y: yScaleFactor)
 
         if presenting {
-            recordView.transform = scaleTransform
-            recordView.center = CGPoint(
+            fromView.transform = scaleTransform
+            fromView.center = CGPoint(
             x: initialFrame.midX,
             y: initialFrame.midY)
         }
         
         containerView.addSubview(toView)
-        containerView.bringSubviewToFront(recordView)
+        containerView.bringSubviewToFront(fromView)
         UIView.animate(withDuration: animationInterval) {
-            recordView.transform = self.presenting ? .identity : scaleTransform
-            recordView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
+            fromView.transform = self.presenting ? .identity : scaleTransform
+            fromView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
         } completion: { _ in
-            if !self.presenting {
-                self.dismissCompletion?()
-            }
             transitionContext.completeTransition(true)
+            if !self.presenting {
+                self.dismissCompletion!()
+            }
         }
     }
     

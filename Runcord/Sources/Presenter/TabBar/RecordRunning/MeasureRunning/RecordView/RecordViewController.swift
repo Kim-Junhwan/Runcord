@@ -26,7 +26,7 @@ class RecordViewController: UIViewController {
     @IBOutlet weak var goalTimeProgressView: GoalProcessView!
     
     @IBOutlet weak var recordProgressStackView: UIStackView!
-    @IBOutlet weak var runningMapView: MKMapView!
+    @IBOutlet var runningMapView: MKMapView!
     lazy var runningMapViewHeighyConstraint = runningMapView.heightAnchor.constraint(equalToConstant: 0)
     
     // MARK: - Properties
@@ -46,11 +46,13 @@ class RecordViewController: UIViewController {
         setCompleteButtonRing()
         setMapView()
         bind()
+        setMapViewDismissCompletion()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         setGoalTimeProgress()
         setGoalDistanceProgress()
+        print("SHOW RECORD VIEW")
     }
     
     // MARK: - Initalizer
@@ -69,14 +71,34 @@ class RecordViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentMapView))
         runningMapView.addGestureRecognizer(tapGesture)
         runningMapViewHeighyConstraint.isActive = true
+        runningMapView.isScrollEnabled = false
+        runningMapView.isZoomEnabled = false
         runningMapView.delegate = self
     }
     
     @objc func presentMapView() {
         let runningRecordMapView = RunningRecordMapViewController(mapView: runningMapView)
         runningRecordMapView.transitioningDelegate = self
-        runningRecordMapView.modalPresentationStyle = .overFullScreen
+        runningRecordMapView.modalPresentationStyle = .fullScreen
         self.present(runningRecordMapView, animated: true)
+    }
+    
+    func setMapViewDismissCompletion() {
+        transition.dismissCompletion = { [weak self] in
+            guard let self = self else { return }
+            self.runningMapView.removeConstraints(runningMapView.constraints)
+            self.runningMapView.setUserTrackingMode(.follow, animated: true)
+            self.runningMapView.isScrollEnabled = false
+            self.runningMapView.isZoomEnabled = false
+            self.view.addSubview(runningMapView)
+            NSLayoutConstraint.activate([
+                runningMapView.topAnchor.constraint(equalTo: view.topAnchor),
+                runningMapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                runningMapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                runningMapViewHeighyConstraint
+            ])
+            runningMapViewHeighyConstraint.constant = view.frame.height * 0.3
+        }
     }
     
     // MARK: - Set LocationManager
@@ -174,19 +196,19 @@ class RecordViewController: UIViewController {
     private func showPauseStatusView() {
         runningMapView.isHidden = false
         runningMapViewHeighyConstraint.constant = self.view.frame.height * 0.3
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.2, delay: 0) {
+        UIView.animate(withDuration: 0.2) {
             self.view.layoutIfNeeded()
         }
-        
     }
     
     private func showPlayStatusView() {
         recordProgressStackView.isHidden = false
         runningMapViewHeighyConstraint.constant = 0
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.7, delay: 0) {
-            self.runningMapView.layoutIfNeeded()
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            self.runningMapView.isHidden = true
         }
-        runningMapView.isHidden = true
     }
     
     func setCompleteButton() {
@@ -270,6 +292,11 @@ extension RecordViewController: UIViewControllerTransitioningDelegate {
         transition.originFrame = mapSuperView.convert(runningMapView.frame, to: nil)
         transition.presenting = true
         
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.presenting = false
         return transition
     }
 }
