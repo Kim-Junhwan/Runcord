@@ -52,7 +52,6 @@ class RecordViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         setGoalTimeProgress()
         setGoalDistanceProgress()
-        print("SHOW RECORD VIEW")
     }
     
     // MARK: - Initalizer
@@ -68,12 +67,16 @@ class RecordViewController: UIViewController {
     // MARK: - Set MapView
     
     private func setMapView() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentMapView))
-        runningMapView.addGestureRecognizer(tapGesture)
+        setMapViewTabGesture()
         runningMapViewHeighyConstraint.isActive = true
         runningMapView.isScrollEnabled = false
         runningMapView.isZoomEnabled = false
         runningMapView.delegate = self
+    }
+    
+    private func setMapViewTabGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentMapView))
+        runningMapView.addGestureRecognizer(tapGesture)
     }
     
     @objc func presentMapView() {
@@ -213,7 +216,7 @@ class RecordViewController: UIViewController {
     
     func setCompleteButton() {
         completeButton.addTarget(self, action: #selector(completeButtonTouchDown), for: .touchDown)
-        completeButton.addTarget(self, action: #selector(completeButtonTouchUp), for: .touchUpInside)
+        //completeButton.addTarget(self, action: #selector(completeButtonTouchUp), for: .touchUpInside)
     }
     
     @objc func completeButtonTouchDown() {
@@ -255,15 +258,11 @@ class RecordViewController: UIViewController {
         completeButtonRingLayer.fillColor = UIColor.clear.cgColor
         completeButtonRingLayer.strokeEnd = 0
     }
-    
-    // MARK: - CompleteButton Action Method
-    
     // MARK: - deinit
     deinit {
         timer?.invalidate()
         timer = nil
         viewModel.deinitViewModel()
-        print("deinit record viewcontroller")
     }
 }
 
