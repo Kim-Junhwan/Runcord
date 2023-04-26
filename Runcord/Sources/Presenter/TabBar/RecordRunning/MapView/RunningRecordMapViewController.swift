@@ -104,6 +104,7 @@ class RunningRecordMapViewController: UIViewController {
     }
     
     private func setMapView() {
+        removeMapViewGesture()
         mapView.isZoomEnabled = true
         mapView.isScrollEnabled = true
         mapView.translatesAutoresizingMaskIntoConstraints = false
@@ -116,6 +117,12 @@ class RunningRecordMapViewController: UIViewController {
             mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         mapView.layoutIfNeeded()
+    }
+    private func removeMapViewGesture() {
+        guard let gestures = mapView.gestureRecognizers else { return }
+        for i in gestures {
+            mapView.removeGestureRecognizer(i)
+        }
     }
     
     @objc func dismissMapView() {

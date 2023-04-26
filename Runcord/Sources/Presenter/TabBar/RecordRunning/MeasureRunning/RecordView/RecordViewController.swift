@@ -101,6 +101,7 @@ class RecordViewController: UIViewController {
                 runningMapViewHeighyConstraint
             ])
             runningMapViewHeighyConstraint.constant = view.frame.height * 0.3
+            setMapViewTabGesture()
         }
     }
     
