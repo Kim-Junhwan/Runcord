@@ -16,7 +16,7 @@ class RunningRecordMapViewController: UIViewController {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.spacing = 20
+        stackView.spacing = 40
         return stackView
     }()
     
@@ -72,6 +72,7 @@ class RunningRecordMapViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         setButtonStackView()
     }
     
@@ -88,7 +89,7 @@ class RunningRecordMapViewController: UIViewController {
         view.addSubview(buttonStackView)
         NSLayoutConstraint.activate([
             buttonStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            buttonStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)
+            buttonStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60)
         ])
     }
     
@@ -98,6 +99,7 @@ class RunningRecordMapViewController: UIViewController {
     }
     
     private func setButtonLayout() {
+        buttonStackView.layoutIfNeeded()
         userTrackingButton.layer.cornerRadius = userTrackingButton.frame.height/2
         closeButton.layer.cornerRadius = closeButton.frame.height/2
         cameraButton.layer.cornerRadius = cameraButton.frame.height/2
@@ -108,6 +110,7 @@ class RunningRecordMapViewController: UIViewController {
         mapView.isZoomEnabled = true
         mapView.isScrollEnabled = true
         mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.delegate = self
         mapView.removeConstraints(mapView.constraints)
         view.addSubview(mapView)
         NSLayoutConstraint.activate([
@@ -137,4 +140,8 @@ class RunningRecordMapViewController: UIViewController {
     deinit {
         print("deinit RunningMapView")
     }
+}
+
+extension RunningRecordMapViewController: MKMapViewDelegate {
+    
 }

@@ -20,6 +20,10 @@
 		C7211E3B29B9EA9700ADA90C /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7211E3929B9EA9700ADA90C /* ImageCollectionViewCell.xib */; };
 		C7233CF829DDBFE00003A290 /* GoalProcessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7233CF729DDBFE00003A290 /* GoalProcessView.swift */; };
 		C7233CFC29DDC0770003A290 /* GoalProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7233CFB29DDC0770003A290 /* GoalProcessView.xib */; };
+		C72B3BBB29FE59C30051EB61 /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BBA29FE59C30051EB61 /* ImageInfo.swift */; };
+		C72B3BBD29FE5A780051EB61 /* RunningRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BBC29FE5A780051EB61 /* RunningRecord.swift */; };
+		C72B3BC429FE63CB0051EB61 /* RunningRecordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BC329FE63CB0051EB61 /* RunningRecordRepository.swift */; };
+		C7481F8A29F973240013D633 /* RunningRecordMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7481F8929F973240013D633 /* RunningRecordMapViewModel.swift */; };
 		C751527929B27038003D8987 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527829B27038003D8987 /* UIImage+.swift */; };
 		C751527C29B34224003D8987 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527B29B34224003D8987 /* RecordViewModel.swift */; };
 		C751528029B79981003D8987 /* SaveRecordRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527E29B79981003D8987 /* SaveRecordRunningViewController.swift */; };
@@ -109,6 +113,10 @@
 		C7211E3929B9EA9700ADA90C /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		C7233CF729DDBFE00003A290 /* GoalProcessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProcessView.swift; sourceTree = "<group>"; };
 		C7233CFB29DDC0770003A290 /* GoalProcessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalProcessView.xib; sourceTree = "<group>"; };
+		C72B3BBA29FE59C30051EB61 /* ImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
+		C72B3BBC29FE5A780051EB61 /* RunningRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecord.swift; sourceTree = "<group>"; };
+		C72B3BC329FE63CB0051EB61 /* RunningRecordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordRepository.swift; sourceTree = "<group>"; };
+		C7481F8929F973240013D633 /* RunningRecordMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordMapViewModel.swift; sourceTree = "<group>"; };
 		C751527829B27038003D8987 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		C751527B29B34224003D8987 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
 		C751527E29B79981003D8987 /* SaveRecordRunningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveRecordRunningViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +237,7 @@
 		C703495D29D49C5F00BF28D7 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				C72B3BB929FE1C650051EB61 /* Entities */,
 				C703496A29D5B28200BF28D7 /* UseCases */,
 				C703495E29D49C6600BF28D7 /* Repositories */,
 			);
@@ -238,6 +247,7 @@
 		C703495E29D49C6600BF28D7 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				C72B3BC329FE63CB0051EB61 /* RunningRecordRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -273,6 +283,7 @@
 		C703496A29D5B28200BF28D7 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				C72B3BBF29FE63590051EB61 /* RecordScene */,
 				C703496929D5B27500BF28D7 /* RunningScene */,
 			);
 			path = UseCases;
@@ -315,6 +326,30 @@
 			path = GoalProcessView;
 			sourceTree = "<group>";
 		};
+		C72B3BB929FE1C650051EB61 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C72B3BBE29FE5E7C0051EB61 /* RunningRecord */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		C72B3BBE29FE5E7C0051EB61 /* RunningRecord */ = {
+			isa = PBXGroup;
+			children = (
+				C72B3BBA29FE59C30051EB61 /* ImageInfo.swift */,
+				C72B3BBC29FE5A780051EB61 /* RunningRecord.swift */,
+			);
+			path = RunningRecord;
+			sourceTree = "<group>";
+		};
+		C72B3BBF29FE63590051EB61 /* RecordScene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RecordScene;
+			sourceTree = "<group>";
+		};
 		C730C16329A259720076C83C /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +357,14 @@
 				C7BA067B29A25AF100D2227A /* NotoSansKR-Bold.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		C7481F8829F973080013D633 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C7481F8929F973240013D633 /* RunningRecordMapViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C751527A29B34212003D8987 /* ViewModel */ = {
@@ -383,6 +426,7 @@
 		C762DED729EC5A9300C24C21 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				C7481F8829F973080013D633 /* ViewModel */,
 				C762DED829EC5AC700C24C21 /* RunningRecordMapViewController.swift */,
 			);
 			path = MapView;
@@ -942,12 +986,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C75DECFA29AE7E7D00A4EC47 /* RecordViewController.swift in Sources */,
+				C72B3BBB29FE59C30051EB61 /* ImageInfo.swift in Sources */,
 				C7A5AFE829D69F7900E4D851 /* AuthorizationAlertable.swift in Sources */,
 				C7DE67FD2999301800C824A9 /* RunningCoordinator.swift in Sources */,
 				C7233CF829DDBFE00003A290 /* GoalProcessView.swift in Sources */,
 				C762DEB029EC1B1400C24C21 /* MapAnimator.swift in Sources */,
 				C7663E7B29A9F1260046068B /* GoalTextField.swift in Sources */,
 				C7A1F21929BA385A009AE7BA /* UIView+.swift in Sources */,
+				C72B3BC429FE63CB0051EB61 /* RunningRecordRepository.swift in Sources */,
 				C7DE6825299A85DF00C824A9 /* Color+.swift in Sources */,
 				C7DE67FB29992A5E00C824A9 /* TabBarItem.swift in Sources */,
 				C7A4CE5429BC2135000DAE8B /* ImagePickerViewController.swift in Sources */,
@@ -955,6 +1001,7 @@
 				C7211E3529B9721E00ADA90C /* AddImageCollectionViewCell.swift in Sources */,
 				C7663E7D29AA125B0046068B /* GoalSettingStackView.swift in Sources */,
 				C703496429D5253400BF28D7 /* Alertable.swift in Sources */,
+				C7481F8A29F973240013D633 /* RunningRecordMapViewModel.swift in Sources */,
 				C7670EE82995460800E3CD77 /* AppDelegate.swift in Sources */,
 				C751527929B27038003D8987 /* UIImage+.swift in Sources */,
 				C769EA3729E412E7004717B3 /* MKMapView+.swift in Sources */,
@@ -974,6 +1021,7 @@
 				C7DE67F62998E4D300C824A9 /* TabBarCoordinator.swift in Sources */,
 				C751528029B79981003D8987 /* SaveRecordRunningViewController.swift in Sources */,
 				C7A5AFEA29D6A34E00E4D851 /* AuthorizationManager.swift in Sources */,
+				C72B3BBD29FE5A780051EB61 /* RunningRecord.swift in Sources */,
 				C7A4CE5D29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.swift in Sources */,
 				C7663E8129ABA5720046068B /* GoalSettingLabelStackView.swift in Sources */,
 				C7DE67F32998DFC200C824A9 /* Coordinator.swift in Sources */,
