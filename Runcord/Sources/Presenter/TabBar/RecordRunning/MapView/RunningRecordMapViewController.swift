@@ -56,8 +56,11 @@ class RunningRecordMapViewController: UIViewController {
         return button
     }()
     
-    init(mapView: MKMapView) {
+    let viewModel: RunningRecordMapViewModel
+    
+    init(mapView: MKMapView, viewModel: RunningRecordMapViewModel) {
         self.mapView = mapView
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -96,6 +99,7 @@ class RunningRecordMapViewController: UIViewController {
     private func setButtonAction() {
         userTrackingButton.addTarget(self, action: #selector(setUserTracking), for: .touchUpInside)
         closeButton.addTarget(self, action: #selector(dismissMapView), for: .touchUpInside)
+        cameraButton.addTarget(self, action: #selector(takePicture), for: .touchUpInside)
     }
     
     private func setButtonLayout() {
@@ -137,6 +141,13 @@ class RunningRecordMapViewController: UIViewController {
         mapView.setUserTrackingMode(.follow, animated: true)
     }
     
+    @objc func takePicture() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .camera
+        imagePicker.delegate = self
+        present(imagePicker, animated: true)
+    }
+    
     deinit {
         print("deinit RunningMapView")
     }
@@ -144,4 +155,13 @@ class RunningRecordMapViewController: UIViewController {
 
 extension RunningRecordMapViewController: MKMapViewDelegate {
     
+}
+
+extension RunningRecordMapViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        print("take Image")
+        
+        picker.dismiss(animated: true)
+    }
 }
