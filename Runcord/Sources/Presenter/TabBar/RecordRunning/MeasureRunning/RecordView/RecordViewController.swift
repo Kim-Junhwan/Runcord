@@ -174,13 +174,11 @@ class RecordViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        viewModel.routeObservable.subscribe { route in
-            if let routeValue = route.element,
-               let lastCoordinate = routeValue.first,
-               let currentCoordinate = routeValue.last {
+        viewModel.routeDriver.drive(onNext: { route in
+            if let lastCoordinate = route.first, let currentCoordinate = route.last {
                 self.runningMapView.updateUserRoute(lastCoordinate: lastCoordinate, newCoordinate: currentCoordinate)
             }
-        }.disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
     }
     
     // MARK: - Action Method

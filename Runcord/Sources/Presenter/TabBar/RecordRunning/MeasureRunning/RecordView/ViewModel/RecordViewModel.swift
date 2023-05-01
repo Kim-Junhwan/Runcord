@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 import RxCocoa
 import CoreLocation
 
@@ -26,11 +25,11 @@ class RecordViewModel: NSObject {
     
     // MARK: - Route Properties
     private let route: BehaviorRelay<[CLLocation]> = BehaviorRelay(value: [])
-    var routeObservable: Observable<[CLLocation]> {
+    var routeDriver: Driver<[CLLocation]> {
         return route
             .filter { $0.count >= 2 }
             .map { $0.suffix(2) }
-            .asObservable()
+            .asDriver(onErrorJustReturn: [])
     }
     
     func viewDidLoad() {
