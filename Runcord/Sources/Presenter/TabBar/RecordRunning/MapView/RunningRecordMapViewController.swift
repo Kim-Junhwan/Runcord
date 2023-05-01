@@ -114,7 +114,6 @@ class RunningRecordMapViewController: UIViewController {
         mapView.isZoomEnabled = true
         mapView.isScrollEnabled = true
         mapView.translatesAutoresizingMaskIntoConstraints = false
-        mapView.delegate = self
         mapView.removeConstraints(mapView.constraints)
         view.addSubview(mapView)
         NSLayoutConstraint.activate([
@@ -160,8 +159,9 @@ extension RunningRecordMapViewController: MKMapViewDelegate {
 extension RunningRecordMapViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        print("take Image")
-        
+        if let image = info[.originalImage] as? UIImage {
+            viewModel.saveImage(image: image)
+        }
         picker.dismiss(animated: true)
     }
 }

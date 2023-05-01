@@ -8,7 +8,7 @@
 import MapKit
 
 extension MKMapView {
-    func centerToLocation(location: CLLocation, regionRadius: CLLocationDistance = 1000) {
+    func centerToLocation(location: CLLocation, regionRadius: CLLocationDistance = 500) {
         let coordinatorRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         setRegion(coordinatorRegion, animated: true)
     }

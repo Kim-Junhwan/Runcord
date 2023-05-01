@@ -80,7 +80,7 @@ class RecordViewController: UIViewController {
     }
     
     @objc func presentMapView() {
-        let runningRecordMapView = RunningRecordMapViewController(mapView: runningMapView, viewModel: RunningRecordMapViewModel())
+        let runningRecordMapView = RunningRecordMapViewController(mapView: runningMapView, viewModel: RunningRecordMapViewModel(locationManager: viewModel.locationManager))
         runningRecordMapView.transitioningDelegate = self
         runningRecordMapView.modalPresentationStyle = .fullScreen
         self.present(runningRecordMapView, animated: true)

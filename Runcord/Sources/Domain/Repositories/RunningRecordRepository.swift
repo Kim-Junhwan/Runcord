@@ -8,7 +8,7 @@
 import Foundation
 
 protocol RunningRecordRepository {
-    func fetchRunningRecordList() -> [RunningRecord]
-    func fetchRunningRecord() -> RunningRecord
-    func saveRunningRecord(runningRecord: RunningRecord)
+    func fetchRunningRecordList() throws -> [RunningRecord]
+    func fetchRunningRecord() throws -> RunningRecord
+    func saveRunningRecord(runningRecord: RunningRecord) throws
 }

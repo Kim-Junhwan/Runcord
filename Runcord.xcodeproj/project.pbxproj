@@ -23,6 +23,8 @@
 		C72B3BBB29FE59C30051EB61 /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BBA29FE59C30051EB61 /* ImageInfo.swift */; };
 		C72B3BBD29FE5A780051EB61 /* RunningRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BBC29FE5A780051EB61 /* RunningRecord.swift */; };
 		C72B3BC429FE63CB0051EB61 /* RunningRecordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BC329FE63CB0051EB61 /* RunningRecordRepository.swift */; };
+		C72B3BC829FFAFC10051EB61 /* SaveRunningRecordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BC729FFAFC10051EB61 /* SaveRunningRecordUseCase.swift */; };
+		C72B3BCB29FFB8B30051EB61 /* DataBaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BCA29FFB8B30051EB61 /* DataBaseError.swift */; };
 		C7481F8A29F973240013D633 /* RunningRecordMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7481F8929F973240013D633 /* RunningRecordMapViewModel.swift */; };
 		C751527929B27038003D8987 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527829B27038003D8987 /* UIImage+.swift */; };
 		C751527C29B34224003D8987 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527B29B34224003D8987 /* RecordViewModel.swift */; };
@@ -116,6 +118,8 @@
 		C72B3BBA29FE59C30051EB61 /* ImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
 		C72B3BBC29FE5A780051EB61 /* RunningRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecord.swift; sourceTree = "<group>"; };
 		C72B3BC329FE63CB0051EB61 /* RunningRecordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordRepository.swift; sourceTree = "<group>"; };
+		C72B3BC729FFAFC10051EB61 /* SaveRunningRecordUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveRunningRecordUseCase.swift; sourceTree = "<group>"; };
+		C72B3BCA29FFB8B30051EB61 /* DataBaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseError.swift; sourceTree = "<group>"; };
 		C7481F8929F973240013D633 /* RunningRecordMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordMapViewModel.swift; sourceTree = "<group>"; };
 		C751527829B27038003D8987 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		C751527B29B34224003D8987 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 		C703495D29D49C5F00BF28D7 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				C72B3BC929FFB8A10051EB61 /* Errors */,
 				C72B3BB929FE1C650051EB61 /* Entities */,
 				C703496A29D5B28200BF28D7 /* UseCases */,
 				C703495E29D49C6600BF28D7 /* Repositories */,
@@ -346,8 +351,17 @@
 		C72B3BBF29FE63590051EB61 /* RecordScene */ = {
 			isa = PBXGroup;
 			children = (
+				C72B3BC729FFAFC10051EB61 /* SaveRunningRecordUseCase.swift */,
 			);
 			path = RecordScene;
+			sourceTree = "<group>";
+		};
+		C72B3BC929FFB8A10051EB61 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				C72B3BCA29FFB8B30051EB61 /* DataBaseError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		C730C16329A259720076C83C /* Font */ = {
@@ -985,6 +999,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C72B3BC829FFAFC10051EB61 /* SaveRunningRecordUseCase.swift in Sources */,
 				C75DECFA29AE7E7D00A4EC47 /* RecordViewController.swift in Sources */,
 				C72B3BBB29FE59C30051EB61 /* ImageInfo.swift in Sources */,
 				C7A5AFE829D69F7900E4D851 /* AuthorizationAlertable.swift in Sources */,
@@ -1009,6 +1024,7 @@
 				C7A5AFED29D6ADB400E4D851 /* LocationAlertable.swift in Sources */,
 				C703496729D582CC00BF28D7 /* RunningStartViewController.swift in Sources */,
 				C762DED929EC5AC700C24C21 /* RunningRecordMapViewController.swift in Sources */,
+				C72B3BCB29FFB8B30051EB61 /* DataBaseError.swift in Sources */,
 				C7670EEA2995460800E3CD77 /* SceneDelegate.swift in Sources */,
 				C7DE681029993A7000C824A9 /* MyPageCoordinator.swift in Sources */,
 				C7211E3A29B9EA9700ADA90C /* ImageCollectionViewCell.swift in Sources */,

@@ -93,7 +93,6 @@ class RecordViewModel: NSObject {
 extension RecordViewModel: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentLocation = locations.last else { return }
-        
         if !route.value.isEmpty {
             guard let lastLocation = route.value.last else { return }
             
