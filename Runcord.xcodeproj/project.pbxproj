@@ -25,6 +25,7 @@
 		C72B3BC429FE63CB0051EB61 /* RunningRecordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BC329FE63CB0051EB61 /* RunningRecordRepository.swift */; };
 		C72B3BC829FFAFC10051EB61 /* SaveRunningRecordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BC729FFAFC10051EB61 /* SaveRunningRecordUseCase.swift */; };
 		C72B3BCB29FFB8B30051EB61 /* DataBaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BCA29FFB8B30051EB61 /* DataBaseError.swift */; };
+		C72B3BDD2A010A170051EB61 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BDC2A010A170051EB61 /* LocationService.swift */; };
 		C7481F8A29F973240013D633 /* RunningRecordMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7481F8929F973240013D633 /* RunningRecordMapViewModel.swift */; };
 		C751527929B27038003D8987 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527829B27038003D8987 /* UIImage+.swift */; };
 		C751527C29B34224003D8987 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527B29B34224003D8987 /* RecordViewModel.swift */; };
@@ -120,6 +121,7 @@
 		C72B3BC329FE63CB0051EB61 /* RunningRecordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordRepository.swift; sourceTree = "<group>"; };
 		C72B3BC729FFAFC10051EB61 /* SaveRunningRecordUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveRunningRecordUseCase.swift; sourceTree = "<group>"; };
 		C72B3BCA29FFB8B30051EB61 /* DataBaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseError.swift; sourceTree = "<group>"; };
+		C72B3BDC2A010A170051EB61 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		C7481F8929F973240013D633 /* RunningRecordMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordMapViewModel.swift; sourceTree = "<group>"; };
 		C751527829B27038003D8987 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		C751527B29B34224003D8987 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
@@ -241,10 +243,10 @@
 		C703495D29D49C5F00BF28D7 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				C72B3BCC2A00C4AF0051EB61 /* Interfaces */,
 				C72B3BC929FFB8A10051EB61 /* Errors */,
 				C72B3BB929FE1C650051EB61 /* Entities */,
 				C703496A29D5B28200BF28D7 /* UseCases */,
-				C703495E29D49C6600BF28D7 /* Repositories */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -278,18 +280,10 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C703496929D5B27500BF28D7 /* RunningScene */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = RunningScene;
-			sourceTree = "<group>";
-		};
 		C703496A29D5B28200BF28D7 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
 				C72B3BBF29FE63590051EB61 /* RecordScene */,
-				C703496929D5B27500BF28D7 /* RunningScene */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -362,6 +356,22 @@
 				C72B3BCA29FFB8B30051EB61 /* DataBaseError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		C72B3BCC2A00C4AF0051EB61 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				C703495E29D49C6600BF28D7 /* Repositories */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		C72B3BD92A0109E90051EB61 /* LocationService */ = {
+			isa = PBXGroup;
+			children = (
+				C72B3BDC2A010A170051EB61 /* LocationService.swift */,
+			);
+			path = LocationService;
 			sourceTree = "<group>";
 		};
 		C730C16329A259720076C83C /* Font */ = {
@@ -527,6 +537,7 @@
 		C7811F7829A258CE00801E6B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C72B3BD92A0109E90051EB61 /* LocationService */,
 				C703495D29D49C5F00BF28D7 /* Domain */,
 				C7DE67E92997AA3600C824A9 /* Application */,
 				C703495929D48F0200BF28D7 /* InterfaceAdapter */,
@@ -1006,6 +1017,7 @@
 				C7DE67FD2999301800C824A9 /* RunningCoordinator.swift in Sources */,
 				C7233CF829DDBFE00003A290 /* GoalProcessView.swift in Sources */,
 				C762DEB029EC1B1400C24C21 /* MapAnimator.swift in Sources */,
+				C72B3BDD2A010A170051EB61 /* LocationService.swift in Sources */,
 				C7663E7B29A9F1260046068B /* GoalTextField.swift in Sources */,
 				C7A1F21929BA385A009AE7BA /* UIView+.swift in Sources */,
 				C72B3BC429FE63CB0051EB61 /* RunningRecordRepository.swift in Sources */,
