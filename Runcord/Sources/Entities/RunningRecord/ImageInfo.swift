@@ -10,4 +10,5 @@ struct ImageInfo {
     let latitude: Double
     let longitude: Double
     let image: UIImage
+    let saveTime: Date
 }
