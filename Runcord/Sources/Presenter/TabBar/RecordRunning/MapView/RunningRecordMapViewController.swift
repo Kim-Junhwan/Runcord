@@ -158,9 +158,9 @@ extension RunningRecordMapViewController: MKMapViewDelegate {
 
 extension RunningRecordMapViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.originalImage] as? UIImage {
-            viewModel.saveImage(image: image)
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let image = info[.originalImage] as? UIImage, let metaData = info[.mediaMetadata] as? NSDictionary {
+            viewModel.saveImage(image: image, metaData: metaData)
         }
         picker.dismiss(animated: true)
     }
