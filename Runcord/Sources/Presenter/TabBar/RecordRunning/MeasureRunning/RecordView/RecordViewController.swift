@@ -38,7 +38,6 @@ class RecordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.viewDidLoad()
         runningMeasuringView.isHidden = true
         setControlButtonCornerRadius()
         startReadyTimer()
@@ -78,9 +77,9 @@ class RecordViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentMapView))
         runningMapView.addGestureRecognizer(tapGesture)
     }
-    
+
     @objc func presentMapView() {
-        let runningRecordMapView = RunningRecordMapViewController(mapView: runningMapView, viewModel: RunningRecordMapViewModel(locationManager: viewModel.locationManager))
+        let runningRecordMapView = RunningRecordMapViewController(mapView: runningMapView, viewModel: RunningRecordMapViewModel(locationService: viewModel.locationService))
         runningRecordMapView.transitioningDelegate = self
         runningRecordMapView.modalPresentationStyle = .fullScreen
         self.present(runningRecordMapView, animated: true)

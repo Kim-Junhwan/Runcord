@@ -7,6 +7,7 @@
 
 import Foundation
 import RxCocoa
+import RxSwift
 import CoreLocation
 
 class RecordViewModel: NSObject {
@@ -17,7 +18,7 @@ class RecordViewModel: NSObject {
     let totalRunningSecond: BehaviorRelay<Int> = BehaviorRelay(value: 0)
     var isRunning: Bool = false
     var runningDistance: BehaviorRelay<Float> = BehaviorRelay(value: 0.0)
-    let locationManager: CLLocationManager
+    let locationService: LocationService
     
     // MARK: - Goal Properties
     var goalTime: Int
@@ -32,19 +33,17 @@ class RecordViewModel: NSObject {
             .asDriver(onErrorJustReturn: [])
     }
     
-    func viewDidLoad() {
-        locationManager.delegate = self
-        
-    }
+    let disposeBag = DisposeBag()
+    let coordinator: RunningCoordinator
     
-    init(goalTime: Int, goalDistance: Double, locationManager: CLLocationManager) {
+    init(goalTime: Int, goalDistance: Double, locationService: LocationService, coordinator: RunningCoordinator) {
         self.goalTime = goalTime
         self.goalDistance = goalDistance
-        self.locationManager = locationManager
+        self.locationService = locationService
+        self.coordinator = coordinator
     }
     
     // MARK: - Timer Method
-    
     func startTimer() {
         isRunning = true
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
@@ -74,7 +73,13 @@ class RecordViewModel: NSObject {
     
     // MARK: - Location Method
     func startTrackUserLocation() {
-        locationManager.startUpdatingLocation()
+        locationService.requestLocation()
+        locationService.currentLocationSubject
+            .compactMap { $0 }
+            .subscribe { currentLocation in
+                guard let currentLocation = currentLocation.element else { return }
+                self.route.accept(self.route.value+[currentLocation])
+            }.disposed(by: disposeBag)
     }
     
     func calculateDistanceKilometerBetweenCoordinators(_ firstCoordinate: CLLocation, _ secondCoordinate: CLLocation) -> Float {
@@ -86,19 +91,5 @@ class RecordViewModel: NSObject {
     
     deinit {
         print("deinit record viewModel")
-    }
-}
-
-extension RecordViewModel: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let currentLocation = locations.last else { return }
-        if !route.value.isEmpty {
-            guard let lastLocation = route.value.last else { return }
-            
-            if isRunning {
-                runningDistance.accept(runningDistance.value + calculateDistanceKilometerBetweenCoordinators(lastLocation, currentLocation))
-            }
-        }
-        route.accept(route.value + [currentLocation])
     }
 }

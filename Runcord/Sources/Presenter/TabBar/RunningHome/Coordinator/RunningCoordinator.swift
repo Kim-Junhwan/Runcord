@@ -32,15 +32,9 @@ final class RunningCoordinator: Coordinator {
     }
     
     func showRecordRunningView(goalTime: Int, goalDistance: Double) {
-        let recordRunningViewController = RecordViewController(viewModel: RecordViewModel(goalTime: goalTime, goalDistance: goalDistance, locationService: locationService))
+        let recordRunningViewController = RecordViewController(viewModel: RecordViewModel(goalTime: goalTime, goalDistance: goalDistance, locationService: locationService, coordinator: self))
         recordRunningViewController.modalPresentationStyle = .fullScreen
         navigationController.present(recordRunningViewController, animated: false)
-    }
-    
-    func showRunningMapView(mapView: MKMapView) {
-        let runningRecordMapView = RunningRecordMapViewController(mapView: mapView, viewModel: RunningRecordMapViewModel(locationService: locationService))
-        runningRecordMapView.modalPresentationStyle = .fullScreen
-        navigationController.present(runningRecordMapView, animated: true)
     }
     
     deinit {

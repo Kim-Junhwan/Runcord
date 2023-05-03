@@ -19,7 +19,7 @@ final class LocationService: NSObject {
         locationAuthorizationSubject.onNext(locationManager.authorizationStatus)
     }
     
-    let currentLocationSubject: BehaviorSubject<CLLocationCoordinate2D?> = BehaviorSubject(value: nil)
+    let currentLocationSubject: BehaviorSubject<CLLocation?> = BehaviorSubject(value: nil)
     let locationAuthorizationSubject: BehaviorSubject<CLAuthorizationStatus> = BehaviorSubject(value: .denied)
     
     func requestLocation() {
@@ -32,7 +32,7 @@ extension LocationService: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentLocation = locations.last else { return }
-        currentLocationSubject.onNext(currentLocation.coordinate)
+        currentLocationSubject.onNext(currentLocation)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

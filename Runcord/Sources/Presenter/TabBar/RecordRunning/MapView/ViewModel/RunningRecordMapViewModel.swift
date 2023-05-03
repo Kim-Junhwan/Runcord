@@ -6,22 +6,30 @@
 //
 import UIKit
 import CoreLocation
+import RxSwift
 import RxCocoa
 
 class RunningRecordMapViewModel {
     
-    private let locationManager: CLLocationManager
+    private let locationService: LocationService
     private var imageList: BehaviorRelay<[ImageInfo]> = BehaviorRelay(value: [])
     var imageListDriver: Driver<[ImageInfo]> {
         return imageList.asDriver()
     }
+    let disposeBag = DisposeBag()
     
-    init(locationManager: CLLocationManager) {
-        self.locationManager = locationManager
+    init(locationService: LocationService) {
+        self.locationService = locationService
     }
     
     func saveImage(image: UIImage, metaData: NSDictionary) {
-        
+        locationService.currentLocationSubject
+            .compactMap({ $0 })
+            .take(1)
+            .subscribe(with: self) { owner, currentLocation in
+                print(currentLocation)
+            }
+            .disposed(by: disposeBag)
     }
     
 }
