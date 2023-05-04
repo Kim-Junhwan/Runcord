@@ -24,6 +24,8 @@
 		C72B3BBD29FE5A780051EB61 /* RunningRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BBC29FE5A780051EB61 /* RunningRecord.swift */; };
 		C72B3BC429FE63CB0051EB61 /* RunningRecordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BC329FE63CB0051EB61 /* RunningRecordRepository.swift */; };
 		C72B3BDF2A010C460051EB61 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BDE2A010C460051EB61 /* LocationService.swift */; };
+		C72B3BE22A038EC60051EB61 /* ImageAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BE12A038EC60051EB61 /* ImageAnnotationView.swift */; };
+		C72B3BE42A039CF80051EB61 /* ImageAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BE32A039CF80051EB61 /* ImageAnnotation.swift */; };
 		C7481F8A29F973240013D633 /* RunningRecordMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7481F8929F973240013D633 /* RunningRecordMapViewModel.swift */; };
 		C751527929B27038003D8987 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527829B27038003D8987 /* UIImage+.swift */; };
 		C751527C29B34224003D8987 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527B29B34224003D8987 /* RecordViewModel.swift */; };
@@ -118,6 +120,8 @@
 		C72B3BBC29FE5A780051EB61 /* RunningRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecord.swift; sourceTree = "<group>"; };
 		C72B3BC329FE63CB0051EB61 /* RunningRecordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordRepository.swift; sourceTree = "<group>"; };
 		C72B3BDE2A010C460051EB61 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		C72B3BE12A038EC60051EB61 /* ImageAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotationView.swift; sourceTree = "<group>"; };
+		C72B3BE32A039CF80051EB61 /* ImageAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotation.swift; sourceTree = "<group>"; };
 		C7481F8929F973240013D633 /* RunningRecordMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordMapViewModel.swift; sourceTree = "<group>"; };
 		C751527829B27038003D8987 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		C751527B29B34224003D8987 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
@@ -327,6 +331,15 @@
 			path = LocationService;
 			sourceTree = "<group>";
 		};
+		C72B3BE02A038E9A0051EB61 /* Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				C72B3BE12A038EC60051EB61 /* ImageAnnotationView.swift */,
+				C72B3BE32A039CF80051EB61 /* ImageAnnotation.swift */,
+			);
+			path = Annotation;
+			sourceTree = "<group>";
+		};
 		C730C16329A259720076C83C /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +416,7 @@
 		C762DED729EC5A9300C24C21 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				C72B3BE02A038E9A0051EB61 /* Annotation */,
 				C7481F8829F973080013D633 /* ViewModel */,
 				C762DED829EC5AC700C24C21 /* RunningRecordMapViewController.swift */,
 			);
@@ -977,6 +991,7 @@
 				C7DE67FB29992A5E00C824A9 /* TabBarItem.swift in Sources */,
 				C7A4CE5429BC2135000DAE8B /* ImagePickerViewController.swift in Sources */,
 				C7AD00EC29D1E1A6001D275E /* DesignedTabBarController.swift in Sources */,
+				C72B3BE22A038EC60051EB61 /* ImageAnnotationView.swift in Sources */,
 				C7211E3529B9721E00ADA90C /* AddImageCollectionViewCell.swift in Sources */,
 				C7663E7D29AA125B0046068B /* GoalSettingStackView.swift in Sources */,
 				C703496429D5253400BF28D7 /* Alertable.swift in Sources */,
@@ -1004,6 +1019,7 @@
 				C72B3BBD29FE5A780051EB61 /* RunningRecord.swift in Sources */,
 				C7A4CE5D29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.swift in Sources */,
 				C7663E8129ABA5720046068B /* GoalSettingLabelStackView.swift in Sources */,
+				C72B3BE42A039CF80051EB61 /* ImageAnnotation.swift in Sources */,
 				C7DE67F32998DFC200C824A9 /* Coordinator.swift in Sources */,
 				C7DE68022999376800C824A9 /* MyPageViewController.swift in Sources */,
 				C75DECF729ABB3AF00A4EC47 /* GoalSettingViewController.swift in Sources */,

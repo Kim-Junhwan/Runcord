@@ -27,7 +27,8 @@ class RunningRecordMapViewModel {
             .compactMap({ $0 })
             .take(1)
             .subscribe(with: self) { owner, currentLocation in
-                print(currentLocation)
+                let currentLocationCoordinate = currentLocation.coordinate
+                owner.imageList.accept(owner.imageList.value+[ImageInfo(latitude: currentLocationCoordinate.latitude, longitude: currentLocationCoordinate.longitude, image: image, saveTime: Date())])
             }
             .disposed(by: disposeBag)
     }

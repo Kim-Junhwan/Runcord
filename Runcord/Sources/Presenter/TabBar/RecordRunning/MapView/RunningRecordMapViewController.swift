@@ -72,6 +72,17 @@ class RunningRecordMapViewController: UIViewController {
         super.viewDidLoad()
         setMapView()
         setButtonAction()
+        imageBing()
+    }
+    
+    private func imageBing() {
+        viewModel.imageListDriver.drive(with: self) { owner, imageList in
+            guard let currentImage = imageList.last else { return }
+            let annotation = ImageAnnotation()
+            annotation.coordinate = CLLocationCoordinate2DMake(currentImage.latitude, currentImage.longitude)
+            annotation.image = currentImage.image
+            owner.mapView.addAnnotation(annotation)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -114,7 +125,9 @@ class RunningRecordMapViewController: UIViewController {
         mapView.isZoomEnabled = true
         mapView.isScrollEnabled = true
         mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.delegate = self
         mapView.removeConstraints(mapView.constraints)
+        mapView.register(ImageAnnotationView.self, forAnnotationViewWithReuseIdentifier: ImageAnnotationView.identifier)
         view.addSubview(mapView)
         NSLayoutConstraint.activate([
             mapView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -126,8 +139,8 @@ class RunningRecordMapViewController: UIViewController {
     }
     private func removeMapViewGesture() {
         guard let gestures = mapView.gestureRecognizers else { return }
-        for i in gestures {
-            mapView.removeGestureRecognizer(i)
+        for gesture in gestures {
+            mapView.removeGestureRecognizer(gesture)
         }
     }
     
@@ -153,7 +166,20 @@ class RunningRecordMapViewController: UIViewController {
 }
 
 extension RunningRecordMapViewController: MKMapViewDelegate {
-    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !annotation.isKind(of: MKUserLocation.self) else { return nil }
+        
+        var annotationView: ImageAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: ImageAnnotationView.identifier) as? ImageAnnotationView
+        
+        if annotationView == nil {
+            annotationView = ImageAnnotationView(annotation: annotation, reuseIdentifier: ImageAnnotationView.identifier)
+        }
+        guard let imageAnnotation = annotation as? ImageAnnotation else { return nil}
+        annotationView?.image = imageAnnotation.image
+        annotationView?.annotation  = imageAnnotation
+        
+        return annotationView
+    }
 }
 
 extension RunningRecordMapViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

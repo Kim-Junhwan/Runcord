@@ -78,13 +78,13 @@ class RecordViewModel: NSObject {
             .compactMap { $0 }
             .subscribe(with: self) { owner, currentLocation in
                 if let lastCoordinator = owner.route.value.last {
-                    owner.runningDistance.accept(owner.runningDistance.value+owner.calculateBetweenTwoCoordinatesDistance(lastCoordinator, currentLocation))
+                    owner.runningDistance.accept(owner.runningDistance.value+owner.calculateBetweenTwoCoordinatesDistanceKilometer(lastCoordinator, currentLocation))
                 }
                 owner.route.accept(owner.route.value+[currentLocation])
             }.disposed(by: disposeBag)
     }
     
-    private func calculateBetweenTwoCoordinatesDistance(_ firstCoordinate: CLLocation, _ secondCoordinate: CLLocation) -> Float {
+    private func calculateBetweenTwoCoordinatesDistanceKilometer(_ firstCoordinate: CLLocation, _ secondCoordinate: CLLocation) -> Float {
         let distance = firstCoordinate.distance(from: secondCoordinate)
         let kmDistance = distance/1000
         return Float(kmDistance)
