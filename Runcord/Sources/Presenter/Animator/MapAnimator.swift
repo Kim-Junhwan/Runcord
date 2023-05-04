@@ -12,7 +12,6 @@ class MapAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     let animationInterval = 0.2
     var presenting = true
     var originFrame = CGRect.zero
-    
     var dismissCompletion: (() -> Void)?
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -22,7 +21,6 @@ class MapAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         let containerView = transitionContext.containerView
-        
         let toView = transitionContext.viewController(forKey: .to)!.view!
         guard let fromView = presenting ? toView : transitionContext.view(forKey: .from) else { fatalError() }
         

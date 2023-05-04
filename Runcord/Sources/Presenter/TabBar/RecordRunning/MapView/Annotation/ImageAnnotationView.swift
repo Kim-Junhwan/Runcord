@@ -36,11 +36,10 @@ class ImageAnnotationView: MKAnnotationView {
         return view
     }()
     
-    private var locationArrowView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemBackground
+    private var locationArrowView: ArrowView = {
+        let view = ArrowView()
+        view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .yellow
         
         return view
     }()
@@ -82,12 +81,14 @@ class ImageAnnotationView: MKAnnotationView {
         
         NSLayoutConstraint.activate([
             imageBackgroundView.widthAnchor.constraint(equalTo: annotationStackView.widthAnchor),
-            imageBackgroundView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
+            imageBackgroundView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.9),
             
             imageView.centerYAnchor.constraint(equalTo: imageBackgroundView.centerYAnchor),
             imageView.centerXAnchor.constraint(equalTo: imageBackgroundView.centerXAnchor),
-            imageView.widthAnchor.constraint(equalTo: imageBackgroundView.widthAnchor, multiplier: 0.8),
-            imageView.heightAnchor.constraint(equalTo: imageBackgroundView.heightAnchor, multiplier: 0.8)
+            imageView.widthAnchor.constraint(equalTo: imageBackgroundView.widthAnchor, multiplier: 0.9),
+            imageView.heightAnchor.constraint(equalTo: imageBackgroundView.heightAnchor, multiplier: 0.9)
         ])
     }
+    
+    
 }

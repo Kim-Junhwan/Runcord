@@ -26,6 +26,7 @@
 		C72B3BDF2A010C460051EB61 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BDE2A010C460051EB61 /* LocationService.swift */; };
 		C72B3BE22A038EC60051EB61 /* ImageAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BE12A038EC60051EB61 /* ImageAnnotationView.swift */; };
 		C72B3BE42A039CF80051EB61 /* ImageAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BE32A039CF80051EB61 /* ImageAnnotation.swift */; };
+		C72B3BE62A04393E0051EB61 /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BE52A04393E0051EB61 /* ArrowView.swift */; };
 		C7481F8A29F973240013D633 /* RunningRecordMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7481F8929F973240013D633 /* RunningRecordMapViewModel.swift */; };
 		C751527929B27038003D8987 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527829B27038003D8987 /* UIImage+.swift */; };
 		C751527C29B34224003D8987 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527B29B34224003D8987 /* RecordViewModel.swift */; };
@@ -122,6 +123,7 @@
 		C72B3BDE2A010C460051EB61 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		C72B3BE12A038EC60051EB61 /* ImageAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotationView.swift; sourceTree = "<group>"; };
 		C72B3BE32A039CF80051EB61 /* ImageAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotation.swift; sourceTree = "<group>"; };
+		C72B3BE52A04393E0051EB61 /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		C7481F8929F973240013D633 /* RunningRecordMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordMapViewModel.swift; sourceTree = "<group>"; };
 		C751527829B27038003D8987 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		C751527B29B34224003D8987 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 		C72B3BE02A038E9A0051EB61 /* Annotation */ = {
 			isa = PBXGroup;
 			children = (
+				C72B3BE52A04393E0051EB61 /* ArrowView.swift */,
 				C72B3BE12A038EC60051EB61 /* ImageAnnotationView.swift */,
 				C72B3BE32A039CF80051EB61 /* ImageAnnotation.swift */,
 			);
@@ -1018,6 +1021,7 @@
 				C7A5AFEA29D6A34E00E4D851 /* AuthorizationManager.swift in Sources */,
 				C72B3BBD29FE5A780051EB61 /* RunningRecord.swift in Sources */,
 				C7A4CE5D29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.swift in Sources */,
+				C72B3BE62A04393E0051EB61 /* ArrowView.swift in Sources */,
 				C7663E8129ABA5720046068B /* GoalSettingLabelStackView.swift in Sources */,
 				C72B3BE42A039CF80051EB61 /* ImageAnnotation.swift in Sources */,
 				C7DE67F32998DFC200C824A9 /* Coordinator.swift in Sources */,

@@ -177,7 +177,7 @@ extension RunningRecordMapViewController: MKMapViewDelegate {
         guard let imageAnnotation = annotation as? ImageAnnotation else { return nil}
         annotationView?.image = imageAnnotation.image
         annotationView?.annotation  = imageAnnotation
-        
+        annotationView?.centerOffset = CGPointMake(0, -(annotationView?.frame.size.height)!/2)
         return annotationView
     }
 }

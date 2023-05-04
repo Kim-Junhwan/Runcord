@@ -9,7 +9,6 @@ import UIKit
 
 class CustomAlertViewController: UIViewController {
     
-    
     @IBOutlet weak var alertBackgroundView: UIView!
     @IBOutlet weak var alertTitleLabel: UILabel!
     @IBOutlet weak var alertDescriptionLabel: UILabel!
