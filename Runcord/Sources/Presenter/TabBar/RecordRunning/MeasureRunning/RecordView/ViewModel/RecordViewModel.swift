@@ -76,16 +76,17 @@ class RecordViewModel: NSObject {
         locationService.requestLocation()
         locationService.currentLocationSubject
             .compactMap { $0 }
-            .subscribe { currentLocation in
-                guard let currentLocation = currentLocation.element else { return }
-                self.route.accept(self.route.value+[currentLocation])
+            .subscribe(with: self) { owner, currentLocation in
+                if let lastCoordinator = owner.route.value.last {
+                    owner.runningDistance.accept(owner.runningDistance.value+owner.calculateDistanceKilometerBetweenCoordinators(start: lastCoordinator, end: currentLocation))
+                }
+                owner.route.accept(owner.route.value+[currentLocation])
             }.disposed(by: disposeBag)
     }
     
-    func calculateDistanceKilometerBetweenCoordinators(_ firstCoordinate: CLLocation, _ secondCoordinate: CLLocation) -> Float {
+    func calculateDistanceKilometerBetweenCoordinators(start firstCoordinate: CLLocation, end secondCoordinate: CLLocation) -> Float {
         let distance = firstCoordinate.distance(from: secondCoordinate)
         let kmDistance = distance/1000
-        
         return Float(kmDistance)
     }
     
