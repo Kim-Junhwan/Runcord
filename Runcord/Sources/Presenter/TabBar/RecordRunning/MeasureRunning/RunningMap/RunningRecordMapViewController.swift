@@ -7,10 +7,11 @@
 
 import UIKit
 import MapKit
+import RxSwift
 
 class RunningRecordMapViewController: UIViewController {
     
-    var mapView: MKMapView!
+    var customMapView: CustomMapView!
     
     let buttonStackView: UIStackView = {
         let stackView = UIStackView()
@@ -57,9 +58,12 @@ class RunningRecordMapViewController: UIViewController {
     }()
     
     let viewModel: RunningRecordMapViewModel
+    let disposeBag: DisposeBag = DisposeBag()
     
-    init(mapView: MKMapView, viewModel: RunningRecordMapViewModel) {
-        self.mapView = mapView
+    var setimageInfoHandler: (([ImageInfo]) -> Void)?
+    
+    init(mapView: CustomMapView, viewModel: RunningRecordMapViewModel) {
+        self.customMapView = mapView
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -72,17 +76,17 @@ class RunningRecordMapViewController: UIViewController {
         super.viewDidLoad()
         setMapView()
         setButtonAction()
-        imageBing()
+        imageAnnotationBind()
     }
     
-    private func imageBing() {
+    private func imageAnnotationBind() {
         viewModel.imageListDriver.drive(with: self) { owner, imageList in
             guard let currentImage = imageList.last else { return }
             let annotation = ImageAnnotation()
             annotation.coordinate = CLLocationCoordinate2DMake(currentImage.latitude, currentImage.longitude)
             annotation.image = currentImage.image
-            owner.mapView.addAnnotation(annotation)
-        }
+            owner.customMapView.mapView.addAnnotation(annotation)
+        }.disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -122,35 +126,35 @@ class RunningRecordMapViewController: UIViewController {
     
     private func setMapView() {
         removeMapViewGesture()
-        mapView.isZoomEnabled = true
-        mapView.isScrollEnabled = true
-        mapView.translatesAutoresizingMaskIntoConstraints = false
-        mapView.delegate = self
-        mapView.removeConstraints(mapView.constraints)
-        mapView.register(ImageAnnotationView.self, forAnnotationViewWithReuseIdentifier: ImageAnnotationView.identifier)
-        view.addSubview(mapView)
+        customMapView.mapView.isZoomEnabled = true
+        customMapView.mapView.isScrollEnabled = true
+        customMapView.translatesAutoresizingMaskIntoConstraints = false
+        customMapView.removeConstraints(customMapView.constraints)
+        customMapView.mapView.register(ImageAnnotationView.self, forAnnotationViewWithReuseIdentifier: ImageAnnotationView.identifier)
+        view.addSubview(customMapView)
         NSLayoutConstraint.activate([
-            mapView.topAnchor.constraint(equalTo: view.topAnchor),
-            mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            customMapView.topAnchor.constraint(equalTo: view.topAnchor),
+            customMapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            customMapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            customMapView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        mapView.layoutIfNeeded()
+        customMapView.layoutIfNeeded()
     }
     private func removeMapViewGesture() {
-        guard let gestures = mapView.gestureRecognizers else { return }
+        guard let gestures = customMapView.gestureRecognizers else { return }
         for gesture in gestures {
-            mapView.removeGestureRecognizer(gesture)
+            customMapView.removeGestureRecognizer(gesture)
         }
     }
     
     @objc func dismissMapView() {
         buttonStackView.removeFromSuperview()
+        customMapView.mapView.removeAnnotations(customMapView.mapView.annotations)
         self.dismiss(animated: true)
     }
     
     @objc func setUserTracking() {
-        mapView.setUserTrackingMode(.follow, animated: true)
+        customMapView.mapView.setUserTrackingMode(.follow, animated: true)
     }
     
     @objc func takePicture() {
@@ -162,23 +166,6 @@ class RunningRecordMapViewController: UIViewController {
     
     deinit {
         print("deinit RunningMapView")
-    }
-}
-
-extension RunningRecordMapViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard !annotation.isKind(of: MKUserLocation.self) else { return nil }
-        
-        var annotationView: ImageAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: ImageAnnotationView.identifier) as? ImageAnnotationView
-        
-        if annotationView == nil {
-            annotationView = ImageAnnotationView(annotation: annotation, reuseIdentifier: ImageAnnotationView.identifier)
-        }
-        guard let imageAnnotation = annotation as? ImageAnnotation else { return nil}
-        annotationView?.image = imageAnnotation.image
-        annotationView?.annotation  = imageAnnotation
-        annotationView?.centerOffset = CGPointMake(0, -(annotationView?.frame.size.height)!/2)
-        return annotationView
     }
 }
 

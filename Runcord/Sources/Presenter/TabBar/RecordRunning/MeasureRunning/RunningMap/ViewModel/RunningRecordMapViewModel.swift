@@ -12,7 +12,7 @@ import RxCocoa
 class RunningRecordMapViewModel {
     
     private let locationService: LocationService
-    private var imageList: BehaviorRelay<[ImageInfo]> = BehaviorRelay(value: [])
+    var imageList: BehaviorRelay<[ImageInfo]> = BehaviorRelay(value: [])
     var imageListDriver: Driver<[ImageInfo]> {
         return imageList.asDriver()
     }
