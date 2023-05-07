@@ -27,6 +27,7 @@
 		C72B3BE22A038EC60051EB61 /* ImageAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BE12A038EC60051EB61 /* ImageAnnotationView.swift */; };
 		C72B3BE42A039CF80051EB61 /* ImageAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BE32A039CF80051EB61 /* ImageAnnotation.swift */; };
 		C72B3BE62A04393E0051EB61 /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BE52A04393E0051EB61 /* ArrowView.swift */; };
+		C72B3BE92A04ECB40051EB61 /* CustomMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BE82A04ECB40051EB61 /* CustomMapView.swift */; };
 		C7481F8A29F973240013D633 /* RunningRecordMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7481F8929F973240013D633 /* RunningRecordMapViewModel.swift */; };
 		C751527929B27038003D8987 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527829B27038003D8987 /* UIImage+.swift */; };
 		C751527C29B34224003D8987 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527B29B34224003D8987 /* RecordViewModel.swift */; };
@@ -124,6 +125,7 @@
 		C72B3BE12A038EC60051EB61 /* ImageAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotationView.swift; sourceTree = "<group>"; };
 		C72B3BE32A039CF80051EB61 /* ImageAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotation.swift; sourceTree = "<group>"; };
 		C72B3BE52A04393E0051EB61 /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
+		C72B3BE82A04ECB40051EB61 /* CustomMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapView.swift; sourceTree = "<group>"; };
 		C7481F8929F973240013D633 /* RunningRecordMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordMapViewModel.swift; sourceTree = "<group>"; };
 		C751527829B27038003D8987 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		C751527B29B34224003D8987 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
@@ -343,6 +345,15 @@
 			path = Annotation;
 			sourceTree = "<group>";
 		};
+		C72B3BE72A04EC9B0051EB61 /* CustomMapView */ = {
+			isa = PBXGroup;
+			children = (
+				C72B3BE02A038E9A0051EB61 /* Annotation */,
+				C72B3BE82A04ECB40051EB61 /* CustomMapView.swift */,
+			);
+			path = CustomMapView;
+			sourceTree = "<group>";
+		};
 		C730C16329A259720076C83C /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,9 +430,7 @@
 		C762DED729EC5A9300C24C21 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
-				C72B3BE02A038E9A0051EB61 /* Annotation */,
-				C7481F8829F973080013D633 /* ViewModel */,
-				C762DED829EC5AC700C24C21 /* RunningRecordMapViewController.swift */,
+				C72B3BE72A04EC9B0051EB61 /* CustomMapView */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -429,6 +438,7 @@
 		C7663E5129A4BF6E0046068B /* MeasureRunning */ = {
 			isa = PBXGroup;
 			children = (
+				C7B3DA502A079A2900B370B6 /* RunningMap */,
 				C751527D29B7994B003D8987 /* SaveRunningRecord */,
 				C75DECFC29AE7E8300A4EC47 /* RecordView */,
 			);
@@ -565,6 +575,15 @@
 			path = DesignedTabBar;
 			sourceTree = "<group>";
 		};
+		C7B3DA502A079A2900B370B6 /* RunningMap */ = {
+			isa = PBXGroup;
+			children = (
+				C7481F8829F973080013D633 /* ViewModel */,
+				C762DED829EC5AC700C24C21 /* RunningRecordMapViewController.swift */,
+			);
+			path = RunningMap;
+			sourceTree = "<group>";
+		};
 		C7DE67E92997AA3600C824A9 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,6 +596,7 @@
 		C7DE67EE2998DF2900C824A9 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				C762DED729EC5A9300C24C21 /* MapView */,
 				C762DEAE29EC1ADC00C24C21 /* Animator */,
 				C7DE6823299A85D400C824A9 /* Utils */,
 				C7DE67EF2998DF5D00C824A9 /* Common */,
@@ -627,7 +647,6 @@
 		C7DE67F72999296B00C824A9 /* RecordRunning */ = {
 			isa = PBXGroup;
 			children = (
-				C762DED729EC5A9300C24C21 /* MapView */,
 				C7663E5129A4BF6E0046068B /* MeasureRunning */,
 			);
 			path = RecordRunning;
@@ -985,6 +1004,7 @@
 				C72B3BBB29FE59C30051EB61 /* ImageInfo.swift in Sources */,
 				C7A5AFE829D69F7900E4D851 /* AuthorizationAlertable.swift in Sources */,
 				C7DE67FD2999301800C824A9 /* RunningCoordinator.swift in Sources */,
+				C72B3BE92A04ECB40051EB61 /* CustomMapView.swift in Sources */,
 				C7233CF829DDBFE00003A290 /* GoalProcessView.swift in Sources */,
 				C762DEB029EC1B1400C24C21 /* MapAnimator.swift in Sources */,
 				C7663E7B29A9F1260046068B /* GoalTextField.swift in Sources */,

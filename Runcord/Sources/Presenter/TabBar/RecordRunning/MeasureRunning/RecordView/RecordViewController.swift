@@ -26,8 +26,13 @@ class RecordViewController: UIViewController {
     @IBOutlet weak var goalTimeProgressView: GoalProcessView!
     
     @IBOutlet weak var recordProgressStackView: UIStackView!
-    @IBOutlet var runningMapView: MKMapView!
-    lazy var runningMapViewHeighyConstraint = runningMapView.heightAnchor.constraint(equalToConstant: 0)
+    let runningMapView: CustomMapView = {
+       let customMapView = CustomMapView()
+        customMapView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return customMapView
+    }()
+    lazy var runningMapViewHeightConstraint = runningMapView.heightAnchor.constraint(equalToConstant: 0)
     
     // MARK: - Properties
     private var timer: Timer?
@@ -46,9 +51,6 @@ class RecordViewController: UIViewController {
         setMapView()
         bind()
         setMapViewDismissCompletion()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         setGoalTimeProgress()
         setGoalDistanceProgress()
     }
@@ -67,10 +69,16 @@ class RecordViewController: UIViewController {
     
     private func setMapView() {
         setMapViewTabGesture()
-        runningMapViewHeighyConstraint.isActive = true
-        runningMapView.isScrollEnabled = false
-        runningMapView.isZoomEnabled = false
-        runningMapView.delegate = self
+        runningMapView.mapView.isScrollEnabled = false
+        runningMapView.mapView.isZoomEnabled = false
+        runningMeasuringView.addSubview(runningMapView)
+        
+        NSLayoutConstraint.activate([
+            runningMapView.topAnchor.constraint(equalTo: view.topAnchor),
+            runningMapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            runningMapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            runningMapViewHeightConstraint
+        ])
     }
     
     private func setMapViewTabGesture() {
@@ -80,26 +88,31 @@ class RecordViewController: UIViewController {
 
     @objc func presentMapView() {
         let runningRecordMapView = RunningRecordMapViewController(mapView: runningMapView, viewModel: RunningRecordMapViewModel(locationService: viewModel.locationService))
+        runningRecordMapView.viewModel.imageListDriver.drive(with: self) { owner, imageInfoList in
+            owner.viewModel.imageList = imageInfoList
+        }.disposed(by: disposeBag)
+        runningRecordMapView.viewModel.imageList.accept(viewModel.imageList)
         runningRecordMapView.transitioningDelegate = self
         runningRecordMapView.modalPresentationStyle = .fullScreen
         self.present(runningRecordMapView, animated: true)
+        
     }
     
     func setMapViewDismissCompletion() {
         transition.dismissCompletion = { [weak self] in
             guard let self = self else { return }
             self.runningMapView.removeConstraints(runningMapView.constraints)
-            self.runningMapView.setUserTrackingMode(.follow, animated: true)
-            self.runningMapView.isScrollEnabled = false
-            self.runningMapView.isZoomEnabled = false
+            self.runningMapView.mapView.setUserTrackingMode(.follow, animated: true)
+            self.runningMapView.mapView.isScrollEnabled = false
+            self.runningMapView.mapView.isZoomEnabled = false
             self.view.addSubview(runningMapView)
             NSLayoutConstraint.activate([
                 runningMapView.topAnchor.constraint(equalTo: view.topAnchor),
                 runningMapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 runningMapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                runningMapViewHeighyConstraint
+                runningMapViewHeightConstraint
             ])
-            runningMapViewHeighyConstraint.constant = view.frame.height * 0.3
+            runningMapViewHeightConstraint.constant = view.frame.height * 0.3
             setMapViewTabGesture()
         }
     }
@@ -175,7 +188,7 @@ class RecordViewController: UIViewController {
         
         viewModel.routeDriver.drive(onNext: { route in
             if let lastCoordinate = route.first, let currentCoordinate = route.last {
-                self.runningMapView.updateUserRoute(lastCoordinate: lastCoordinate, newCoordinate: currentCoordinate)
+                self.runningMapView.mapView.updateUserRoute(lastCoordinate: lastCoordinate, newCoordinate: currentCoordinate)
             }
         }).disposed(by: disposeBag)
     }
@@ -196,7 +209,7 @@ class RecordViewController: UIViewController {
     
     private func showPauseStatusView() {
         runningMapView.isHidden = false
-        runningMapViewHeighyConstraint.constant = self.view.frame.height * 0.3
+        runningMapViewHeightConstraint.constant = self.view.frame.height * 0.3
         UIView.animate(withDuration: 0.2) {
             self.view.layoutIfNeeded()
         }
@@ -204,7 +217,7 @@ class RecordViewController: UIViewController {
     
     private func showPlayStatusView() {
         recordProgressStackView.isHidden = false
-        runningMapViewHeighyConstraint.constant = 0
+        runningMapViewHeightConstraint.constant = 0
         UIView.animate(withDuration: 0.2) {
             self.view.layoutIfNeeded()
         } completion: { _ in
@@ -261,23 +274,6 @@ class RecordViewController: UIViewController {
         timer?.invalidate()
         timer = nil
         viewModel.deinitViewModel()
-    }
-}
-
-extension RecordViewController: MKMapViewDelegate {
-    
-    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-        mapView.setUserTrackingMode(.follow, animated: true)
-    }
-    
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        guard let polyLine = overlay as? MKPolyline else { fatalError() }
-        let renderer = MKPolylineRenderer(polyline: polyLine)
-        renderer.strokeColor = .tabBarSelect
-        renderer.lineWidth = 5.0
-        renderer.alpha = 1.0
-        
-        return renderer
     }
 }
 

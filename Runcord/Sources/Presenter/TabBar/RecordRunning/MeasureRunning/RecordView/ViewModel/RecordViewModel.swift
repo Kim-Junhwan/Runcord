@@ -33,6 +33,9 @@ class RecordViewModel: NSObject {
             .asDriver(onErrorJustReturn: [])
     }
     
+    // MARK: - Taked Imagies
+    var imageList: [ImageInfo] = []
+    
     let disposeBag = DisposeBag()
     let coordinator: RunningCoordinator
     
@@ -77,8 +80,10 @@ class RecordViewModel: NSObject {
         locationService.currentLocationSubject
             .compactMap { $0 }
             .subscribe(with: self) { owner, currentLocation in
-                if let lastCoordinator = owner.route.value.last {
-                    owner.runningDistance.accept(owner.runningDistance.value+owner.calculateBetweenTwoCoordinatesDistanceKilometer(lastCoordinator, currentLocation))
+                if owner.isRunning {
+                    if let lastCoordinator = owner.route.value.last {
+                        owner.runningDistance.accept(owner.runningDistance.value+owner.calculateBetweenTwoCoordinatesDistanceKilometer(lastCoordinator, currentLocation))
+                    }
                 }
                 owner.route.accept(owner.route.value+[currentLocation])
             }.disposed(by: disposeBag)

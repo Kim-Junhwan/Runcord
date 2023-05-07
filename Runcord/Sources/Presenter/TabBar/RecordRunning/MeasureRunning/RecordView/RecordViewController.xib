@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -32,7 +31,6 @@
                 <outlet property="readyTimerLabel" destination="E9f-6d-nuA" id="D3R-It-96z"/>
                 <outlet property="recordProgressStackView" destination="o1o-O9-QQ1" id="uOU-EQ-lId"/>
                 <outlet property="runningDistanceLabel" destination="0Uq-dW-nRt" id="OY9-D9-xrB"/>
-                <outlet property="runningMapView" destination="50Y-FU-Evc" id="ZcL-EF-a4x"/>
                 <outlet property="runningMeasuringView" destination="WQ8-ny-CUm" id="YEz-1y-d8Y"/>
                 <outlet property="runningTimerLabel" destination="pf3-vx-iVb" id="1cT-P6-8qe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -200,19 +198,12 @@
                                 </stackView>
                             </subviews>
                         </stackView>
-                        <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="50Y-FU-Evc">
-                            <rect key="frame" x="0.0" y="0.0" width="428" height="0.0"/>
-                            <standardMapConfiguration key="preferredConfiguration"/>
-                        </mapView>
                     </subviews>
                     <color key="backgroundColor" name="AccentColor"/>
                     <constraints>
                         <constraint firstItem="mLZ-bP-uxG" firstAttribute="leading" secondItem="WQ8-ny-CUm" secondAttribute="leading" id="16b-dS-Wne"/>
                         <constraint firstAttribute="bottom" secondItem="mLZ-bP-uxG" secondAttribute="bottom" constant="30" id="BH7-by-67G"/>
                         <constraint firstAttribute="trailing" secondItem="mLZ-bP-uxG" secondAttribute="trailing" id="byy-bp-8dj"/>
-                        <constraint firstItem="50Y-FU-Evc" firstAttribute="leading" secondItem="WQ8-ny-CUm" secondAttribute="leading" id="cfM-1z-8St"/>
-                        <constraint firstAttribute="trailing" secondItem="50Y-FU-Evc" secondAttribute="trailing" id="iND-32-tFi"/>
-                        <constraint firstItem="50Y-FU-Evc" firstAttribute="top" secondItem="WQ8-ny-CUm" secondAttribute="top" id="lMb-BC-Y2c"/>
                     </constraints>
                     <edgeInsets key="layoutMargins" top="60" left="20" bottom="8" right="20"/>
                 </view>

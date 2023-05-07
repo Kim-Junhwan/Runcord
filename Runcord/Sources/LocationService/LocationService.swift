@@ -16,6 +16,7 @@ final class LocationService: NSObject {
         self.locationManager = locationManager
         super.init()
         locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         locationAuthorizationSubject.onNext(locationManager.authorizationStatus)
     }
     
