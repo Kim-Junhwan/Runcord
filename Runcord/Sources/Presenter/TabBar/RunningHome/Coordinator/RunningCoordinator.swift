@@ -37,6 +37,12 @@ final class RunningCoordinator: Coordinator {
         navigationController.present(recordRunningViewController, animated: false)
     }
     
+    func showSaveRecordView() {
+        let vc = SaveRecordRunningViewController()
+        vc.modalPresentationStyle = .fullScreen
+        navigationController.present(vc, animated: true)
+    }
+    
     deinit {
         print("deinit recordRunningCoordinator")
     }

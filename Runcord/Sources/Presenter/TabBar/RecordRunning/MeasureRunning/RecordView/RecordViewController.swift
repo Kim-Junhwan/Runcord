@@ -233,10 +233,9 @@ class RecordViewController: UIViewController {
     @objc func completeButtonTouchDown() {
         if timer == nil {
             timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: {[weak self] _ in
-                let vc = SaveRecordRunningViewController()
-                vc.modalPresentationStyle = .fullScreen
-                self?.present(vc, animated: true, completion: {
-                    self?.dismiss(animated: false)
+                guard let pvc = self?.presentingViewController else { return }
+                self?.dismiss(animated: false, completion: {
+                    self?.viewModel.coordinator.showSaveRecordView()
                 })
             })
         }
