@@ -81,11 +81,13 @@ class RunningRecordMapViewController: UIViewController {
     
     private func imageAnnotationBind() {
         viewModel.imageListDriver.drive(with: self) { owner, imageList in
-            guard let currentImage = imageList.last else { return }
-            let annotation = ImageAnnotation()
-            annotation.coordinate = CLLocationCoordinate2DMake(currentImage.latitude, currentImage.longitude)
-            annotation.image = currentImage.image
-            owner.customMapView.mapView.addAnnotation(annotation)
+            owner.customMapView.mapView.removeAnnotations(owner.customMapView.mapView.annotations)
+            for image in imageList {
+                let annotation = ImageAnnotation()
+                annotation.coordinate = CLLocationCoordinate2DMake(image.latitude, image.longitude)
+                annotation.image = image.image
+                owner.customMapView.mapView.addAnnotation(annotation)
+            }
         }.disposed(by: disposeBag)
     }
     
