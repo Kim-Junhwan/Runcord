@@ -88,10 +88,10 @@ class RecordViewController: UIViewController {
 
     @objc func presentMapView() {
         let runningRecordMapView = RunningRecordMapViewController(mapView: runningMapView, viewModel: RunningRecordMapViewModel(locationService: viewModel.locationService))
+        runningRecordMapView.viewModel.imageList.accept(viewModel.imageList)
         runningRecordMapView.viewModel.imageListDriver.drive(with: self) { owner, imageInfoList in
             owner.viewModel.imageList = imageInfoList
         }.disposed(by: disposeBag)
-        runningRecordMapView.viewModel.imageList.accept(viewModel.imageList)
         runningRecordMapView.transitioningDelegate = self
         runningRecordMapView.modalPresentationStyle = .fullScreen
         self.present(runningRecordMapView, animated: true)
