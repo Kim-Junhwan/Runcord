@@ -235,7 +235,9 @@ class RecordViewController: UIViewController {
             timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: {[weak self] _ in
                 let vc = SaveRecordRunningViewController()
                 vc.modalPresentationStyle = .fullScreen
-                self?.present(vc, animated: true)
+                self?.present(vc, animated: true, completion: {
+                    self?.dismiss(animated: false)
+                })
             })
         }
         let animation = CABasicAnimation(keyPath: "strokeEnd")
