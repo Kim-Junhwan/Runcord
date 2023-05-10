@@ -95,6 +95,14 @@ class RecordViewModel: NSObject {
         return Float(kmDistance)
     }
     
+    // MARK: - Coordinating
+    
+    func showSaceRecordView() {
+        let runningPath = route.value.map { $0.coordinate }.map { ($0.latitude, $0.longitude) }
+        let runningRecord = RunningRecord(date: Date(), goalDistance: goalDistance, goalTime: goalTime, runningDistance: Double(runningDistance.value), runningTime: totalRunningSecond.value, runningPath: runningPath, imageRecords: imageList)
+        coordinator.showSaveRecordView(runningRecord: runningRecord)
+    }
+    
     deinit {
         print("deinit record viewModel")
     }

@@ -235,7 +235,7 @@ class RecordViewController: UIViewController {
             timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: {[weak self] _ in
                 guard let pvc = self?.presentingViewController else { return }
                 self?.dismiss(animated: false, completion: {
-                    self?.viewModel.coordinator.showSaveRecordView()
+                    self?.viewModel.showSaceRecordView()
                 })
             })
         }

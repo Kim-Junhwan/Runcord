@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SaveRecordRunningViewController: UIViewController, Alertable {
     
@@ -14,9 +15,21 @@ class SaveRecordRunningViewController: UIViewController, Alertable {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var runningRecordMapImageView: CustomRouteMapImageView!
     
+    let runningRecord: RunningRecord
+    
+    init(runningRecord: RunningRecord) {
+        self.runningRecord = runningRecord
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setSaveButton()
+        runningRecordMapImageView.setRouteImage(route: runningRecord.runningPath.map { CLLocationCoordinate2D(latitude: $0.0, longitude: $0.1) })
     }
     
     func setSaveButton() {

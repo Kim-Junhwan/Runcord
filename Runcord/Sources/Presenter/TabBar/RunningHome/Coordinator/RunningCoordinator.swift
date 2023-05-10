@@ -37,8 +37,8 @@ final class RunningCoordinator: Coordinator {
         navigationController.present(recordRunningViewController, animated: false)
     }
     
-    func showSaveRecordView() {
-        let vc = SaveRecordRunningViewController()
+    func showSaveRecordView(runningRecord: RunningRecord) {
+        let vc = SaveRecordRunningViewController(runningRecord: runningRecord)
         vc.modalPresentationStyle = .fullScreen
         navigationController.present(vc, animated: true)
     }
