@@ -14,10 +14,6 @@
 		C703496729D582CC00BF28D7 /* RunningStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C703496529D582CC00BF28D7 /* RunningStartViewController.swift */; };
 		C703496829D582CC00BF28D7 /* RunningStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C703496629D582CC00BF28D7 /* RunningStartViewController.xib */; };
 		C7211E3129B9664D00ADA90C /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7211E3029B9664D00ADA90C /* UIViewController+.swift */; };
-		C7211E3529B9721E00ADA90C /* AddImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7211E3329B9721E00ADA90C /* AddImageCollectionViewCell.swift */; };
-		C7211E3629B9721E00ADA90C /* AddImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7211E3429B9721E00ADA90C /* AddImageCollectionViewCell.xib */; };
-		C7211E3A29B9EA9700ADA90C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7211E3829B9EA9700ADA90C /* ImageCollectionViewCell.swift */; };
-		C7211E3B29B9EA9700ADA90C /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7211E3929B9EA9700ADA90C /* ImageCollectionViewCell.xib */; };
 		C7233CF829DDBFE00003A290 /* GoalProcessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7233CF729DDBFE00003A290 /* GoalProcessView.swift */; };
 		C7233CFC29DDC0770003A290 /* GoalProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7233CFB29DDC0770003A290 /* GoalProcessView.xib */; };
 		C72B3BBB29FE59C30051EB61 /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BBA29FE59C30051EB61 /* ImageInfo.swift */; };
@@ -113,10 +109,6 @@
 		C703496529D582CC00BF28D7 /* RunningStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningStartViewController.swift; sourceTree = "<group>"; };
 		C703496629D582CC00BF28D7 /* RunningStartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RunningStartViewController.xib; sourceTree = "<group>"; };
 		C7211E3029B9664D00ADA90C /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
-		C7211E3329B9721E00ADA90C /* AddImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		C7211E3429B9721E00ADA90C /* AddImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImageCollectionViewCell.xib; sourceTree = "<group>"; };
-		C7211E3829B9EA9700ADA90C /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		C7211E3929B9EA9700ADA90C /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		C7233CF729DDBFE00003A290 /* GoalProcessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProcessView.swift; sourceTree = "<group>"; };
 		C7233CFB29DDC0770003A290 /* GoalProcessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalProcessView.xib; sourceTree = "<group>"; };
 		C72B3BBA29FE59C30051EB61 /* ImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
@@ -275,24 +267,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C7211E3229B9717D00ADA90C /* AddImageButtonCell */ = {
-			isa = PBXGroup;
-			children = (
-				C7211E3329B9721E00ADA90C /* AddImageCollectionViewCell.swift */,
-				C7211E3429B9721E00ADA90C /* AddImageCollectionViewCell.xib */,
-			);
-			path = AddImageButtonCell;
-			sourceTree = "<group>";
-		};
-		C7211E3729B9EA8100ADA90C /* ImageCell */ = {
-			isa = PBXGroup;
-			children = (
-				C7211E3829B9EA9700ADA90C /* ImageCollectionViewCell.swift */,
-				C7211E3929B9EA9700ADA90C /* ImageCollectionViewCell.xib */,
-			);
-			path = ImageCell;
-			sourceTree = "<group>";
-		};
 		C7233CF529DD4DE50003A290 /* GoalSetting */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,8 +358,6 @@
 		C751527D29B7994B003D8987 /* SaveRunningRecord */ = {
 			isa = PBXGroup;
 			children = (
-				C7211E3729B9EA8100ADA90C /* ImageCell */,
-				C7211E3229B9717D00ADA90C /* AddImageButtonCell */,
 				C751527E29B79981003D8987 /* SaveRecordRunningViewController.swift */,
 				C751527F29B79981003D8987 /* SaveRecordRunningViewController.xib */,
 			);
@@ -858,10 +830,8 @@
 				C7A4CE5E29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.xib in Resources */,
 				C751528129B79981003D8987 /* SaveRecordRunningViewController.xib in Resources */,
 				C7A1F21729BA1194009AE7BA /* CustomAlertViewController.xib in Resources */,
-				C7211E3B29B9EA9700ADA90C /* ImageCollectionViewCell.xib in Resources */,
 				C703496829D582CC00BF28D7 /* RunningStartViewController.xib in Resources */,
 				C7A4CE5529BC2135000DAE8B /* ImagePickerViewController.xib in Resources */,
-				C7211E3629B9721E00ADA90C /* AddImageCollectionViewCell.xib in Resources */,
 				C7DE681C299A84B500C824A9 /* Launch Screen.storyboard in Resources */,
 				C7670EF12995460900E3CD77 /* Assets.xcassets in Resources */,
 				C7233CFC29DDC0770003A290 /* GoalProcessView.xib in Resources */,
@@ -1026,7 +996,6 @@
 				C7A4CE5429BC2135000DAE8B /* ImagePickerViewController.swift in Sources */,
 				C7AD00EC29D1E1A6001D275E /* DesignedTabBarController.swift in Sources */,
 				C72B3BE22A038EC60051EB61 /* ImageAnnotationView.swift in Sources */,
-				C7211E3529B9721E00ADA90C /* AddImageCollectionViewCell.swift in Sources */,
 				C7663E7D29AA125B0046068B /* GoalSettingStackView.swift in Sources */,
 				C703496429D5253400BF28D7 /* Alertable.swift in Sources */,
 				C7481F8A29F973240013D633 /* RunningRecordMapViewModel.swift in Sources */,
@@ -1040,7 +1009,6 @@
 				C762DED929EC5AC700C24C21 /* RunningRecordMapViewController.swift in Sources */,
 				C7670EEA2995460800E3CD77 /* SceneDelegate.swift in Sources */,
 				C7DE681029993A7000C824A9 /* MyPageCoordinator.swift in Sources */,
-				C7211E3A29B9EA9700ADA90C /* ImageCollectionViewCell.swift in Sources */,
 				C703496029D49CB500BF28D7 /* CLLocationManager+.swift in Sources */,
 				C7E00A2329C36F4900B39709 /* CameraCollectionViewCell.swift in Sources */,
 				C7A1F21629BA1194009AE7BA /* CustomAlertViewController.swift in Sources */,
