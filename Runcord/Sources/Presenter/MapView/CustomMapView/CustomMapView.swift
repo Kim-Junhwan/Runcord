@@ -39,6 +39,7 @@ class CustomMapView: UIView {
     func appendImageAnnotation(imageAnnotation: ImageAnnotation) {
         mapView.addAnnotation(imageAnnotation)
     }
+    
 }
 
 extension CustomMapView: MKMapViewDelegate {

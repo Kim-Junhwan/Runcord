@@ -7,10 +7,12 @@
 
 import UIKit
 
-class SaveRecordRunningViewController: UIViewController {
+class SaveRecordRunningViewController: UIViewController, Alertable {
     
+    @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var runningRecordMapImageView: CustomRouteMapImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,9 @@ class SaveRecordRunningViewController: UIViewController {
     
     // MARK: - Action
     @IBAction func tapCloseButton(_ sender: Any) {
-        showAlert()
+        showAlert(message: "해당 러닝기록이 저장되지 않습니다.", defaultActionTitle: "확인", cancelActionTitle: "취소") { _ in
+            self.dismiss(animated: true)
+        }
     }
+    
 }

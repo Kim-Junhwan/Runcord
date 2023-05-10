@@ -59,6 +59,7 @@
 		C7A5AFEA29D6A34E00E4D851 /* AuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5AFE929D6A34E00E4D851 /* AuthorizationManager.swift */; };
 		C7A5AFED29D6ADB400E4D851 /* LocationAlertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5AFEC29D6ADB400E4D851 /* LocationAlertable.swift */; };
 		C7AD00EC29D1E1A6001D275E /* DesignedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AD00EB29D1E1A6001D275E /* DesignedTabBarController.swift */; };
+		C7B3DA532A0BD4C000B370B6 /* CustomRouteMapImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3DA522A0BD4C000B370B6 /* CustomRouteMapImageView.swift */; };
 		C7BA067C29A25AF100D2227A /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C7BA067B29A25AF100D2227A /* NotoSansKR-Bold.otf */; };
 		C7BA067E29A25B6B00D2227A /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C7BA067D29A25B6B00D2227A /* NotoSansKR-Medium.otf */; };
 		C7D5FB6B29C829ED00F54568 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C7D5FB6A29C829ED00F54568 /* .swiftlint.yml */; };
@@ -161,6 +162,7 @@
 		C7A5AFE929D6A34E00E4D851 /* AuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationManager.swift; sourceTree = "<group>"; };
 		C7A5AFEC29D6ADB400E4D851 /* LocationAlertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAlertable.swift; sourceTree = "<group>"; };
 		C7AD00EB29D1E1A6001D275E /* DesignedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignedTabBarController.swift; sourceTree = "<group>"; };
+		C7B3DA522A0BD4C000B370B6 /* CustomRouteMapImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRouteMapImageView.swift; sourceTree = "<group>"; };
 		C7BA067B29A25AF100D2227A /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		C7BA067D29A25B6B00D2227A /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		C7D5FB6A29C829ED00F54568 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 		C762DED729EC5A9300C24C21 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				C7B3DA512A0BD4A700B370B6 /* CustomMapImageView */,
 				C72B3BE72A04EC9B0051EB61 /* CustomMapView */,
 			);
 			path = MapView;
@@ -582,6 +585,14 @@
 				C762DED829EC5AC700C24C21 /* RunningRecordMapViewController.swift */,
 			);
 			path = RunningMap;
+			sourceTree = "<group>";
+		};
+		C7B3DA512A0BD4A700B370B6 /* CustomMapImageView */ = {
+			isa = PBXGroup;
+			children = (
+				C7B3DA522A0BD4C000B370B6 /* CustomRouteMapImageView.swift */,
+			);
+			path = CustomMapImageView;
 			sourceTree = "<group>";
 		};
 		C7DE67E92997AA3600C824A9 /* Application */ = {
@@ -1042,6 +1053,7 @@
 				C72B3BBD29FE5A780051EB61 /* RunningRecord.swift in Sources */,
 				C7A4CE5D29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.swift in Sources */,
 				C72B3BE62A04393E0051EB61 /* ArrowView.swift in Sources */,
+				C7B3DA532A0BD4C000B370B6 /* CustomRouteMapImageView.swift in Sources */,
 				C7663E8129ABA5720046068B /* GoalSettingLabelStackView.swift in Sources */,
 				C72B3BE42A039CF80051EB61 /* ImageAnnotation.swift in Sources */,
 				C7DE67F32998DFC200C824A9 /* Coordinator.swift in Sources */,
