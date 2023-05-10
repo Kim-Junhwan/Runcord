@@ -13,7 +13,7 @@ import MapKit
 class CustomRouteMapImageView: UIImageView {
     
     func setRouteImage(route coordinates: [CLLocationCoordinate2D]) {
-        let options = setSnapshotOptions()
+        let options = setSnapshotOptions(coordinates: coordinates)
         let snapShotter = MKMapSnapshotter(options: options)
         snapShotter.start { snapshot, error in
             guard let snapshot = snapshot, error == nil else { fatalError() }
@@ -43,8 +43,14 @@ class CustomRouteMapImageView: UIImageView {
         return CLLocationCoordinate2D(latitude: centerLat, longitude: centerLon)
     }
     
-    private func setSnapshotOptions() -> MKMapSnapshotter.Options {
+    private func setSnapshotOptions(coordinates: [CLLocationCoordinate2D]) -> MKMapSnapshotter.Options {
         let options = MKMapSnapshotter.Options()
+        
+        var minLatitude = coordinates.min(by: { $0.latitude < $1.latitude })?.latitude ?? 0
+        var maxLatitude = coordinates.max(by: { $0.latitude < $1.latitude })?.latitude ?? 0
+        var minLongitude = coordinates.min(by: { $0.longitude < $1.longitude })?.longitude ?? 0
+        var maxLongitude = coordinates.max(by: { $0.longitude < $1.longitude })?.longitude ?? 0
+        options.region = makeRouteSizeRegion(center: getRunningRouteCenterCoordinate(coordinates: coordinates) ?? CLLocationCoordinate2D(latitude: 0, longitude: 0), minLatitude: minLatitude, maxLatitude: maxLatitude, minLongitude: minLongitude, maxLongitude: maxLongitude)
         options.size = CGSize(width: 200, height: 200)
         options.showsBuildings = false
         let filter: MKPointOfInterestFilter = .excludingAll
@@ -52,6 +58,5 @@ class CustomRouteMapImageView: UIImageView {
         
         return options
     }
-    
     
 }
