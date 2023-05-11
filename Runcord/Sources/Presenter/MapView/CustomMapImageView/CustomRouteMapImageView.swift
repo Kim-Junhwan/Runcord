@@ -22,7 +22,7 @@ class CustomRouteMapImageView: UIImageView {
                 mapImage.draw(at: .zero)
                 let points = coordinates.map { snapshot.point(for: $0) }
                 let path = UIBezierPath()
-                path.move(to: points[0])
+                path.move(to: points.first ?? CGPoint(x: 0, y: 0))
                 
                 for point in points.dropFirst() {
                     path.addLine(to: point)
@@ -37,7 +37,7 @@ class CustomRouteMapImageView: UIImageView {
     }
     
     private func makeRouteSizeRegion(center: CLLocationCoordinate2D, minLatitude: CLLocationDegrees, maxLatitude: CLLocationDegrees, minLongitude: CLLocationDegrees, maxLongitude: CLLocationDegrees) -> MKCoordinateRegion {
-        let span = MKCoordinateSpan(latitudeDelta: (maxLatitude - minLatitude) * 1.2, longitudeDelta: (maxLongitude - minLongitude) * 1.2)
+        let span = MKCoordinateSpan(latitudeDelta: (maxLatitude - minLatitude) * 1.5, longitudeDelta: (maxLongitude - minLongitude) * 1.5)
         return MKCoordinateRegion(center: center, span: span)
     }
     
