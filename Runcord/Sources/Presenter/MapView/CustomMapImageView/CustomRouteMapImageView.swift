@@ -17,7 +17,22 @@ class CustomRouteMapImageView: UIImageView {
         let snapShotter = MKMapSnapshotter(options: options)
         snapShotter.start { snapshot, error in
             guard let snapshot = snapshot, error == nil else { fatalError() }
-            self.image = snapshot.image
+            let mapImage = snapshot.image
+            let runningOverlayMapImage = UIGraphicsImageRenderer(size: mapImage.size).image { _ in
+                mapImage.draw(at: .zero)
+                let points = coordinates.map { snapshot.point(for: $0) }
+                let path = UIBezierPath()
+                path.move(to: points[0])
+                
+                for point in points.dropFirst() {
+                    path.addLine(to: point)
+                }
+                
+                path.lineWidth = 5
+                UIColor.blue.setStroke()
+                path.stroke()
+            }
+            self.image = runningOverlayMapImage
         }
     }
     
@@ -51,7 +66,7 @@ class CustomRouteMapImageView: UIImageView {
         var minLongitude = coordinates.min(by: { $0.longitude < $1.longitude })?.longitude ?? 0
         var maxLongitude = coordinates.max(by: { $0.longitude < $1.longitude })?.longitude ?? 0
         options.region = makeRouteSizeRegion(center: getRunningRouteCenterCoordinate(coordinates: coordinates) ?? CLLocationCoordinate2D(latitude: 0, longitude: 0), minLatitude: minLatitude, maxLatitude: maxLatitude, minLongitude: minLongitude, maxLongitude: maxLongitude)
-        options.size = CGSize(width: 200, height: 200)
+        options.size = CGSize(width: 400, height: 400)
         options.showsBuildings = false
         let filter: MKPointOfInterestFilter = .excludingAll
         options.pointOfInterestFilter = filter
