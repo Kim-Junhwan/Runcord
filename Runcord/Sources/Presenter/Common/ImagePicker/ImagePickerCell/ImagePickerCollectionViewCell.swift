@@ -25,7 +25,7 @@ class ImagePickerCollectionViewCell: UICollectionViewCell {
     
     private func setSelectMark() {
         selectMarkView.layer.borderWidth = 6
-        selectMarkView.layer.borderColor = UIColor.tabBarSelect?.cgColor
+        selectMarkView.layer.borderColor = UIColor.tabBarSelect.cgColor
     }
     
     override var isSelected: Bool {

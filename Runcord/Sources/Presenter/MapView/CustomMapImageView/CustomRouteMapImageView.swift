@@ -29,7 +29,7 @@ class CustomRouteMapImageView: UIImageView {
                 }
                 
                 path.lineWidth = 5
-                UIColor.blue.setStroke()
+                UIColor.tabBarSelect.setStroke()
                 path.stroke()
             }
             self.image = runningOverlayMapImage
@@ -61,13 +61,13 @@ class CustomRouteMapImageView: UIImageView {
     private func setSnapshotOptions(coordinates: [CLLocationCoordinate2D]) -> MKMapSnapshotter.Options {
         let options = MKMapSnapshotter.Options()
         
-        var minLatitude = coordinates.min(by: { $0.latitude < $1.latitude })?.latitude ?? 0
-        var maxLatitude = coordinates.max(by: { $0.latitude < $1.latitude })?.latitude ?? 0
-        var minLongitude = coordinates.min(by: { $0.longitude < $1.longitude })?.longitude ?? 0
-        var maxLongitude = coordinates.max(by: { $0.longitude < $1.longitude })?.longitude ?? 0
+        let minLatitude = coordinates.min(by: { $0.latitude < $1.latitude })?.latitude ?? 0
+        let maxLatitude = coordinates.max(by: { $0.latitude < $1.latitude })?.latitude ?? 0
+        let minLongitude = coordinates.min(by: { $0.longitude < $1.longitude })?.longitude ?? 0
+        let maxLongitude = coordinates.max(by: { $0.longitude < $1.longitude })?.longitude ?? 0
         options.region = makeRouteSizeRegion(center: getRunningRouteCenterCoordinate(coordinates: coordinates) ?? CLLocationCoordinate2D(latitude: 0, longitude: 0), minLatitude: minLatitude, maxLatitude: maxLatitude, minLongitude: minLongitude, maxLongitude: maxLongitude)
         options.size = CGSize(width: 400, height: 400)
-        options.showsBuildings = false
+        options.showsBuildings = true
         let filter: MKPointOfInterestFilter = .excludingAll
         options.pointOfInterestFilter = filter
         
