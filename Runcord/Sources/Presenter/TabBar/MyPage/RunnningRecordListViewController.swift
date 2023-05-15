@@ -13,14 +13,15 @@ class RunnningRecordListViewController: UIViewController {
        let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(UINib(nibName: RunningRecordTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RunningRecordTableViewCell.identifier)
+        tableView.backgroundColor = .systemGray6
+        tableView.separatorStyle = .none
         return tableView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray6
         self.title = "러닝기록"
-        self.navigationController?.navigationBar.backgroundColor = .systemBackground
+        view.backgroundColor = .systemBackground
         setTableViewConstraint()
         navigationController?.hidesBarsOnSwipe = true
     }
