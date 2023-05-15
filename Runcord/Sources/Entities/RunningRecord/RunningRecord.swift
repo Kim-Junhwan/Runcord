@@ -16,6 +16,11 @@ struct RunningRecord {
     let runningDistance: Double
     let runningTime: Int
     
-    let runningPath: [(Double, Double)]
+    let runningPath: [RunningRoute]
     let imageRecords: [ImageInfo]
+}
+
+struct RunningRoute {
+    let longitude: Double
+    let latitude: Double
 }

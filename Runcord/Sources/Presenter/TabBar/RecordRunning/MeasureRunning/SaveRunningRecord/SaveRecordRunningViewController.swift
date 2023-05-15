@@ -42,7 +42,7 @@ class SaveRecordRunningViewController: UIViewController, Alertable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setSaveButton()
-        runningRecordMapImageView.setRouteImage(route: runningRecord.runningPath.map { CLLocationCoordinate2D(latitude: $0.0, longitude: $0.1) })
+        runningRecordMapImageView.setRouteImage(route: runningRecord.runningPath.map { CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude) })
         setDateLabel()
         setRunningTimeLabel()
         setRunningDistanceLabel()
