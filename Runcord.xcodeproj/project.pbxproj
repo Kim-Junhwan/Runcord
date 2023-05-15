@@ -44,6 +44,7 @@
 		C7670F092995460900E3CD77 /* RunningCrewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7670F082995460900E3CD77 /* RunningCrewUITests.swift */; };
 		C7670F0B2995460900E3CD77 /* RunningCrewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7670F0A2995460900E3CD77 /* RunningCrewUITestsLaunchTests.swift */; };
 		C769EA3729E412E7004717B3 /* MKMapView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C769EA3629E412E7004717B3 /* MKMapView+.swift */; };
+		C78B044B2A11CECF00FBEC91 /* RunningRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C78B04492A11CECF00FBEC91 /* RunningRecord.xcdatamodeld */; };
 		C7A1F21629BA1194009AE7BA /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1F21429BA1194009AE7BA /* CustomAlertViewController.swift */; };
 		C7A1F21729BA1194009AE7BA /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A1F21529BA1194009AE7BA /* CustomAlertViewController.xib */; };
 		C7A1F21929BA385A009AE7BA /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1F21829BA385A009AE7BA /* UIView+.swift */; };
@@ -143,6 +144,7 @@
 		C7670F082995460900E3CD77 /* RunningCrewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCrewUITests.swift; sourceTree = "<group>"; };
 		C7670F0A2995460900E3CD77 /* RunningCrewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCrewUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C769EA3629E412E7004717B3 /* MKMapView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+.swift"; sourceTree = "<group>"; };
+		C78B044A2A11CECF00FBEC91 /* RunningRecord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunningRecord.xcdatamodel; sourceTree = "<group>"; };
 		C7A1F21429BA1194009AE7BA /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		C7A1F21529BA1194009AE7BA /* CustomAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
 		C7A1F21829BA385A009AE7BA /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 		C7811F7829A258CE00801E6B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C78B04462A11177D00FBEC91 /* DataBase */,
 				C703495E29D49C6600BF28D7 /* Repositories */,
 				C72B3BB929FE1C650051EB61 /* Entities */,
 				C72B3BD92A0109E90051EB61 /* LocationService */,
@@ -500,6 +503,14 @@
 				C7DE67EE2998DF2900C824A9 /* Presenter */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		C78B04462A11177D00FBEC91 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				C78B04492A11CECF00FBEC91 /* RunningRecord.xcdatamodeld */,
+			);
+			path = DataBase;
 			sourceTree = "<group>";
 		};
 		C7A1F21329BA0D38009AE7BA /* Alert */ = {
@@ -1007,6 +1018,7 @@
 				C7A5AFED29D6ADB400E4D851 /* LocationAlertable.swift in Sources */,
 				C703496729D582CC00BF28D7 /* RunningStartViewController.swift in Sources */,
 				C762DED929EC5AC700C24C21 /* RunningRecordMapViewController.swift in Sources */,
+				C78B044B2A11CECF00FBEC91 /* RunningRecord.xcdatamodeld in Sources */,
 				C7670EEA2995460800E3CD77 /* SceneDelegate.swift in Sources */,
 				C7DE681029993A7000C824A9 /* MyPageCoordinator.swift in Sources */,
 				C703496029D49CB500BF28D7 /* CLLocationManager+.swift in Sources */,
@@ -1365,6 +1377,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C78B04492A11CECF00FBEC91 /* RunningRecord.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C78B044A2A11CECF00FBEC91 /* RunningRecord.xcdatamodel */,
+			);
+			currentVersion = C78B044A2A11CECF00FBEC91 /* RunningRecord.xcdatamodel */;
+			path = RunningRecord.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C7670EDC2995460800E3CD77 /* Project object */;
 }
