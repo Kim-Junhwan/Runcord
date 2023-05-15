@@ -18,8 +18,8 @@ final class MyPageCoordinator: Coordinator {
     }
     
     func start() {
-        
+        let mypageViewController = RunnningRecordListViewController()
+        navigationController.pushViewController(mypageViewController, animated: false)
     }
-    
     
 }

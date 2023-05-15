@@ -6,18 +6,9 @@
 //
 
 import UIKit
-import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    lazy var runningRecordContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "RunningRecord")
-        container.loadPersistentStores { _, error in
-            guard error == nil else { fatalError() }
-        }
-        return container
-    }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         return true
