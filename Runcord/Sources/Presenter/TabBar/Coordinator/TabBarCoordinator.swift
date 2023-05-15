@@ -20,7 +20,7 @@ final class TabBarCoordinator {
     
     func start() {
         self.window.rootViewController = tabBarController
-        let items: [TabBarItem] = [.recordRunning, .myPage].sorted { $0.rawValue < $1.rawValue }
+        let items: [TabBarItem] = [.recordRunning, .recordRunningList].sorted { $0.rawValue < $1.rawValue }
         let controllers = items.map { getTabController($0) }
         tabBarController.viewControllers = controllers
     }
@@ -39,7 +39,7 @@ final class TabBarCoordinator {
         switch item {
         case .recordRunning:
             coordinator = RunningCoordinator(navigationController)
-        case .myPage:
+        case .recordRunningList:
             coordinator = MyPageCoordinator(navigationController)
         }
         if let coordinator = coordinator {

@@ -10,14 +10,14 @@ import UIKit
 
 enum TabBarItem: Int {
     case recordRunning = 0
-    case myPage
+    case recordRunningList
     
     func itemTitleValue() -> String {
         switch self {
         case .recordRunning:
             return "러닝"
-        case .myPage:
-            return "마이페이지"
+        case .recordRunningList:
+            return "러닝기록"
         }
     }
     
@@ -25,7 +25,7 @@ enum TabBarItem: Int {
         switch self {
         case .recordRunning:
             return UIImage(named: "RecordRunning.svg")
-        case .myPage:
+        case .recordRunningList:
             return UIImage(named: "MyPage.svg")
         }
     }

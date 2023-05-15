@@ -44,7 +44,7 @@
 		C7670F092995460900E3CD77 /* RunningCrewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7670F082995460900E3CD77 /* RunningCrewUITests.swift */; };
 		C7670F0B2995460900E3CD77 /* RunningCrewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7670F0A2995460900E3CD77 /* RunningCrewUITestsLaunchTests.swift */; };
 		C769EA3729E412E7004717B3 /* MKMapView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C769EA3629E412E7004717B3 /* MKMapView+.swift */; };
-		C78B044B2A11CECF00FBEC91 /* RunningRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C78B04492A11CECF00FBEC91 /* RunningRecord.xcdatamodeld */; };
+		C78B044E2A12055800FBEC91 /* RecordRunningDataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C78B044C2A12055800FBEC91 /* RecordRunningDataBase.xcdatamodeld */; };
 		C7A1F21629BA1194009AE7BA /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1F21429BA1194009AE7BA /* CustomAlertViewController.swift */; };
 		C7A1F21729BA1194009AE7BA /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A1F21529BA1194009AE7BA /* CustomAlertViewController.xib */; };
 		C7A1F21929BA385A009AE7BA /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1F21829BA385A009AE7BA /* UIView+.swift */; };
@@ -64,7 +64,7 @@
 		C7DE67F62998E4D300C824A9 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67F52998E4D300C824A9 /* TabBarCoordinator.swift */; };
 		C7DE67FB29992A5E00C824A9 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67FA29992A5E00C824A9 /* TabBarItem.swift */; };
 		C7DE67FD2999301800C824A9 /* RunningCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67FC2999301800C824A9 /* RunningCoordinator.swift */; };
-		C7DE68022999376800C824A9 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE68012999376800C824A9 /* MyPageViewController.swift */; };
+		C7DE68022999376800C824A9 /* RunnningRecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE68012999376800C824A9 /* RunnningRecordListViewController.swift */; };
 		C7DE681029993A7000C824A9 /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE680F29993A7000C824A9 /* MyPageCoordinator.swift */; };
 		C7DE681C299A84B500C824A9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE681B299A84B500C824A9 /* Launch Screen.storyboard */; };
 		C7DE6825299A85DF00C824A9 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6824299A85DF00C824A9 /* Color+.swift */; };
@@ -144,7 +144,7 @@
 		C7670F082995460900E3CD77 /* RunningCrewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCrewUITests.swift; sourceTree = "<group>"; };
 		C7670F0A2995460900E3CD77 /* RunningCrewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCrewUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C769EA3629E412E7004717B3 /* MKMapView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+.swift"; sourceTree = "<group>"; };
-		C78B044A2A11CECF00FBEC91 /* RunningRecord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunningRecord.xcdatamodel; sourceTree = "<group>"; };
+		C78B044D2A12055800FBEC91 /* RecordRunningDataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecordRunningDataBase.xcdatamodel; sourceTree = "<group>"; };
 		C7A1F21429BA1194009AE7BA /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		C7A1F21529BA1194009AE7BA /* CustomAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
 		C7A1F21829BA385A009AE7BA /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 		C7DE67F52998E4D300C824A9 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		C7DE67FA29992A5E00C824A9 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		C7DE67FC2999301800C824A9 /* RunningCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCoordinator.swift; sourceTree = "<group>"; };
-		C7DE68012999376800C824A9 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		C7DE68012999376800C824A9 /* RunnningRecordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnningRecordListViewController.swift; sourceTree = "<group>"; };
 		C7DE680F29993A7000C824A9 /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
 		C7DE681B299A84B500C824A9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C7DE6824299A85DF00C824A9 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
@@ -508,7 +508,7 @@
 		C78B04462A11177D00FBEC91 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
-				C78B04492A11CECF00FBEC91 /* RunningRecord.xcdatamodeld */,
+				C78B044C2A12055800FBEC91 /* RecordRunningDataBase.xcdatamodeld */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -649,8 +649,8 @@
 		C7DE68002999374300C824A9 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				C7DE68012999376800C824A9 /* RunnningRecordListViewController.swift */,
 				C7DE6807299938C000C824A9 /* Coordinator */,
-				C7DE68012999376800C824A9 /* MyPageViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -1005,6 +1005,7 @@
 				C7DE6825299A85DF00C824A9 /* Color+.swift in Sources */,
 				C7DE67FB29992A5E00C824A9 /* TabBarItem.swift in Sources */,
 				C7A4CE5429BC2135000DAE8B /* ImagePickerViewController.swift in Sources */,
+				C78B044E2A12055800FBEC91 /* RecordRunningDataBase.xcdatamodeld in Sources */,
 				C7AD00EC29D1E1A6001D275E /* DesignedTabBarController.swift in Sources */,
 				C72B3BE22A038EC60051EB61 /* ImageAnnotationView.swift in Sources */,
 				C7663E7D29AA125B0046068B /* GoalSettingStackView.swift in Sources */,
@@ -1018,7 +1019,6 @@
 				C7A5AFED29D6ADB400E4D851 /* LocationAlertable.swift in Sources */,
 				C703496729D582CC00BF28D7 /* RunningStartViewController.swift in Sources */,
 				C762DED929EC5AC700C24C21 /* RunningRecordMapViewController.swift in Sources */,
-				C78B044B2A11CECF00FBEC91 /* RunningRecord.xcdatamodeld in Sources */,
 				C7670EEA2995460800E3CD77 /* SceneDelegate.swift in Sources */,
 				C7DE681029993A7000C824A9 /* MyPageCoordinator.swift in Sources */,
 				C703496029D49CB500BF28D7 /* CLLocationManager+.swift in Sources */,
@@ -1037,7 +1037,7 @@
 				C7663E8129ABA5720046068B /* GoalSettingLabelStackView.swift in Sources */,
 				C72B3BE42A039CF80051EB61 /* ImageAnnotation.swift in Sources */,
 				C7DE67F32998DFC200C824A9 /* Coordinator.swift in Sources */,
-				C7DE68022999376800C824A9 /* MyPageViewController.swift in Sources */,
+				C7DE68022999376800C824A9 /* RunnningRecordListViewController.swift in Sources */,
 				C75DECF729ABB3AF00A4EC47 /* GoalSettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1379,13 +1379,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C78B04492A11CECF00FBEC91 /* RunningRecord.xcdatamodeld */ = {
+		C78B044C2A12055800FBEC91 /* RecordRunningDataBase.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C78B044A2A11CECF00FBEC91 /* RunningRecord.xcdatamodel */,
+				C78B044D2A12055800FBEC91 /* RecordRunningDataBase.xcdatamodel */,
 			);
-			currentVersion = C78B044A2A11CECF00FBEC91 /* RunningRecord.xcdatamodel */;
-			path = RunningRecord.xcdatamodeld;
+			currentVersion = C78B044D2A12055800FBEC91 /* RecordRunningDataBase.xcdatamodel */;
+			path = RecordRunningDataBase.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

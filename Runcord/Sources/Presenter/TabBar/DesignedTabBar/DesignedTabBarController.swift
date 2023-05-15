@@ -18,8 +18,6 @@ class DesignedTabBarController: UITabBarController {
         tabBar.backgroundColor = .white
         tabBar.unselectedItemTintColor = .black
         tabBar.tintColor = .tabBarSelect
-        tabBar.layer.borderColor = UIColor.tabBarBorder.cgColor
-        tabBar.layer.borderWidth = 1
         tabBar.clipsToBounds = true
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "NotoSansKR-Medium", size: 12)!], for: .normal)
     }
