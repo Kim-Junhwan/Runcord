@@ -23,10 +23,14 @@ class SaveRecordRunningViewController: UIViewController, Alertable {
     @IBOutlet weak var minuteLabel: UILabel!
     
     // MARK: - Running State Label
-    
     @IBOutlet weak var runningHourLabel: UILabel!
     @IBOutlet weak var runningMinuteLabel: UILabel!
-    @IBOutlet weak var runningSecondLabel: UILabel!
+    
+    // MARK: - Goal Label
+    
+    @IBOutlet weak var runningDistanceGoalLabel: UILabel!
+    @IBOutlet weak var runningTimeGoalHourLabel: UILabel!
+    @IBOutlet weak var runningTimeGoalMinuteLabel: UILabel!
     
     let runningRecord: RunningRecord
     
@@ -46,6 +50,7 @@ class SaveRecordRunningViewController: UIViewController, Alertable {
         setDateLabel()
         setRunningTimeLabel()
         setRunningDistanceLabel()
+        setGoalLabel()
     }
     
     private func setSaveButton() {
@@ -67,9 +72,8 @@ class SaveRecordRunningViewController: UIViewController, Alertable {
     
     private func setRunningTimeLabel() {
         let runningTime = runningRecord.runningTime
-        runningHourLabel.text = String(runningTime / 3600)
-        runningMinuteLabel.text = String((runningTime % 3600) / 60)
-        runningSecondLabel.text = String(format: "%2d", runningTime % 60)
+        runningHourLabel.text = String(format: "%02d", runningTime / 3600)
+        runningMinuteLabel.text = String(format: "%02d", (runningTime % 3600) / 60)
     }
     
     private func setRunningDistanceLabel() {
@@ -78,7 +82,12 @@ class SaveRecordRunningViewController: UIViewController, Alertable {
     }
     
     private func setGoalLabel() {
+        let goalTime = runningRecord.goalTime
+        let goalDistance = runningRecord.goalDistance
         
+        runningDistanceGoalLabel.text = String(format: "%.2f", goalDistance)
+        runningTimeGoalHourLabel.text = String(format: "%02d", goalTime / 3600)
+        runningTimeGoalMinuteLabel.text = String(format: "%02d", (goalTime % 3600) / 60)
     }
     
     // MARK: - Action
