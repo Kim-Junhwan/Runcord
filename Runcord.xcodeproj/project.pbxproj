@@ -420,7 +420,6 @@
 			isa = PBXGroup;
 			children = (
 				C7B3DA502A079A2900B370B6 /* RunningMap */,
-				C751527D29B7994B003D8987 /* SaveRunningRecord */,
 				C75DECFC29AE7E8300A4EC47 /* RecordView */,
 			);
 			path = MeasureRunning;
@@ -654,6 +653,7 @@
 		C7DE67F72999296B00C824A9 /* RecordRunning */ = {
 			isa = PBXGroup;
 			children = (
+				C751527D29B7994B003D8987 /* SaveRunningRecord */,
 				C7663E5129A4BF6E0046068B /* MeasureRunning */,
 			);
 			path = RecordRunning;
