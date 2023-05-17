@@ -44,7 +44,7 @@
 		C7670F092995460900E3CD77 /* RunningCrewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7670F082995460900E3CD77 /* RunningCrewUITests.swift */; };
 		C7670F0B2995460900E3CD77 /* RunningCrewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7670F0A2995460900E3CD77 /* RunningCrewUITestsLaunchTests.swift */; };
 		C769EA3729E412E7004717B3 /* MKMapView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C769EA3629E412E7004717B3 /* MKMapView+.swift */; };
-		C78B044E2A12055800FBEC91 /* RecordRunningDataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C78B044C2A12055800FBEC91 /* RecordRunningDataBase.xcdatamodeld */; };
+		C78B044E2A12055800FBEC91 /* RecordRunningStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C78B044C2A12055800FBEC91 /* RecordRunningStorage.xcdatamodeld */; };
 		C78B04522A12701600FBEC91 /* RunningRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78B04502A12701600FBEC91 /* RunningRecordTableViewCell.swift */; };
 		C78B04532A12701600FBEC91 /* RunningRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C78B04512A12701600FBEC91 /* RunningRecordTableViewCell.xib */; };
 		C7A1F21629BA1194009AE7BA /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1F21429BA1194009AE7BA /* CustomAlertViewController.swift */; };
@@ -73,6 +73,8 @@
 		C7E00A1C29C1AF8D00B39709 /* ImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E00A1B29C1AF8D00B39709 /* ImagePickerViewModel.swift */; };
 		C7E00A2329C36F4900B39709 /* CameraCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E00A2129C36F4900B39709 /* CameraCollectionViewCell.swift */; };
 		C7E00A2429C36F4900B39709 /* CameraCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E00A2229C36F4900B39709 /* CameraCollectionViewCell.xib */; };
+		C7ECCB752A148A8600E81AB0 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB742A148A8500E81AB0 /* CoreDataStorage.swift */; };
+		C7ECCB772A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB762A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift */; };
 		C7F95B2E29AF803200C69D1B /* RunningStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F95B2D29AF803200C69D1B /* RunningStartViewModel.swift */; };
 		D3BF4C1EAF7E2662EFB5DD5C /* Pods_RuncordTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F4E49B23A18F2DB926C672 /* Pods_RuncordTests.framework */; };
 /* End PBXBuildFile section */
@@ -175,6 +177,8 @@
 		C7E00A1B29C1AF8D00B39709 /* ImagePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewModel.swift; sourceTree = "<group>"; };
 		C7E00A2129C36F4900B39709 /* CameraCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionViewCell.swift; sourceTree = "<group>"; };
 		C7E00A2229C36F4900B39709 /* CameraCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraCollectionViewCell.xib; sourceTree = "<group>"; };
+		C7ECCB742A148A8500E81AB0 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		C7ECCB762A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRunningRecordStroage.swift; sourceTree = "<group>"; };
 		C7F95B2D29AF803200C69D1B /* RunningStartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningStartViewModel.swift; sourceTree = "<group>"; };
 		C8E83F46D38D17331033544B /* Pods-RunningCrew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningCrew.release.xcconfig"; path = "Target Support Files/Pods-RunningCrew/Pods-RunningCrew.release.xcconfig"; sourceTree = "<group>"; };
 		D0BCB0478C25AB8849DDAF93 /* Pods-RunningCrewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningCrewTests.release.xcconfig"; path = "Target Support Files/Pods-RunningCrewTests/Pods-RunningCrewTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -497,7 +501,7 @@
 		C7811F7829A258CE00801E6B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C78B04462A11177D00FBEC91 /* DataBase */,
+				C78B04462A11177D00FBEC91 /* Storage */,
 				C703495E29D49C6600BF28D7 /* Repositories */,
 				C72B3BB929FE1C650051EB61 /* Entities */,
 				C72B3BD92A0109E90051EB61 /* LocationService */,
@@ -508,12 +512,13 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		C78B04462A11177D00FBEC91 /* DataBase */ = {
+		C78B04462A11177D00FBEC91 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				C78B044C2A12055800FBEC91 /* RecordRunningDataBase.xcdatamodeld */,
+				C7ECCB732A148A5A00E81AB0 /* CoreDataStorage */,
+				C7ECCB762A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift */,
 			);
-			path = DataBase;
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		C78B044F2A126FFD00FBEC91 /* RunningRecordTableViewCell */ = {
@@ -709,6 +714,15 @@
 				C7E00A2229C36F4900B39709 /* CameraCollectionViewCell.xib */,
 			);
 			path = CameraCell;
+			sourceTree = "<group>";
+		};
+		C7ECCB732A148A5A00E81AB0 /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				C78B044C2A12055800FBEC91 /* RecordRunningStorage.xcdatamodeld */,
+				C7ECCB742A148A8500E81AB0 /* CoreDataStorage.swift */,
+			);
+			path = CoreDataStorage;
 			sourceTree = "<group>";
 		};
 		C7F95B2B29AF7F8A00C69D1B /* RunningStart */ = {
@@ -1020,7 +1034,7 @@
 				C7DE6825299A85DF00C824A9 /* Color+.swift in Sources */,
 				C7DE67FB29992A5E00C824A9 /* TabBarItem.swift in Sources */,
 				C7A4CE5429BC2135000DAE8B /* ImagePickerViewController.swift in Sources */,
-				C78B044E2A12055800FBEC91 /* RecordRunningDataBase.xcdatamodeld in Sources */,
+				C78B044E2A12055800FBEC91 /* RecordRunningStorage.xcdatamodeld in Sources */,
 				C7AD00EC29D1E1A6001D275E /* DesignedTabBarController.swift in Sources */,
 				C72B3BE22A038EC60051EB61 /* ImageAnnotationView.swift in Sources */,
 				C7663E7D29AA125B0046068B /* GoalSettingStackView.swift in Sources */,
@@ -1033,6 +1047,7 @@
 				C7211E3129B9664D00ADA90C /* UIViewController+.swift in Sources */,
 				C7A5AFED29D6ADB400E4D851 /* LocationAlertable.swift in Sources */,
 				C703496729D582CC00BF28D7 /* RunningStartViewController.swift in Sources */,
+				C7ECCB772A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift in Sources */,
 				C762DED929EC5AC700C24C21 /* RunningRecordMapViewController.swift in Sources */,
 				C7670EEA2995460800E3CD77 /* SceneDelegate.swift in Sources */,
 				C7DE681029993A7000C824A9 /* MyPageCoordinator.swift in Sources */,
@@ -1040,6 +1055,7 @@
 				C7E00A2329C36F4900B39709 /* CameraCollectionViewCell.swift in Sources */,
 				C7A1F21629BA1194009AE7BA /* CustomAlertViewController.swift in Sources */,
 				C7E00A1C29C1AF8D00B39709 /* ImagePickerViewModel.swift in Sources */,
+				C7ECCB752A148A8600E81AB0 /* CoreDataStorage.swift in Sources */,
 				C751527C29B34224003D8987 /* RecordViewModel.swift in Sources */,
 				C7F95B2E29AF803200C69D1B /* RunningStartViewModel.swift in Sources */,
 				C7DE67F62998E4D300C824A9 /* TabBarCoordinator.swift in Sources */,
@@ -1395,13 +1411,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C78B044C2A12055800FBEC91 /* RecordRunningDataBase.xcdatamodeld */ = {
+		C78B044C2A12055800FBEC91 /* RecordRunningStorage.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				C78B044D2A12055800FBEC91 /* RecordRunningDataBase.xcdatamodel */,
 			);
 			currentVersion = C78B044D2A12055800FBEC91 /* RecordRunningDataBase.xcdatamodel */;
-			path = RecordRunningDataBase.xcdatamodeld;
+			path = RecordRunningStorage.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
