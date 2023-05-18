@@ -26,7 +26,7 @@ extension CoreDataRunningRecordStroage {
             self.coreDataStorage.performBackgroundTask { context in
                 do {
                     let request: NSFetchRequest = RunningRecordEntity.fetchRequest()
-                    request.sortDescriptors = [NSSortDescriptor(key: #keyPath(RunningRecordEntity.date), ascending: false)]
+                    request.sortDescriptors = [NSSortDescriptor(key: #keyPath(RunningRecordEntity.date), ascending: false), NSSortDescriptor(key: #keyPath(RunningRouteEntity.orderNum), ascending: true)]
                     let result = try context.fetch(request).map { $0.toDomain() }
                     observer.onNext(.success(result))
                 } catch {
