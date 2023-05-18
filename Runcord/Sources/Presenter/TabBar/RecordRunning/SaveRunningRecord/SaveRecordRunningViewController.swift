@@ -33,9 +33,11 @@ class SaveRecordRunningViewController: UIViewController, Alertable {
     @IBOutlet weak var runningTimeGoalMinuteLabel: UILabel!
     
     let runningRecord: RunningRecord
+    let runningRecordRepository: RunningRecordRepository
     
-    init(runningRecord: RunningRecord) {
+    init(runningRecord: RunningRecord, runningRecordRepository: RunningRecordRepository) {
         self.runningRecord = runningRecord
+        self.runningRecordRepository = runningRecordRepository
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -97,4 +99,8 @@ class SaveRecordRunningViewController: UIViewController, Alertable {
         }
     }
     
+    @IBAction func tapSaveButton(_ sender: Any) {
+        runningRecordRepository.saveRunningRecord(runningRecord: runningRecord)
+    }
+     
 }

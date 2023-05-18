@@ -75,6 +75,7 @@
 		C7E00A2429C36F4900B39709 /* CameraCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E00A2229C36F4900B39709 /* CameraCollectionViewCell.xib */; };
 		C7ECCB752A148A8600E81AB0 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB742A148A8500E81AB0 /* CoreDataStorage.swift */; };
 		C7ECCB772A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB762A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift */; };
+		C7ECCB7A2A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB792A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift */; };
 		C7F95B2E29AF803200C69D1B /* RunningStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F95B2D29AF803200C69D1B /* RunningStartViewModel.swift */; };
 		D3BF4C1EAF7E2662EFB5DD5C /* Pods_RuncordTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F4E49B23A18F2DB926C672 /* Pods_RuncordTests.framework */; };
 /* End PBXBuildFile section */
@@ -179,6 +180,7 @@
 		C7E00A2229C36F4900B39709 /* CameraCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraCollectionViewCell.xib; sourceTree = "<group>"; };
 		C7ECCB742A148A8500E81AB0 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		C7ECCB762A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRunningRecordStroage.swift; sourceTree = "<group>"; };
+		C7ECCB792A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunningRecordEntity+Mapping.swift"; sourceTree = "<group>"; };
 		C7F95B2D29AF803200C69D1B /* RunningStartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningStartViewModel.swift; sourceTree = "<group>"; };
 		C8E83F46D38D17331033544B /* Pods-RunningCrew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningCrew.release.xcconfig"; path = "Target Support Files/Pods-RunningCrew/Pods-RunningCrew.release.xcconfig"; sourceTree = "<group>"; };
 		D0BCB0478C25AB8849DDAF93 /* Pods-RunningCrewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningCrewTests.release.xcconfig"; path = "Target Support Files/Pods-RunningCrewTests/Pods-RunningCrewTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -719,10 +721,19 @@
 		C7ECCB732A148A5A00E81AB0 /* CoreDataStorage */ = {
 			isa = PBXGroup;
 			children = (
+				C7ECCB782A14AE9300E81AB0 /* EntityMapping */,
 				C78B044C2A12055800FBEC91 /* RecordRunningStorage.xcdatamodeld */,
 				C7ECCB742A148A8500E81AB0 /* CoreDataStorage.swift */,
 			);
 			path = CoreDataStorage;
+			sourceTree = "<group>";
+		};
+		C7ECCB782A14AE9300E81AB0 /* EntityMapping */ = {
+			isa = PBXGroup;
+			children = (
+				C7ECCB792A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift */,
+			);
+			path = EntityMapping;
 			sourceTree = "<group>";
 		};
 		C7F95B2B29AF7F8A00C69D1B /* RunningStart */ = {
@@ -1023,6 +1034,7 @@
 			files = (
 				C75DECFA29AE7E7D00A4EC47 /* RecordViewController.swift in Sources */,
 				C72B3BBB29FE59C30051EB61 /* ImageInfo.swift in Sources */,
+				C7ECCB7A2A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift in Sources */,
 				C7A5AFE829D69F7900E4D851 /* AuthorizationAlertable.swift in Sources */,
 				C7DE67FD2999301800C824A9 /* RunningCoordinator.swift in Sources */,
 				C72B3BE92A04ECB40051EB61 /* CustomMapView.swift in Sources */,

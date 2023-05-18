@@ -15,6 +15,7 @@ final class RunningCoordinator: Coordinator {
     var childCoordinators: [Coordinator]
     let locationManager: CLLocationManager = CLLocationManager()
     let locationService: LocationService = LocationService(locationManager: CLLocationManager())
+    let runningRecordRepository: RunningRecordRepository = DefaultRunningRecordRepository(coreDataStorage: CoreDataRunningRecordStroage())
     
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -38,7 +39,7 @@ final class RunningCoordinator: Coordinator {
     }
     
     func showSaveRecordView(runningRecord: RunningRecord) {
-        let vc = SaveRecordRunningViewController(runningRecord: runningRecord)
+        let vc = SaveRecordRunningViewController(runningRecord: runningRecord, runningRecordRepository: runningRecordRepository)
         vc.modalPresentationStyle = .fullScreen
         navigationController.present(vc, animated: true)
     }

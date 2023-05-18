@@ -7,11 +7,17 @@
 
 import CoreData
 
+enum CoreDataStorageError: Error {
+    case readError(Error)
+    case saveError(Error)
+    case deleteError(Error)
+}
+
 final class CoreDataStorage {
     static let shared = CoreDataStorage()
     
     private lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "RecordRunningStroage")
+        let container = NSPersistentContainer(name: "RecordRunningStorage")
         container.loadPersistentStores { _, error in
             if let error = error as NSError? {
                 assertionFailure("Cannot load CoreDataStorage \(error)")

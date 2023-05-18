@@ -7,33 +7,29 @@
 
 import Foundation
 import CoreData
+import RxSwift
 
 protocol RunningRecordRepository {
-    func fetchRunningRecordList() throws -> [RunningRecord]
-    func fetchRunningRecord() throws -> RunningRecord
-    func saveRunningRecord(runningRecord: RunningRecord) throws
+    func fetchRunningRecordList() -> Observable<Result<[RunningRecord], Error>>
+    func saveRunningRecord(runningRecord: RunningRecord)
 }
 
-final class DefaultRunningRecordRepository: RunningRecordRepository {
+final class DefaultRunningRecordRepository {
     
-    lazy var runningRecordContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "RecordRunningDataBase")
-        container.loadPersistentStores { _, error in
-            guard error == nil else { fatalError("Cannot load DataBases. \(error?.localizedDescription)") }
-        }
-        return container
-    }()
+    let coreDataRunningRecordStroage: CoreDataRunningRecordStroage
     
-    func fetchRunningRecordList() throws -> [RunningRecord] {
-        return []
+    init(coreDataStorage: CoreDataRunningRecordStroage) {
+        self.coreDataRunningRecordStroage = coreDataStorage
+    }
+}
+
+extension DefaultRunningRecordRepository: RunningRecordRepository {
+    func fetchRunningRecordList() -> Observable<Result<[RunningRecord], Error>> {
+        return coreDataRunningRecordStroage.fetchRecentRunningRecords()
     }
     
-    func fetchRunningRecord() throws -> RunningRecord {
-        return RunningRecord(date: Date(), goalDistance: 0, goalTime: 0, runningDistance: 0, runningTime: 0, runningPath: [], imageRecords: [])
-    }
-    
-    func saveRunningRecord(runningRecord: RunningRecord) throws {
-        
+    func saveRunningRecord(runningRecord: RunningRecord) {
+        coreDataRunningRecordStroage.saveRunningRecord(runningRecord: runningRecord)
     }
     
 }
