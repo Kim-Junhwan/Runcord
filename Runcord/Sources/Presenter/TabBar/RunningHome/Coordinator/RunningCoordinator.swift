@@ -15,10 +15,11 @@ final class RunningCoordinator: Coordinator {
     var childCoordinators: [Coordinator]
     let locationManager: CLLocationManager = CLLocationManager()
     let locationService: LocationService = LocationService(locationManager: CLLocationManager())
-    let runningRecordRepository: RunningRecordRepository = DefaultRunningRecordRepository(coreDataStorage: CoreDataRunningRecordStroage())
+    let runningRecordRepository: RunningRecordRepository
     
-    init(_ navigationController: UINavigationController) {
+    init(_ navigationController: UINavigationController, runningRecordRepository: RunningRecordRepository) {
         self.navigationController = navigationController
+        self.runningRecordRepository = runningRecordRepository
         self.childCoordinators = []
     }
     

@@ -11,10 +11,12 @@ final class TabBarCoordinator {
     var window: UIWindow
     var tabBarController: DesignedTabBarController
     var childCoordinators: [Coordinator]
+    let runningRecordRepository: RunningRecordRepository
     
-    init(_ window: UIWindow) {
+    init(_ window: UIWindow, runningRecordRepository: RunningRecordRepository) {
         self.window = window
         self.tabBarController = DesignedTabBarController()
+        self.runningRecordRepository = runningRecordRepository
         self.childCoordinators = []
     }
     
@@ -38,9 +40,9 @@ final class TabBarCoordinator {
         var coordinator: Coordinator? = nil
         switch item {
         case .recordRunning:
-            coordinator = RunningCoordinator(navigationController)
+            coordinator = RunningCoordinator(navigationController, runningRecordRepository: runningRecordRepository)
         case .recordRunningList:
-            coordinator = MyPageCoordinator(navigationController)
+            coordinator = RunningListCoordinator(navigationController, runningRecordRepository: runningRecordRepository)
         }
         if let coordinator = coordinator {
             childCoordinators.append(coordinator)

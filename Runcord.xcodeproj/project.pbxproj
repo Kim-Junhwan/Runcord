@@ -67,7 +67,7 @@
 		C7DE67FB29992A5E00C824A9 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67FA29992A5E00C824A9 /* TabBarItem.swift */; };
 		C7DE67FD2999301800C824A9 /* RunningCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67FC2999301800C824A9 /* RunningCoordinator.swift */; };
 		C7DE68022999376800C824A9 /* RunnningRecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE68012999376800C824A9 /* RunnningRecordListViewController.swift */; };
-		C7DE681029993A7000C824A9 /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE680F29993A7000C824A9 /* MyPageCoordinator.swift */; };
+		C7DE681029993A7000C824A9 /* RunningListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE680F29993A7000C824A9 /* RunningListCoordinator.swift */; };
 		C7DE681C299A84B500C824A9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE681B299A84B500C824A9 /* Launch Screen.storyboard */; };
 		C7DE6825299A85DF00C824A9 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6824299A85DF00C824A9 /* Color+.swift */; };
 		C7E00A1C29C1AF8D00B39709 /* ImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E00A1B29C1AF8D00B39709 /* ImagePickerViewModel.swift */; };
@@ -76,6 +76,7 @@
 		C7ECCB752A148A8600E81AB0 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB742A148A8500E81AB0 /* CoreDataStorage.swift */; };
 		C7ECCB772A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB762A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift */; };
 		C7ECCB7A2A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB792A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift */; };
+		C7ECCB7D2A160B9D00E81AB0 /* RunningRecordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB7C2A160B9D00E81AB0 /* RunningRecordListViewModel.swift */; };
 		C7F95B2E29AF803200C69D1B /* RunningStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F95B2D29AF803200C69D1B /* RunningStartViewModel.swift */; };
 		D3BF4C1EAF7E2662EFB5DD5C /* Pods_RuncordTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F4E49B23A18F2DB926C672 /* Pods_RuncordTests.framework */; };
 /* End PBXBuildFile section */
@@ -172,7 +173,7 @@
 		C7DE67FA29992A5E00C824A9 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		C7DE67FC2999301800C824A9 /* RunningCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCoordinator.swift; sourceTree = "<group>"; };
 		C7DE68012999376800C824A9 /* RunnningRecordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnningRecordListViewController.swift; sourceTree = "<group>"; };
-		C7DE680F29993A7000C824A9 /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
+		C7DE680F29993A7000C824A9 /* RunningListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningListCoordinator.swift; sourceTree = "<group>"; };
 		C7DE681B299A84B500C824A9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C7DE6824299A85DF00C824A9 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		C7E00A1B29C1AF8D00B39709 /* ImagePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewModel.swift; sourceTree = "<group>"; };
@@ -181,6 +182,7 @@
 		C7ECCB742A148A8500E81AB0 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		C7ECCB762A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRunningRecordStroage.swift; sourceTree = "<group>"; };
 		C7ECCB792A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunningRecordEntity+Mapping.swift"; sourceTree = "<group>"; };
+		C7ECCB7C2A160B9D00E81AB0 /* RunningRecordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordListViewModel.swift; sourceTree = "<group>"; };
 		C7F95B2D29AF803200C69D1B /* RunningStartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningStartViewModel.swift; sourceTree = "<group>"; };
 		C8E83F46D38D17331033544B /* Pods-RunningCrew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningCrew.release.xcconfig"; path = "Target Support Files/Pods-RunningCrew/Pods-RunningCrew.release.xcconfig"; sourceTree = "<group>"; };
 		D0BCB0478C25AB8849DDAF93 /* Pods-RunningCrewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningCrewTests.release.xcconfig"; path = "Target Support Files/Pods-RunningCrewTests/Pods-RunningCrewTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -634,7 +636,7 @@
 				C7AD00EA29D1E175001D275E /* DesignedTabBar */,
 				C762DEAD29EC192300C24C21 /* RunningHome */,
 				C7DE67F72999296B00C824A9 /* RecordRunning */,
-				C7DE68002999374300C824A9 /* MyPage */,
+				C7DE68002999374300C824A9 /* RunningRecordList */,
 				C7DE67F42998E4B900C824A9 /* Coordinator */,
 			);
 			path = TabBar;
@@ -666,20 +668,21 @@
 			path = RecordRunning;
 			sourceTree = "<group>";
 		};
-		C7DE68002999374300C824A9 /* MyPage */ = {
+		C7DE68002999374300C824A9 /* RunningRecordList */ = {
 			isa = PBXGroup;
 			children = (
+				C7ECCB7B2A160B8700E81AB0 /* RunningRecordListViewModel */,
 				C78B044F2A126FFD00FBEC91 /* RunningRecordTableViewCell */,
 				C7DE68012999376800C824A9 /* RunnningRecordListViewController.swift */,
 				C7DE6807299938C000C824A9 /* Coordinator */,
 			);
-			path = MyPage;
+			path = RunningRecordList;
 			sourceTree = "<group>";
 		};
 		C7DE6807299938C000C824A9 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				C7DE680F29993A7000C824A9 /* MyPageCoordinator.swift */,
+				C7DE680F29993A7000C824A9 /* RunningListCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -734,6 +737,14 @@
 				C7ECCB792A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift */,
 			);
 			path = EntityMapping;
+			sourceTree = "<group>";
+		};
+		C7ECCB7B2A160B8700E81AB0 /* RunningRecordListViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C7ECCB7C2A160B9D00E81AB0 /* RunningRecordListViewModel.swift */,
+			);
+			path = RunningRecordListViewModel;
 			sourceTree = "<group>";
 		};
 		C7F95B2B29AF7F8A00C69D1B /* RunningStart */ = {
@@ -1034,6 +1045,7 @@
 			files = (
 				C75DECFA29AE7E7D00A4EC47 /* RecordViewController.swift in Sources */,
 				C72B3BBB29FE59C30051EB61 /* ImageInfo.swift in Sources */,
+				C7ECCB7D2A160B9D00E81AB0 /* RunningRecordListViewModel.swift in Sources */,
 				C7ECCB7A2A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift in Sources */,
 				C7A5AFE829D69F7900E4D851 /* AuthorizationAlertable.swift in Sources */,
 				C7DE67FD2999301800C824A9 /* RunningCoordinator.swift in Sources */,
@@ -1062,7 +1074,7 @@
 				C7ECCB772A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift in Sources */,
 				C762DED929EC5AC700C24C21 /* RunningRecordMapViewController.swift in Sources */,
 				C7670EEA2995460800E3CD77 /* SceneDelegate.swift in Sources */,
-				C7DE681029993A7000C824A9 /* MyPageCoordinator.swift in Sources */,
+				C7DE681029993A7000C824A9 /* RunningListCoordinator.swift in Sources */,
 				C703496029D49CB500BF28D7 /* CLLocationManager+.swift in Sources */,
 				C7E00A2329C36F4900B39709 /* CameraCollectionViewCell.swift in Sources */,
 				C7A1F21629BA1194009AE7BA /* CustomAlertViewController.swift in Sources */,

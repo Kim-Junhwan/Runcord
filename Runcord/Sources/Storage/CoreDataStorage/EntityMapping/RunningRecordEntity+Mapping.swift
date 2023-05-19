@@ -31,7 +31,10 @@ extension RunningRecordEntity {
             goalTime: Int(goalTime),
             runningDistance: runningDistance,
             runningTime: Int(runningTime),
-                     runningPath: runningPath?.allObjects.map { ($0 as! RunningRouteEntity).toDomain() } ?? [],
+            runningPath: runningPath?.allObjects
+            .map { $0 as! RunningRouteEntity }
+            .sorted { $0.orderNum < $1.orderNum }
+            .map { $0.toDomain() } ?? [],
             imageRecords: imageList?.allObjects.map { $0 as! ImageInfo } ?? []
         )
     }

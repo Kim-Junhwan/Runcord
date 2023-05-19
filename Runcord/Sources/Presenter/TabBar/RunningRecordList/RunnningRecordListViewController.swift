@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxCocoa
 
 class RunnningRecordListViewController: UIViewController {
     
@@ -17,19 +18,38 @@ class RunnningRecordListViewController: UIViewController {
         tableView.separatorStyle = .none
         return tableView
     }()
-
+    
+    let viewModel: RunningRecordListViewModel
+    
+    init(viewModel: RunningRecordListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "러닝기록"
         view.backgroundColor = .systemBackground
         setTableViewConstraint()
         navigationController?.hidesBarsOnSwipe = true
+        viewModel.fetchRunningRecordList()
+        bindRunningList()
+    }
+    
+    private func bindRunningList() {
+        viewModel.runningRecordListDriver.drive(tableView.rx.items) { table, row, data in
+            guard let cell = table.dequeueReusableCell(withIdentifier: RunningRecordTableViewCell.identifier, for: IndexPath(row: row, section: 0)) as? RunningRecordTableViewCell else { return RunningRecordTableViewCell() }
+            cell.setData(runningRecord: data)
+            return cell
+        }
     }
     
     private func setTableViewConstraint() {
         view.addSubview(tableView)
-        tableView.delegate = self
-        tableView.dataSource = self
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -38,18 +58,4 @@ class RunnningRecordListViewController: UIViewController {
         ])
     }
 
-}
-
-extension RunnningRecordListViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: RunningRecordTableViewCell.identifier, for: indexPath) as? RunningRecordTableViewCell else { return RunningRecordTableViewCell() }
-        
-        return cell
-    }
-    
 }

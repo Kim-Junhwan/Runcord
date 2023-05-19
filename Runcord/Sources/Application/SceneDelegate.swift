@@ -11,12 +11,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var tabBarCoordinator: TabBarCoordinator?
+    var runningRecordRepository: RunningRecordRepository = DefaultRunningRecordRepository(coreDataStorage: CoreDataRunningRecordStroage())
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         if let window = window {
-            tabBarCoordinator = TabBarCoordinator(window)
+            tabBarCoordinator = TabBarCoordinator(window, runningRecordRepository: runningRecordRepository)
             tabBarCoordinator?.start()
             window.makeKeyAndVisible()
         }
