@@ -44,18 +44,25 @@ class RunnningRecordListViewController: UIViewController {
         viewModel.runningRecordListDriver.drive(tableView.rx.items) { table, row, data in
             guard let cell = table.dequeueReusableCell(withIdentifier: RunningRecordTableViewCell.identifier, for: IndexPath(row: row, section: 0)) as? RunningRecordTableViewCell else { return RunningRecordTableViewCell() }
             cell.setData(runningRecord: data)
+            self.tableView.refreshControl?.endRefreshing()
             return cell
         }
     }
     
     private func setTableViewConstraint() {
         view.addSubview(tableView)
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(updateRunningRecordList), for: .valueChanged)
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    @objc private func updateRunningRecordList() {
+        viewModel.fetchRunningRecordList()
     }
 
 }
