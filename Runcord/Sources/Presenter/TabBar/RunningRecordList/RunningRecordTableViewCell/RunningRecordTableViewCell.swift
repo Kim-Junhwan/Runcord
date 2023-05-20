@@ -29,6 +29,11 @@ class RunningRecordTableViewCell: UITableViewCell {
         contentView.layer.cornerRadius = 20.0
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        runningRouteImageView.image = nil
+    }
+    
     func setData(runningRecord: RunningRecord) {
         runningRouteImageView.setRouteImage(route: runningRecord.runningPath.map { CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude) })
         runningDistanceLabel.text = String(format: "%.2f", runningRecord.runningDistance)
