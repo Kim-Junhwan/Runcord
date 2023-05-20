@@ -22,31 +22,32 @@ final class CoreDataRunningRecordStroage {
 extension CoreDataRunningRecordStroage {
     
     func fetchRecentRunningRecords() -> Observable<Result<[RunningRecord], Error>> {
-        return Observable.create { observer in
-            self.coreDataStorage.performBackgroundTask { context in
+        return Observable.create { [weak self] observer in
+            guard let self = self else {
+                observer.onCompleted()
+                return Disposables.create()
+            }
+            let context = self.coreDataStorage.managedContext
+            let request: NSFetchRequest = RunningRecordEntity.fetchRequest()
+            request.sortDescriptors = [NSSortDescriptor(key: #keyPath(RunningRecordEntity.date), ascending: false)]
                 do {
-                    let request: NSFetchRequest = RunningRecordEntity.fetchRequest()
-                    request.sortDescriptors = [NSSortDescriptor(key: #keyPath(RunningRecordEntity.date), ascending: false)]
                     let result = try context.fetch(request).map { $0.toDomain() }
                     observer.onNext(.success(result))
                 } catch {
-                    observer.onNext(.failure(CoreDataStorageError.readError(error)))
+                    observer.onError(CoreDataStorageError.saveError(error))
                 }
                 observer.onCompleted()
-            }
             return Disposables.create()
         }
     }
     
-    func saveRunningRecord(runningRecord: RunningRecord) {
-        coreDataStorage.performBackgroundTask { [weak self] context in
-            guard let self = self else { return }
-            let entity = RunningRecordEntity(runningRecord: runningRecord, insertInto: context)
-            do {
-                try context.save()
-            } catch {
-                print("cannot save \(error)")
-            }
+    func saveRunningRecord(runningRecord: RunningRecord) throws {
+        let context = coreDataStorage.managedContext
+        let entity = RunningRecordEntity(runningRecord: runningRecord, insertInto: context)
+        do {
+            try coreDataStorage.saveContext()
+        } catch {
+            throw CoreDataStorageError.saveError(error)
         }
     }
 }

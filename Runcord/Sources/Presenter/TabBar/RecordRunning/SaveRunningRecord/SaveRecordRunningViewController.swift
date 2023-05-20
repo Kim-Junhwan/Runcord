@@ -100,7 +100,12 @@ class SaveRecordRunningViewController: UIViewController, Alertable {
     }
     
     @IBAction func tapSaveButton(_ sender: Any) {
-        runningRecordRepository.saveRunningRecord(runningRecord: runningRecord)
+        do {
+            try runningRecordRepository.saveRunningRecord(runningRecord: runningRecord)
+            self.dismiss(animated: true)
+        } catch {
+            showAlert(message: "저장 오류 발생. 다시 시도해주십시오. \(error)", defaultActionTitle: "확인", cancelActionTitle: "취소")
+        }
     }
      
 }

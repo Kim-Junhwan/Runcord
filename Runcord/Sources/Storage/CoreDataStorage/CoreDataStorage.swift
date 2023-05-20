@@ -26,18 +26,15 @@ final class CoreDataStorage {
         return container
     }()
     
-    func saveContext() {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
+    lazy var managedContext: NSManagedObjectContext = persistentContainer.viewContext
+    
+    func saveContext() throws {
+        if managedContext.hasChanges {
             do {
-                try context.save()
+                try managedContext.save()
             } catch {
-                assertionFailure("CoreDataStroage Save Error \(error)")
+                throw CoreDataStorageError.saveError(error)
             }
         }
-    }
-    
-    func performBackgroundTask(_ block: @escaping (NSManagedObjectContext) -> Void) {
-        persistentContainer.performBackgroundTask(block)
     }
 }

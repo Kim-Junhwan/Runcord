@@ -11,6 +11,7 @@ import UIKit
 
 extension RunningRecordEntity {
     
+    @discardableResult
     convenience init(runningRecord: RunningRecord, insertInto context: NSManagedObjectContext) {
         self.init(context: context)
         date = runningRecord.date

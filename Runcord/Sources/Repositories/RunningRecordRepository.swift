@@ -11,7 +11,7 @@ import RxSwift
 
 protocol RunningRecordRepository {
     func fetchRunningRecordList() -> Observable<Result<[RunningRecord], Error>>
-    func saveRunningRecord(runningRecord: RunningRecord)
+    func saveRunningRecord(runningRecord: RunningRecord) throws
 }
 
 final class DefaultRunningRecordRepository {
@@ -28,8 +28,12 @@ extension DefaultRunningRecordRepository: RunningRecordRepository {
         return coreDataRunningRecordStroage.fetchRecentRunningRecords()
     }
     
-    func saveRunningRecord(runningRecord: RunningRecord) {
-        coreDataRunningRecordStroage.saveRunningRecord(runningRecord: runningRecord)
+    func saveRunningRecord(runningRecord: RunningRecord) throws {
+        do {
+            try coreDataRunningRecordStroage.saveRunningRecord(runningRecord: runningRecord)
+        } catch {
+            throw error
+        }
     }
     
 }
