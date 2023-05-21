@@ -7,6 +7,7 @@
 
 import UIKit
 import RxCocoa
+import RxSwift
 
 class RunnningRecordListViewController: UIViewController {
     
@@ -20,6 +21,7 @@ class RunnningRecordListViewController: UIViewController {
     }()
     
     let viewModel: RunningRecordListViewModel
+    let disposeBag = DisposeBag()
     
     init(viewModel: RunningRecordListViewModel) {
         self.viewModel = viewModel
@@ -35,9 +37,13 @@ class RunnningRecordListViewController: UIViewController {
         self.title = "러닝기록"
         view.backgroundColor = .systemBackground
         setTableViewConstraint()
-        navigationController?.hidesBarsOnSwipe = true
         viewModel.fetchRunningRecordList()
         bindRunningList()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.hidesBarsOnSwipe = true
     }
     
     private func bindRunningList() {
@@ -46,7 +52,11 @@ class RunnningRecordListViewController: UIViewController {
             cell.setData(runningRecord: data)
             self.tableView.refreshControl?.endRefreshing()
             return cell
-        }
+        }.disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(RunningRecord.self).subscribe(with: self) { owner, runningRecord in
+            owner.viewModel.showDetailRunningRecord(runningRecord: runningRecord)
+        }.disposed(by: disposeBag)
     }
     
     private func setTableViewConstraint() {

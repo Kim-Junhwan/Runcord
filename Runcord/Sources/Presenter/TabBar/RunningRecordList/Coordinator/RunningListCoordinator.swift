@@ -20,8 +20,13 @@ final class RunningListCoordinator: Coordinator {
     }
     
     func start() {
-        let mypageViewController = RunnningRecordListViewController(viewModel: RunningRecordListViewModel(runningRecordRepository: runningRecordRepository))
+        let mypageViewController = RunnningRecordListViewController(viewModel: RunningRecordListViewModel(runningRecordRepository: runningRecordRepository, coordinator: self))
         navigationController.pushViewController(mypageViewController, animated: false)
+    }
+    
+    func showDetailRunningRecord(runningRecord: RunningRecord) {
+        let detailViewController = DetailRunninRecordViewController(runningRecord: runningRecord)
+        navigationController.pushViewController(detailViewController, animated: true)
     }
     
 }

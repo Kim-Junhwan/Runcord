@@ -11,6 +11,7 @@ import RxCocoa
 final class RunningRecordListViewModel {
     
     private let runningRecordRepository: RunningRecordRepository
+    private let coordinator: RunningListCoordinator
     
     private let runningRecordList: BehaviorSubject<[RunningRecord]> = BehaviorSubject(value: [])
     private let disposeBag = DisposeBag()
@@ -19,8 +20,9 @@ final class RunningRecordListViewModel {
         return runningRecordList.asDriver(onErrorJustReturn: [])
     }
     
-    init(runningRecordRepository: RunningRecordRepository) {
+    init(runningRecordRepository: RunningRecordRepository, coordinator: RunningListCoordinator) {
         self.runningRecordRepository = runningRecordRepository
+        self.coordinator = coordinator
     }
     
     func fetchRunningRecordList() {
@@ -32,5 +34,9 @@ final class RunningRecordListViewModel {
                 print(error)
             }
         }.disposed(by: disposeBag)
+    }
+    
+    func showDetailRunningRecord(runningRecord: RunningRecord) {
+        coordinator.showDetailRunningRecord(runningRecord: runningRecord)
     }
 }

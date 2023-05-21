@@ -62,6 +62,10 @@
 		C7BA067C29A25AF100D2227A /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C7BA067B29A25AF100D2227A /* NotoSansKR-Bold.otf */; };
 		C7BA067E29A25B6B00D2227A /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C7BA067D29A25B6B00D2227A /* NotoSansKR-Medium.otf */; };
 		C7D5FB6B29C829ED00F54568 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C7D5FB6A29C829ED00F54568 /* .swiftlint.yml */; };
+		C7DCA6FD2A19FF2D00B419BA /* DetailRunningRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA6FC2A19FF2D00B419BA /* DetailRunningRecordView.swift */; };
+		C7DCA6FF2A19FF5700B419BA /* DetailRunningRecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7DCA6FE2A19FF5700B419BA /* DetailRunningRecordView.xib */; };
+		C7DCA7022A1A1DD100B419BA /* DetailRunninRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA7012A1A1DD100B419BA /* DetailRunninRecordViewController.swift */; };
+		C7DCA7052A1A74AF00B419BA /* RunningSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA7042A1A74AF00B419BA /* RunningSaveButton.swift */; };
 		C7DE67F32998DFC200C824A9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67F22998DFC200C824A9 /* Coordinator.swift */; };
 		C7DE67F62998E4D300C824A9 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67F52998E4D300C824A9 /* TabBarCoordinator.swift */; };
 		C7DE67FB29992A5E00C824A9 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67FA29992A5E00C824A9 /* TabBarItem.swift */; };
@@ -168,6 +172,10 @@
 		C7BA067B29A25AF100D2227A /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		C7BA067D29A25B6B00D2227A /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		C7D5FB6A29C829ED00F54568 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		C7DCA6FC2A19FF2D00B419BA /* DetailRunningRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRunningRecordView.swift; sourceTree = "<group>"; };
+		C7DCA6FE2A19FF5700B419BA /* DetailRunningRecordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRunningRecordView.xib; sourceTree = "<group>"; };
+		C7DCA7012A1A1DD100B419BA /* DetailRunninRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRunninRecordViewController.swift; sourceTree = "<group>"; };
+		C7DCA7042A1A74AF00B419BA /* RunningSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningSaveButton.swift; sourceTree = "<group>"; };
 		C7DE67F22998DFC200C824A9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C7DE67F52998E4D300C824A9 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		C7DE67FA29992A5E00C824A9 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
@@ -372,6 +380,7 @@
 		C751527D29B7994B003D8987 /* SaveRunningRecord */ = {
 			isa = PBXGroup;
 			children = (
+				C7DCA7032A1A749500B419BA /* SaveButton */,
 				C751527E29B79981003D8987 /* SaveRecordRunningViewController.swift */,
 				C751527F29B79981003D8987 /* SaveRecordRunningViewController.xib */,
 			);
@@ -599,6 +608,31 @@
 			path = CustomMapImageView;
 			sourceTree = "<group>";
 		};
+		C7DCA6FB2A19FF0D00B419BA /* DetailRunningRecordView */ = {
+			isa = PBXGroup;
+			children = (
+				C7DCA6FC2A19FF2D00B419BA /* DetailRunningRecordView.swift */,
+				C7DCA6FE2A19FF5700B419BA /* DetailRunningRecordView.xib */,
+			);
+			path = DetailRunningRecordView;
+			sourceTree = "<group>";
+		};
+		C7DCA7002A1A1C0100B419BA /* DetailRunningRecord */ = {
+			isa = PBXGroup;
+			children = (
+				C7DCA7012A1A1DD100B419BA /* DetailRunninRecordViewController.swift */,
+			);
+			path = DetailRunningRecord;
+			sourceTree = "<group>";
+		};
+		C7DCA7032A1A749500B419BA /* SaveButton */ = {
+			isa = PBXGroup;
+			children = (
+				C7DCA7042A1A74AF00B419BA /* RunningSaveButton.swift */,
+			);
+			path = SaveButton;
+			sourceTree = "<group>";
+		};
 		C7DE67E92997AA3600C824A9 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -623,6 +657,7 @@
 		C7DE67EF2998DF5D00C824A9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C7DCA6FB2A19FF0D00B419BA /* DetailRunningRecordView */,
 				C7A4CE5129BC2109000DAE8B /* ImagePicker */,
 				C7A1F21329BA0D38009AE7BA /* Alert */,
 				C7DE67F12998DFB600C824A9 /* Coordinator */,
@@ -633,6 +668,7 @@
 		C7DE67F02998DF6300C824A9 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				C7DCA7002A1A1C0100B419BA /* DetailRunningRecord */,
 				C7AD00EA29D1E175001D275E /* DesignedTabBar */,
 				C762DEAD29EC192300C24C21 /* RunningHome */,
 				C7DE67F72999296B00C824A9 /* RecordRunning */,
@@ -897,6 +933,7 @@
 				C7DE681C299A84B500C824A9 /* Launch Screen.storyboard in Resources */,
 				C7670EF12995460900E3CD77 /* Assets.xcassets in Resources */,
 				C7233CFC29DDC0770003A290 /* GoalProcessView.xib in Resources */,
+				C7DCA6FF2A19FF5700B419BA /* DetailRunningRecordView.xib in Resources */,
 				C7BA067C29A25AF100D2227A /* NotoSansKR-Bold.otf in Resources */,
 				C7E00A2429C36F4900B39709 /* CameraCollectionViewCell.xib in Resources */,
 			);
@@ -1053,6 +1090,7 @@
 				C7233CF829DDBFE00003A290 /* GoalProcessView.swift in Sources */,
 				C762DEB029EC1B1400C24C21 /* MapAnimator.swift in Sources */,
 				C7663E7B29A9F1260046068B /* GoalTextField.swift in Sources */,
+				C7DCA7022A1A1DD100B419BA /* DetailRunninRecordViewController.swift in Sources */,
 				C7A1F21929BA385A009AE7BA /* UIView+.swift in Sources */,
 				C72B3BC429FE63CB0051EB61 /* RunningRecordRepository.swift in Sources */,
 				C7DE6825299A85DF00C824A9 /* Color+.swift in Sources */,
@@ -1066,6 +1104,7 @@
 				C7481F8A29F973240013D633 /* RunningRecordMapViewModel.swift in Sources */,
 				C7670EE82995460800E3CD77 /* AppDelegate.swift in Sources */,
 				C72B3BDF2A010C460051EB61 /* LocationService.swift in Sources */,
+				C7DCA6FD2A19FF2D00B419BA /* DetailRunningRecordView.swift in Sources */,
 				C751527929B27038003D8987 /* UIImage+.swift in Sources */,
 				C769EA3729E412E7004717B3 /* MKMapView+.swift in Sources */,
 				C7211E3129B9664D00ADA90C /* UIViewController+.swift in Sources */,
@@ -1090,6 +1129,7 @@
 				C72B3BE62A04393E0051EB61 /* ArrowView.swift in Sources */,
 				C7B3DA532A0BD4C000B370B6 /* CustomRouteMapImageView.swift in Sources */,
 				C7663E8129ABA5720046068B /* GoalSettingLabelStackView.swift in Sources */,
+				C7DCA7052A1A74AF00B419BA /* RunningSaveButton.swift in Sources */,
 				C72B3BE42A039CF80051EB61 /* ImageAnnotation.swift in Sources */,
 				C78B04522A12701600FBEC91 /* RunningRecordTableViewCell.swift in Sources */,
 				C7DE67F32998DFC200C824A9 /* Coordinator.swift in Sources */,
