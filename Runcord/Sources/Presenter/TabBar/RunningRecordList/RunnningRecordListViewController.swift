@@ -50,7 +50,7 @@ class RunnningRecordListViewController: UIViewController {
         viewModel.runningRecordListDriver.drive(tableView.rx.items) { table, row, data in
             guard let cell = table.dequeueReusableCell(withIdentifier: RunningRecordTableViewCell.identifier, for: IndexPath(row: row, section: 0)) as? RunningRecordTableViewCell else { return RunningRecordTableViewCell() }
             cell.setData(runningRecord: data)
-            self.tableView.refreshControl?.endRefreshing()
+            
             return cell
         }.disposed(by: disposeBag)
         
@@ -72,7 +72,9 @@ class RunnningRecordListViewController: UIViewController {
     }
     
     @objc private func updateRunningRecordList() {
-        viewModel.fetchRunningRecordList()
+        viewModel.fetchRunningRecordList {
+            self.tableView.refreshControl?.endRefreshing()
+        }
     }
 
 }

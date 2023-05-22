@@ -25,11 +25,12 @@ final class RunningRecordListViewModel {
         self.coordinator = coordinator
     }
     
-    func fetchRunningRecordList() {
+    func fetchRunningRecordList(completion: (() -> Void)? = nil) {
         runningRecordRepository.fetchRunningRecordList().subscribe(with: self) { owner, result in
             switch result {
             case .success(let runningList):
                 owner.runningRecordList.on(.next(runningList))
+                completion?()
             case .failure(let error):
                 print(error)
             }
