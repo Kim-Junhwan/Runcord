@@ -60,8 +60,6 @@ class RunningRecordMapViewController: UIViewController {
     let viewModel: RunningRecordMapViewModel
     let disposeBag: DisposeBag = DisposeBag()
     
-    var setimageInfoHandler: (([ImageInfo]) -> Void)?
-    
     init(mapView: CustomMapView, viewModel: RunningRecordMapViewModel) {
         self.customMapView = mapView
         self.viewModel = viewModel
