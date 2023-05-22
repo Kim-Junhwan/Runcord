@@ -24,6 +24,9 @@ extension RunningRecordEntity {
             addToRunningPath(route.toEntity(orderNum: count, in: context))
             count += 1
         }
+        runningRecord.imageRecords.forEach { imageInfo in
+            addToImageList(imageInfo.toEntity(context: context))
+        }
     }
     
     func toDomain() -> RunningRecord {
@@ -36,7 +39,7 @@ extension RunningRecordEntity {
             .map { $0 as! RunningRouteEntity }
             .sorted { $0.orderNum < $1.orderNum }
             .map { $0.toDomain() } ?? [],
-            imageRecords: imageList?.allObjects.map { $0 as! ImageInfo } ?? []
+                     imageRecords: imageList?.allObjects.map { $0 as! ImageInfoEntity }.map { $0.toDomain() } ?? []
         )
     }
 }
@@ -47,6 +50,16 @@ extension RunningRoute {
         entity.orderNum = Int64(orderNum)
         entity.latitude = latitude
         entity.longitude = longitude
+        return entity
+    }
+}
+
+extension ImageInfo {
+    func toEntity(context: NSManagedObjectContext) -> ImageInfoEntity {
+        let entity: ImageInfoEntity = .init(context: context)
+        entity.latitude = latitude
+        entity.longitude = longitude
+        entity.image = image.pngData()
         return entity
     }
 }

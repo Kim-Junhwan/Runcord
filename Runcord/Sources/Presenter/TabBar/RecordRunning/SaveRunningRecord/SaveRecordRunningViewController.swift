@@ -37,6 +37,7 @@ class SaveRecordRunningViewController: UIViewController, Alertable {
         detailRunningRecordView.baseStackView.addArrangedSubview(saveButton)
         detailRunningRecordView.registerRunningRecord(runningRecord: runningRecord)
         detailRunningRecordView.dismissButton.addTarget(self, action: #selector(tapCloseButton), for: .touchUpInside)
+        detailRunningRecordView.runningRecordMapImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showOverlayMapView)))
     }
     
     // MARK: - Action
@@ -46,13 +47,19 @@ class SaveRecordRunningViewController: UIViewController, Alertable {
         }
     }
     
-    @objc func tapSaveButton(_ sender: Any) {
+    @objc private func tapSaveButton(_ sender: Any) {
         do {
             try runningRecordRepository.saveRunningRecord(runningRecord: runningRecord)
             self.dismiss(animated: true)
         } catch {
             showAlert(message: "저장 오류 발생. 다시 시도해주십시오. \(error)", defaultActionTitle: "확인", cancelActionTitle: "취소")
         }
+    }
+    
+    @objc private func showOverlayMapView() {
+        let overlayMapVC = OverlayMapViewController(runningRecord: runningRecord)
+        overlayMapVC.modalPresentationStyle = .fullScreen
+        present(overlayMapVC, animated: true)
     }
      
 }

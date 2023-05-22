@@ -66,6 +66,7 @@
 		C7DCA6FF2A19FF5700B419BA /* DetailRunningRecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7DCA6FE2A19FF5700B419BA /* DetailRunningRecordView.xib */; };
 		C7DCA7022A1A1DD100B419BA /* DetailRunninRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA7012A1A1DD100B419BA /* DetailRunninRecordViewController.swift */; };
 		C7DCA7052A1A74AF00B419BA /* RunningSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA7042A1A74AF00B419BA /* RunningSaveButton.swift */; };
+		C7DCA7082A1B2A5B00B419BA /* OverlayMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA7072A1B2A5B00B419BA /* OverlayMapViewController.swift */; };
 		C7DE67F32998DFC200C824A9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67F22998DFC200C824A9 /* Coordinator.swift */; };
 		C7DE67F62998E4D300C824A9 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67F52998E4D300C824A9 /* TabBarCoordinator.swift */; };
 		C7DE67FB29992A5E00C824A9 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE67FA29992A5E00C824A9 /* TabBarItem.swift */; };
@@ -176,6 +177,7 @@
 		C7DCA6FE2A19FF5700B419BA /* DetailRunningRecordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRunningRecordView.xib; sourceTree = "<group>"; };
 		C7DCA7012A1A1DD100B419BA /* DetailRunninRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRunninRecordViewController.swift; sourceTree = "<group>"; };
 		C7DCA7042A1A74AF00B419BA /* RunningSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningSaveButton.swift; sourceTree = "<group>"; };
+		C7DCA7072A1B2A5B00B419BA /* OverlayMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayMapViewController.swift; sourceTree = "<group>"; };
 		C7DE67F22998DFC200C824A9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C7DE67F52998E4D300C824A9 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		C7DE67FA29992A5E00C824A9 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
@@ -633,6 +635,14 @@
 			path = SaveButton;
 			sourceTree = "<group>";
 		};
+		C7DCA7062A1B27F400B419BA /* OverlayMapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C7DCA7072A1B2A5B00B419BA /* OverlayMapViewController.swift */,
+			);
+			path = OverlayMapViewController;
+			sourceTree = "<group>";
+		};
 		C7DE67E92997AA3600C824A9 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -668,6 +678,7 @@
 		C7DE67F02998DF6300C824A9 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				C7DCA7062A1B27F400B419BA /* OverlayMapViewController */,
 				C7DCA7002A1A1C0100B419BA /* DetailRunningRecord */,
 				C7AD00EA29D1E175001D275E /* DesignedTabBar */,
 				C762DEAD29EC192300C24C21 /* RunningHome */,
@@ -1112,6 +1123,7 @@
 				C703496729D582CC00BF28D7 /* RunningStartViewController.swift in Sources */,
 				C7ECCB772A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift in Sources */,
 				C762DED929EC5AC700C24C21 /* RunningRecordMapViewController.swift in Sources */,
+				C7DCA7082A1B2A5B00B419BA /* OverlayMapViewController.swift in Sources */,
 				C7670EEA2995460800E3CD77 /* SceneDelegate.swift in Sources */,
 				C7DE681029993A7000C824A9 /* RunningListCoordinator.swift in Sources */,
 				C703496029D49CB500BF28D7 /* CLLocationManager+.swift in Sources */,

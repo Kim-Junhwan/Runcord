@@ -8,7 +8,9 @@
 import UIKit
 import CoreLocation
 
-class DetailRunningRecordView: UIScrollView {
+class DetailRunningRecordView: UIView {
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var runningDistanceLabel: UILabel!
     @IBOutlet weak var dismissButton: UIButton!

@@ -13,13 +13,8 @@ extension MKMapView {
         setRegion(coordinatorRegion, animated: true)
     }
     
-    func drawRoute(routeCoordinators: [CLLocation]) {
-        var coordinates: [CLLocationCoordinate2D] = []
-        for location in routeCoordinators {
-            let coordinate = location.coordinate
-            coordinates.append(coordinate)
-        }
-        let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
+    func drawRoute(routeCoordinators: [CLLocationCoordinate2D]) {
+        let polyline = MKPolyline(coordinates: routeCoordinators, count: routeCoordinators.count)
         addOverlay(polyline)
     }
     

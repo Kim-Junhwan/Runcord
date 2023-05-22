@@ -33,6 +33,7 @@ class DetailRunninRecordViewController: UIViewController {
         setDetailRunningRecordViewLayout()
         detailRunningRecordView.registerRunningRecord(runningRecord: runningRecord)
         detailRunningRecordView.dismissButton.tintColor = .clear
+        detailRunningRecordView.runningRecordMapImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showOverlayMapView)))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,6 +49,12 @@ class DetailRunninRecordViewController: UIViewController {
             detailRunningRecordView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             detailRunningRecordView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    @objc private func showOverlayMapView() {
+        let overlayMapVC = OverlayMapViewController(runningRecord: runningRecord)
+        overlayMapVC.modalPresentationStyle = .fullScreen
+        present(overlayMapVC, animated: true)
     }
 
 }

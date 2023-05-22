@@ -32,12 +32,43 @@ class CustomMapView: UIView {
         mapView.updateUserRoute(lastCoordinate: from, newCoordinate: to)
     }
     
-    func drawRoute(routeList: [CLLocation]) {
+    func drawRoute(routeList: [CLLocationCoordinate2D]) {
         mapView.drawRoute(routeCoordinators: routeList)
     }
     
     func appendImageAnnotation(imageAnnotation: ImageAnnotation) {
         mapView.addAnnotation(imageAnnotation)
+    }
+    
+    func setMapRouteRegion(route: [CLLocationCoordinate2D]) {
+        let center = getRunningRouteCenterCoordinate(coordinates: route)
+        setRouteSizeRegion(center: center, coordinates: route)
+    }
+    
+    func setRouteSizeRegion(center: CLLocationCoordinate2D, coordinates: [CLLocationCoordinate2D]) {
+        let minLatitude = coordinates.min(by: { $0.latitude < $1.latitude })?.latitude ?? 0
+        let maxLatitude = coordinates.max(by: { $0.latitude < $1.latitude })?.latitude ?? 0
+        let minLongitude = coordinates.min(by: { $0.longitude < $1.longitude })?.longitude ?? 0
+        let maxLongitude = coordinates.max(by: { $0.longitude < $1.longitude })?.longitude ?? 0
+        let span = MKCoordinateSpan(latitudeDelta: (maxLatitude - minLatitude) * 1.5, longitudeDelta: (maxLongitude - minLongitude) * 1.5)
+        
+        mapView.setRegion(MKCoordinateRegion(center: center, span: span), animated: false)
+    }
+    
+    func getRunningRouteCenterCoordinate(coordinates: [CLLocationCoordinate2D]) -> CLLocationCoordinate2D {
+        
+        var centerLat: CLLocationDegrees = 0
+        var centerLon: CLLocationDegrees = 0
+        
+        for coordinate in coordinates {
+            centerLat += coordinate.latitude
+            centerLon += coordinate.longitude
+        }
+        
+        centerLat /= Double(coordinates.count)
+        centerLon /= Double(coordinates.count)
+        
+        return CLLocationCoordinate2D(latitude: centerLat, longitude: centerLon)
     }
     
 }
