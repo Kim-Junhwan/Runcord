@@ -29,7 +29,6 @@ class RecordViewController: UIViewController {
     let runningMapView: CustomMapView = {
        let customMapView = CustomMapView()
         customMapView.translatesAutoresizingMaskIntoConstraints = false
-        
         return customMapView
     }()
     lazy var runningMapViewHeightConstraint = runningMapView.heightAnchor.constraint(equalToConstant: 0)
@@ -72,6 +71,7 @@ class RecordViewController: UIViewController {
         runningMapView.mapView.isScrollEnabled = false
         runningMapView.mapView.isZoomEnabled = false
         runningMeasuringView.addSubview(runningMapView)
+        runningMapView.mapView.setUserTrackingMode(.follow, animated: true)
         
         NSLayoutConstraint.activate([
             runningMapView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -102,7 +102,6 @@ class RecordViewController: UIViewController {
         transition.dismissCompletion = { [weak self] in
             guard let self = self else { return }
             self.runningMapView.removeConstraints(runningMapView.constraints)
-            self.runningMapView.mapView.setUserTrackingMode(.follow, animated: true)
             self.runningMapView.mapView.isScrollEnabled = false
             self.runningMapView.mapView.isZoomEnabled = false
             self.view.addSubview(runningMapView)
@@ -116,8 +115,6 @@ class RecordViewController: UIViewController {
             setMapViewTabGesture()
         }
     }
-    
-    // MARK: - Set LocationManager
     
     // MARK: - Ready Time Method
     private func startReadyTimer() {
@@ -199,7 +196,9 @@ class RecordViewController: UIViewController {
         if viewModel.isRunning {
             pauseAndPlayButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
             viewModel.stopTimer()
-            showPauseStatusView()
+            showPauseStatusView {
+                self.runningMapView.mapView.setUserTrackingMode(.follow, animated: true)
+            }
         } else {
             pauseAndPlayButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             viewModel.startTimer()
@@ -207,12 +206,13 @@ class RecordViewController: UIViewController {
         }
     }
     
-    private func showPauseStatusView() {
+    private func showPauseStatusView( completion: @escaping () -> Void) {
         runningMapView.isHidden = false
         runningMapViewHeightConstraint.constant = self.view.frame.height * 0.3
         UIView.animate(withDuration: 0.2) {
             self.view.layoutIfNeeded()
         }
+        completion()
     }
     
     private func showPlayStatusView() {
@@ -227,7 +227,6 @@ class RecordViewController: UIViewController {
     
     func setCompleteButton() {
         completeButton.addTarget(self, action: #selector(completeButtonTouchDown), for: .touchDown)
-        //completeButton.addTarget(self, action: #selector(completeButtonTouchUp), for: .touchUpInside)
     }
     
     @objc func completeButtonTouchDown() {
