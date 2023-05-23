@@ -26,6 +26,8 @@ class RecordViewController: UIViewController {
     @IBOutlet weak var goalTimeProgressView: GoalProcessView!
     
     @IBOutlet weak var recordProgressStackView: UIStackView!
+    @IBOutlet weak var averageSpeedLabel: UILabel!
+    
     let runningMapView: CustomMapView = {
        let customMapView = CustomMapView()
         customMapView.translatesAutoresizingMaskIntoConstraints = false
@@ -188,6 +190,10 @@ class RecordViewController: UIViewController {
                 self.runningMapView.mapView.updateUserRoute(lastCoordinate: lastCoordinate, newCoordinate: currentCoordinate)
             }
         }).disposed(by: disposeBag)
+        
+        viewModel.averageSpeedDriver
+            .map({ String(format: "%.2f", $0) })
+            .drive(averageSpeedLabel.rx.text).disposed(by: disposeBag)
     }
     
     // MARK: - Action Method

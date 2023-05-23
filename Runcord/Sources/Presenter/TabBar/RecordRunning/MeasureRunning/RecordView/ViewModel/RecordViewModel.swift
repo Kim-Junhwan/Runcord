@@ -17,7 +17,7 @@ class RecordViewModel: NSObject {
     let timerText: BehaviorRelay<String> = BehaviorRelay(value: "00:00:00")
     let totalRunningSecond: BehaviorRelay<Int> = BehaviorRelay(value: 0)
     var isRunning: Bool = false
-    var runningDistance: BehaviorRelay<Float> = BehaviorRelay(value: 0.0)
+    let runningDistance: BehaviorRelay<Float> = BehaviorRelay(value: 0.0)
     let locationService: LocationService
     
     // MARK: - Goal Properties
@@ -31,6 +31,24 @@ class RecordViewModel: NSObject {
             .filter { $0.count >= 2 }
             .map { $0.suffix(2) }
             .asDriver(onErrorJustReturn: [])
+    }
+    
+    // MARK: - Speed Average
+    private var speedCount = 1
+    private let averageSpeed: BehaviorRelay<Double> = BehaviorRelay(value: 0.0)
+    var averageSpeedDriver: Driver<Double> {
+        return averageSpeed
+            .scan(0.0, accumulator: { first, second in
+                return first + second
+            })
+            .map({ result in
+                if self.speedCount > 0 {
+                    return result / Double(self.speedCount)
+                } else {
+                    return result
+                }
+            })
+            .asDriver(onErrorJustReturn: 0.0)
     }
     
     // MARK: - Taked Imagies
@@ -83,7 +101,10 @@ class RecordViewModel: NSObject {
             .subscribe(with: self) { owner, currentLocation in
                 if owner.isRunning {
                     if let lastCoordinator = owner.route.value.last {
-                        owner.runningDistance.accept(owner.runningDistance.value+owner.calculateBetweenTwoCoordinatesDistanceKilometer(lastCoordinator, currentLocation))
+                        let moveDistance = owner.calculateBetweenTwoCoordinatesDistanceKilometer(lastCoordinator, currentLocation)
+                        owner.runningDistance.accept(owner.runningDistance.value + moveDistance)
+                        owner.averageSpeed.accept(Double(moveDistance * 3600))
+                        owner.speedCount += 1
                     }
                 }
                 owner.route.accept(owner.route.value+[currentLocation])
