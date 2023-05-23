@@ -25,6 +25,7 @@ class RunningRecordTableViewCell: UITableViewCell {
     @IBOutlet weak var runningPaceLabel: UILabel!
     @IBOutlet weak var runningTimeHourLabel: UILabel!
     @IBOutlet weak var runningTimeMinuteLabel: UILabel!
+    @IBOutlet weak var averageSpeedLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,6 +47,7 @@ class RunningRecordTableViewCell: UITableViewCell {
         runningDistanceLabel.text = String(format: "%.2f", runningRecord.runningDistance)
         setDateLabel(runningRecord: runningRecord)
         setRunningTimeLabel(runningRecord: runningRecord)
+        averageSpeedLabel.text = String(format: "%.2f", runningRecord.averageSpeed)
     }
     
     private func setDateLabel(runningRecord: RunningRecord) {

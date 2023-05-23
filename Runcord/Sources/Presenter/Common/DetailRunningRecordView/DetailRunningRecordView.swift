@@ -27,6 +27,8 @@ class DetailRunningRecordView: UIView {
     @IBOutlet weak var runningHourLabel: UILabel!
     @IBOutlet weak var runningMinuteLabel: UILabel!
     
+    @IBOutlet weak var averageSpeedLabel: UILabel!
+    
     // MARK: - Goal Label
     @IBOutlet weak var runningDistanceGoalLabel: UILabel!
     @IBOutlet weak var runningTimeGoalHourLabel: UILabel!
@@ -57,6 +59,7 @@ class DetailRunningRecordView: UIView {
         setRunningDistanceLabel(runningRecord: runningRecord)
         setGoalLabel(runningRecord: runningRecord)
         runningRecordMapImageView.setRouteImage(route: runningRecord.runningPath.map { CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude) })
+        averageSpeedLabel.text = String(format: "%.2f", runningRecord.averageSpeed)
     }
     
     private func setDateLabel(runningRecord: RunningRecord) {

@@ -8,6 +8,7 @@
         <relationship name="runningRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RunningRecordEntity" inverseName="imageList" inverseEntity="RunningRecordEntity"/>
     </entity>
     <entity name="RunningRecordEntity" representedClassName="RunningRecordEntity" elementID="RunningRecordEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="averageSpeed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="goalDistance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="goalTime" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>

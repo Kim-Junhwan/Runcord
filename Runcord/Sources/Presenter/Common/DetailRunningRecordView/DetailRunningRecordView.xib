@@ -20,6 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailRunningRecordView" customModule="Runcord" customModuleProvider="target">
             <connections>
+                <outlet property="averageSpeedLabel" destination="0pf-Km-hGk" id="pKJ-aN-iOF"/>
                 <outlet property="baseStackView" destination="zla-Kn-EEW" id="GDj-xF-ldh"/>
                 <outlet property="dayLabel" destination="vX2-o0-XT2" id="EPb-aZ-9TB"/>
                 <outlet property="dismissButton" destination="NXO-LJ-QFv" id="2ZT-gw-TFM"/>
@@ -171,16 +172,16 @@
                                             </constraints>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Qbn-S2-cLB">
-                                            <rect key="frame" x="0.0" y="166" width="213.33333333333334" height="164.66666666666663"/>
+                                            <rect key="frame" x="0.0" y="166" width="201" height="164.66666666666663"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="27c-PN-ESf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="102" height="164.66666666666666"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="89.666666666666671" height="164.66666666666666"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Up6-S1-PbJ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="102" height="72.333333333333329"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="89.666666666666671" height="72.333333333333329"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="3Eg-3W-GmH">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="102" height="40.666666666666664"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="89.666666666666671" height="40.666666666666664"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pf-Km-hGk">
                                                                             <rect key="frame" x="0.0" y="0.0" width="33" height="40.666666666666664"/>
@@ -188,28 +189,16 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="'" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wqq-Gj-gfk">
-                                                                            <rect key="frame" x="36" y="0.0" width="8.6666666666666643" height="40.666666666666664"/>
-                                                                            <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="28"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8T-vR-jzG">
-                                                                            <rect key="frame" x="47.666666666666671" y="0.0" width="33" height="40.666666666666664"/>
-                                                                            <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="28"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="''" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dI1-jq-vly">
-                                                                            <rect key="frame" x="83.666666666666671" y="0.0" width="18.333333333333329" height="40.666666666666664"/>
-                                                                            <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="28"/>
-                                                                            <nil key="textColor"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Km/h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8T-vR-jzG">
+                                                                            <rect key="frame" x="36" y="0.0" width="53.666666666666657" height="40.666666666666664"/>
+                                                                            <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="20"/>
+                                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평균페이스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2J1-E4-nR9">
-                                                                    <rect key="frame" x="0.0" y="47.666666666666686" width="78.333333333333329" height="24.666666666666671"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평균속도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2J1-E4-nR9">
+                                                                    <rect key="frame" x="0.0" y="47.666666666666686" width="62.666666666666664" height="24.666666666666671"/>
                                                                     <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -217,7 +206,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="aA0-cq-lYp">
-                                                            <rect key="frame" x="0.0" y="92.333333333333314" width="102" height="72.333333333333314"/>
+                                                            <rect key="frame" x="0.0" y="92.333333333333314" width="89.666666666666671" height="72.333333333333314"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Ems-Gy-hmt">
                                                                     <rect key="frame" x="0.0" y="0.0" width="69" height="40.666666666666664"/>
@@ -231,7 +220,7 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggi-9w-Vle">
                                                                             <rect key="frame" x="36" y="0.0" width="33" height="40.666666666666664"/>
                                                                             <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="20"/>
-                                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
@@ -247,7 +236,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Qoz-BH-pIH">
-                                                    <rect key="frame" x="132" y="0.0" width="81.333333333333314" height="164.66666666666666"/>
+                                                    <rect key="frame" x="119.66666666666666" y="0.0" width="81.333333333333343" height="164.66666666666666"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ZjP-at-UF7">
                                                             <rect key="frame" x="0.0" y="0.0" width="81.333333333333329" height="72.333333333333329"/>

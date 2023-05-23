@@ -16,6 +16,8 @@ struct RunningRecord {
     let runningDistance: Double
     let runningTime: Int
     
+    let averageSpeed: Double
+    
     let runningPath: [RunningRoute]
     let imageRecords: [ImageInfo]
 }

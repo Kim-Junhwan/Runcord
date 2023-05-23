@@ -26,7 +26,7 @@ class CustomMapView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         mapView.frame = bounds
-    }
+    } 
     
     func updateRoute(from: CLLocation, to: CLLocation) {
         mapView.updateUserRoute(lastCoordinate: from, newCoordinate: to)
@@ -56,7 +56,6 @@ class CustomMapView: UIView {
     }
     
     func getRunningRouteCenterCoordinate(coordinates: [CLLocationCoordinate2D]) -> CLLocationCoordinate2D {
-        
         var centerLat: CLLocationDegrees = 0
         var centerLon: CLLocationDegrees = 0
         

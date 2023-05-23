@@ -116,7 +116,7 @@ class RecordViewModel: NSObject {
     
     func showSaceRecordView() {
         let runningPath = route.value.map { $0.coordinate }.map { RunningRoute(longitude: $0.longitude, latitude: $0.latitude) }
-        let runningRecord = RunningRecord(date: startDate, goalDistance: goalDistance, goalTime: goalTime, runningDistance: Double(runningDistance.value), runningTime: totalRunningSecond.value, runningPath: runningPath, imageRecords: imageList)
+        let runningRecord = RunningRecord(date: startDate, goalDistance: goalDistance, goalTime: goalTime, runningDistance: Double(runningDistance.value), runningTime: totalRunningSecond.value, averageSpeed: totalSpeed.value / Double(speedCount), runningPath: runningPath, imageRecords: imageList)
         coordinator.showSaveRecordView(runningRecord: runningRecord)
     }
     

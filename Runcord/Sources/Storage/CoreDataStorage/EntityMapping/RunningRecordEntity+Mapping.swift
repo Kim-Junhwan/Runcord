@@ -19,6 +19,7 @@ extension RunningRecordEntity {
         goalTime = Int64(runningRecord.goalTime)
         runningDistance = runningRecord.runningDistance
         runningTime = Int32(runningRecord.runningTime)
+        averageSpeed = runningRecord.averageSpeed
         var count = 1
         runningRecord.runningPath.forEach { route in
             addToRunningPath(route.toEntity(orderNum: count, in: context))
@@ -35,6 +36,7 @@ extension RunningRecordEntity {
             goalTime: Int(goalTime),
             runningDistance: runningDistance,
             runningTime: Int(runningTime),
+            averageSpeed: averageSpeed,
             runningPath: runningPath?.allObjects
             .map { $0 as! RunningRouteEntity }
             .sorted { $0.orderNum < $1.orderNum }
