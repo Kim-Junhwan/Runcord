@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class RunnningRecordListViewController: UIViewController {
+class RunnningRecordListViewController: UIViewController, Alertable {
     
     let tableView: UITableView = {
        let tableView = UITableView()
@@ -47,10 +47,10 @@ class RunnningRecordListViewController: UIViewController {
     }
     
     private func bindRunningList() {
+        tableView.delegate = self
         viewModel.runningRecordListDriver.drive(tableView.rx.items) { table, row, data in
             guard let cell = table.dequeueReusableCell(withIdentifier: RunningRecordTableViewCell.identifier, for: IndexPath(row: row, section: 0)) as? RunningRecordTableViewCell else { return RunningRecordTableViewCell() }
             cell.setData(runningRecord: data)
-            
             return cell
         }.disposed(by: disposeBag)
         
@@ -77,4 +77,27 @@ class RunnningRecordListViewController: UIViewController {
         }
     }
 
+}
+
+extension RunnningRecordListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil,
+                                          previewProvider: nil,
+                                          actionProvider: {
+                _ in
+            
+            let deleteAction =
+                UIAction(title: NSLocalizedString("기록 삭제", comment: ""),
+                         image: UIImage(systemName: "trash"),
+                         attributes: .destructive) { _ in
+                    self.showAlert(message: "러닝 기록을 삭제합니다.", defaultActionTitle: "삭제", cancelActionTitle: "취소") { _ in
+                        self.viewModel.deleteRunningRecord(indexPath: indexPath)
+                        self.viewModel.fetchRunningRecordList()
+                    }
+                    
+                }
+            return UIMenu(title: "", children: [deleteAction])
+        })
+    }
 }

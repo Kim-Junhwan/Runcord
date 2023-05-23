@@ -13,7 +13,7 @@ final class RunningRecordListViewModel {
     private let runningRecordRepository: RunningRecordRepository
     private let coordinator: RunningListCoordinator
     
-    private let runningRecordList: BehaviorSubject<[RunningRecord]> = BehaviorSubject(value: [])
+    private let runningRecordList: BehaviorRelay<[RunningRecord]> = BehaviorRelay(value: [])
     private let disposeBag = DisposeBag()
     
     var runningRecordListDriver: Driver<[RunningRecord]> {
@@ -29,12 +29,17 @@ final class RunningRecordListViewModel {
         runningRecordRepository.fetchRunningRecordList().subscribe(with: self) { owner, result in
             switch result {
             case .success(let runningList):
-                owner.runningRecordList.on(.next(runningList))
+                owner.runningRecordList.accept(runningList)
                 completion?()
             case .failure(let error):
                 print(error)
             }
         }.disposed(by: disposeBag)
+    }
+    
+    func deleteRunningRecord(indexPath: IndexPath) {
+        let runningList = runningRecordList.value
+        runningRecordRepository.deleteRunningRecord(runingDate: runningList[indexPath.row].date)
     }
     
     func showDetailRunningRecord(runningRecord: RunningRecord) {

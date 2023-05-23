@@ -12,6 +12,7 @@ import RxSwift
 protocol RunningRecordRepository {
     func fetchRunningRecordList() -> Observable<Result<[RunningRecord], Error>>
     func saveRunningRecord(runningRecord: RunningRecord) throws
+    func deleteRunningRecord(runingDate: Date)
 }
 
 final class DefaultRunningRecordRepository {
@@ -24,6 +25,7 @@ final class DefaultRunningRecordRepository {
 }
 
 extension DefaultRunningRecordRepository: RunningRecordRepository {
+    
     func fetchRunningRecordList() -> Observable<Result<[RunningRecord], Error>> {
         return coreDataRunningRecordStroage.fetchRecentRunningRecords()
     }
@@ -33,6 +35,14 @@ extension DefaultRunningRecordRepository: RunningRecordRepository {
             try coreDataRunningRecordStroage.saveRunningRecord(runningRecord: runningRecord)
         } catch {
             throw error
+        }
+    }
+    
+    func deleteRunningRecord(runingDate runningDate: Date) {
+        do{
+            try coreDataRunningRecordStroage.deleteRunningRecord(date: runningDate)
+        } catch {
+            debugPrint(error)
         }
     }
     

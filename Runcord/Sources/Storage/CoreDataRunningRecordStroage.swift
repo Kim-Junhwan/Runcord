@@ -50,4 +50,23 @@ extension CoreDataRunningRecordStroage {
             throw CoreDataStorageError.saveError(error)
         }
     }
+    
+    func deleteRunningRecord(date: Date) throws {
+        let context = coreDataStorage.managedContext
+        let fetchRequest = RunningRecordEntity.fetchRequest()
+        let predicate = NSPredicate(format: "date == %@", date as NSDate)
+        fetchRequest.predicate = predicate
+        do {
+            let fetchEntity = try context.fetch(fetchRequest)
+            guard let deleteEntity = fetchEntity.first else { return }
+            context.delete(deleteEntity)
+            do {
+                try context.save()
+            } catch {
+                throw CoreDataStorageError.deleteError(error)
+            }
+        } catch {
+            throw CoreDataStorageError.readError(error)
+        }
+    }
 }

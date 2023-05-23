@@ -67,4 +67,5 @@ class RunningRecordTableViewCell: UITableViewCell {
         runningTimeHourLabel.text = String(format: "%02d", runningTime / 3600)
         runningTimeMinuteLabel.text = String(format: "%02d", (runningTime % 3600) / 60)
     }
+    
 }
