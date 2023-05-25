@@ -1,11 +1,10 @@
 //
-//  CoreDataRunningRecordStroage.swift
+//  CoreDataRunningRecordStorage.swift
 //  Runcord
 //
-//  Created by JunHwan Kim on 2023/05/17.
+//  Created by JunHwan Kim on 2023/05/26.
 //
 
-import Foundation
 import RxSwift
 import CoreData
 
@@ -19,26 +18,28 @@ final class CoreDataRunningRecordStroage {
     
 }
 
-extension CoreDataRunningRecordStroage {
+extension CoreDataRunningRecordStroage: RunningRecordStorage {
     
-    func fetchRecentRunningRecords() -> Observable<Result<[RunningRecord], Error>> {
-        return Observable.create { [weak self] observer in
-            guard let self = self else {
-                observer.onCompleted()
-                return Disposables.create()
-            }
+    func fetchRunningRecordList() -> Single<RunningRecordList> {
+        return Single.create { single in
             let context = self.coreDataStorage.managedContext
-            let request: NSFetchRequest = RunningRecordEntity.fetchRequest()
-            request.sortDescriptors = [NSSortDescriptor(key: #keyPath(RunningRecordEntity.date), ascending: false)]
-                do {
-                    let result = try context.fetch(request).map { $0.toDomain() }
-                    observer.onNext(.success(result))
-                } catch {
-                    observer.onError(CoreDataStorageError.saveError(error))
-                }
-                observer.onCompleted()
+            let request: NSFetchRequest = self.createRunningRecordFetchRequest()
+            do {
+                let result = try context.fetch(request).map { $0.toDomain() }
+                single(.success(RunningRecordList(list: result)))
+            } catch {
+                single(.failure(CoreDataStorageError.readError(error)))
+            }
+            
             return Disposables.create()
         }
+    }
+    
+    private func createRunningRecordFetchRequest() -> NSFetchRequest<RunningRecordEntity> {
+        let request: NSFetchRequest = RunningRecordEntity.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(RunningRecordEntity.date), ascending: false)]
+        
+        return request
     }
     
     func saveRunningRecord(runningRecord: RunningRecord) throws {
@@ -51,7 +52,7 @@ extension CoreDataRunningRecordStroage {
         }
     }
     
-    func deleteRunningRecord(date: Date) throws {
+    func deleteRunningRecord(runningDate date: Date) throws {
         let context = coreDataStorage.managedContext
         let fetchRequest = RunningRecordEntity.fetchRequest()
         let predicate = NSPredicate(format: "date == %@", date as NSDate)
@@ -70,3 +71,4 @@ extension CoreDataRunningRecordStroage {
         }
     }
 }
+

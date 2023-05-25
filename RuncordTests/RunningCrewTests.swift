@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import RunningCrew
+@testable import Runcord
 
 final class RunningCrewTests: XCTestCase {
 

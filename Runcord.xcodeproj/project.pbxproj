@@ -16,7 +16,6 @@
 		C7211E3129B9664D00ADA90C /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7211E3029B9664D00ADA90C /* UIViewController+.swift */; };
 		C7233CF829DDBFE00003A290 /* GoalProcessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7233CF729DDBFE00003A290 /* GoalProcessView.swift */; };
 		C7233CFC29DDC0770003A290 /* GoalProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7233CFB29DDC0770003A290 /* GoalProcessView.xib */; };
-		C72B3BBB29FE59C30051EB61 /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BBA29FE59C30051EB61 /* ImageInfo.swift */; };
 		C72B3BBD29FE5A780051EB61 /* RunningRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BBC29FE5A780051EB61 /* RunningRecord.swift */; };
 		C72B3BC429FE63CB0051EB61 /* RunningRecordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BC329FE63CB0051EB61 /* RunningRecordRepository.swift */; };
 		C72B3BDF2A010C460051EB61 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BDE2A010C460051EB61 /* LocationService.swift */; };
@@ -47,6 +46,9 @@
 		C78B044E2A12055800FBEC91 /* RecordRunningStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C78B044C2A12055800FBEC91 /* RecordRunningStorage.xcdatamodeld */; };
 		C78B04522A12701600FBEC91 /* RunningRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78B04502A12701600FBEC91 /* RunningRecordTableViewCell.swift */; };
 		C78B04532A12701600FBEC91 /* RunningRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C78B04512A12701600FBEC91 /* RunningRecordTableViewCell.xib */; };
+		C79608B22A1F9FFE0021E619 /* RunningRecordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79608B12A1F9FFE0021E619 /* RunningRecordRepository.swift */; };
+		C79608B52A1FAB6D0021E619 /* RunningRecordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79608B42A1FAB6D0021E619 /* RunningRecordUseCase.swift */; };
+		C79608BA2A1FB1D80021E619 /* CoreDataRunningRecordStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79608B92A1FB1D80021E619 /* CoreDataRunningRecordStorage.swift */; };
 		C7A1F21629BA1194009AE7BA /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1F21429BA1194009AE7BA /* CustomAlertViewController.swift */; };
 		C7A1F21729BA1194009AE7BA /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A1F21529BA1194009AE7BA /* CustomAlertViewController.xib */; };
 		C7A1F21929BA385A009AE7BA /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1F21829BA385A009AE7BA /* UIView+.swift */; };
@@ -79,7 +81,7 @@
 		C7E00A2329C36F4900B39709 /* CameraCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E00A2129C36F4900B39709 /* CameraCollectionViewCell.swift */; };
 		C7E00A2429C36F4900B39709 /* CameraCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E00A2229C36F4900B39709 /* CameraCollectionViewCell.xib */; };
 		C7ECCB752A148A8600E81AB0 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB742A148A8500E81AB0 /* CoreDataStorage.swift */; };
-		C7ECCB772A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB762A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift */; };
+		C7ECCB772A1495B200E81AB0 /* RunningRecordStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB762A1495B200E81AB0 /* RunningRecordStorage.swift */; };
 		C7ECCB7A2A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB792A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift */; };
 		C7ECCB7D2A160B9D00E81AB0 /* RunningRecordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB7C2A160B9D00E81AB0 /* RunningRecordListViewModel.swift */; };
 		C7F95B2E29AF803200C69D1B /* RunningStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F95B2D29AF803200C69D1B /* RunningStartViewModel.swift */; };
@@ -123,7 +125,6 @@
 		C7211E3029B9664D00ADA90C /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		C7233CF729DDBFE00003A290 /* GoalProcessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProcessView.swift; sourceTree = "<group>"; };
 		C7233CFB29DDC0770003A290 /* GoalProcessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalProcessView.xib; sourceTree = "<group>"; };
-		C72B3BBA29FE59C30051EB61 /* ImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
 		C72B3BBC29FE5A780051EB61 /* RunningRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecord.swift; sourceTree = "<group>"; };
 		C72B3BC329FE63CB0051EB61 /* RunningRecordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordRepository.swift; sourceTree = "<group>"; };
 		C72B3BDE2A010C460051EB61 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
@@ -158,6 +159,9 @@
 		C78B044D2A12055800FBEC91 /* RecordRunningDataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecordRunningDataBase.xcdatamodel; sourceTree = "<group>"; };
 		C78B04502A12701600FBEC91 /* RunningRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordTableViewCell.swift; sourceTree = "<group>"; };
 		C78B04512A12701600FBEC91 /* RunningRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RunningRecordTableViewCell.xib; sourceTree = "<group>"; };
+		C79608B12A1F9FFE0021E619 /* RunningRecordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordRepository.swift; sourceTree = "<group>"; };
+		C79608B42A1FAB6D0021E619 /* RunningRecordUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordUseCase.swift; sourceTree = "<group>"; };
+		C79608B92A1FB1D80021E619 /* CoreDataRunningRecordStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRunningRecordStorage.swift; sourceTree = "<group>"; };
 		C7A1F21429BA1194009AE7BA /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		C7A1F21529BA1194009AE7BA /* CustomAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
 		C7A1F21829BA385A009AE7BA /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -190,7 +194,7 @@
 		C7E00A2129C36F4900B39709 /* CameraCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionViewCell.swift; sourceTree = "<group>"; };
 		C7E00A2229C36F4900B39709 /* CameraCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraCollectionViewCell.xib; sourceTree = "<group>"; };
 		C7ECCB742A148A8500E81AB0 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
-		C7ECCB762A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRunningRecordStroage.swift; sourceTree = "<group>"; };
+		C7ECCB762A1495B200E81AB0 /* RunningRecordStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordStorage.swift; sourceTree = "<group>"; };
 		C7ECCB792A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunningRecordEntity+Mapping.swift"; sourceTree = "<group>"; };
 		C7ECCB7C2A160B9D00E81AB0 /* RunningRecordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordListViewModel.swift; sourceTree = "<group>"; };
 		C7F95B2D29AF803200C69D1B /* RunningStartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningStartViewModel.swift; sourceTree = "<group>"; };
@@ -313,18 +317,9 @@
 		C72B3BB929FE1C650051EB61 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				C72B3BBE29FE5E7C0051EB61 /* RunningRecord */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		C72B3BBE29FE5E7C0051EB61 /* RunningRecord */ = {
-			isa = PBXGroup;
-			children = (
-				C72B3BBA29FE59C30051EB61 /* ImageInfo.swift */,
 				C72B3BBC29FE5A780051EB61 /* RunningRecord.swift */,
 			);
-			path = RunningRecord;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		C72B3BD92A0109E90051EB61 /* LocationService */ = {
@@ -516,8 +511,8 @@
 		C7811F7829A258CE00801E6B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C78B04462A11177D00FBEC91 /* Storage */,
-				C703495E29D49C6600BF28D7 /* Repositories */,
+				C79608B62A1FAE380021E619 /* Data */,
+				C79608AF2A1F9FB00021E619 /* Domain */,
 				C72B3BB929FE1C650051EB61 /* Entities */,
 				C72B3BD92A0109E90051EB61 /* LocationService */,
 				C7DE67E92997AA3600C824A9 /* Application */,
@@ -531,7 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				C7ECCB732A148A5A00E81AB0 /* CoreDataStorage */,
-				C7ECCB762A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift */,
+				C79608B72A1FB1930021E619 /* RunningRecordStorage */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -543,6 +538,58 @@
 				C78B04512A12701600FBEC91 /* RunningRecordTableViewCell.xib */,
 			);
 			path = RunningRecordTableViewCell;
+			sourceTree = "<group>";
+		};
+		C79608AF2A1F9FB00021E619 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				C79608B32A1FAB390021E619 /* UseCase */,
+				C79608B02A1F9FE00021E619 /* Repository */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		C79608B02A1F9FE00021E619 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				C79608B12A1F9FFE0021E619 /* RunningRecordRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		C79608B32A1FAB390021E619 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				C79608B42A1FAB6D0021E619 /* RunningRecordUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		C79608B62A1FAE380021E619 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C78B04462A11177D00FBEC91 /* Storage */,
+				C703495E29D49C6600BF28D7 /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C79608B72A1FB1930021E619 /* RunningRecordStorage */ = {
+			isa = PBXGroup;
+			children = (
+				C79608B82A1FB1AD0021E619 /* CoreDataStorage */,
+				C7ECCB762A1495B200E81AB0 /* RunningRecordStorage.swift */,
+			);
+			path = RunningRecordStorage;
+			sourceTree = "<group>";
+		};
+		C79608B82A1FB1AD0021E619 /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				C7ECCB782A14AE9300E81AB0 /* EntityMapping */,
+				C79608B92A1FB1D80021E619 /* CoreDataRunningRecordStorage.swift */,
+			);
+			path = CoreDataStorage;
 			sourceTree = "<group>";
 		};
 		C7A1F21329BA0D38009AE7BA /* Alert */ = {
@@ -771,7 +818,6 @@
 		C7ECCB732A148A5A00E81AB0 /* CoreDataStorage */ = {
 			isa = PBXGroup;
 			children = (
-				C7ECCB782A14AE9300E81AB0 /* EntityMapping */,
 				C78B044C2A12055800FBEC91 /* RecordRunningStorage.xcdatamodeld */,
 				C7ECCB742A148A8500E81AB0 /* CoreDataStorage.swift */,
 			);
@@ -1092,7 +1138,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C75DECFA29AE7E7D00A4EC47 /* RecordViewController.swift in Sources */,
-				C72B3BBB29FE59C30051EB61 /* ImageInfo.swift in Sources */,
 				C7ECCB7D2A160B9D00E81AB0 /* RunningRecordListViewModel.swift in Sources */,
 				C7ECCB7A2A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift in Sources */,
 				C7A5AFE829D69F7900E4D851 /* AuthorizationAlertable.swift in Sources */,
@@ -1103,6 +1148,7 @@
 				C7663E7B29A9F1260046068B /* GoalTextField.swift in Sources */,
 				C7DCA7022A1A1DD100B419BA /* DetailRunninRecordViewController.swift in Sources */,
 				C7A1F21929BA385A009AE7BA /* UIView+.swift in Sources */,
+				C79608B22A1F9FFE0021E619 /* RunningRecordRepository.swift in Sources */,
 				C72B3BC429FE63CB0051EB61 /* RunningRecordRepository.swift in Sources */,
 				C7DE6825299A85DF00C824A9 /* Color+.swift in Sources */,
 				C7DE67FB29992A5E00C824A9 /* TabBarItem.swift in Sources */,
@@ -1121,7 +1167,7 @@
 				C7211E3129B9664D00ADA90C /* UIViewController+.swift in Sources */,
 				C7A5AFED29D6ADB400E4D851 /* LocationAlertable.swift in Sources */,
 				C703496729D582CC00BF28D7 /* RunningStartViewController.swift in Sources */,
-				C7ECCB772A1495B200E81AB0 /* CoreDataRunningRecordStroage.swift in Sources */,
+				C7ECCB772A1495B200E81AB0 /* RunningRecordStorage.swift in Sources */,
 				C762DED929EC5AC700C24C21 /* RunningRecordMapViewController.swift in Sources */,
 				C7DCA7082A1B2A5B00B419BA /* OverlayMapViewController.swift in Sources */,
 				C7670EEA2995460800E3CD77 /* SceneDelegate.swift in Sources */,
@@ -1133,6 +1179,7 @@
 				C7ECCB752A148A8600E81AB0 /* CoreDataStorage.swift in Sources */,
 				C751527C29B34224003D8987 /* RecordViewModel.swift in Sources */,
 				C7F95B2E29AF803200C69D1B /* RunningStartViewModel.swift in Sources */,
+				C79608B52A1FAB6D0021E619 /* RunningRecordUseCase.swift in Sources */,
 				C7DE67F62998E4D300C824A9 /* TabBarCoordinator.swift in Sources */,
 				C751528029B79981003D8987 /* SaveRecordRunningViewController.swift in Sources */,
 				C7A5AFEA29D6A34E00E4D851 /* AuthorizationManager.swift in Sources */,
@@ -1145,6 +1192,7 @@
 				C72B3BE42A039CF80051EB61 /* ImageAnnotation.swift in Sources */,
 				C78B04522A12701600FBEC91 /* RunningRecordTableViewCell.swift in Sources */,
 				C7DE67F32998DFC200C824A9 /* Coordinator.swift in Sources */,
+				C79608BA2A1FB1D80021E619 /* CoreDataRunningRecordStorage.swift in Sources */,
 				C7DE68022999376800C824A9 /* RunnningRecordListViewController.swift in Sources */,
 				C75DECF729ABB3AF00A4EC47 /* GoalSettingViewController.swift in Sources */,
 			);
