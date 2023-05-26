@@ -8,7 +8,7 @@ target 'Runcord' do
   # Pods for Runcord
     pod 'RxSwift', '6.5.0'
     pod 'RxCocoa', '6.5.0'
-    pod 'SwiftLint', '0.48.0'
+    pod 'Swinject'
   target 'RuncordTests' do
     inherit! :search_paths
     # Pods for testing
