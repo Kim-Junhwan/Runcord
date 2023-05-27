@@ -8,9 +8,7 @@
 import UIKit
 import CoreLocation
 
-class SaveRecordRunningViewController: UIViewController, Alertable {
-    
-    @IBOutlet weak var detailRunningRecordView: DetailRunningRecordView!
+class SaveRecordRunningViewController: DetailRunningRecordBaseViewController, Alertable {
     
     lazy var saveButton: RunningSaveButton = {
         let button = RunningSaveButton()
@@ -19,13 +17,13 @@ class SaveRecordRunningViewController: UIViewController, Alertable {
         return button
     }()
     
-    var runningRecord: RunningRecord
     let runningRecordRepository: RunningRecordRepository
     
     init(runningRecord: RunningRecord, runningRecordRepository: RunningRecordRepository) {
-        self.runningRecord = runningRecord
+//        self.runningRecord = runningRecord
+//        super.init(nibName: nil, bundle: nil)
         self.runningRecordRepository = runningRecordRepository
-        super.init(nibName: nil, bundle: nil)
+        super.init(runningRecord: runningRecord)
     }
     
     required init?(coder: NSCoder) {
@@ -35,14 +33,12 @@ class SaveRecordRunningViewController: UIViewController, Alertable {
     override func viewDidLoad() {
         super.viewDidLoad()
         detailRunningRecordView.baseStackView.addArrangedSubview(saveButton)
-        detailRunningRecordView.registerRunningRecord(runningRecord: runningRecord)
         detailRunningRecordView.dismissButton.addTarget(self, action: #selector(tapCloseButton), for: .touchUpInside)
-        detailRunningRecordView.runningRecordMapImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showOverlayMapView)))
     }
     
     // MARK: - Action
     @objc func tapCloseButton(_ sender: Any) {
-        showAlert(title: "러닝이 저장되지 않습니다.", message: "해당 러닝 기록을 저장하지 않", defaultActionTitle: "확인", cancelActionTitle: "취소") { _ in
+        showAlert(title: "러닝이 저장되지 않습니다.", message: "해당 러닝 기록을 저장하지 않습니다.", defaultActionTitle: "확인", cancelActionTitle: "취소") { _ in
             self.dismiss(animated: true)
         }
     }
@@ -55,11 +51,4 @@ class SaveRecordRunningViewController: UIViewController, Alertable {
             showAlert(message: "저장 오류 발생. 다시 시도해주십시오. \(error)", defaultActionTitle: "확인", cancelActionTitle: "취소")
         }
     }
-    
-    @objc private func showOverlayMapView() {
-        let overlayMapVC = OverlayMapViewController(runningRecord: runningRecord)
-        overlayMapVC.modalPresentationStyle = .fullScreen
-        present(overlayMapVC, animated: true)
-    }
-     
 }
