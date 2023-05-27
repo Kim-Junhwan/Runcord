@@ -8,16 +8,14 @@
 import UIKit
 
 final class TabBarCoordinator {
+    let injector: Injector
     var window: UIWindow
-    var tabBarController: DesignedTabBarController
-    var childCoordinators: [Coordinator]
-    let runningRecordRepository: RunningRecordRepository
+    var tabBarController: DesignedTabBarController = DesignedTabBarController()
+    var childCoordinators: [Coordinator] = []
     
-    init(_ window: UIWindow, runningRecordRepository: RunningRecordRepository) {
+    init(injector: Injector, window: UIWindow) {
+        self.injector = injector
         self.window = window
-        self.tabBarController = DesignedTabBarController()
-        self.runningRecordRepository = runningRecordRepository
-        self.childCoordinators = []
     }
     
     func start() {
@@ -40,9 +38,9 @@ final class TabBarCoordinator {
         var coordinator: Coordinator?
         switch item {
         case .recordRunning:
-            coordinator = RunningCoordinator(navigationController, runningRecordRepository: runningRecordRepository)
+            coordinator = RunningCoordinator(injector: injector, navigationController: navigationController)
         case .recordRunningList:
-            coordinator = RunningListCoordinator(navigationController, runningRecordRepository: runningRecordRepository)
+            coordinator = RunningListCoordinator(injector: injector, navigationController: navigationController)
         }
         if let coordinator = coordinator {
             childCoordinators.append(coordinator)

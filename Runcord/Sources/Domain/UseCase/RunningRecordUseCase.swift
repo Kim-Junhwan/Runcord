@@ -8,7 +8,7 @@
 import RxSwift
 
 protocol RunningRecordUseCase {
-    func getRunningRecordList() -> Single<RunningRecordList>
+    func fetchRunningRecordList() -> Single<RunningRecordList>
     func saveRunningRecord(runningRecord: RunningRecord) throws
     func deleteRunningRecord(runningDate: Date) throws
 }
@@ -20,7 +20,7 @@ final class DefaultRunningRecordUseCase: RunningRecordUseCase {
         self.repository = repository
     }
     
-    func getRunningRecordList() -> Single<RunningRecordList> {
+    func fetchRunningRecordList() -> Single<RunningRecordList> {
         return repository.fetchRunningRecordList()
     }
     

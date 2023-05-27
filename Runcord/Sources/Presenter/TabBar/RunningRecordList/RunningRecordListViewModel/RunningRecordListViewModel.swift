@@ -8,41 +8,44 @@
 import RxSwift
 import RxCocoa
 
+struct RunningRecordListViewModelAction {
+    let showRunningRecordDetail: (RunningRecord) -> Void
+}
+
 final class RunningRecordListViewModel {
     
-    private let runningRecordRepository: RunningRecordRepository
-    private let coordinator: RunningListCoordinator
+    private let runningRecordUseCase: RunningRecordUseCase
+    private let actions: RunningRecordListViewModelAction
     
-    private let runningRecordList: BehaviorRelay<[RunningRecord]> = BehaviorRelay(value: [])
+    private let runningRecordList: BehaviorRelay<RunningRecordList> = BehaviorRelay(value: RunningRecordList(list: []))
     private let disposeBag = DisposeBag()
     
     var runningRecordListDriver: Driver<[RunningRecord]> {
-        return runningRecordList.asDriver(onErrorJustReturn: [])
+        return runningRecordList.map { $0.list }.asDriver(onErrorJustReturn: [])
     }
     
-    init(runningRecordRepository: RunningRecordRepository, coordinator: RunningListCoordinator) {
-        self.runningRecordRepository = runningRecordRepository
-        self.coordinator = coordinator
+    init(runningRecordUseCase: RunningRecordUseCase, actions: RunningRecordListViewModelAction) {
+        self.runningRecordUseCase = runningRecordUseCase
+        self.actions = actions
     }
     
     func fetchRunningRecordList(completion: (() -> Void)? = nil) {
-        runningRecordRepository.fetchRunningRecordList().subscribe(with: self) { owner, result in
-            switch result {
-            case .success(let runningList):
-                owner.runningRecordList.accept(runningList)
-                completion?()
-            case .failure(let error):
-                print(error)
-            }
+        runningRecordUseCase.fetchRunningRecordList().subscribe(with: self) { owner, result in
+            owner.runningRecordList.accept(result)
+            completion?()
         }.disposed(by: disposeBag)
     }
     
     func deleteRunningRecord(indexPath: IndexPath) {
         let runningList = runningRecordList.value
-        runningRecordRepository.deleteRunningRecord(runingDate: runningList[indexPath.row].date)
+        do {
+            try runningRecordUseCase.deleteRunningRecord(runningDate: runningList.list[indexPath.row].date)
+        } catch {
+            
+        }
     }
     
     func showDetailRunningRecord(runningRecord: RunningRecord) {
-        coordinator.showDetailRunningRecord(runningRecord: runningRecord)
+        actions.showRunningRecordDetail(runningRecord)
     }
 }

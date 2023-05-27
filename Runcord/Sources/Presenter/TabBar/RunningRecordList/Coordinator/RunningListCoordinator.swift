@@ -8,20 +8,19 @@
 import UIKit
 
 final class RunningListCoordinator: Coordinator {
-    
+    let injector: Injector
     var navigationController: UINavigationController
-    let runningRecordRepository: RunningRecordRepository
-    
     var childCoordinators: [Coordinator] = []
     
-    init(_ navigationController: UINavigationController, runningRecordRepository: RunningRecordRepository) {
+    init(injector: Injector, navigationController: UINavigationController) {
+        self.injector = injector
         self.navigationController = navigationController
-        self.runningRecordRepository = runningRecordRepository
     }
     
     func start() {
-        let mypageViewController = RunnningRecordListViewController(viewModel: RunningRecordListViewModel(runningRecordRepository: runningRecordRepository, coordinator: self))
-        navigationController.pushViewController(mypageViewController, animated: false)
+        let actions = RunningRecordListViewModelAction(showRunningRecordDetail: showDetailRunningRecord)
+        let vc = injector.resolve(RunningRecordListViewController.self, argument: actions)
+        navigationController.pushViewController(vc, animated: false)
     }
     
     func showDetailRunningRecord(runningRecord: RunningRecord) {
