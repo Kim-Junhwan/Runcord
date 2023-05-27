@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class RunnningRecordListViewController: UIViewController, Alertable {
+class RunningRecordListViewController: UIViewController, Alertable {
     
     let tableView: UITableView = {
        let tableView = UITableView()
@@ -79,7 +79,7 @@ class RunnningRecordListViewController: UIViewController, Alertable {
 
 }
 
-extension RunnningRecordListViewController: UITableViewDelegate {
+extension RunningRecordListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(identifier: nil,
