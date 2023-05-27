@@ -10,9 +10,12 @@ import RxCocoa
 import RxSwift
 import CoreLocation
 
+struct RunningStartViewModelActions {
+    let showRecordView: (Int, Double) -> Void
+}
+
 class RunningStartViewModel {
-    
-    private let coordinator: RunningCoordinator
+    private let actions: RunningStartViewModelActions
     
     var goalDistance: BehaviorRelay<Double> = BehaviorRelay<Double>(value: 3.00)
     var goalHour: BehaviorRelay<Int> = BehaviorRelay<Int>(value: 0)
@@ -21,8 +24,8 @@ class RunningStartViewModel {
     
     let disposeBag = DisposeBag()
     
-    init(coordinator: RunningCoordinator) {
-        self.coordinator = coordinator
+    init(actions: RunningStartViewModelActions) {
+        self.actions = actions
         Observable.combineLatest(goalHour, goalMinute).map({ hour, minute in
             "\(String(format: "%.2d", hour)):\(String(format: "%.2d", minute))"
         }).bind(to: goalTimeRelay)
@@ -47,7 +50,7 @@ class RunningStartViewModel {
     }
     
     func presentRecordView() {
-        coordinator.showRecordRunningView(goalTime: convertTimeToSecond(hour: goalHour.value, minute: goalMinute.value), goalDistance: goalDistance.value)
+        actions.showRecordView(convertTimeToSecond(hour: goalHour.value, minute: goalMinute.value), goalDistance.value)
     }
     
     private func convertTimeToSecond(hour: Int, minute: Int) -> Int {

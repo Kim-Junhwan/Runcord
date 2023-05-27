@@ -19,7 +19,7 @@ class SaveRecordRunningViewController: UIViewController, Alertable {
         return button
     }()
     
-    let runningRecord: RunningRecord
+    var runningRecord: RunningRecord
     let runningRecordRepository: RunningRecordRepository
     
     init(runningRecord: RunningRecord, runningRecordRepository: RunningRecordRepository) {

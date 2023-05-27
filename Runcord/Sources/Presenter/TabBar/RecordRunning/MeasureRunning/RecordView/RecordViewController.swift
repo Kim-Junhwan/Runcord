@@ -239,7 +239,7 @@ class RecordViewController: UIViewController {
         if timer == nil {
             timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: {[weak self] _ in
                 self?.dismiss(animated: false, completion: {
-                    self?.viewModel.showSaceRecordView()
+                    self?.viewModel.showSaveRecordView()
                 })
             })
         }

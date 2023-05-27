@@ -8,7 +8,13 @@
 import RxSwift
 import CoreLocation
 
-final class LocationService: NSObject {
+protocol LocationService: AuthorizationManager {
+    var currentLocationSubject: BehaviorSubject<CLLocation?> { get }
+    var locationAuthorizationSubject: BehaviorSubject<CLAuthorizationStatus> { get }
+    func requestLocation()
+}
+
+final class DefaultLocationService: NSObject, LocationService {
     
     private let locationManager: CLLocationManager
     
@@ -27,9 +33,25 @@ final class LocationService: NSObject {
         locationManager.startUpdatingLocation()
     }
     
+    func getAuthorizationStatus() -> AuthorizationStatus {
+        switch locationManager.authorizationStatus {
+        case .authorizedAlways, .authorizedWhenInUse:
+            return .hasAuthorization
+        case .restricted, .denied:
+            return .needAuthorization
+        case .notDetermined:
+            return .notYet
+        default:
+            fatalError()
+        }
+    }
+    
+    func requestAuthorization() {
+        locationManager.requestWhenInUseAuthorization()
+    }
 }
 
-extension LocationService: CLLocationManagerDelegate {
+extension DefaultLocationService: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentLocation = locations.last else { return }

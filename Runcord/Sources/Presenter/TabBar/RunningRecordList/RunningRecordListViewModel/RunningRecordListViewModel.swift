@@ -8,14 +8,14 @@
 import RxSwift
 import RxCocoa
 
-struct RunningRecordListViewModelAction {
+struct RunningRecordListViewModelActions {
     let showRunningRecordDetail: (RunningRecord) -> Void
 }
 
 final class RunningRecordListViewModel {
     
     private let runningRecordUseCase: RunningRecordUseCase
-    private let actions: RunningRecordListViewModelAction
+    private let actions: RunningRecordListViewModelActions
     
     private let runningRecordList: BehaviorRelay<RunningRecordList> = BehaviorRelay(value: RunningRecordList(list: []))
     private let disposeBag = DisposeBag()
@@ -24,7 +24,7 @@ final class RunningRecordListViewModel {
         return runningRecordList.map { $0.list }.asDriver(onErrorJustReturn: [])
     }
     
-    init(runningRecordUseCase: RunningRecordUseCase, actions: RunningRecordListViewModelAction) {
+    init(runningRecordUseCase: RunningRecordUseCase, actions: RunningRecordListViewModelActions) {
         self.runningRecordUseCase = runningRecordUseCase
         self.actions = actions
     }

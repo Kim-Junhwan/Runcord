@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-public struct RunningRecordList {
+struct RunningRecordList {
     public let list: [RunningRecord]
 }
 
-public struct RunningRecord {
+struct RunningRecord {
     let date: Date
     let goalDistance: Double
     let goalTime: Int
@@ -23,12 +23,12 @@ public struct RunningRecord {
     let imageRecords: [ImageInfo]
 }
 
-public struct RunningRoute {
+struct RunningRoute {
     let longitude: Double
     let latitude: Double
 }
 
-public struct ImageInfo {
+struct ImageInfo {
     let latitude: Double
     let longitude: Double
     let image: UIImage

@@ -10,7 +10,7 @@ import MapKit
 import RxSwift
 
 class RunningStartViewController: UIViewController, LocationAlertable {
-    var locationManager: CLLocationManager
+    var locationService: LocationService
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var goalStackView: UIStackView!
@@ -33,13 +33,11 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     }
     
     func setLocationManager() {
-        locationManager.delegate = self
-        switch locationManager.authorizationStatus {
-        case .authorizedAlways, .authorizedWhenInUse:
-            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        switch locationService.getAuthorizationStatus() {
+        case .hasAuthorization:
             setMapUserTracking()
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
+        case .notYet:
+            locationService.requestAuthorization()
         default:
             break
         }
@@ -59,9 +57,9 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         }.disposed(by: disposeBag)
     }
     
-    init(viewModel: RunningStartViewModel, locationManager: CLLocationManager) {
+    init(viewModel: RunningStartViewModel, locationService: LocationService) {
         self.viewModel = viewModel
-        self.locationManager = locationManager
+        self.locationService = locationService
         super.init(nibName: "RunningStartViewController", bundle: nil)
     }
 

@@ -85,18 +85,18 @@ extension RunningRecordListViewController: UITableViewDelegate {
         return UIContextMenuConfiguration(identifier: nil,
                                           previewProvider: nil,
                                           actionProvider: {
-                _ in
+            _ in
             
             let deleteAction =
-                UIAction(title: NSLocalizedString("기록 삭제", comment: ""),
-                         image: UIImage(systemName: "trash"),
-                         attributes: .destructive) { _ in
-                    self.showAlert(message: "러닝 기록을 삭제합니다.", defaultActionTitle: "삭제", cancelActionTitle: "취소") { _ in
-                        self.viewModel.deleteRunningRecord(indexPath: indexPath)
-                        self.viewModel.fetchRunningRecordList()
-                    }
-                    
+            UIAction(title: NSLocalizedString("기록 삭제", comment: ""),
+                     image: UIImage(systemName: "trash"),
+                     attributes: .destructive) { _ in
+                self.showAlert(message: "러닝 기록을 삭제합니다.", defaultActionTitle: "삭제", cancelActionTitle: "취소") { _ in
+                    self.viewModel.deleteRunningRecord(indexPath: indexPath)
+                    self.viewModel.fetchRunningRecordList()
                 }
+                
+            }
             return UIMenu(title: "", children: [deleteAction])
         })
     }

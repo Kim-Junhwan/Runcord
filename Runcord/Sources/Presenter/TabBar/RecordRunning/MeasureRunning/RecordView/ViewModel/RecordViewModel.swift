@@ -51,13 +51,11 @@ class RecordViewModel: NSObject {
     let startDate: Date = Date()
     
     let disposeBag = DisposeBag()
-    let coordinator: RunningCoordinator
     
-    init(goalTime: Int, goalDistance: Double, locationService: LocationService, coordinator: RunningCoordinator) {
+    init(goalTime: Int, goalDistance: Double, locationService: LocationService) {
         self.goalTime = goalTime
         self.goalDistance = goalDistance
         self.locationService = locationService
-        self.coordinator = coordinator
     }
     
     // MARK: - Timer Method
@@ -114,10 +112,9 @@ class RecordViewModel: NSObject {
     
     // MARK: - Coordinating
     
-    func showSaceRecordView() {
+    func showSaveRecordView() {
         let runningPath = route.value.map { $0.coordinate }.map { RunningRoute(longitude: $0.longitude, latitude: $0.latitude) }
         let runningRecord = RunningRecord(date: startDate, goalDistance: goalDistance, goalTime: goalTime, runningDistance: Double(runningDistance.value), runningTime: totalRunningSecond.value, averageSpeed: totalSpeed.value / Double(speedCount), runningPath: runningPath, imageRecords: imageList)
-        coordinator.showSaveRecordView(runningRecord: runningRecord)
     }
     
     deinit {

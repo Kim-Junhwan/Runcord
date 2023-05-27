@@ -10,39 +10,34 @@ import CoreLocation
 import MapKit
 
 final class RunningCoordinator: Coordinator {
-    
+    let injector: Injector
     var navigationController: UINavigationController
-    var childCoordinators: [Coordinator]
-    let locationManager: CLLocationManager = CLLocationManager()
-    let locationService: LocationService = LocationService(locationManager: CLLocationManager())
-    let runningRecordRepository: RunningRecordRepository
+    var childCoordinators: [Coordinator] = []
+    let locationService: LocationService
     
-    init(_ navigationController: UINavigationController, runningRecordRepository: RunningRecordRepository) {
+    init(injector: Injector, navigationController: UINavigationController) {
+        self.injector = injector
         self.navigationController = navigationController
-        self.runningRecordRepository = runningRecordRepository
-        self.childCoordinators = []
+        self.locationService = injector.resolve(LocationService.self)
     }
     
     func start() {
-        showStartRunningView()
-    }
-    
-    func showStartRunningView() {
-        self.navigationController.isNavigationBarHidden = true
-        let runningStartVC = RunningStartViewController(viewModel: RunningStartViewModel(coordinator: self), locationManager: locationManager)
+        let action = RunningStartViewModelActions(showRecordView: showRecordRunningView(goalTime:goalDistance:))
+        let runningStartVC = injector.resolve(RunningStartViewController.self, argument: action)
         self.navigationController.pushViewController(runningStartVC, animated: false)
     }
     
     func showRecordRunningView(goalTime: Int, goalDistance: Double) {
-        let recordRunningViewController = RecordViewController(viewModel: RecordViewModel(goalTime: goalTime, goalDistance: goalDistance, locationService: locationService, coordinator: self))
+        let recordViewModel = injector.resolve(RecordViewModel.self, argument: goalTime, arg2: goalDistance)
+        let recordRunningViewController = injector.resolve(RecordViewController.self, argument: recordViewModel)
         recordRunningViewController.modalPresentationStyle = .fullScreen
         navigationController.present(recordRunningViewController, animated: false)
     }
     
     func showSaveRecordView(runningRecord: RunningRecord) {
-        let vc = SaveRecordRunningViewController(runningRecord: runningRecord, runningRecordRepository: runningRecordRepository)
-        vc.modalPresentationStyle = .fullScreen
-        navigationController.present(vc, animated: true)
+//        let vc = dependency.saveRecordRunningViewController
+//        vc.modalPresentationStyle = .fullScreen
+//        navigationController.present(vc, animated: true)
     }
     
     deinit {

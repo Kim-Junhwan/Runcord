@@ -18,7 +18,7 @@ final class RunningListCoordinator: Coordinator {
     }
     
     func start() {
-        let actions = RunningRecordListViewModelAction(showRunningRecordDetail: showDetailRunningRecord)
+        let actions = RunningRecordListViewModelActions(showRunningRecordDetail: showDetailRunningRecord)
         let vc = injector.resolve(RunningRecordListViewController.self, argument: actions)
         navigationController.pushViewController(vc, animated: false)
     }
