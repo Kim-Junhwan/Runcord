@@ -6,16 +6,21 @@ Runcord는 러닝 도중에 찍고 싶은 사진을 찍고
 
 ## ⚙️ 개발 환경 및 기술 스택
 
-|목적|사용 라이브러리 or 기술|
+|목적|기술 스택|
 |------|---|
 |최소 버전|15.0|
-|비동기 작업|RxSwift|
 |로컬 저장소|Core Data|
 |화면 프레임워크|UIKit|
 |지도|MKMapView|
-|사용자 위치| CLLocationManager|
-|디자인패턴| coordinator, mvvm, mvc|
-|아키텍처| 클린 아키텍처|
+|디자인패턴|coordinator, mvvm, mvc|
+|아키텍처|클린 아키텍처|
+
+## ⚙️ 사용 라이브러리
+
+|라이브러리|사용목적|
+|------|---|
+|RxSwift, RxCocoa|비동기 처리, viewmodel 바인딩|
+|swinject|DI|
 
 ## 📽️프로젝트 주 기능
 얼마나 뛸지, 언제까지 뛸 지 목표를 정할 수 있어요.<br>
@@ -38,5 +43,7 @@ Runcord는 러닝 도중에 찍고 싶은 사진을 찍고
 <img src = "https://github.com/Kim-Junhwan/Runcord/assets/58679737/9b7a94cb-7969-473a-943e-51c8b84f6b62" width="200" height="433">
 <img src = "https://github.com/Kim-Junhwan/Runcord/assets/58679737/06e06ee4-fe68-44d7-bce2-cb79c7d1e928" width="200" height="433">
 <img src = "https://github.com/Kim-Junhwan/Runcord/assets/58679737/5304a848-5f11-4e1c-8ebc-9542fdc63337" width="200" height="433">
+
+## 아키텍처
 
 
