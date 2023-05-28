@@ -12,6 +12,7 @@ protocol LocationService: AuthorizationManager {
     var currentLocationSubject: BehaviorSubject<CLLocation?> { get }
     var locationAuthorizationSubject: BehaviorSubject<CLAuthorizationStatus> { get }
     func requestLocation()
+    func stopUpdateLocation()
 }
 
 final class DefaultLocationService: NSObject, LocationService {
@@ -49,6 +50,10 @@ final class DefaultLocationService: NSObject, LocationService {
     func requestAuthorization() {
         locationManager.requestWhenInUseAuthorization()
     }
+    
+    func stopUpdateLocation() {
+        locationManager.stopUpdatingLocation()
+    }
 }
 
 extension DefaultLocationService: CLLocationManagerDelegate {
@@ -65,5 +70,4 @@ extension DefaultLocationService: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         locationAuthorizationSubject.onNext(manager.authorizationStatus)
     }
-    
 }

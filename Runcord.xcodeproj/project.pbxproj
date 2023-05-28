@@ -56,10 +56,6 @@
 		C7A1F21629BA1194009AE7BA /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1F21429BA1194009AE7BA /* CustomAlertViewController.swift */; };
 		C7A1F21729BA1194009AE7BA /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A1F21529BA1194009AE7BA /* CustomAlertViewController.xib */; };
 		C7A1F21929BA385A009AE7BA /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A1F21829BA385A009AE7BA /* UIView+.swift */; };
-		C7A4CE5429BC2135000DAE8B /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A4CE5229BC2135000DAE8B /* ImagePickerViewController.swift */; };
-		C7A4CE5529BC2135000DAE8B /* ImagePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A4CE5329BC2135000DAE8B /* ImagePickerViewController.xib */; };
-		C7A4CE5D29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A4CE5B29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.swift */; };
-		C7A4CE5E29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A4CE5C29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.xib */; };
 		C7A5AFE829D69F7900E4D851 /* AuthorizationAlertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5AFE729D69F7900E4D851 /* AuthorizationAlertable.swift */; };
 		C7A5AFEA29D6A34E00E4D851 /* AuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5AFE929D6A34E00E4D851 /* AuthorizationManager.swift */; };
 		C7A5AFED29D6ADB400E4D851 /* LocationAlertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5AFEC29D6ADB400E4D851 /* LocationAlertable.swift */; };
@@ -80,9 +76,6 @@
 		C7DE681029993A7000C824A9 /* RunningListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE680F29993A7000C824A9 /* RunningListCoordinator.swift */; };
 		C7DE681C299A84B500C824A9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE681B299A84B500C824A9 /* Launch Screen.storyboard */; };
 		C7DE6825299A85DF00C824A9 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6824299A85DF00C824A9 /* Color+.swift */; };
-		C7E00A1C29C1AF8D00B39709 /* ImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E00A1B29C1AF8D00B39709 /* ImagePickerViewModel.swift */; };
-		C7E00A2329C36F4900B39709 /* CameraCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E00A2129C36F4900B39709 /* CameraCollectionViewCell.swift */; };
-		C7E00A2429C36F4900B39709 /* CameraCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E00A2229C36F4900B39709 /* CameraCollectionViewCell.xib */; };
 		C7ECCB752A148A8600E81AB0 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB742A148A8500E81AB0 /* CoreDataStorage.swift */; };
 		C7ECCB772A1495B200E81AB0 /* RunningRecordStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB762A1495B200E81AB0 /* RunningRecordStorage.swift */; };
 		C7ECCB7A2A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB792A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift */; };
@@ -172,10 +165,6 @@
 		C7A1F21429BA1194009AE7BA /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		C7A1F21529BA1194009AE7BA /* CustomAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
 		C7A1F21829BA385A009AE7BA /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
-		C7A4CE5229BC2135000DAE8B /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
-		C7A4CE5329BC2135000DAE8B /* ImagePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePickerViewController.xib; sourceTree = "<group>"; };
-		C7A4CE5B29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCollectionViewCell.swift; sourceTree = "<group>"; };
-		C7A4CE5C29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		C7A5AFE729D69F7900E4D851 /* AuthorizationAlertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationAlertable.swift; sourceTree = "<group>"; };
 		C7A5AFE929D6A34E00E4D851 /* AuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationManager.swift; sourceTree = "<group>"; };
 		C7A5AFEC29D6ADB400E4D851 /* LocationAlertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAlertable.swift; sourceTree = "<group>"; };
@@ -196,9 +185,6 @@
 		C7DE680F29993A7000C824A9 /* RunningListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningListCoordinator.swift; sourceTree = "<group>"; };
 		C7DE681B299A84B500C824A9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C7DE6824299A85DF00C824A9 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
-		C7E00A1B29C1AF8D00B39709 /* ImagePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewModel.swift; sourceTree = "<group>"; };
-		C7E00A2129C36F4900B39709 /* CameraCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCollectionViewCell.swift; sourceTree = "<group>"; };
-		C7E00A2229C36F4900B39709 /* CameraCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraCollectionViewCell.xib; sourceTree = "<group>"; };
 		C7ECCB742A148A8500E81AB0 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		C7ECCB762A1495B200E81AB0 /* RunningRecordStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordStorage.swift; sourceTree = "<group>"; };
 		C7ECCB792A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunningRecordEntity+Mapping.swift"; sourceTree = "<group>"; };
@@ -288,8 +274,9 @@
 		C70792D72A215C9F005236DF /* App */ = {
 			isa = PBXGroup;
 			children = (
-				C70792D82A215CA8005236DF /* DI */,
 				C7DE67E92997AA3600C824A9 /* Application */,
+				C7595B6C2A22579A00DF0A0F /* Coordinator */,
+				C70792D82A215CA8005236DF /* DI */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -298,10 +285,10 @@
 			isa = PBXGroup;
 			children = (
 				C70792D92A21688B005236DF /* DataAssembly.swift */,
-				C70792DC2A2169DF005236DF /* DomainAssembly.swift */,
-				C70792DE2A216B3E005236DF /* RunningRecordListAssembly.swift */,
 				C70792E02A216DD9005236DF /* DependencyInjector.swift */,
+				C70792DC2A2169DF005236DF /* DomainAssembly.swift */,
 				C7595B682A2198E300DF0A0F /* RunningAssembly.swift */,
+				C70792DE2A216B3E005236DF /* RunningRecordListAssembly.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -394,6 +381,53 @@
 			path = SaveRunningRecord;
 			sourceTree = "<group>";
 		};
+		C7595B6C2A22579A00DF0A0F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				C7DE67F52998E4D300C824A9 /* TabBarCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		C7595B6D2A22587D00DF0A0F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C7DCA6FB2A19FF0D00B419BA /* DetailRunningRecordView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C7595B6F2A2258A700DF0A0F /* CommonUI */ = {
+			isa = PBXGroup;
+			children = (
+				C7A1F21329BA0D38009AE7BA /* Alert */,
+				C762DED729EC5A9300C24C21 /* MapView */,
+				C7595B6D2A22587D00DF0A0F /* View */,
+			);
+			path = CommonUI;
+			sourceTree = "<group>";
+		};
+		C7595B702A225B2200DF0A0F /* RunningScene */ = {
+			isa = PBXGroup;
+			children = (
+				C7DE6808299939BE00C824A9 /* Coordinator */,
+				C7663E5129A4BF6E0046068B /* MeasureRunning */,
+				C762DEAD29EC192300C24C21 /* RunningHome */,
+				C751527D29B7994B003D8987 /* SaveRunningRecord */,
+			);
+			path = RunningScene;
+			sourceTree = "<group>";
+		};
+		C7595B722A225B9400DF0A0F /* RunningRecordListScene */ = {
+			isa = PBXGroup;
+			children = (
+				C7DE6807299938C000C824A9 /* Coordinator */,
+				C7DCA7002A1A1C0100B419BA /* DetailRunningRecord */,
+				C7DE68002999374300C824A9 /* RunningRecordList */,
+			);
+			path = RunningRecordListScene;
+			sourceTree = "<group>";
+		};
 		C75DECF529ABB36B00A4EC47 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,7 +452,6 @@
 			children = (
 				C7663E7929A9F1090046068B /* GoalSettingView */,
 				C7F95B2B29AF7F8A00C69D1B /* RunningStart */,
-				C7DE6808299939BE00C824A9 /* Coordinator */,
 			);
 			path = RunningHome;
 			sourceTree = "<group>";
@@ -434,8 +467,9 @@
 		C762DED729EC5A9300C24C21 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
-				C7B3DA512A0BD4A700B370B6 /* CustomMapImageView */,
 				C72B3BE72A04EC9B0051EB61 /* CustomMapView */,
+				C7B3DA512A0BD4A700B370B6 /* CustomMapImageView */,
+				C7DCA7062A1B27F400B419BA /* OverlayMapViewController */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -521,10 +555,12 @@
 			isa = PBXGroup;
 			children = (
 				C70792D72A215C9F005236DF /* App */,
+				C7DE67EF2998DF5D00C824A9 /* Common */,
 				C79608B62A1FAE380021E619 /* Data */,
 				C79608AF2A1F9FB00021E619 /* Domain */,
 				C72B3BD92A0109E90051EB61 /* LocationService */,
 				C7DE67EE2998DF2900C824A9 /* Presenter */,
+				C7DE67F02998DF6300C824A9 /* TabBar */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -609,27 +645,6 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
-		C7A4CE5129BC2109000DAE8B /* ImagePicker */ = {
-			isa = PBXGroup;
-			children = (
-				C7E00A1A29C1AF7E00B39709 /* ViewModel */,
-				C7E00A2029C36F2C00B39709 /* CameraCell */,
-				C7A4CE5629BCABE9000DAE8B /* ImagePickerCell */,
-				C7A4CE5229BC2135000DAE8B /* ImagePickerViewController.swift */,
-				C7A4CE5329BC2135000DAE8B /* ImagePickerViewController.xib */,
-			);
-			path = ImagePicker;
-			sourceTree = "<group>";
-		};
-		C7A4CE5629BCABE9000DAE8B /* ImagePickerCell */ = {
-			isa = PBXGroup;
-			children = (
-				C7A4CE5B29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.swift */,
-				C7A4CE5C29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.xib */,
-			);
-			path = ImagePickerCell;
-			sourceTree = "<group>";
-		};
 		C7A5AFEB29D6A66E00E4D851 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
@@ -668,6 +683,7 @@
 		C7DCA6FB2A19FF0D00B419BA /* DetailRunningRecordView */ = {
 			isa = PBXGroup;
 			children = (
+				C7595B6A2A224D5400DF0A0F /* DetailRunningRecordBaseViewController.swift */,
 				C7DCA6FC2A19FF2D00B419BA /* DetailRunningRecordView.swift */,
 				C7DCA6FE2A19FF5700B419BA /* DetailRunningRecordView.xib */,
 			);
@@ -678,7 +694,6 @@
 			isa = PBXGroup;
 			children = (
 				C7DCA7012A1A1DD100B419BA /* DetailRunninRecordViewController.swift */,
-				C7595B6A2A224D5400DF0A0F /* DetailRunningRecordBaseViewController.swift */,
 			);
 			path = DetailRunningRecord;
 			sourceTree = "<group>";
@@ -711,11 +726,11 @@
 		C7DE67EE2998DF2900C824A9 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				C762DED729EC5A9300C24C21 /* MapView */,
 				C762DEAE29EC1ADC00C24C21 /* Animator */,
+				C7595B6F2A2258A700DF0A0F /* CommonUI */,
+				C7595B702A225B2200DF0A0F /* RunningScene */,
+				C7595B722A225B9400DF0A0F /* RunningRecordListScene */,
 				C7DE6823299A85D400C824A9 /* Utils */,
-				C7DE67EF2998DF5D00C824A9 /* Common */,
-				C7DE67F02998DF6300C824A9 /* TabBar */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -723,9 +738,6 @@
 		C7DE67EF2998DF5D00C824A9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C7DCA6FB2A19FF0D00B419BA /* DetailRunningRecordView */,
-				C7A4CE5129BC2109000DAE8B /* ImagePicker */,
-				C7A1F21329BA0D38009AE7BA /* Alert */,
 				C7DE67F12998DFB600C824A9 /* Coordinator */,
 			);
 			path = Common;
@@ -734,13 +746,8 @@
 		C7DE67F02998DF6300C824A9 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				C7DCA7062A1B27F400B419BA /* OverlayMapViewController */,
-				C7DCA7002A1A1C0100B419BA /* DetailRunningRecord */,
 				C7AD00EA29D1E175001D275E /* DesignedTabBar */,
-				C762DEAD29EC192300C24C21 /* RunningHome */,
-				C7DE67F72999296B00C824A9 /* RecordRunning */,
-				C7DE68002999374300C824A9 /* RunningRecordList */,
-				C7DE67F42998E4B900C824A9 /* Coordinator */,
+				C7DE67FA29992A5E00C824A9 /* TabBarItem.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -753,31 +760,12 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		C7DE67F42998E4B900C824A9 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				C7DE67F52998E4D300C824A9 /* TabBarCoordinator.swift */,
-				C7DE67FA29992A5E00C824A9 /* TabBarItem.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		C7DE67F72999296B00C824A9 /* RecordRunning */ = {
-			isa = PBXGroup;
-			children = (
-				C751527D29B7994B003D8987 /* SaveRunningRecord */,
-				C7663E5129A4BF6E0046068B /* MeasureRunning */,
-			);
-			path = RecordRunning;
-			sourceTree = "<group>";
-		};
 		C7DE68002999374300C824A9 /* RunningRecordList */ = {
 			isa = PBXGroup;
 			children = (
 				C7ECCB7B2A160B8700E81AB0 /* RunningRecordListViewModel */,
 				C78B044F2A126FFD00FBEC91 /* RunningRecordTableViewCell */,
 				C7DE68012999376800C824A9 /* RunningRecordListViewController.swift */,
-				C7DE6807299938C000C824A9 /* Coordinator */,
 			);
 			path = RunningRecordList;
 			sourceTree = "<group>";
@@ -805,23 +793,6 @@
 				C703496129D524E500BF28D7 /* Protocols */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		C7E00A1A29C1AF7E00B39709 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				C7E00A1B29C1AF8D00B39709 /* ImagePickerViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		C7E00A2029C36F2C00B39709 /* CameraCell */ = {
-			isa = PBXGroup;
-			children = (
-				C7E00A2129C36F4900B39709 /* CameraCollectionViewCell.swift */,
-				C7E00A2229C36F4900B39709 /* CameraCollectionViewCell.xib */,
-			);
-			path = CameraCell;
 			sourceTree = "<group>";
 		};
 		C7ECCB732A148A5A00E81AB0 /* CoreDataStorage */ = {
@@ -988,17 +959,14 @@
 			files = (
 				C75DECFB29AE7E7D00A4EC47 /* RecordViewController.xib in Resources */,
 				C7BA067E29A25B6B00D2227A /* NotoSansKR-Medium.otf in Resources */,
-				C7A4CE5E29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.xib in Resources */,
 				C78B04532A12701600FBEC91 /* RunningRecordTableViewCell.xib in Resources */,
 				C7A1F21729BA1194009AE7BA /* CustomAlertViewController.xib in Resources */,
 				C703496829D582CC00BF28D7 /* RunningStartViewController.xib in Resources */,
-				C7A4CE5529BC2135000DAE8B /* ImagePickerViewController.xib in Resources */,
 				C7DE681C299A84B500C824A9 /* Launch Screen.storyboard in Resources */,
 				C7670EF12995460900E3CD77 /* Assets.xcassets in Resources */,
 				C7233CFC29DDC0770003A290 /* GoalProcessView.xib in Resources */,
 				C7DCA6FF2A19FF5700B419BA /* DetailRunningRecordView.xib in Resources */,
 				C7BA067C29A25AF100D2227A /* NotoSansKR-Bold.otf in Resources */,
-				C7E00A2429C36F4900B39709 /* CameraCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1142,7 +1110,6 @@
 				C79608B22A1F9FFE0021E619 /* RunningRecordRepository.swift in Sources */,
 				C7DE6825299A85DF00C824A9 /* Color+.swift in Sources */,
 				C7DE67FB29992A5E00C824A9 /* TabBarItem.swift in Sources */,
-				C7A4CE5429BC2135000DAE8B /* ImagePickerViewController.swift in Sources */,
 				C78B044E2A12055800FBEC91 /* RecordRunningStorage.xcdatamodeld in Sources */,
 				C7AD00EC29D1E1A6001D275E /* DesignedTabBarController.swift in Sources */,
 				C72B3BE22A038EC60051EB61 /* ImageAnnotationView.swift in Sources */,
@@ -1165,9 +1132,7 @@
 				C7DCA7082A1B2A5B00B419BA /* OverlayMapViewController.swift in Sources */,
 				C7670EEA2995460800E3CD77 /* SceneDelegate.swift in Sources */,
 				C7DE681029993A7000C824A9 /* RunningListCoordinator.swift in Sources */,
-				C7E00A2329C36F4900B39709 /* CameraCollectionViewCell.swift in Sources */,
 				C7A1F21629BA1194009AE7BA /* CustomAlertViewController.swift in Sources */,
-				C7E00A1C29C1AF8D00B39709 /* ImagePickerViewModel.swift in Sources */,
 				C7ECCB752A148A8600E81AB0 /* CoreDataStorage.swift in Sources */,
 				C751527C29B34224003D8987 /* RecordViewModel.swift in Sources */,
 				C7F95B2E29AF803200C69D1B /* RunningStartViewModel.swift in Sources */,
@@ -1177,7 +1142,6 @@
 				C751528029B79981003D8987 /* SaveRecordRunningViewController.swift in Sources */,
 				C7A5AFEA29D6A34E00E4D851 /* AuthorizationManager.swift in Sources */,
 				C72B3BBD29FE5A780051EB61 /* RunningRecord.swift in Sources */,
-				C7A4CE5D29BCAC2C000DAE8B /* ImagePickerCollectionViewCell.swift in Sources */,
 				C72B3BE62A04393E0051EB61 /* ArrowView.swift in Sources */,
 				C7B3DA532A0BD4C000B370B6 /* CustomRouteMapImageView.swift in Sources */,
 				C7663E8129ABA5720046068B /* GoalSettingLabelStackView.swift in Sources */,
