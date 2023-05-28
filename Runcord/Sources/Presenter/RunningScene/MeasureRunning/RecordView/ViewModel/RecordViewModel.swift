@@ -10,7 +10,14 @@ import RxCocoa
 import RxSwift
 import CoreLocation
 
+struct RecordViewModelActions {
+    let showSaveRunningRecordView: (RunningRecord) -> Void
+    let showRunningRecordMapView: () -> Void
+}
+
 class RecordViewModel: NSObject {
+    
+    let actions: RecordViewModelActions
     
     // MARK: - Timer Properties
     private var timer: Timer?
@@ -52,10 +59,11 @@ class RecordViewModel: NSObject {
     
     let disposeBag = DisposeBag()
     
-    init(goalTime: Int, goalDistance: Double, locationService: LocationService) {
+    init(goalTime: Int, goalDistance: Double, locationService: LocationService, actions: RecordViewModelActions) {
         self.goalTime = goalTime
         self.goalDistance = goalDistance
         self.locationService = locationService
+        self.actions = actions
     }
     
     // MARK: - Timer Method
@@ -115,9 +123,11 @@ class RecordViewModel: NSObject {
     func showSaveRecordView() {
         let runningPath = route.value.map { $0.coordinate }.map { RunningRoute(longitude: $0.longitude, latitude: $0.latitude) }
         let runningRecord = RunningRecord(date: startDate, goalDistance: goalDistance, goalTime: goalTime, runningDistance: Double(runningDistance.value), runningTime: totalRunningSecond.value, averageSpeed: totalSpeed.value / Double(speedCount), runningPath: runningPath, imageRecords: imageList)
+        actions.showSaveRunningRecordView(runningRecord)
     }
     
     deinit {
+        locationService.stopUpdateLocation()
         print("deinit record viewModel")
     }
 }

@@ -29,7 +29,7 @@ class RecordViewController: UIViewController {
     @IBOutlet weak var averageSpeedLabel: UILabel!
     
     let runningMapView: CustomMapView = {
-       let customMapView = CustomMapView()
+        let customMapView = CustomMapView()
         customMapView.translatesAutoresizingMaskIntoConstraints = false
         return customMapView
     }()
@@ -67,7 +67,6 @@ class RecordViewController: UIViewController {
     }
     
     // MARK: - Set MapView
-    
     private func setMapView() {
         setMapViewTabGesture()
         runningMapView.mapView.isScrollEnabled = false
@@ -87,7 +86,7 @@ class RecordViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentMapView))
         runningMapView.addGestureRecognizer(tapGesture)
     }
-
+    
     @objc func presentMapView() {
         let runningRecordMapView = RunningRecordMapViewController(mapView: runningMapView, viewModel: RunningRecordMapViewModel(locationService: viewModel.locationService))
         runningRecordMapView.viewModel.imageList.accept(viewModel.imageList)
@@ -97,7 +96,6 @@ class RecordViewController: UIViewController {
         runningRecordMapView.transitioningDelegate = self
         runningRecordMapView.modalPresentationStyle = .fullScreen
         self.present(runningRecordMapView, animated: true)
-        
     }
     
     func setMapViewDismissCompletion() {
@@ -197,7 +195,7 @@ class RecordViewController: UIViewController {
     }
     
     // MARK: - Action Method
-
+    
     @IBAction func tapPauseOrPlayButton(_ sender: Any) {
         if viewModel.isRunning {
             pauseAndPlayButton.setImage(UIImage(systemName: "play.fill"), for: .normal)

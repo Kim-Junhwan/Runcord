@@ -20,8 +20,6 @@ class SaveRecordRunningViewController: DetailRunningRecordBaseViewController, Al
     let runningRecordRepository: RunningRecordRepository
     
     init(runningRecord: RunningRecord, runningRecordRepository: RunningRecordRepository) {
-//        self.runningRecord = runningRecord
-//        super.init(nibName: nil, bundle: nil)
         self.runningRecordRepository = runningRecordRepository
         super.init(runningRecord: runningRecord)
     }

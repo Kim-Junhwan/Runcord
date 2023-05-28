@@ -28,20 +28,24 @@ final class RunningCoordinator: Coordinator {
     }
     
     func showRecordRunningView(goalTime: Int, goalDistance: Double) {
-        let recordViewModel = injector.resolve(RecordViewModel.self, argument: goalTime, arg2: goalDistance)
+        let actions = RecordViewModelActions(showSaveRunningRecordView: showSaveRecordView(runningRecord:), showRunningRecordMapView: showRunningRecordMapView)
+        let recordViewModel = injector.resolve(RecordViewModel.self, argument: goalTime, arg2: goalDistance, arg3: actions)
         let recordRunningViewController = injector.resolve(RecordViewController.self, argument: recordViewModel)
         recordRunningViewController.modalPresentationStyle = .fullScreen
         navigationController.present(recordRunningViewController, animated: false)
     }
     
     func showSaveRecordView(runningRecord: RunningRecord) {
-//        let vc = dependency.saveRecordRunningViewController
-//        vc.modalPresentationStyle = .fullScreen
-//        navigationController.present(vc, animated: true)
+        let vc = injector.resolve(SaveRecordRunningViewController.self, argument: runningRecord)
+        vc.modalPresentationStyle = .fullScreen
+        navigationController.present(vc, animated: true)
+    }
+    
+    func showRunningRecordMapView() {
+        
     }
     
     deinit {
         print("deinit recordRunningCoordinator")
     }
-    
 }
