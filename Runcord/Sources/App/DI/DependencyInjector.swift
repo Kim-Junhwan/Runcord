@@ -16,6 +16,7 @@ protocol DependencyResolvable {
     func resolve<T>(_ serviceType: T.Type) -> T
     func resolve<T, Arg1>(_ serviceType: T.Type, argument: Arg1) -> T
     func resolve<T, Arg1, Arg2>(_ serviceType: T.Type, argument: Arg1, arg2: Arg2) -> T
+    func resolve<T, Arg1, Arg2, Arg3>(_ serviceType: T.Type, argument: Arg1, arg2: Arg2, arg3: Arg3) -> T
 }
 
 typealias Injector = DependencyAssemblable & DependencyResolvable
@@ -52,5 +53,9 @@ extension DependencyInjector: Injector {
     
     func resolve<T, Arg1, Arg2>(_ serviceType: T.Type, argument: Arg1, arg2: Arg2) -> T {
         container.resolve(serviceType, arguments: argument, arg2)!
+    }
+    
+    func resolve<T, Arg1, Arg2, Arg3>(_ serviceType: T.Type, argument: Arg1, arg2: Arg2, arg3: Arg3) -> T {
+        container.resolve(serviceType, arguments: argument, arg2, arg3)!
     }
 }

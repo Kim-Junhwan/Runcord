@@ -24,9 +24,9 @@ struct RunningAssembly: Assembly {
             return SaveRecordRunningViewController(runningRecord: runningRecord, runningRecordRepository: runningRecordRepository)
         }
         
-        container.register(RecordViewModel.self) { resolver, goalTime, goalDistance in
+        container.register(RecordViewModel.self) { resolver, goalTime, goalDistance, actions in
             let locationService = resolver.resolve(LocationService.self)!
-            return RecordViewModel(goalTime: goalTime, goalDistance: goalDistance, locationService: locationService)
+            return RecordViewModel(goalTime: goalTime, goalDistance: goalDistance, locationService: locationService, actions: actions)
         }
         
         container.register(RecordViewController.self) { resolver, viewModel in
