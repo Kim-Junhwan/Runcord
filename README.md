@@ -14,6 +14,8 @@ Runcord는 러닝 도중에 찍고 싶은 사진을 찍고
 |화면 프레임워크|UIKit|
 |지도|MKMapView|
 |사용자 위치| CLLocationManager|
+|디자인패턴| coordinator, mvvm, mvc|
+|아키텍처| 클린 아키텍처|
 
 ## 📽️프로젝트 주 기능
 얼마나 뛸지, 언제까지 뛸 지 목표를 정할 수 있어요.<br>
