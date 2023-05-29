@@ -1,10 +1,10 @@
 # Runcord
 
-## ⭐️ 프로젝트 소개
+## 프로젝트 소개
 Runcord는 러닝 도중에 찍고 싶은 사진을 찍고
 러닝 기록을 저장해, 그 기록과 찍은 사진을 함께 보여주는 앱입니다.
 
-## ⚙️ 개발 환경 및 기술 스택
+## 개발 환경 및 기술 스택
 
 |목적|기술 스택|
 |------|---|
@@ -15,14 +15,14 @@ Runcord는 러닝 도중에 찍고 싶은 사진을 찍고
 |디자인패턴|coordinator, mvvm, mvc|
 |아키텍처|클린 아키텍처|
 
-## ⚙️ 사용 라이브러리
+## 사용 라이브러리
 
 |라이브러리|사용목적|
 |------|---|
 |RxSwift, RxCocoa|비동기 처리, viewmodel 바인딩|
 |swinject|DI|
 
-## 📽️프로젝트 주 기능
+## 프로젝트 주 기능
 얼마나 뛸지, 언제까지 뛸 지 목표를 정할 수 있어요.<br>
 
 <img src = "https://github.com/Kim-Junhwan/Runcord/assets/58679737/e8d758e5-37f1-42aa-b9dc-cf67c5461b55" width="200" height="433">
@@ -46,4 +46,12 @@ Runcord는 러닝 도중에 찍고 싶은 사진을 찍고
 
 ## 아키텍처
 
+### 클린 아키텍처
+![Runcord 아키텍처](https://github.com/Kim-Junhwan/Runcord/assets/58679737/729973bf-d4d3-4af7-ab38-6685e6bd9575)
+- Data 계층: 로컬 DB에서 데이터를 CRUD하는 책임을 가지고 있습니다. Repository를 구현한 객체를 가지고 있으며, DB에서 직접 데이터를 가져오는 책임을 가지고 있는 객체를 가지고 있습니다.
+- Domain 계층: 앱의 비즈니스 로직을 담당합니다. 해당 프로젝트의 경우에는 러닝 기록을 DB에서 CREATE, READ, DELETE 하는것이 주 로직입니다. UseCase, Repository Protocol, Entity를 가지고 있습니다.
+- Presentation 계층: UI 로직 관련 책임을 가지고 있습니다.
 
+## 프로젝트 진행중 겪었던 문제
+
+### [UILabel BaseLine 문제](https://sandclock-itblog.tistory.com/163)
