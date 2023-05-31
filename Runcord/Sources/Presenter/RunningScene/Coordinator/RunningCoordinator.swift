@@ -28,7 +28,7 @@ final class RunningCoordinator: Coordinator {
     }
     
     func showRecordRunningView(goalTime: Int, goalDistance: Double) {
-        let actions = RecordViewModelActions(showSaveRunningRecordView: showSaveRecordView(runningRecord:), showRunningRecordMapView: showRunningRecordMapView)
+        let actions = RecordViewModelActions(showSaveRunningRecordView: showSaveRecordView, showRunningRecordMapView: showRunningRecordMapView)
         let recordViewModel = injector.resolve(RecordViewModel.self, argument: goalTime, arg2: goalDistance, arg3: actions)
         let recordRunningViewController = injector.resolve(RecordViewController.self, argument: recordViewModel)
         recordRunningViewController.modalPresentationStyle = .fullScreen

@@ -16,12 +16,11 @@ class RecordViewController: UIViewController {
     @IBOutlet weak var readyDiscussionLabel: UILabel!
     @IBOutlet weak var readyTimerLabel: UILabel!
     @IBOutlet weak var pauseAndPlayButton: UIButton!
-    @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var completeButton: LongPressGestureButton!
     @IBOutlet weak var completeButtonContainerView: UIView!
     @IBOutlet weak var runningTimerLabel: UILabel!
     
     @IBOutlet weak var runningDistanceLabel: UILabel!
-    private var completeButtonRingLayer: CAShapeLayer?
     @IBOutlet weak var goalDistanceProgressView: GoalProcessView!
     @IBOutlet weak var goalTimeProgressView: GoalProcessView!
     
@@ -45,15 +44,17 @@ class RecordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         runningMeasuringView.isHidden = true
-        setControlButtonCornerRadius()
         startReadyTimer()
-        setCompleteButton()
-        setCompleteButtonRing()
         setMapView()
         bind()
         setMapViewDismissCompletion()
         setGoalTimeProgress()
         setGoalDistanceProgress()
+        completeButton.delegate = self
+    }
+    
+    override func viewDidLayoutSubviews() {
+        setControlButtonCornerRadius()
     }
     
     // MARK: - Initalizer
@@ -151,7 +152,6 @@ class RecordViewController: UIViewController {
     // MARK: - Set UI Constraint
     private func setControlButtonCornerRadius() {
         pauseAndPlayButton.layer.cornerRadius = pauseAndPlayButton.frame.height / 2
-        
         completeButton.layer.cornerRadius = completeButton.frame.height / 2
     }
     
@@ -229,49 +229,6 @@ class RecordViewController: UIViewController {
         }
     }
     
-    func setCompleteButton() {
-        completeButton.addTarget(self, action: #selector(completeButtonTouchDown), for: .touchDown)
-    }
-    
-    @objc func completeButtonTouchDown() {
-        if timer == nil {
-            timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: {[weak self] _ in
-                self?.dismiss(animated: false, completion: {
-                    self?.viewModel.showSaveRecordView()
-                })
-            })
-        }
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.toValue = 1
-        animation.duration = 2
-        animation.isRemovedOnCompletion = false
-        animation.fillMode = .forwards
-        completeButtonRingLayer?.add(animation, forKey: "animation")
-    }
-    
-    @objc func completeButtonTouchUp() {
-        completeButtonRingLayer?.removeAllAnimations()
-        timer?.invalidate()
-        timer = nil
-        showToastMessage()
-    }
-    
-    func showToastMessage() {
-        print("show toast message ")
-    }
-    
-    func setCompleteButtonRing() {
-        let trackLayer = CAShapeLayer()
-        trackLayer.frame = completeButton.bounds
-        completeButtonRingLayer = CAShapeLayer()
-        guard let completeButtonRingLayer = completeButtonRingLayer else { return }
-        completeButtonContainerView.layer.addSublayer(completeButtonRingLayer)
-        completeButtonRingLayer.path = UIBezierPath(arcCenter: trackLayer.position, radius: completeButton.frame.width/2+2, startAngle: .pi * (3/2), endAngle: .pi * (7/2), clockwise: true).cgPath
-        completeButtonRingLayer.strokeColor = UIColor.black.cgColor
-        completeButtonRingLayer.lineWidth = 4
-        completeButtonRingLayer.fillColor = UIColor.clear.cgColor
-        completeButtonRingLayer.strokeEnd = 0
-    }
     // MARK: - deinit
     deinit {
         timer?.invalidate()
@@ -287,12 +244,19 @@ extension RecordViewController: UIViewControllerTransitioningDelegate {
         guard let mapSuperView = runningMapView.superview else { return nil }
         transition.originFrame = mapSuperView.convert(runningMapView.frame, to: nil)
         transition.presenting = true
-        
         return transition
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.presenting = false
         return transition
+    }
+}
+
+extension RecordViewController: PressGestureButtonDelegate {
+    func animationComplete() {
+        dismiss(animated: false) {
+            self.viewModel.showSaveRecordView()
+        }
     }
 }
