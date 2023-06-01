@@ -34,10 +34,10 @@ class LongPressGestureButton: UIButton, CAAnimationDelegate {
     private func setUp() {
         addTarget(self, action: #selector(stopAnimation), for: .touchUpInside)
         addTarget(self, action: #selector(startAnimation), for: .touchDown)
+        addTarget(self, action: #selector(stopAnimation), for: .touchUpOutside)
     }
     
     @objc func startAnimation() {
-        
         let path = UIBezierPath(arcCenter: center, radius: frame.width/2+2, startAngle: startEngle, endAngle: endAngle, clockwise: true)
         sliceLayer.path = path.cgPath
         sliceLayer.fillColor = nil
@@ -50,9 +50,7 @@ class LongPressGestureButton: UIButton, CAAnimationDelegate {
         animation.fromValue = 0
         animation.toValue = 1
         animation.duration = 2
-        animation.isRemovedOnCompletion = false
         animation.delegate = self
-        animation.fillMode = .forwards
         sliceLayer.add(animation, forKey: animation.keyPath)
     }
     
