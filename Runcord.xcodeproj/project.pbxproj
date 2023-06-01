@@ -33,6 +33,7 @@
 		C7595B692A2198E300DF0A0F /* RunningAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7595B682A2198E300DF0A0F /* RunningAssembly.swift */; };
 		C7595B6B2A224D5400DF0A0F /* DetailRunningRecordBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7595B6A2A224D5400DF0A0F /* DetailRunningRecordBaseViewController.swift */; };
 		C7595B752A24EF9600DF0A0F /* LongPressGestureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7595B742A24EF9600DF0A0F /* LongPressGestureButton.swift */; };
+		C7595B782A28DE4D00DF0A0F /* ReadyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7595B772A28DE4D00DF0A0F /* ReadyView.swift */; };
 		C75DECF729ABB3AF00A4EC47 /* GoalSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75DECF629ABB3AF00A4EC47 /* GoalSettingViewController.swift */; };
 		C75DECFA29AE7E7D00A4EC47 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75DECF829AE7E7D00A4EC47 /* RecordViewController.swift */; };
 		C75DECFB29AE7E7D00A4EC47 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C75DECF929AE7E7D00A4EC47 /* RecordViewController.xib */; };
@@ -139,6 +140,7 @@
 		C7595B682A2198E300DF0A0F /* RunningAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningAssembly.swift; sourceTree = "<group>"; };
 		C7595B6A2A224D5400DF0A0F /* DetailRunningRecordBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRunningRecordBaseViewController.swift; sourceTree = "<group>"; };
 		C7595B742A24EF9600DF0A0F /* LongPressGestureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressGestureButton.swift; sourceTree = "<group>"; };
+		C7595B772A28DE4D00DF0A0F /* ReadyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyView.swift; sourceTree = "<group>"; };
 		C75DECF629ABB3AF00A4EC47 /* GoalSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingViewController.swift; sourceTree = "<group>"; };
 		C75DECF829AE7E7D00A4EC47 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		C75DECF929AE7E7D00A4EC47 /* RecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordViewController.xib; sourceTree = "<group>"; };
@@ -438,9 +440,18 @@
 			path = LongPressGestureButton;
 			sourceTree = "<group>";
 		};
+		C7595B762A28DE0A00DF0A0F /* ReadyTimerView */ = {
+			isa = PBXGroup;
+			children = (
+				C7595B772A28DE4D00DF0A0F /* ReadyView.swift */,
+			);
+			path = ReadyTimerView;
+			sourceTree = "<group>";
+		};
 		C75DECF529ABB36B00A4EC47 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C7595B762A28DE0A00DF0A0F /* ReadyTimerView */,
 				C7233CF629DD4DF20003A290 /* GoalProcessView */,
 				C7595B732A24EF1500DF0A0F /* LongPressGestureButton */,
 			);
@@ -1133,6 +1144,7 @@
 				C72B3BDF2A010C460051EB61 /* LocationService.swift in Sources */,
 				C7DCA6FD2A19FF2D00B419BA /* DetailRunningRecordView.swift in Sources */,
 				C751527929B27038003D8987 /* UIImage+.swift in Sources */,
+				C7595B782A28DE4D00DF0A0F /* ReadyView.swift in Sources */,
 				C769EA3729E412E7004717B3 /* MKMapView+.swift in Sources */,
 				C7211E3129B9664D00ADA90C /* UIViewController+.swift in Sources */,
 				C7A5AFED29D6ADB400E4D851 /* LocationAlertable.swift in Sources */,
