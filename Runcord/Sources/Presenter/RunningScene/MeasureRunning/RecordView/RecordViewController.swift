@@ -12,48 +12,50 @@ import MapKit
 
 class RecordViewController: UIViewController {
     
-    @IBOutlet weak var runningMeasuringView: UIView!
-    @IBOutlet weak var readyDiscussionLabel: UILabel!
-    @IBOutlet weak var readyTimerLabel: UILabel!
-    @IBOutlet weak var pauseAndPlayButton: UIButton!
-    @IBOutlet weak var completeButton: UIButton!
-    @IBOutlet weak var completeButtonContainerView: UIView!
-    @IBOutlet weak var runningTimerLabel: UILabel!
+    private let recordRunningView: RecordRunningView = {
+        let recordRunningView = RecordRunningView()
+        recordRunningView.translatesAutoresizingMaskIntoConstraints = false
+        return recordRunningView
+    }()
     
-    @IBOutlet weak var runningDistanceLabel: UILabel!
-    private var completeButtonRingLayer: CAShapeLayer?
-    @IBOutlet weak var goalDistanceProgressView: GoalProcessView!
-    @IBOutlet weak var goalTimeProgressView: GoalProcessView!
+    private let readyView: ReadyView = {
+        let readyView = ReadyView(readyTime: 5)
+        readyView.translatesAutoresizingMaskIntoConstraints = false
+        return readyView
+    }()
     
-    @IBOutlet weak var recordProgressStackView: UIStackView!
-    @IBOutlet weak var averageSpeedLabel: UILabel!
-    
-    let runningMapView: CustomMapView = {
+    private let runningMapView: CustomMapView = {
         let customMapView = CustomMapView()
         customMapView.translatesAutoresizingMaskIntoConstraints = false
         return customMapView
     }()
-    lazy var runningMapViewHeightConstraint = runningMapView.heightAnchor.constraint(equalToConstant: 0)
+    
+    private lazy var runningMapViewHeightConstraint = runningMapView.heightAnchor.constraint(equalToConstant: 0)
     
     // MARK: - Properties
-    private var timer: Timer?
-    private var readyTimerNum = 5
     var viewModel: RecordViewModel
     let disposeBag = DisposeBag()
     let transition = MapAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        runningMeasuringView.isHidden = true
-        setControlButtonCornerRadius()
-        startReadyTimer()
-        setCompleteButton()
-        setCompleteButtonRing()
+        setRecordRunningView()
         setMapView()
         bind()
         setMapViewDismissCompletion()
-        setGoalTimeProgress()
-        setGoalDistanceProgress()
+        setReadyViewLayout()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        readyView.startPrepare(completion: startMeasureRunning)
+    }
+    
+    func startMeasureRunning() {
+        self.readyView.removeFromSuperview()
+        self.recordRunningView.isHidden = false
+        self.viewModel.startTimer()
+        self.viewModel.startTrackUserLocation()
     }
     
     // MARK: - Initalizer
@@ -66,14 +68,28 @@ class RecordViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setRecordRunningView() {
+        view.addSubview(recordRunningView)
+        recordRunningView.isHidden = true
+        NSLayoutConstraint.activate([
+            recordRunningView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            recordRunningView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            recordRunningView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            recordRunningView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        recordRunningView.setGoalTimeProgressBar(maxValue: Double(viewModel.goalTime))
+        recordRunningView.completeButton.delegate = self
+        recordRunningView.setGoalDistanceProgressBar(maxValue: viewModel.goalDistance)
+        recordRunningView.pauseAndPlayButton.addTarget(self, action: #selector(playOrPauseButtonAction), for: .touchUpInside)
+    }
+    
     // MARK: - Set MapView
     private func setMapView() {
         setMapViewTabGesture()
         runningMapView.mapView.isScrollEnabled = false
         runningMapView.mapView.isZoomEnabled = false
-        runningMeasuringView.addSubview(runningMapView)
         runningMapView.mapView.setUserTrackingMode(.follow, animated: true)
-        
+        view.addSubview(runningMapView)
         NSLayoutConstraint.activate([
             runningMapView.topAnchor.constraint(equalTo: view.topAnchor),
             runningMapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -116,48 +132,19 @@ class RecordViewController: UIViewController {
         }
     }
     
-    // MARK: - Ready Time Method
-    private func startReadyTimer() {
-        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(readyTimerCallBack), userInfo: nil, repeats: true)
-    }
-    
-    @objc func readyTimerCallBack() {
-        readyTimerNum -= 1
-        if readyTimerNum == 0 {
-            timer?.invalidate()
-            timer = nil
-            hiddenTimerLabel()
-            runningMeasuringView.isHidden = false
-            viewModel.startTimer()
-            viewModel.startTrackUserLocation()
-        }
-        readyTimerLabel.text = String(readyTimerNum)
-    }
-    
-    // MARK: - Set Goal Progress
-    
-    private func setGoalDistanceProgress() {
-        goalDistanceProgressView.setMaxValue(max: Float(viewModel.goalDistance))
-        goalDistanceProgressView.reversecurrentUserFigureLabel()
-        goalDistanceProgressView.setCurrentValue(current: 0)
-    }
-    
-    private func setGoalTimeProgress() {
-        goalTimeProgressView.setMaxValue(max: Float(viewModel.goalTime))
-        goalTimeProgressView.currentUserFigureLabel.text = "⏰"
-        goalTimeProgressView.setCurrentValue(current: 0)
+    func setReadyViewLayout() {
+        view.addSubview(readyView)
+        NSLayoutConstraint.activate([
+            readyView.topAnchor.constraint(equalTo: view.topAnchor),
+            readyView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            readyView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            readyView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
     }
     
     // MARK: - Set UI Constraint
-    private func setControlButtonCornerRadius() {
-        pauseAndPlayButton.layer.cornerRadius = pauseAndPlayButton.frame.height / 2
-        
-        completeButton.layer.cornerRadius = completeButton.frame.height / 2
-    }
-    
     private func hiddenTimerLabel() {
-        readyDiscussionLabel.isHidden = true
-        readyTimerLabel.isHidden = true
+        readyView.isHidden = true
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -167,44 +154,42 @@ class RecordViewController: UIViewController {
     // MARK: - bind
     private func bind() {
         viewModel.timerText.asDriver()
-            .drive(runningTimerLabel.rx
+            .drive(recordRunningView.runningTimerLabel.rx
                 .text)
             .disposed(by: disposeBag)
-        
+
         viewModel.totalRunningSecond.subscribe { currentTime in
-            self.goalTimeProgressView.setCurrentValue(current: Float(currentTime))
+            self.recordRunningView.goalTimeProgressView.setCurrentValue(current: Double(currentTime))
         }
         .disposed(by: disposeBag)
-        
+
         viewModel.runningDistance.asDriver()
             .drive(onNext: { distance in
-                self.runningDistanceLabel.text = String(format: "%.2f", distance)
-                self.goalDistanceProgressView.setCurrentValue(current: distance)
+                self.recordRunningView.runningDistanceLabel.text = String(format: "%.2f", distance)
+                self.recordRunningView.goalDistanceProgressView.setCurrentValue(current: Double(distance))
             })
             .disposed(by: disposeBag)
-        
+
         viewModel.routeDriver.drive(onNext: { route in
             if let lastCoordinate = route.first, let currentCoordinate = route.last {
                 self.runningMapView.mapView.updateUserRoute(lastCoordinate: lastCoordinate, newCoordinate: currentCoordinate)
             }
         }).disposed(by: disposeBag)
-        
+
         viewModel.averageSpeedDriver
             .map({ String(format: "%.2f", $0) })
-            .drive(averageSpeedLabel.rx.text).disposed(by: disposeBag)
+            .drive(recordRunningView.averageSpeedLabel.rx.text).disposed(by: disposeBag)
     }
     
     // MARK: - Action Method
     
-    @IBAction func tapPauseOrPlayButton(_ sender: Any) {
+    @objc private func playOrPauseButtonAction() {
         if viewModel.isRunning {
-            pauseAndPlayButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
             viewModel.stopTimer()
             showPauseStatusView {
                 self.runningMapView.mapView.setUserTrackingMode(.follow, animated: true)
             }
         } else {
-            pauseAndPlayButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             viewModel.startTimer()
             showPlayStatusView()
         }
@@ -220,7 +205,6 @@ class RecordViewController: UIViewController {
     }
     
     private func showPlayStatusView() {
-        recordProgressStackView.isHidden = false
         runningMapViewHeightConstraint.constant = 0
         UIView.animate(withDuration: 0.2) {
             self.view.layoutIfNeeded()
@@ -229,54 +213,9 @@ class RecordViewController: UIViewController {
         }
     }
     
-    func setCompleteButton() {
-        completeButton.addTarget(self, action: #selector(completeButtonTouchDown), for: .touchDown)
-    }
-    
-    @objc func completeButtonTouchDown() {
-        if timer == nil {
-            timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: {[weak self] _ in
-                self?.dismiss(animated: false, completion: {
-                    self?.viewModel.showSaveRecordView()
-                })
-            })
-        }
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.toValue = 1
-        animation.duration = 2
-        animation.isRemovedOnCompletion = false
-        animation.fillMode = .forwards
-        completeButtonRingLayer?.add(animation, forKey: "animation")
-    }
-    
-    @objc func completeButtonTouchUp() {
-        completeButtonRingLayer?.removeAllAnimations()
-        timer?.invalidate()
-        timer = nil
-        showToastMessage()
-    }
-    
-    func showToastMessage() {
-        print("show toast message ")
-    }
-    
-    func setCompleteButtonRing() {
-        let trackLayer = CAShapeLayer()
-        trackLayer.frame = completeButton.bounds
-        completeButtonRingLayer = CAShapeLayer()
-        guard let completeButtonRingLayer = completeButtonRingLayer else { return }
-        completeButtonContainerView.layer.addSublayer(completeButtonRingLayer)
-        completeButtonRingLayer.path = UIBezierPath(arcCenter: trackLayer.position, radius: completeButton.frame.width/2+2, startAngle: .pi * (3/2), endAngle: .pi * (7/2), clockwise: true).cgPath
-        completeButtonRingLayer.strokeColor = UIColor.black.cgColor
-        completeButtonRingLayer.lineWidth = 4
-        completeButtonRingLayer.fillColor = UIColor.clear.cgColor
-        completeButtonRingLayer.strokeEnd = 0
-    }
     // MARK: - deinit
     deinit {
-        timer?.invalidate()
-        timer = nil
-        viewModel.deinitViewModel()
+        print("deinit RecordView")
     }
 }
 
@@ -287,12 +226,19 @@ extension RecordViewController: UIViewControllerTransitioningDelegate {
         guard let mapSuperView = runningMapView.superview else { return nil }
         transition.originFrame = mapSuperView.convert(runningMapView.frame, to: nil)
         transition.presenting = true
-        
         return transition
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.presenting = false
         return transition
+    }
+}
+
+extension RecordViewController: PressGestureButtonDelegate {
+    func animationComplete() {
+        dismiss(animated: false) {
+            self.viewModel.showSaveRecordView()
+        }
     }
 }

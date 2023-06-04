@@ -12,8 +12,8 @@ class GoalProcessView: UIView {
     @IBOutlet weak var goalProgressView: UIProgressView!
     @IBOutlet weak var currentUserFigureLabel: UILabel!
     @IBOutlet weak var runningFigureBaseView: UIView!
-    private var maxValue: Float?
-    private var currentValue: Float = 0 {
+    private var maxValue: Double?
+    private var currentValue: Double = 0 {
         didSet {
             if let maxValue = maxValue, currentValue > maxValue {
                 self.currentValue = maxValue
@@ -50,7 +50,7 @@ class GoalProcessView: UIView {
         ])
     }
     
-    func setMaxValue(max: Float) {
+    func setMaxValue(max: Double) {
         if max == 0 {
             self.maxValue = 1
             self.currentValue = 1
@@ -60,7 +60,7 @@ class GoalProcessView: UIView {
         }
     }
     
-    func setCurrentValue(current: Float) {
+    func setCurrentValue(current: Double) {
         guard let maxValue = maxValue else { return }
         if !isMax {
             if currentValue >= maxValue {
