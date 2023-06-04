@@ -38,7 +38,8 @@ class LongPressGestureButton: UIButton, CAAnimationDelegate {
     }
     
     @objc func startAnimation() {
-        let path = UIBezierPath(arcCenter: center, radius: frame.width/2+2, startAngle: startEngle, endAngle: endAngle, clockwise: true)
+        let centerCoordi = CGPoint(x: bounds.width/2, y: bounds.height/2)
+        let path = UIBezierPath(arcCenter: centerCoordi, radius: frame.width/2+2, startAngle: startEngle, endAngle: endAngle, clockwise: true)
         sliceLayer.path = path.cgPath
         sliceLayer.fillColor = nil
         sliceLayer.strokeColor = UIColor.black.cgColor

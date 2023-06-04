@@ -34,6 +34,8 @@
 		C7595B6B2A224D5400DF0A0F /* DetailRunningRecordBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7595B6A2A224D5400DF0A0F /* DetailRunningRecordBaseViewController.swift */; };
 		C7595B752A24EF9600DF0A0F /* LongPressGestureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7595B742A24EF9600DF0A0F /* LongPressGestureButton.swift */; };
 		C7595B782A28DE4D00DF0A0F /* ReadyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7595B772A28DE4D00DF0A0F /* ReadyView.swift */; };
+		C7595B7B2A2B719000DF0A0F /* RecordRunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7595B7A2A2B719000DF0A0F /* RecordRunningView.swift */; };
+		C7595B7D2A2B71A000DF0A0F /* RecordRunningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7595B7C2A2B71A000DF0A0F /* RecordRunningView.xib */; };
 		C75DECF729ABB3AF00A4EC47 /* GoalSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75DECF629ABB3AF00A4EC47 /* GoalSettingViewController.swift */; };
 		C75DECFA29AE7E7D00A4EC47 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75DECF829AE7E7D00A4EC47 /* RecordViewController.swift */; };
 		C75DECFB29AE7E7D00A4EC47 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C75DECF929AE7E7D00A4EC47 /* RecordViewController.xib */; };
@@ -141,6 +143,8 @@
 		C7595B6A2A224D5400DF0A0F /* DetailRunningRecordBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRunningRecordBaseViewController.swift; sourceTree = "<group>"; };
 		C7595B742A24EF9600DF0A0F /* LongPressGestureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressGestureButton.swift; sourceTree = "<group>"; };
 		C7595B772A28DE4D00DF0A0F /* ReadyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyView.swift; sourceTree = "<group>"; };
+		C7595B7A2A2B719000DF0A0F /* RecordRunningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRunningView.swift; sourceTree = "<group>"; };
+		C7595B7C2A2B71A000DF0A0F /* RecordRunningView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordRunningView.xib; sourceTree = "<group>"; };
 		C75DECF629ABB3AF00A4EC47 /* GoalSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingViewController.swift; sourceTree = "<group>"; };
 		C75DECF829AE7E7D00A4EC47 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		C75DECF929AE7E7D00A4EC47 /* RecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordViewController.xib; sourceTree = "<group>"; };
@@ -448,9 +452,19 @@
 			path = ReadyTimerView;
 			sourceTree = "<group>";
 		};
+		C7595B792A2B717200DF0A0F /* RecordRunningView */ = {
+			isa = PBXGroup;
+			children = (
+				C7595B7A2A2B719000DF0A0F /* RecordRunningView.swift */,
+				C7595B7C2A2B71A000DF0A0F /* RecordRunningView.xib */,
+			);
+			path = RecordRunningView;
+			sourceTree = "<group>";
+		};
 		C75DECF529ABB36B00A4EC47 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C7595B792A2B717200DF0A0F /* RecordRunningView */,
 				C7595B762A28DE0A00DF0A0F /* ReadyTimerView */,
 				C7233CF629DD4DF20003A290 /* GoalProcessView */,
 				C7595B732A24EF1500DF0A0F /* LongPressGestureButton */,
@@ -986,6 +1000,7 @@
 				C703496829D582CC00BF28D7 /* RunningStartViewController.xib in Resources */,
 				C7DE681C299A84B500C824A9 /* Launch Screen.storyboard in Resources */,
 				C7670EF12995460900E3CD77 /* Assets.xcassets in Resources */,
+				C7595B7D2A2B71A000DF0A0F /* RecordRunningView.xib in Resources */,
 				C7233CFC29DDC0770003A290 /* GoalProcessView.xib in Resources */,
 				C7DCA6FF2A19FF5700B419BA /* DetailRunningRecordView.xib in Resources */,
 				C7BA067C29A25AF100D2227A /* NotoSansKR-Bold.otf in Resources */,
@@ -1139,6 +1154,7 @@
 				C70792DD2A2169DF005236DF /* DomainAssembly.swift in Sources */,
 				C703496429D5253400BF28D7 /* Alertable.swift in Sources */,
 				C7481F8A29F973240013D633 /* RunningRecordMapViewModel.swift in Sources */,
+				C7595B7B2A2B719000DF0A0F /* RecordRunningView.swift in Sources */,
 				C7670EE82995460800E3CD77 /* AppDelegate.swift in Sources */,
 				C7595B6B2A224D5400DF0A0F /* DetailRunningRecordBaseViewController.swift in Sources */,
 				C72B3BDF2A010C460051EB61 /* LocationService.swift in Sources */,

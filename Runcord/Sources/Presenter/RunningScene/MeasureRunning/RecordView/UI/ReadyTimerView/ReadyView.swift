@@ -62,8 +62,9 @@ class ReadyView: UIView {
     
     func startPrepare(completion: @escaping () -> Void) {
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] timer in
-            self?.readyTime -= 1
-            if self?.readyTime == 0 {
+            guard let self = self else { return }
+            self.readyTime -= 1
+            if self.readyTime <= 0 {
                 timer.invalidate()
                 completion()
             }
