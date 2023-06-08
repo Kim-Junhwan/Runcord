@@ -7,7 +7,6 @@
 
 import UIKit
 import RxSwift
-import CoreLocation
 import MapKit
 
 class RecordViewController: UIViewController {
@@ -49,6 +48,8 @@ class RecordViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         readyView.startPrepare(completion: startMeasureRunning)
+        recordRunningView.setGoalTimeProgressBar(maxValue: Double(viewModel.goalTime))
+        recordRunningView.setGoalDistanceProgressBar(maxValue: viewModel.goalDistance)
     }
     
     func startMeasureRunning() {
@@ -77,9 +78,7 @@ class RecordViewController: UIViewController {
             recordRunningView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             recordRunningView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        recordRunningView.setGoalTimeProgressBar(maxValue: Double(viewModel.goalTime))
         recordRunningView.completeButton.delegate = self
-        recordRunningView.setGoalDistanceProgressBar(maxValue: viewModel.goalDistance)
         recordRunningView.pauseAndPlayButton.addTarget(self, action: #selector(playOrPauseButtonAction), for: .touchUpInside)
     }
     
