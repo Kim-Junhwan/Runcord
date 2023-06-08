@@ -25,7 +25,7 @@ final class TabBarCoordinator {
         tabBarController.viewControllers = controllers
     }
     
-    func getTabController(_ item: TabBarItem) -> UINavigationController {
+    private func getTabController(_ item: TabBarItem) -> UINavigationController {
         let navigationController = UINavigationController()
         navigationController.navigationBar.tintColor = .black
         navigationController.tabBarItem = .init(title: item.itemTitleValue(), image: item.itemImageValue(), tag: item.rawValue)
@@ -34,18 +34,16 @@ final class TabBarCoordinator {
         return navigationController
     }
     
-    func setTabCoordinator(of item: TabBarItem, to navigationController: UINavigationController) {
-        var coordinator: Coordinator?
+    private func setTabCoordinator(of item: TabBarItem, to navigationController: UINavigationController) {
+        var coordinator: Coordinator
         switch item {
         case .recordRunning:
             coordinator = RunningCoordinator(injector: injector, navigationController: navigationController)
         case .recordRunningList:
             coordinator = RunningListCoordinator(injector: injector, navigationController: navigationController)
         }
-        if let coordinator = coordinator {
-            childCoordinators.append(coordinator)
-            coordinator.start()
-        }
+        childCoordinators.append(coordinator)
+        coordinator.start()
     }
     
     deinit {

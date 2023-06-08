@@ -51,22 +51,18 @@ class CustomMapView: UIView {
         let minLongitude = coordinates.min(by: { $0.longitude < $1.longitude })?.longitude ?? 0
         let maxLongitude = coordinates.max(by: { $0.longitude < $1.longitude })?.longitude ?? 0
         let span = MKCoordinateSpan(latitudeDelta: (maxLatitude - minLatitude) * 1.5, longitudeDelta: (maxLongitude - minLongitude) * 1.5)
-        
         mapView.setRegion(MKCoordinateRegion(center: center, span: span), animated: false)
     }
     
     func getRunningRouteCenterCoordinate(coordinates: [CLLocationCoordinate2D]) -> CLLocationCoordinate2D {
         var centerLat: CLLocationDegrees = 0
         var centerLon: CLLocationDegrees = 0
-        
         for coordinate in coordinates {
             centerLat += coordinate.latitude
             centerLon += coordinate.longitude
         }
-        
         centerLat /= Double(coordinates.count)
         centerLon /= Double(coordinates.count)
-        
         return CLLocationCoordinate2D(latitude: centerLat, longitude: centerLon)
     }
     
@@ -80,15 +76,12 @@ extension CustomMapView: MKMapViewDelegate {
         renderer.strokeColor = .tabBarSelect
         renderer.lineWidth = 5.0
         renderer.alpha = 1.0
-        
         return renderer
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !annotation.isKind(of: MKUserLocation.self) else { return nil }
-        
         var annotationView: ImageAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: ImageAnnotationView.identifier) as? ImageAnnotationView
-        
         if annotationView == nil {
             annotationView = ImageAnnotationView(annotation: annotation, reuseIdentifier: ImageAnnotationView.identifier)
         }

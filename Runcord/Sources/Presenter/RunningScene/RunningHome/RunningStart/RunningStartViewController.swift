@@ -116,14 +116,17 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         let vc = GoalSettingViewController(goalType: goalType)
         if vc.goalType == .distance {
             vc.goalLabelBindingTextField.text = "\(viewModel.goalDistance.value)"
-            return vc
         } else {
-            if viewModel.goalMinute.value == 0 {
-                vc.goalLabelBindingTextField.text = "\(viewModel.goalHour.value)00"
-            } else {
-                vc.goalLabelBindingTextField.text = "\(viewModel.goalHour.value)\(viewModel.goalMinute.value)"
-            }
-            return vc
+            vc.goalLabelBindingTextField.text = makeGoalString()
+        }
+        return vc
+    }
+    
+    private func makeGoalString() -> String {
+        if viewModel.goalMinute.value == 0 {
+            return "\(viewModel.goalHour.value)00"
+        } else {
+            return "\(viewModel.goalHour.value)\(viewModel.goalMinute.value)"
         }
     }
     

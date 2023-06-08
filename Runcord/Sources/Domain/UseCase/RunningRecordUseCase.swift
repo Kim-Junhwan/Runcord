@@ -8,9 +8,9 @@
 import RxSwift
 
 protocol RunningRecordUseCase {
+    func deleteRunningRecord(runningDate: Date) throws
     func fetchRunningRecordList() -> Single<RunningRecordList>
     func saveRunningRecord(runningRecord: RunningRecord) throws
-    func deleteRunningRecord(runningDate: Date) throws
 }
 
 final class DefaultRunningRecordUseCase: RunningRecordUseCase {
@@ -18,6 +18,14 @@ final class DefaultRunningRecordUseCase: RunningRecordUseCase {
     
     init(repository: RunningRecordRepository) {
         self.repository = repository
+    }
+    
+    func deleteRunningRecord(runningDate: Date) throws {
+        do {
+            try repository.deleteRunningRecord(runningDate: runningDate)
+        } catch {
+            throw CoreDataStorageError.deleteError(error)
+        }
     }
     
     func fetchRunningRecordList() -> Single<RunningRecordList> {
@@ -29,14 +37,6 @@ final class DefaultRunningRecordUseCase: RunningRecordUseCase {
             try repository.saveRunningRecord(runningRecord: runningRecord)
         } catch {
             throw CoreDataStorageError.saveError(error)
-        }
-    }
-    
-    func deleteRunningRecord(runningDate: Date) throws {
-        do {
-            try repository.deleteRunningRecord(runningDate: runningDate)
-        } catch {
-            throw CoreDataStorageError.deleteError(error)
         }
     }
 }

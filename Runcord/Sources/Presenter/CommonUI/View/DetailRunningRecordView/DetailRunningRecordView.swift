@@ -69,7 +69,6 @@ class DetailRunningRecordView: UIView {
         yearLabel.text = String(describing: components.year!)
         monthLabel.text = String(describing: components.month!)
         dayLabel.text = String(describing: components.day!)
-        
         hourLabel.text = String(describing: components.hour!)
         minuteLabel.text = String(describing: components.minute!)
     }

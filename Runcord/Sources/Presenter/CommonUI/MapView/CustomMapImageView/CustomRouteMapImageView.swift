@@ -23,11 +23,9 @@ class CustomRouteMapImageView: UIImageView {
                 let points = coordinates.map { snapshot.point(for: $0) }
                 let path = UIBezierPath()
                 path.move(to: points.first ?? CGPoint(x: 0, y: 0))
-                
                 for point in points.dropFirst() {
                     path.addLine(to: point)
                 }
-                
                 path.lineWidth = 5
                 UIColor.tabBarSelect.setStroke()
                 path.stroke()
@@ -43,24 +41,19 @@ class CustomRouteMapImageView: UIImageView {
     
     private func getRunningRouteCenterCoordinate(coordinates: [CLLocationCoordinate2D]) -> CLLocationCoordinate2D? {
         guard coordinates.isEmpty == false || coordinates.count > 1 else { return nil }
-        
         var centerLat: CLLocationDegrees = 0
         var centerLon: CLLocationDegrees = 0
-        
         for coordinate in coordinates {
             centerLat += coordinate.latitude
             centerLon += coordinate.longitude
         }
-        
         centerLat /= Double(coordinates.count)
         centerLon /= Double(coordinates.count)
-        
         return CLLocationCoordinate2D(latitude: centerLat, longitude: centerLon)
     }
     
     private func setSnapshotOptions(coordinates: [CLLocationCoordinate2D]) -> MKMapSnapshotter.Options {
         let options = MKMapSnapshotter.Options()
-        
         let minLatitude = coordinates.min(by: { $0.latitude < $1.latitude })?.latitude ?? 0
         let maxLatitude = coordinates.max(by: { $0.latitude < $1.latitude })?.latitude ?? 0
         let minLongitude = coordinates.min(by: { $0.longitude < $1.longitude })?.longitude ?? 0
@@ -70,7 +63,6 @@ class CustomRouteMapImageView: UIImageView {
         options.showsBuildings = true
         let filter: MKPointOfInterestFilter = .excludingAll
         options.pointOfInterestFilter = filter
-        
         return options
     }
     

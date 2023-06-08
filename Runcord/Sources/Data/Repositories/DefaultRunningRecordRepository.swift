@@ -19,6 +19,14 @@ final class DefaultRunningRecordRepository {
 
 extension DefaultRunningRecordRepository: RunningRecordRepository {
     
+    func deleteRunningRecord(runningDate: Date) throws {
+        do {
+            try runningRecordStroage.deleteRunningRecord(runningDate: runningDate)
+        } catch {
+            throw CoreDataStorageError.deleteError(error)
+        }
+    }
+    
     func fetchRunningRecordList() -> Single<RunningRecordList> {
         return runningRecordStroage.fetchRunningRecordList()
     }
@@ -28,14 +36,6 @@ extension DefaultRunningRecordRepository: RunningRecordRepository {
             try runningRecordStroage.saveRunningRecord(runningRecord: runningRecord)
         } catch {
             throw CoreDataStorageError.saveError(error)
-        }
-    }
-    
-    func deleteRunningRecord(runningDate: Date) throws {
-        do {
-            try runningRecordStroage.deleteRunningRecord(runningDate: runningDate)
-        } catch {
-            throw CoreDataStorageError.deleteError(error)
         }
     }
 }

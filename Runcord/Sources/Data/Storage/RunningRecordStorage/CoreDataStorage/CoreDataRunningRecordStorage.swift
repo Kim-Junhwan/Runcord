@@ -20,36 +20,10 @@ final class CoreDataRunningRecordStroage {
 
 extension CoreDataRunningRecordStroage: RunningRecordStorage {
     
-    func fetchRunningRecordList() -> Single<RunningRecordList> {
-        return Single.create { single in
-            let context = self.coreDataStorage.managedContext
-            let request: NSFetchRequest = self.createRunningRecordFetchRequest()
-            do {
-                let result = try context.fetch(request).map { $0.toDomain() }
-                single(.success(RunningRecordList(list: result)))
-            } catch {
-                single(.failure(CoreDataStorageError.readError(error)))
-            }
-            
-            return Disposables.create()
-        }
-    }
-    
     private func createRunningRecordFetchRequest() -> NSFetchRequest<RunningRecordEntity> {
         let request: NSFetchRequest = RunningRecordEntity.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(RunningRecordEntity.date), ascending: false)]
-        
         return request
-    }
-    
-    func saveRunningRecord(runningRecord: RunningRecord) throws {
-        let context = coreDataStorage.managedContext
-        let entity = RunningRecordEntity(runningRecord: runningRecord, insertInto: context)
-        do {
-            try coreDataStorage.saveContext()
-        } catch {
-            throw CoreDataStorageError.saveError(error)
-        }
     }
     
     func deleteRunningRecord(runningDate date: Date) throws {
@@ -61,13 +35,33 @@ extension CoreDataRunningRecordStroage: RunningRecordStorage {
             let fetchEntity = try context.fetch(fetchRequest)
             guard let deleteEntity = fetchEntity.first else { return }
             context.delete(deleteEntity)
-            do {
-                try context.save()
-            } catch {
-                throw CoreDataStorageError.deleteError(error)
-            }
+            try context.save()
         } catch {
-            throw CoreDataStorageError.readError(error)
+            throw CoreDataStorageError.deleteError(error)
+        }
+    }
+    
+    func fetchRunningRecordList() -> Single<RunningRecordList> {
+        return Single.create { single in
+            let context = self.coreDataStorage.managedContext
+            let request: NSFetchRequest = self.createRunningRecordFetchRequest()
+            do {
+                let result = try context.fetch(request).map { $0.toDomain() }
+                single(.success(RunningRecordList(list: result)))
+            } catch {
+                single(.failure(CoreDataStorageError.readError(error)))
+            }
+            return Disposables.create()
+        }
+    }
+    
+    func saveRunningRecord(runningRecord: RunningRecord) throws {
+        let context = coreDataStorage.managedContext
+        let entity = RunningRecordEntity(runningRecord: runningRecord, insertInto: context)
+        do {
+            try coreDataStorage.saveContext()
+        } catch {
+            throw CoreDataStorageError.saveError(error)
         }
     }
 }

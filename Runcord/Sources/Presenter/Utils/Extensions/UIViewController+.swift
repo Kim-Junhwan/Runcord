@@ -19,11 +19,4 @@ extension UIViewController {
     @objc func tapScrollView() {
         self.view.endEditing(true)
     }
-    
-//    //MARK: - Alert
-//    func showAlert() {
-//        let customAlterVC = CustomAlertViewController()
-//        customAlterVC.modalPresentationStyle = .overFullScreen
-//        present(customAlterVC, animated: true)
-//    }
 }

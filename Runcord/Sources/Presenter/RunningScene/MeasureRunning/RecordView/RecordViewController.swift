@@ -221,7 +221,6 @@ class RecordViewController: UIViewController {
 extension RecordViewController: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
         guard let mapSuperView = runningMapView.superview else { return nil }
         transition.originFrame = mapSuperView.convert(runningMapView.frame, to: nil)
         transition.presenting = true

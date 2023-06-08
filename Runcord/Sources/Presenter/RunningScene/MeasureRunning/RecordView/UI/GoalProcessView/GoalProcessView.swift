@@ -81,4 +81,5 @@ class GoalProcessView: UIView {
         currentUserFigureLabelConstraint.constant = currentProgressBarLength
     }
     
+    
 }

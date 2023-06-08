@@ -8,7 +8,7 @@
 import RxSwift
 
 protocol RunningRecordRepository {
+    func deleteRunningRecord(runningDate: Date) throws
     func fetchRunningRecordList() -> Single<RunningRecordList>
     func saveRunningRecord(runningRecord: RunningRecord) throws
-    func deleteRunningRecord(runningDate: Date) throws
 }

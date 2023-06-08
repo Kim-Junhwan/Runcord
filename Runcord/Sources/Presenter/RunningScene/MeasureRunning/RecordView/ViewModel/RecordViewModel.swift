@@ -101,15 +101,19 @@ class RecordViewModel: NSObject {
             .compactMap { $0 }
             .subscribe(with: self) { owner, currentLocation in
                 if owner.isRunning {
-                    if let lastCoordinator = owner.route.value.last {
-                        let moveDistance = owner.calculateBetweenTwoCoordinatesDistanceKilometer(lastCoordinator, currentLocation)
-                        owner.runningDistance.accept(owner.runningDistance.value + moveDistance)
-                        owner.speedCount += 1
-                        owner.totalSpeed.accept(owner.totalSpeed.value + (Double(moveDistance * 3600)))
-                    }
+                    owner.updateRunningRecord(updatedLocation: currentLocation)
                 }
                 owner.route.accept(owner.route.value+[currentLocation])
             }.disposed(by: disposeBag)
+    }
+    
+    private func updateRunningRecord(updatedLocation: CLLocation) {
+        if let lastCoordinator = self.route.value.last {
+            let moveDistance = self.calculateBetweenTwoCoordinatesDistanceKilometer(lastCoordinator, updatedLocation)
+            self.runningDistance.accept(self.runningDistance.value + moveDistance)
+            self.speedCount += 1
+            self.totalSpeed.accept(self.totalSpeed.value + (Double(moveDistance * 3600)))
+        }
     }
     
     private func calculateBetweenTwoCoordinatesDistanceKilometer(_ firstCoordinate: CLLocation, _ secondCoordinate: CLLocation) -> Float {

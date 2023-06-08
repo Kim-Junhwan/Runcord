@@ -74,19 +74,32 @@ class RunningRecordMapViewController: UIViewController {
         super.viewDidLoad()
         setMapView()
         setButtonAction()
-        imageAnnotationBind()
+        bind()
     }
     
-    private func imageAnnotationBind() {
+    private func bind() {
         viewModel.imageListDriver.drive(with: self) { owner, imageList in
             owner.customMapView.mapView.removeAnnotations(owner.customMapView.mapView.annotations)
-            for image in imageList {
-                let annotation = ImageAnnotation()
-                annotation.coordinate = CLLocationCoordinate2DMake(image.latitude, image.longitude)
-                annotation.image = image.image
-                owner.customMapView.mapView.addAnnotation(annotation)
-            }
+            let imageAnnotationList = owner.createImageAnnotations(imageList: imageList)
+            owner.bindImageAnnotation(imageAnnotationList: imageAnnotationList)
         }.disposed(by: disposeBag)
+    }
+    
+    private func bindImageAnnotation(imageAnnotationList: [ImageAnnotation]) {
+        for imageAnnotation in imageAnnotationList {
+            self.customMapView.mapView.addAnnotation(imageAnnotation)
+        }
+    }
+    
+    private func createImageAnnotations(imageList: [ImageInfo]) -> [ImageAnnotation] {
+        var imageAnnotationList: [ImageAnnotation] = []
+        for image in imageList {
+            let annotation = ImageAnnotation()
+            annotation.coordinate = CLLocationCoordinate2DMake(image.latitude, image.longitude)
+            annotation.image = image.image
+            imageAnnotationList.append(annotation)
+        }
+        return imageAnnotationList
     }
     
     override func viewDidAppear(_ animated: Bool) {
