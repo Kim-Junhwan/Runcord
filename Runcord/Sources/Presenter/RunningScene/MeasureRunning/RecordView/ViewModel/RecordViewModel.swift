@@ -47,9 +47,8 @@ class RecordViewModel: NSObject {
         return totalSpeed.map { speed in
             if self.speedCount > 0 {
                 return self.totalSpeed.value / Double(self.speedCount)
-            } else {
-                return speed
             }
+            return speed
         }.asDriver(onErrorJustReturn: 0.0)
     }
     

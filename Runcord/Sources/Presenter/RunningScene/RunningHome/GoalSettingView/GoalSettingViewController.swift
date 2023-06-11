@@ -83,9 +83,8 @@ class GoalSettingViewController: UIViewController {
             .map({ input in
                 if input.contains(".") || input.contains(":") {
                     return input.count <= 5
-                } else {
-                    return input.count <= 4
                 }
+                return input.count <= 4
             })
             .drive { [weak self] in
                 if !$0 {
@@ -107,7 +106,7 @@ class GoalSettingViewController: UIViewController {
         goalLabelBindingTextField.rx.text.orEmpty
             .withUnretained(self)
             .map({ owner, input in
-                if input.isEmpty {
+                if input.isEmpty || input == "0" {
                     return "0"
                 }
                 if input == "00" {
@@ -118,7 +117,6 @@ class GoalSettingViewController: UIViewController {
                     owner.goalLabelBindingTextField.text?.removeLast()
                     return owner.goalLabelBindingTextField.text
                 }
-                
                 return input
             })
             .bind(to: self.goalLabel.goalSettingLabelStackView.destinationLabel.rx.text)
@@ -159,6 +157,7 @@ class GoalSettingViewController: UIViewController {
     }
     
     @objc func tapDoneButton() {
+        
         if goalType == .distance {
             guard let goalText = goalLabelBindingTextField.text else { fatalError() }
             setGoalHandler?(goalText)

@@ -5,8 +5,8 @@
 //  Created by JunHwan Kim on 2023/05/02.
 //
 
-import RxSwift
 import CoreLocation
+import RxSwift
 
 protocol LocationService: AuthorizationManager {
     var currentLocationSubject: BehaviorSubject<CLLocation?> { get }

@@ -5,8 +5,8 @@
 //  Created by JunHwan Kim on 2023/05/21.
 //
 
-import UIKit
 import CoreLocation
+import UIKit
 
 class DetailRunningRecordView: UIView {
     

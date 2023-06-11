@@ -4,10 +4,11 @@
 //
 //  Created by JunHwan Kim on 2023/04/26.
 //
-import UIKit
+
 import CoreLocation
-import RxSwift
 import RxCocoa
+import RxSwift
+import UIKit
 
 class RunningRecordMapViewModel {
     

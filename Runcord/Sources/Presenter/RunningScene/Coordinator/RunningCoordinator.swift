@@ -5,9 +5,9 @@
 //  Created by JunHwan Kim on 2023/02/12.
 //
 
-import UIKit
 import CoreLocation
 import MapKit
+import UIKit
 
 final class RunningCoordinator: Coordinator {
     let injector: Injector

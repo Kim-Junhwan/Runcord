@@ -181,17 +181,16 @@ class RecordViewController: UIViewController {
     }
     
     // MARK: - Action Method
-    
     @objc private func playOrPauseButtonAction() {
         if viewModel.isRunning {
             viewModel.stopTimer()
             showPauseStatusView {
                 self.runningMapView.mapView.setUserTrackingMode(.follow, animated: true)
             }
-        } else {
-            viewModel.startTimer()
-            showPlayStatusView()
+            return
         }
+        viewModel.startTimer()
+        showPlayStatusView()
     }
     
     private func showPauseStatusView( completion: @escaping () -> Void) {

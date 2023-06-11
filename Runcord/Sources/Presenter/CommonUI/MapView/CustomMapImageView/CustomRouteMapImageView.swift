@@ -5,10 +5,10 @@
 //  Created by JunHwan Kim on 2023/05/10.
 //
 
-import UIKit
 import CoreLocation
-import RxSwift
 import MapKit
+import RxSwift
+import UIKit
 
 class CustomRouteMapImageView: UIImageView {
     

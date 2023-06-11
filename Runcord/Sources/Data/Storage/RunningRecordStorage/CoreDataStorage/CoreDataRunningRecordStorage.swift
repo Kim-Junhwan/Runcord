@@ -5,8 +5,8 @@
 //  Created by JunHwan Kim on 2023/05/26.
 //
 
-import RxSwift
 import CoreData
+import RxSwift
 
 final class CoreDataRunningRecordStroage {
     

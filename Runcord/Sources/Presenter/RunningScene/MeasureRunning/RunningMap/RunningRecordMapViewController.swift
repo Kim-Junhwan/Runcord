@@ -5,9 +5,9 @@
 //  Created by JunHwan Kim on 2023/04/17.
 //
 
-import UIKit
 import MapKit
 import RxSwift
+import UIKit
 
 class RunningRecordMapViewController: UIViewController {
     

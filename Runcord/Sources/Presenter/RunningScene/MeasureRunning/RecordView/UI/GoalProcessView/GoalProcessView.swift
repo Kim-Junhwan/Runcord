@@ -55,9 +55,9 @@ class GoalProcessView: UIView {
             self.maxValue = 1
             self.currentValue = 1
             isMax = true
-        } else {
-            self.maxValue = max
+            return
         }
+        self.maxValue = max
     }
     
     func setCurrentValue(current: Double) {
