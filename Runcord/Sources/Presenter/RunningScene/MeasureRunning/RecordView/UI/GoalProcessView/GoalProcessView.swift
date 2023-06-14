@@ -9,11 +9,21 @@ import UIKit
 
 class GoalProcessView: UIView {
     
+    private enum Progress {
+        static let maxValue: Double = 1.0
+        static let minValue: Double = 0.0
+    }
+    
+    private enum ImageDirection {
+        static let x: CGFloat = -1.0
+        static let y: CGFloat = 1.0
+    }
+    
     @IBOutlet weak var goalProgressView: UIProgressView!
     @IBOutlet weak var currentUserFigureLabel: UILabel!
     @IBOutlet weak var runningFigureBaseView: UIView!
     private var maxValue: Double?
-    private var currentValue: Double = 0 {
+    private var currentValue: Double = Progress.minValue {
         didSet {
             if let maxValue = maxValue, currentValue > maxValue {
                 self.currentValue = maxValue
@@ -51,9 +61,9 @@ class GoalProcessView: UIView {
     }
     
     func setMaxValue(max: Double) {
-        if max == 0 {
-            self.maxValue = 1
-            self.currentValue = 1
+        if max == Progress.minValue {
+            self.maxValue = Progress.maxValue
+            self.currentValue = Progress.maxValue
             isMax = true
             return
         }
@@ -71,7 +81,7 @@ class GoalProcessView: UIView {
     }
     
     func reversecurrentUserFigureLabel() {
-        currentUserFigureLabel.transform = CGAffineTransform(scaleX: -1, y: 1)
+        currentUserFigureLabel.transform = CGAffineTransform(scaleX: ImageDirection.x, y: ImageDirection.y)
     }
     
     func bindFigureLabel() {

@@ -10,6 +10,16 @@ import UIKit
 
 class DetailRunningRecordView: UIView {
     
+    private enum TimeMetric {
+        static let hourToSecond: Int = 3600
+        static let minuteToSecond: Int = 60
+        static let format: String = "%02d"
+    }
+    
+    private enum DistanceMetric {
+        static let format: String = "%.2f"
+    }
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var runningDistanceLabel: UILabel!
@@ -47,7 +57,7 @@ class DetailRunningRecordView: UIView {
     }
     
     private func customInit() {
-        if let view = Bundle.main.loadNibNamed("DetailRunningRecordView", owner: self)?.first as? UIView {
+        if let view = Bundle.main.loadNibNamed(String(describing: DetailRunningRecordView.self), owner: self)?.first as? UIView {
             view.frame = self.bounds
             addSubview(view)
         }
@@ -59,7 +69,7 @@ class DetailRunningRecordView: UIView {
         setRunningDistanceLabel(runningRecord: runningRecord)
         setGoalLabel(runningRecord: runningRecord)
         runningRecordMapImageView.setRouteImage(route: runningRecord.runningPath.map { CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude) })
-        averageSpeedLabel.text = String(format: "%.2f", runningRecord.averageSpeed)
+        averageSpeedLabel.text = String(format: DistanceMetric.format, runningRecord.averageSpeed)
     }
     
     private func setDateLabel(runningRecord: RunningRecord) {
@@ -75,22 +85,22 @@ class DetailRunningRecordView: UIView {
     
     private func setRunningTimeLabel(runningRecord: RunningRecord) {
         let runningTime = runningRecord.runningTime
-        runningHourLabel.text = String(format: "%02d", runningTime / 3600)
-        runningMinuteLabel.text = String(format: "%02d", (runningTime % 3600) / 60)
+        runningHourLabel.text = String(format: TimeMetric.format, runningTime / TimeMetric.hourToSecond)
+        runningMinuteLabel.text = String(format: TimeMetric.format, (runningTime % TimeMetric.hourToSecond) / TimeMetric.minuteToSecond)
     }
     
     private func setRunningDistanceLabel(runningRecord: RunningRecord) {
         let runningDistance = runningRecord.runningDistance
-        runningDistanceLabel.text = String(format: "%.2f", runningDistance)
+        runningDistanceLabel.text = String(format: DistanceMetric.format, runningDistance)
     }
     
     private func setGoalLabel(runningRecord: RunningRecord) {
         let goalTime = runningRecord.goalTime
         let goalDistance = runningRecord.goalDistance
         
-        runningDistanceGoalLabel.text = String(format: "%.2f", goalDistance)
-        runningTimeGoalHourLabel.text = String(format: "%02d", goalTime / 3600)
-        runningTimeGoalMinuteLabel.text = String(format: "%02d", (goalTime % 3600) / 60)
+        runningDistanceGoalLabel.text = String(format: DistanceMetric.format, goalDistance)
+        runningTimeGoalHourLabel.text = String(format: TimeMetric.format, goalTime / TimeMetric.hourToSecond)
+        runningTimeGoalMinuteLabel.text = String(format: TimeMetric.format, (goalTime % TimeMetric.hourToSecond) / TimeMetric.minuteToSecond)
     }
     
 }

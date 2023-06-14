@@ -13,12 +13,25 @@ protocol PressGestureButtonDelegate {
 
 class LongPressGestureButton: UIButton, CAAnimationDelegate {
     
+    private enum GestureMetric {
+        static let startEngle: CGFloat = .pi * (3/2)
+        static let endEngle:CGFloat = .pi * (7/2)
+        static let lineWidth: CGFloat = 4.0
+        static let strokeEnd: CGFloat = 0.0
+        static let radiusOffset: CGFloat = 2.0
+    }
+    
+    private enum AnimationMetric {
+        static let start: Float = 0.0
+        static let end: Float = 1.0
+    }
+    
     var delegate: PressGestureButtonDelegate?
     
     let sliceLayer = CAShapeLayer()
     var duringGestureTime: Int?
-    var startEngle: CGFloat = .pi * (3/2)
-    var endAngle: CGFloat = .pi * (7/2)
+    var startEngle: CGFloat = GestureMetric.startEngle
+    var endAngle: CGFloat = GestureMetric.endEngle
     
     init(gestureTime: Int) {
         self.duringGestureTime = gestureTime
@@ -39,18 +52,18 @@ class LongPressGestureButton: UIButton, CAAnimationDelegate {
     
     @objc func startAnimation() {
         let centerCoordi = CGPoint(x: bounds.width/2, y: bounds.height/2)
-        let path = UIBezierPath(arcCenter: centerCoordi, radius: frame.width/2+2, startAngle: startEngle, endAngle: endAngle, clockwise: true)
+        let path = UIBezierPath(arcCenter: centerCoordi, radius: frame.width/2+GestureMetric.radiusOffset, startAngle: startEngle, endAngle: endAngle, clockwise: true)
         sliceLayer.path = path.cgPath
         sliceLayer.fillColor = nil
         sliceLayer.strokeColor = UIColor.black.cgColor
-        sliceLayer.lineWidth = 4
-        sliceLayer.strokeEnd = 0
+        sliceLayer.lineWidth = GestureMetric.lineWidth
+        sliceLayer.strokeEnd = GestureMetric.strokeEnd
         layer.addSublayer(sliceLayer)
         
         let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.fromValue = 0
-        animation.toValue = 1
-        animation.duration = 2
+        animation.fromValue = AnimationMetric.start
+        animation.toValue = AnimationMetric.end
+        animation.duration = CFTimeInterval(duringGestureTime ?? 0)
         animation.delegate = self
         sliceLayer.add(animation, forKey: animation.keyPath)
     }

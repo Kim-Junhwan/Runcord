@@ -14,10 +14,17 @@ enum CoreDataStorageError: Error {
 }
 
 final class CoreDataStorage {
+    
+    private enum Container {
+        static let runningDataStorage: String = "RecordRunningStorage"
+    }
+    
     static let shared = CoreDataStorage()
     
+    private init() {}
+    
     private lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "RecordRunningStorage")
+        let container = NSPersistentContainer(name: Container.runningDataStorage)
         container.loadPersistentStores { _, error in
             if let error = error as NSError? {
                 assertionFailure("Cannot load CoreDataStorage \(error)")

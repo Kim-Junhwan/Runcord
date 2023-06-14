@@ -10,6 +10,15 @@ import CoreLocation
 
 class SaveRecordRunningViewController: DetailRunningRecordBaseViewController, Alertable {
     
+    private enum Title {
+        static let closeAlertTitle: String = "러닝이 저장되지 않습니다"
+        static let closeAlertMessage: String = "해당 러닝 기록을 저장하지 않습니다."
+        static let closeAlertActionButtonTitle: String = "확인"
+        static let cancelButtonTitle: String = "취소"
+        static let errorAlertActionButtonTitle: String = "확인"
+        static let errorMessage: String = "저장 오류 발생. 다시 시도해주십시오."
+    }
+    
     lazy var saveButton: RunningSaveButton = {
         let button = RunningSaveButton()
         button.addTarget(self, action: #selector(tapSaveButton), for: .touchUpInside)
@@ -36,7 +45,7 @@ class SaveRecordRunningViewController: DetailRunningRecordBaseViewController, Al
     
     // MARK: - Action
     @objc func tapCloseButton(_ sender: Any) {
-        showAlert(title: "러닝이 저장되지 않습니다.", message: "해당 러닝 기록을 저장하지 않습니다.", defaultActionTitle: "확인", cancelActionTitle: "취소") { _ in
+        showAlert(title: Title.closeAlertTitle, message: Title.closeAlertTitle, defaultActionTitle: Title.closeAlertActionButtonTitle, cancelActionTitle: Title.cancelButtonTitle) { _ in
             self.dismiss(animated: true)
         }
     }
@@ -46,7 +55,7 @@ class SaveRecordRunningViewController: DetailRunningRecordBaseViewController, Al
             try runningRecordRepository.saveRunningRecord(runningRecord: runningRecord)
             self.dismiss(animated: true)
         } catch {
-            showAlert(message: "저장 오류 발생. 다시 시도해주십시오. \(error)", defaultActionTitle: "확인", cancelActionTitle: "취소")
+            showAlert(message: "\(Title.errorMessage)\(error)", defaultActionTitle: Title.errorAlertActionButtonTitle, cancelActionTitle: Title.cancelButtonTitle)
         }
     }
 }

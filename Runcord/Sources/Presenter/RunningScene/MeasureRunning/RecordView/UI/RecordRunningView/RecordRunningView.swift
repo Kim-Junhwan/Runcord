@@ -47,13 +47,13 @@ class RecordRunningView: UIView {
         goalDistanceProgressView.setMaxValue(max: maxValue)
         goalDistanceProgressView.currentUserFigureLabel.text = "🏃"
         goalDistanceProgressView.reversecurrentUserFigureLabel()
-        goalDistanceProgressView.setCurrentValue(current: 0)
+        goalDistanceProgressView.setCurrentValue(current: .zero)
     }
     
     func setGoalTimeProgressBar(maxValue: Double) {
         goalTimeProgressView.setMaxValue(max: maxValue)
         goalTimeProgressView.currentUserFigureLabel.text = "⏰"
-        goalTimeProgressView.setCurrentValue(current: 0)
+        goalTimeProgressView.setCurrentValue(current: .zero)
     }
     
     func setButtonPlayImage() {

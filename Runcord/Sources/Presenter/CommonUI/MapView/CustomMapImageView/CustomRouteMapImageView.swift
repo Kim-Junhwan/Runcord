@@ -12,6 +12,11 @@ import UIKit
 
 class CustomRouteMapImageView: UIImageView {
     
+    private enum OverlayMetric {
+        static let runningRouteWidth: Double = 5.0
+        static let mapMagnification: Double = 1.5
+    }
+    
     func setRouteImage(route coordinates: [CLLocationCoordinate2D]) {
         let options = setSnapshotOptions(coordinates: coordinates)
         let snapShotter = MKMapSnapshotter(options: options)
@@ -26,7 +31,7 @@ class CustomRouteMapImageView: UIImageView {
                 for point in points.dropFirst() {
                     path.addLine(to: point)
                 }
-                path.lineWidth = 5
+                path.lineWidth = OverlayMetric.runningRouteWidth
                 UIColor.tabBarSelect.setStroke()
                 path.stroke()
             }
@@ -35,7 +40,7 @@ class CustomRouteMapImageView: UIImageView {
     }
     
     private func makeRouteSizeRegion(center: CLLocationCoordinate2D, minLatitude: CLLocationDegrees, maxLatitude: CLLocationDegrees, minLongitude: CLLocationDegrees, maxLongitude: CLLocationDegrees) -> MKCoordinateRegion {
-        let span = MKCoordinateSpan(latitudeDelta: (maxLatitude - minLatitude) * 1.5, longitudeDelta: (maxLongitude - minLongitude) * 1.5)
+        let span = MKCoordinateSpan(latitudeDelta: (maxLatitude - minLatitude) * OverlayMetric.mapMagnification, longitudeDelta: (maxLongitude - minLongitude) * OverlayMetric.mapMagnification)
         return MKCoordinateRegion(center: center, span: span)
     }
     
@@ -59,7 +64,7 @@ class CustomRouteMapImageView: UIImageView {
         let minLongitude = coordinates.min(by: { $0.longitude < $1.longitude })?.longitude ?? 0
         let maxLongitude = coordinates.max(by: { $0.longitude < $1.longitude })?.longitude ?? 0
         options.region = makeRouteSizeRegion(center: getRunningRouteCenterCoordinate(coordinates: coordinates) ?? CLLocationCoordinate2D(latitude: 0, longitude: 0), minLatitude: minLatitude, maxLatitude: maxLatitude, minLongitude: minLongitude, maxLongitude: maxLongitude)
-        options.size = CGSize(width: 400, height: 400)
+        options.size = CGSize(width: frame.width, height: frame.height)
         options.showsBuildings = true
         let filter: MKPointOfInterestFilter = .excludingAll
         options.pointOfInterestFilter = filter

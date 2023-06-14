@@ -11,6 +11,14 @@ import MapKit
 
 class RecordViewController: UIViewController {
     
+    private enum Metric {
+        static let mapHeightMultiplier: CGFloat = 0.3
+    }
+    
+    private enum AnimationMetric {
+        static let mapAnimationTime: CGFloat = 0.2
+    }
+    
     private let recordRunningView: RecordRunningView = {
         let recordRunningView = RecordRunningView()
         recordRunningView.translatesAutoresizingMaskIntoConstraints = false
@@ -62,7 +70,7 @@ class RecordViewController: UIViewController {
     // MARK: - Initalizer
     init(viewModel: RecordViewModel) {
         self.viewModel = viewModel
-        super.init(nibName: "RecordViewController", bundle: Bundle(for: RecordViewController.self))
+        super.init(nibName: String(describing: RecordViewController.self), bundle: Bundle(for: RecordViewController.self))
     }
     
     required init?(coder: NSCoder) {
@@ -126,7 +134,7 @@ class RecordViewController: UIViewController {
                 runningMapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 runningMapViewHeightConstraint
             ])
-            runningMapViewHeightConstraint.constant = view.frame.height * 0.3
+            runningMapViewHeightConstraint.constant = view.frame.height * Metric.mapHeightMultiplier
             setMapViewTabGesture()
         }
     }
@@ -195,16 +203,16 @@ class RecordViewController: UIViewController {
     
     private func showPauseStatusView( completion: @escaping () -> Void) {
         runningMapView.isHidden = false
-        runningMapViewHeightConstraint.constant = self.view.frame.height * 0.3
-        UIView.animate(withDuration: 0.2) {
+        runningMapViewHeightConstraint.constant = self.view.frame.height * Metric.mapHeightMultiplier
+        UIView.animate(withDuration: AnimationMetric.mapAnimationTime) {
             self.view.layoutIfNeeded()
         }
         completion()
     }
     
     private func showPlayStatusView() {
-        runningMapViewHeightConstraint.constant = 0
-        UIView.animate(withDuration: 0.2) {
+        runningMapViewHeightConstraint.constant = .zero
+        UIView.animate(withDuration: AnimationMetric.mapAnimationTime) {
             self.view.layoutIfNeeded()
         } completion: { _ in
             self.runningMapView.isHidden = true

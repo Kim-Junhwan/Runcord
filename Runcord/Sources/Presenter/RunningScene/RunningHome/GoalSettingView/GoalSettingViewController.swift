@@ -11,6 +11,12 @@ import RxSwift
 
 class GoalSettingViewController: UIViewController {
     
+    private enum Title {
+        static let navigationTitle: String = "러닝 목표 설정"
+        static let cancelButtonTitle: String = "취소"
+        static let doneButtonTitle: String = "설정"
+    }
+    
     lazy var goalLabelBindingTextField: GoalTextField = {
         let textField = GoalTextField(goalType: goalType)
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -40,7 +46,7 @@ class GoalSettingViewController: UIViewController {
         setGoalLabel()
         setTextFieldSizeLimit()
         bindTextFieldToLabel()
-        navigationItem.title = "러닝 목표 설정"
+        navigationItem.title = Title.navigationTitle
     }
     
     init(goalType: GoalType) {
@@ -70,8 +76,8 @@ class GoalSettingViewController: UIViewController {
     }
     
     func setNavigationBarItem() {
-        let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(tapCancelButton))
-        let doneButton = UIBarButtonItem(title: "설정", style: .plain, target: self, action: #selector(tapDoneButton))
+        let cancelButton = UIBarButtonItem(title: Title.cancelButtonTitle, style: .plain, target: self, action: #selector(tapCancelButton))
+        let doneButton = UIBarButtonItem(title: Title.doneButtonTitle, style: .plain, target: self, action: #selector(tapDoneButton))
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
         navigationController?.navigationBar.tintColor = .black

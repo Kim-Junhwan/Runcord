@@ -10,6 +10,11 @@ import MapKit
 
 class CustomMapView: UIView {
     
+    private enum OverlayMetric {
+        static let runningRouteWidth: Double = 5.0
+        static let runningRouteAlpha: Double = 1.0
+    }
+    
     let mapView: MKMapView = MKMapView(frame: .zero)
     
     override init(frame: CGRect) {
@@ -74,8 +79,8 @@ extension CustomMapView: MKMapViewDelegate {
         guard let polyLine = overlay as? MKPolyline else { fatalError() }
         let renderer = MKPolylineRenderer(polyline: polyLine)
         renderer.strokeColor = .tabBarSelect
-        renderer.lineWidth = 5.0
-        renderer.alpha = 1.0
+        renderer.lineWidth = OverlayMetric.runningRouteWidth
+        renderer.alpha = OverlayMetric.runningRouteAlpha
         return renderer
     }
     
@@ -88,7 +93,7 @@ extension CustomMapView: MKMapViewDelegate {
         guard let imageAnnotation = annotation as? ImageAnnotation else { return nil}
         annotationView?.image = imageAnnotation.image
         annotationView?.annotation  = imageAnnotation
-        annotationView?.centerOffset = CGPoint(x: 0, y: -(annotationView?.frame.size.height)!/2)
+        annotationView?.centerOffset = CGPoint(x: .zero, y: -(annotationView?.frame.size.height)!/2)
         return annotationView
     }
 }

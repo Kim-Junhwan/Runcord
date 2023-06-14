@@ -20,6 +20,10 @@ final class CoreDataRunningRecordStroage {
 
 extension CoreDataRunningRecordStroage: RunningRecordStorage {
     
+    private enum RunningDataPredicates {
+        static let getEqualDateRunningRecord: String = "date == %@"
+    }
+    
     private func createRunningRecordFetchRequest() -> NSFetchRequest<RunningRecordEntity> {
         let request: NSFetchRequest = RunningRecordEntity.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(RunningRecordEntity.date), ascending: false)]
@@ -29,7 +33,7 @@ extension CoreDataRunningRecordStroage: RunningRecordStorage {
     func deleteRunningRecord(runningDate date: Date) throws {
         let context = coreDataStorage.managedContext
         let fetchRequest = RunningRecordEntity.fetchRequest()
-        let predicate = NSPredicate(format: "date == %@", date as NSDate)
+        let predicate = NSPredicate(format: RunningDataPredicates.getEqualDateRunningRecord, date as NSDate)
         fetchRequest.predicate = predicate
         do {
             let fetchEntity = try context.fetch(fetchRequest)

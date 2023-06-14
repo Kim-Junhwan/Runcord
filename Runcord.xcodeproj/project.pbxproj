@@ -36,6 +36,7 @@
 		C7595B782A28DE4D00DF0A0F /* ReadyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7595B772A28DE4D00DF0A0F /* ReadyView.swift */; };
 		C7595B7B2A2B719000DF0A0F /* RecordRunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7595B7A2A2B719000DF0A0F /* RecordRunningView.swift */; };
 		C7595B7D2A2B71A000DF0A0F /* RecordRunningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7595B7C2A2B71A000DF0A0F /* RecordRunningView.xib */; };
+		C7595B7F2A36224700DF0A0F /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7595B7E2A36224700DF0A0F /* UIFont+.swift */; };
 		C75DECF729ABB3AF00A4EC47 /* GoalSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75DECF629ABB3AF00A4EC47 /* GoalSettingViewController.swift */; };
 		C75DECFA29AE7E7D00A4EC47 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75DECF829AE7E7D00A4EC47 /* RecordViewController.swift */; };
 		C75DECFB29AE7E7D00A4EC47 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C75DECF929AE7E7D00A4EC47 /* RecordViewController.xib */; };
@@ -145,6 +146,7 @@
 		C7595B772A28DE4D00DF0A0F /* ReadyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyView.swift; sourceTree = "<group>"; };
 		C7595B7A2A2B719000DF0A0F /* RecordRunningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRunningView.swift; sourceTree = "<group>"; };
 		C7595B7C2A2B71A000DF0A0F /* RecordRunningView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordRunningView.xib; sourceTree = "<group>"; };
+		C7595B7E2A36224700DF0A0F /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		C75DECF629ABB3AF00A4EC47 /* GoalSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingViewController.swift; sourceTree = "<group>"; };
 		C75DECF829AE7E7D00A4EC47 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		C75DECF929AE7E7D00A4EC47 /* RecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordViewController.xib; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				C7211E3029B9664D00ADA90C /* UIViewController+.swift */,
 				C7A1F21829BA385A009AE7BA /* UIView+.swift */,
 				C769EA3629E412E7004717B3 /* MKMapView+.swift */,
+				C7595B7E2A36224700DF0A0F /* UIFont+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1141,6 +1144,7 @@
 				C762DEB029EC1B1400C24C21 /* MapAnimator.swift in Sources */,
 				C7663E7B29A9F1260046068B /* GoalTextField.swift in Sources */,
 				C7DCA7022A1A1DD100B419BA /* DetailRunninRecordViewController.swift in Sources */,
+				C7595B7F2A36224700DF0A0F /* UIFont+.swift in Sources */,
 				C7A1F21929BA385A009AE7BA /* UIView+.swift in Sources */,
 				C70792DF2A216B3F005236DF /* RunningRecordListAssembly.swift in Sources */,
 				C70792E12A216DD9005236DF /* DependencyInjector.swift in Sources */,

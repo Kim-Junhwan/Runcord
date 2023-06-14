@@ -11,23 +11,33 @@ import UIKit
 
 class RunningRecordMapViewController: UIViewController {
     
+    private enum ButtonMetric {
+        static let buttonSize: CGFloat = 90.0
+        static let buttonSymbolSize: CGFloat = 44.0
+        static let buttonStackViewBottom: CGFloat = -60.0
+        static let buttonStackViewSpacing: CGFloat = 40.0
+        static let closeButtonImageName: String = "xmark"
+        static let userTrackingButtonImageName: String = "scope"
+        static let cameraButtonImageName: String = "camera"
+    }
+    
     var customMapView: CustomMapView!
     
     let buttonStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.spacing = 40
+        stackView.spacing = ButtonMetric.buttonStackViewSpacing
         return stackView
     }()
     
     let closeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.widthAnchor.constraint(equalToConstant: 90).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 90).isActive = true
-        button.setImage(UIImage(systemName: "xmark"), for: .normal)
-        button.setPreferredSymbolConfiguration(.init(pointSize: 44.0), forImageIn: .normal)
+        button.widthAnchor.constraint(equalToConstant: ButtonMetric.buttonSize).isActive = true
+        button.heightAnchor.constraint(equalToConstant: ButtonMetric.buttonSize).isActive = true
+        button.setImage(UIImage(systemName: ButtonMetric.closeButtonImageName), for: .normal)
+        button.setPreferredSymbolConfiguration(.init(pointSize: ButtonMetric.buttonSymbolSize), forImageIn: .normal)
         button.tintColor = .white
         button.backgroundColor = .black
         return button
@@ -36,10 +46,10 @@ class RunningRecordMapViewController: UIViewController {
     let userTrackingButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.widthAnchor.constraint(equalToConstant: 90).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 90).isActive = true
-        button.setImage(UIImage(systemName: "scope"), for: .normal)
-        button.setPreferredSymbolConfiguration(.init(pointSize: 44.0), forImageIn: .normal)
+        button.widthAnchor.constraint(equalToConstant: ButtonMetric.buttonSize).isActive = true
+        button.heightAnchor.constraint(equalToConstant: ButtonMetric.buttonSize).isActive = true
+        button.setImage(UIImage(systemName: ButtonMetric.userTrackingButtonImageName), for: .normal)
+        button.setPreferredSymbolConfiguration(.init(pointSize: ButtonMetric.buttonSymbolSize), forImageIn: .normal)
         button.tintColor = .white
         button.backgroundColor = .black
         return button
@@ -48,12 +58,12 @@ class RunningRecordMapViewController: UIViewController {
     let cameraButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.widthAnchor.constraint(equalToConstant: 90).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 90).isActive = true
-        button.setImage(UIImage(systemName: "camera")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.widthAnchor.constraint(equalToConstant: ButtonMetric.buttonSize).isActive = true
+        button.heightAnchor.constraint(equalToConstant: ButtonMetric.buttonSize).isActive = true
+        button.setImage(UIImage(systemName: ButtonMetric.cameraButtonImageName)?.withRenderingMode(.alwaysTemplate), for: .normal)
         button.tintColor = .white
         button.backgroundColor = .black
-        button.setPreferredSymbolConfiguration(.init(pointSize: 44.0), forImageIn: .normal)
+        button.setPreferredSymbolConfiguration(.init(pointSize: ButtonMetric.buttonSymbolSize), forImageIn: .normal)
         return button
     }()
     
@@ -120,7 +130,7 @@ class RunningRecordMapViewController: UIViewController {
         view.addSubview(buttonStackView)
         NSLayoutConstraint.activate([
             buttonStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            buttonStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60)
+            buttonStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: ButtonMetric.buttonStackViewBottom)
         ])
     }
     

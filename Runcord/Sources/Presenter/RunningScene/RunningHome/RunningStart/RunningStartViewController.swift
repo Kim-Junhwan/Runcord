@@ -60,7 +60,7 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     init(viewModel: RunningStartViewModel, locationService: LocationService) {
         self.viewModel = viewModel
         self.locationService = locationService
-        super.init(nibName: "RunningStartViewController", bundle: nil)
+        super.init(nibName: String(describing: RunningStartViewController.self), bundle: nil)
     }
 
     required init?(coder: NSCoder) {

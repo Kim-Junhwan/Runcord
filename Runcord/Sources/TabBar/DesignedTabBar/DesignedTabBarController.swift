@@ -8,6 +8,10 @@
 import UIKit
 
 class DesignedTabBarController: UITabBarController {
+    
+    private enum TabBarItem {
+        static let itemFontSize: CGFloat = 12.0
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +23,7 @@ class DesignedTabBarController: UITabBarController {
         tabBar.unselectedItemTintColor = .black
         tabBar.tintColor = .tabBarSelect
         tabBar.clipsToBounds = true
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "NotoSansKR-Medium", size: 12)!], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.mediumNotoSansFont(ofSize: TabBarItem.itemFontSize)], for: .normal)
     }
 
 }

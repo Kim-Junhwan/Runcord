@@ -10,6 +10,12 @@ import UIKit
 
 class OverlayMapViewController: UIViewController {
     
+    private enum ButtonMetric {
+        static let buttonSize: CGFloat = 90.0
+        static let buttonSymbolSize: CGFloat = 44.0
+        static let buttonBottom: CGFloat = -60.0
+    }
+    
     let customMapView: CustomMapView = {
        let customMapView = CustomMapView()
         return customMapView
@@ -18,10 +24,10 @@ class OverlayMapViewController: UIViewController {
     lazy var closeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.widthAnchor.constraint(equalToConstant: 90).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        button.widthAnchor.constraint(equalToConstant: ButtonMetric.buttonSize).isActive = true
+        button.heightAnchor.constraint(equalToConstant: ButtonMetric.buttonSize).isActive = true
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
-        button.setPreferredSymbolConfiguration(.init(pointSize: 44.0), forImageIn: .normal)
+        button.setPreferredSymbolConfiguration(.init(pointSize: ButtonMetric.buttonSymbolSize), forImageIn: .normal)
         button.tintColor = .white
         button.backgroundColor = .black
         button.addTarget(self, action: #selector(dismissMapView), for: .touchUpInside)
@@ -60,7 +66,7 @@ class OverlayMapViewController: UIViewController {
         customMapView.addSubview(closeButton)
         NSLayoutConstraint.activate([
             closeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            closeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60)
+            closeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: ButtonMetric.buttonBottom)
         ])
     }
     
