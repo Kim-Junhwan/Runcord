@@ -13,6 +13,10 @@ enum GoalType {
 }
 
 class GoalSettingStackView: UIStackView {
+    
+    private enum Font {
+        static let currentLabel: UIFont = UIFont.mediumNotoSansFont(ofSize: 22.0)
+    }
 
     lazy var goalSettingLabelStackView: GoalSettingLabelStackView = {
         let stackView = GoalSettingLabelStackView()
@@ -33,7 +37,7 @@ class GoalSettingStackView: UIStackView {
     lazy var currentLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        let font = UIFont(name: "NotoSansKR-Medium", size: 22.0)
+        let font = Font.currentLabel
         label.font = font
         return label
     }()

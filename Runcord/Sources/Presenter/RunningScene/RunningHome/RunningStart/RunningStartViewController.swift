@@ -93,8 +93,9 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     }
     
     @objc func presentDistanceGoalSettingView() {
-        let vc = makeGoalSettingView(goalType: .distance)
+        let vc = GoalDistanceSettingViewController()
         let nvc = UINavigationController(rootViewController: vc)
+        vc.goalLabelBindingTextField.text = "\(viewModel.goalDistance.value)"
         nvc.modalPresentationStyle = .fullScreen
         vc.setGoalHandler = { [weak self] goalStr in
             self?.viewModel.setGoalDistance(goal: goalStr)
@@ -103,24 +104,25 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     }
     
     @objc func presentTimeGoalSettingView() {
-        let vc = makeGoalSettingView(goalType: .time)
+        let vc = GoalTimeSettingViewController()
         let nvc = UINavigationController(rootViewController: vc)
         nvc.modalPresentationStyle = .fullScreen
+        vc.goalLabelBindingTextField.text = makeGoalString()
         vc.setGoalHandler = { [weak self] goalStr in
             self?.viewModel.setGoalTime(goal: goalStr)
         }
         present(nvc, animated: false)
     }
     
-    private func makeGoalSettingView(goalType: GoalType) -> GoalSettingViewController {
-        let vc = GoalSettingViewController(goalType: goalType)
-        if vc.goalType == .distance {
-            vc.goalLabelBindingTextField.text = "\(viewModel.goalDistance.value)"
-            return vc
-        }
-        vc.goalLabelBindingTextField.text = makeGoalString()
-        return vc
-    }
+//    private func makeGoalSettingView(goalType: GoalType) -> BaseGoalSettingViewController {
+//        let vc = BaseGoalSettingViewController(goalType: goalType)
+//        if vc.goalType == .distance {
+//            vc.goalLabelBindingTextField.text = "\(viewModel.goalDistance.value)"
+//            return vc
+//        }
+//        vc.goalLabelBindingTextField.text = makeGoalString()
+//        return vc
+//    }
     
     private func makeGoalString() -> String {
         if viewModel.goalMinute.value == 0 {

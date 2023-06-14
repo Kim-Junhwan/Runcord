@@ -37,7 +37,9 @@
 		C7595B7B2A2B719000DF0A0F /* RecordRunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7595B7A2A2B719000DF0A0F /* RecordRunningView.swift */; };
 		C7595B7D2A2B71A000DF0A0F /* RecordRunningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7595B7C2A2B71A000DF0A0F /* RecordRunningView.xib */; };
 		C7595B7F2A36224700DF0A0F /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7595B7E2A36224700DF0A0F /* UIFont+.swift */; };
-		C75DECF729ABB3AF00A4EC47 /* GoalSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75DECF629ABB3AF00A4EC47 /* GoalSettingViewController.swift */; };
+		C7595B812A39DD4F00DF0A0F /* GoalTimeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7595B802A39DD4F00DF0A0F /* GoalTimeSettingViewController.swift */; };
+		C7595B832A39DD5D00DF0A0F /* GoalDistanceSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7595B822A39DD5D00DF0A0F /* GoalDistanceSettingViewController.swift */; };
+		C75DECF729ABB3AF00A4EC47 /* BaseGoalSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75DECF629ABB3AF00A4EC47 /* BaseGoalSettingViewController.swift */; };
 		C75DECFA29AE7E7D00A4EC47 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75DECF829AE7E7D00A4EC47 /* RecordViewController.swift */; };
 		C75DECFB29AE7E7D00A4EC47 /* RecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C75DECF929AE7E7D00A4EC47 /* RecordViewController.xib */; };
 		C762DEB029EC1B1400C24C21 /* MapAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C762DEAF29EC1B1400C24C21 /* MapAnimator.swift */; };
@@ -147,7 +149,9 @@
 		C7595B7A2A2B719000DF0A0F /* RecordRunningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRunningView.swift; sourceTree = "<group>"; };
 		C7595B7C2A2B71A000DF0A0F /* RecordRunningView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordRunningView.xib; sourceTree = "<group>"; };
 		C7595B7E2A36224700DF0A0F /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
-		C75DECF629ABB3AF00A4EC47 /* GoalSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingViewController.swift; sourceTree = "<group>"; };
+		C7595B802A39DD4F00DF0A0F /* GoalTimeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTimeSettingViewController.swift; sourceTree = "<group>"; };
+		C7595B822A39DD5D00DF0A0F /* GoalDistanceSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDistanceSettingViewController.swift; sourceTree = "<group>"; };
+		C75DECF629ABB3AF00A4EC47 /* BaseGoalSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGoalSettingViewController.swift; sourceTree = "<group>"; };
 		C75DECF829AE7E7D00A4EC47 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		C75DECF929AE7E7D00A4EC47 /* RecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordViewController.xib; sourceTree = "<group>"; };
 		C762DEAF29EC1B1400C24C21 /* MapAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnimator.swift; sourceTree = "<group>"; };
@@ -307,6 +311,7 @@
 		C7233CF529DD4DE50003A290 /* GoalSetting */ = {
 			isa = PBXGroup;
 			children = (
+				C75DECF629ABB3AF00A4EC47 /* BaseGoalSettingViewController.swift */,
 				C7663E7C29AA125B0046068B /* GoalSettingStackView.swift */,
 				C7663E8029ABA5720046068B /* GoalSettingLabelStackView.swift */,
 				C7663E7A29A9F1260046068B /* GoalTextField.swift */,
@@ -526,7 +531,8 @@
 			isa = PBXGroup;
 			children = (
 				C7233CF529DD4DE50003A290 /* GoalSetting */,
-				C75DECF629ABB3AF00A4EC47 /* GoalSettingViewController.swift */,
+				C7595B802A39DD4F00DF0A0F /* GoalTimeSettingViewController.swift */,
+				C7595B822A39DD5D00DF0A0F /* GoalDistanceSettingViewController.swift */,
 			);
 			path = GoalSettingView;
 			sourceTree = "<group>";
@@ -1143,6 +1149,7 @@
 				C7233CF829DDBFE00003A290 /* GoalProcessView.swift in Sources */,
 				C762DEB029EC1B1400C24C21 /* MapAnimator.swift in Sources */,
 				C7663E7B29A9F1260046068B /* GoalTextField.swift in Sources */,
+				C7595B832A39DD5D00DF0A0F /* GoalDistanceSettingViewController.swift in Sources */,
 				C7DCA7022A1A1DD100B419BA /* DetailRunninRecordViewController.swift in Sources */,
 				C7595B7F2A36224700DF0A0F /* UIFont+.swift in Sources */,
 				C7A1F21929BA385A009AE7BA /* UIView+.swift in Sources */,
@@ -1155,6 +1162,7 @@
 				C7AD00EC29D1E1A6001D275E /* DesignedTabBarController.swift in Sources */,
 				C72B3BE22A038EC60051EB61 /* ImageAnnotationView.swift in Sources */,
 				C7663E7D29AA125B0046068B /* GoalSettingStackView.swift in Sources */,
+				C7595B812A39DD4F00DF0A0F /* GoalTimeSettingViewController.swift in Sources */,
 				C70792DD2A2169DF005236DF /* DomainAssembly.swift in Sources */,
 				C703496429D5253400BF28D7 /* Alertable.swift in Sources */,
 				C7481F8A29F973240013D633 /* RunningRecordMapViewModel.swift in Sources */,
@@ -1196,7 +1204,7 @@
 				C7DE67F32998DFC200C824A9 /* Coordinator.swift in Sources */,
 				C79608BA2A1FB1D80021E619 /* CoreDataRunningRecordStorage.swift in Sources */,
 				C7DE68022999376800C824A9 /* RunningRecordListViewController.swift in Sources */,
-				C75DECF729ABB3AF00A4EC47 /* GoalSettingViewController.swift in Sources */,
+				C75DECF729ABB3AF00A4EC47 /* BaseGoalSettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
