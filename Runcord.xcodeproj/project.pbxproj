@@ -26,6 +26,9 @@
 		C72B3BE42A039CF80051EB61 /* ImageAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BE32A039CF80051EB61 /* ImageAnnotation.swift */; };
 		C72B3BE62A04393E0051EB61 /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BE52A04393E0051EB61 /* ArrowView.swift */; };
 		C72B3BE92A04ECB40051EB61 /* CustomMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72B3BE82A04ECB40051EB61 /* CustomMapView.swift */; };
+		C7480F382A42A8D700256952 /* TimeVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7480F372A42A8D700256952 /* TimeVO.swift */; };
+		C7480F3A2A42B13800256952 /* DistanceVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7480F392A42B13800256952 /* DistanceVO.swift */; };
+		C7480F3D2A42FCC700256952 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7480F3C2A42FCC700256952 /* TimeFormat.swift */; };
 		C7481F8A29F973240013D633 /* RunningRecordMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7481F8929F973240013D633 /* RunningRecordMapViewModel.swift */; };
 		C751527929B27038003D8987 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527829B27038003D8987 /* UIImage+.swift */; };
 		C751527C29B34224003D8987 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C751527B29B34224003D8987 /* RecordViewModel.swift */; };
@@ -138,6 +141,9 @@
 		C72B3BE32A039CF80051EB61 /* ImageAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotation.swift; sourceTree = "<group>"; };
 		C72B3BE52A04393E0051EB61 /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		C72B3BE82A04ECB40051EB61 /* CustomMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapView.swift; sourceTree = "<group>"; };
+		C7480F372A42A8D700256952 /* TimeVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeVO.swift; sourceTree = "<group>"; };
+		C7480F392A42B13800256952 /* DistanceVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceVO.swift; sourceTree = "<group>"; };
+		C7480F3C2A42FCC700256952 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
 		C7481F8929F973240013D633 /* RunningRecordMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordMapViewModel.swift; sourceTree = "<group>"; };
 		C751527829B27038003D8987 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		C751527B29B34224003D8987 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
@@ -372,6 +378,23 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		C7480F362A42A6CF00256952 /* VO */ = {
+			isa = PBXGroup;
+			children = (
+				C7480F372A42A8D700256952 /* TimeVO.swift */,
+				C7480F392A42B13800256952 /* DistanceVO.swift */,
+			);
+			path = VO;
+			sourceTree = "<group>";
+		};
+		C7480F3B2A42FC6E00256952 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				C7480F3C2A42FCC700256952 /* TimeFormat.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		C7481F8829F973080013D633 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -604,7 +627,7 @@
 				C79608B62A1FAE380021E619 /* Data */,
 				C79608AF2A1F9FB00021E619 /* Domain */,
 				C72B3BD92A0109E90051EB61 /* LocationService */,
-				C7DE67EE2998DF2900C824A9 /* Presenter */,
+				C7DE67EE2998DF2900C824A9 /* Presentation */,
 				C7DE67F02998DF6300C824A9 /* TabBar */,
 			);
 			path = Sources;
@@ -768,7 +791,7 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		C7DE67EE2998DF2900C824A9 /* Presenter */ = {
+		C7DE67EE2998DF2900C824A9 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				C762DEAE29EC1ADC00C24C21 /* Animator */,
@@ -777,12 +800,14 @@
 				C7595B722A225B9400DF0A0F /* RunningRecordListScene */,
 				C7DE6823299A85D400C824A9 /* Utils */,
 			);
-			path = Presenter;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		C7DE67EF2998DF5D00C824A9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C7480F3B2A42FC6E00256952 /* Enum */,
+				C7480F362A42A6CF00256952 /* VO */,
 				C7DE67F12998DFB600C824A9 /* Coordinator */,
 			);
 			path = Common;
@@ -1166,6 +1191,7 @@
 				C70792DD2A2169DF005236DF /* DomainAssembly.swift in Sources */,
 				C703496429D5253400BF28D7 /* Alertable.swift in Sources */,
 				C7481F8A29F973240013D633 /* RunningRecordMapViewModel.swift in Sources */,
+				C7480F3A2A42B13800256952 /* DistanceVO.swift in Sources */,
 				C7595B7B2A2B719000DF0A0F /* RecordRunningView.swift in Sources */,
 				C7670EE82995460800E3CD77 /* AppDelegate.swift in Sources */,
 				C7595B6B2A224D5400DF0A0F /* DetailRunningRecordBaseViewController.swift in Sources */,
@@ -1175,6 +1201,7 @@
 				C7595B782A28DE4D00DF0A0F /* ReadyView.swift in Sources */,
 				C769EA3729E412E7004717B3 /* MKMapView+.swift in Sources */,
 				C7211E3129B9664D00ADA90C /* UIViewController+.swift in Sources */,
+				C7480F382A42A8D700256952 /* TimeVO.swift in Sources */,
 				C7A5AFED29D6ADB400E4D851 /* LocationAlertable.swift in Sources */,
 				C703496729D582CC00BF28D7 /* RunningStartViewController.swift in Sources */,
 				C7ECCB772A1495B200E81AB0 /* RunningRecordStorage.swift in Sources */,
@@ -1191,6 +1218,7 @@
 				C724D7022A1FC521004DD422 /* DefaultRunningRecordRepository.swift in Sources */,
 				C7DE67F62998E4D300C824A9 /* TabBarCoordinator.swift in Sources */,
 				C751528029B79981003D8987 /* SaveRecordRunningViewController.swift in Sources */,
+				C7480F3D2A42FCC700256952 /* TimeFormat.swift in Sources */,
 				C7A5AFEA29D6A34E00E4D851 /* AuthorizationManager.swift in Sources */,
 				C72B3BBD29FE5A780051EB61 /* RunningRecord.swift in Sources */,
 				C72B3BE62A04393E0051EB61 /* ArrowView.swift in Sources */,
