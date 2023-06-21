@@ -5,11 +5,11 @@
 //  Created by JunHwan Kim on 2023/06/21.
 //
 
-enum TimeFormat {
+enum TimeFormatType {
     case hourMinuteSecond
 }
 
-extension TimeFormat {
+extension TimeFormatType {
     var timeFormatter: String {
         switch self {
         case .hourMinuteSecond:
