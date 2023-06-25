@@ -35,7 +35,7 @@ class RunningStartViewModel {
     
     var goalTimeValue: String {
         get {
-            return goalTime.value.formatedTimeToString(format: .hourMinuteSecond)
+            return String(format: "%02d%02d", goalTime.value.hour, goalTime.value.minute)
         }
     }
     
@@ -56,11 +56,4 @@ class RunningStartViewModel {
     func presentRecordView() {
         
     }
-    
-    private func convertTimeToSecond(hour: Int, minute: Int) -> Int {
-        let hourToSecond = hour*60 * 60
-        let minuteToSecond = minute * 60
-        return hourToSecond + minuteToSecond
-    }
-    
 }

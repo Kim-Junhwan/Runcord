@@ -18,6 +18,8 @@ class GoalTimeSettingViewController: BaseGoalSettingViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var setGoalTime: ((Time) -> Void)?
+    
     private func timeBind() {
         goalLabelBindingTextField.rx.text.orEmpty
             .withUnretained(self)
@@ -42,7 +44,7 @@ class GoalTimeSettingViewController: BaseGoalSettingViewController {
     
     override func tapDoneButton() {
         guard let goalText = goalLabel.goalSettingLabelStackView.destinationLabel.text else { fatalError() }
-        //setGoalHandler?(goalText)
+        setGoalTime?(Time(goalTimeString: goalText))
         super.tapDoneButton()
     }
 }

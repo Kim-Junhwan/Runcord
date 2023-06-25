@@ -34,6 +34,13 @@ struct Time {
         self.seconds = totalSeconds
     }
     
+    init(goalTimeString: String) {
+        let time = goalTimeString.split(separator: ":").compactMap { Int($0) }
+        let hour = time.first ?? 0
+        let minute = time.last ?? 0
+        self.init(minute: minute, hour: hour)
+    }
+    
     func formatedTimeToString(format: TimeFormatType) -> String {
         return format.convertTimeToString(seconds: seconds)
     }

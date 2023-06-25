@@ -18,6 +18,8 @@ class GoalDistanceSettingViewController: BaseGoalSettingViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var setGoalDistance: ((Time) -> Void)?
+    
     private func distanceBind() {
         goalLabelBindingTextField.rx.text.orEmpty
             .withUnretained(self)

@@ -34,7 +34,6 @@ class BaseGoalSettingViewController: UIViewController {
     var disposeBag = DisposeBag()
     
     let goalType: GoalType
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()

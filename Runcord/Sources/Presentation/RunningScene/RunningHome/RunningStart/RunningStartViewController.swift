@@ -105,7 +105,9 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         let nvc = UINavigationController(rootViewController: vc)
         nvc.modalPresentationStyle = .fullScreen
         vc.goalLabelBindingTextField.text = viewModel.goalTimeValue
-        
+        vc.setGoalTime = { time in
+            self.viewModel.setGoalTime(time: time)
+        }
         present(nvc, animated: false)
     }
     
