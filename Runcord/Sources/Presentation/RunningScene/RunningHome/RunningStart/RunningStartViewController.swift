@@ -96,7 +96,9 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         let nvc = UINavigationController(rootViewController: vc)
         vc.goalLabelBindingTextField.text = viewModel.goalDistanceValue
         nvc.modalPresentationStyle = .fullScreen
-        
+        vc.setGoalDistance = { distance in
+            self.viewModel.setGoalDistance(distance: distance)
+        }
         present(nvc, animated: false)
     }
     

@@ -18,6 +18,10 @@ struct Distance {
         self._value = value
     }
     
+    init(goalDistanceString: String) {
+        self.init(value: Double(goalDistanceString) ?? 0)
+    }
+    
     func formattedDistanceToString(type: DistanceFormatType) -> String {
         return String(format: type.distanceFormatter, value)
     }

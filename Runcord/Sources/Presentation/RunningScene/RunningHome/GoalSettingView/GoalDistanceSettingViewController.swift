@@ -18,7 +18,7 @@ class GoalDistanceSettingViewController: BaseGoalSettingViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var setGoalDistance: ((Time) -> Void)?
+    var setGoalDistance: ((Distance) -> Void)?
     
     private func distanceBind() {
         goalLabelBindingTextField.rx.text.orEmpty
@@ -43,7 +43,7 @@ class GoalDistanceSettingViewController: BaseGoalSettingViewController {
     
     override func tapDoneButton() {
         guard let goalText = goalLabelBindingTextField.text else { fatalError() }
-        //setGoalHandler?(goalText)
+        setGoalDistance?(Distance(goalDistanceString: goalText))
         super.tapDoneButton()
     }
 }
