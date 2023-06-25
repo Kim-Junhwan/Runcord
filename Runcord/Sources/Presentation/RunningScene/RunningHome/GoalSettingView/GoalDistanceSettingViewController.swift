@@ -41,7 +41,7 @@ class GoalDistanceSettingViewController: BaseGoalSettingViewController {
     
     override func tapDoneButton() {
         guard let goalText = goalLabelBindingTextField.text else { fatalError() }
-        setGoalHandler?(goalText)
+        //setGoalHandler?(goalText)
         super.tapDoneButton()
     }
 }

@@ -46,14 +46,13 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     private func bind() {
         viewModel.goalDistance.subscribe { distance in
             guard let distance = distance.element else { return }
-            self.goalDistanceLabel.text = "\(distance)"
+            self.goalDistanceLabel.text = distance.formattedDistanceToString(type: .defaultFormat)
         }.disposed(by: disposeBag)
         
-        viewModel.goalTimeRelay.subscribe { time in
+        viewModel.goalTime.subscribe { time in
             guard let time = time.element else { return }
-            let timeStr = time.split(separator: ":").map { String($0) }
-            self.goalHourLabel.text = timeStr[0]
-            self.goalMinuteLabel.text = timeStr[1]
+            self.goalHourLabel.text = String(format: "%02d", time.hour)
+            self.goalMinuteLabel.text = String(format: "%02d", time.minute)
         }.disposed(by: disposeBag)
     }
     
@@ -95,11 +94,9 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     @objc func presentDistanceGoalSettingView() {
         let vc = GoalDistanceSettingViewController()
         let nvc = UINavigationController(rootViewController: vc)
-        vc.goalLabelBindingTextField.text = "\(viewModel.goalDistance.value)"
+        vc.goalLabelBindingTextField.text = viewModel.goalDistanceValue
         nvc.modalPresentationStyle = .fullScreen
-        vc.setGoalHandler = { [weak self] goalStr in
-            self?.viewModel.setGoalDistance(goal: goalStr)
-        }
+        
         present(nvc, animated: false)
     }
     
@@ -107,18 +104,9 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         let vc = GoalTimeSettingViewController()
         let nvc = UINavigationController(rootViewController: vc)
         nvc.modalPresentationStyle = .fullScreen
-        vc.goalLabelBindingTextField.text = makeGoalString()
-        vc.setGoalHandler = { [weak self] goalStr in
-            self?.viewModel.setGoalTime(goal: goalStr)
-        }
+        vc.goalLabelBindingTextField.text = viewModel.goalTimeValue
+        
         present(nvc, animated: false)
-    }
-    
-    private func makeGoalString() -> String {
-        if viewModel.goalMinute.value == 0 {
-            return "\(viewModel.goalHour.value)00"
-        }
-        return "\(viewModel.goalHour.value)\(viewModel.goalMinute.value)"
     }
     
     deinit {

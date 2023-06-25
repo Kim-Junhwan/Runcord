@@ -35,7 +35,6 @@ class BaseGoalSettingViewController: UIViewController {
     
     let goalType: GoalType
     
-    var setGoalHandler: ((String) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()

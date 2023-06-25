@@ -42,7 +42,7 @@ class GoalTimeSettingViewController: BaseGoalSettingViewController {
     
     override func tapDoneButton() {
         guard let goalText = goalLabel.goalSettingLabelStackView.destinationLabel.text else { fatalError() }
-        setGoalHandler?(goalText)
+        //setGoalHandler?(goalText)
         super.tapDoneButton()
     }
 }
