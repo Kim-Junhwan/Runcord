@@ -35,11 +35,9 @@ class RunningStartViewModel {
     
     var goalTimeValue: String {
         get {
-            return String(format: "%02d%02d", goalTime.value.hour, goalTime.value.minute)
+            return goalTime.value.formatedTimeToString(format: .goalDistanceFormat)
         }
     }
-    
-    let disposeBag = DisposeBag()
     
     init(actions: RunningStartViewModelActions) {
         self.actions = actions

@@ -8,6 +8,7 @@
 enum TimeFormatType {
     case hourMinuteSecond
     case hourMinute
+    case goalDistanceFormat
 }
 
 extension TimeFormatType {
@@ -17,6 +18,8 @@ extension TimeFormatType {
             return "%02d:%02d:%02d"
         case .hourMinute:
             return "%02d:%02d"
+        case .goalDistanceFormat:
+            return "%02d%02d"
         }
     }
     
@@ -30,6 +33,8 @@ extension TimeFormatType {
         case .hourMinuteSecond:
             return String(format: timeFormatter, hour, minute, second)
         case .hourMinute:
+            return String(format: timeFormatter, hour, minute)
+        case .goalDistanceFormat:
             return String(format: timeFormatter, hour, minute)
         }
     }
