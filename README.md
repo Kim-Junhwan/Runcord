@@ -12,8 +12,8 @@ Runcord는 러닝 도중에 찍고 싶은 사진을 찍고
 |로컬 저장소|Core Data|
 |화면 프레임워크|UIKit|
 |지도|MKMapView|
-|디자인패턴|coordinator, mvvm, mvc|
-|아키텍처|클린 아키텍처|
+|디자인패턴|coordinator, 싱글톤 패턴 등등|
+|아키텍처 패턴|클린 아키텍처, mvvm, mvc|
 
 ## 사용 라이브러리
 
