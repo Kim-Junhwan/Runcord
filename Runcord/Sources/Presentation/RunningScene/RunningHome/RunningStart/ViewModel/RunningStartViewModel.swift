@@ -33,9 +33,9 @@ class RunningStartViewModel {
     var goalTime: BehaviorRelay<Time> = BehaviorRelay<Time>(value: Time(seconds: Default.defaultTime))
 
     
-    var goalTimeValue: String {
+    var goalTimeValue: Time {
         get {
-            return goalTime.value.formatedTimeToString(format: .goalDistanceFormat)
+            return goalTime.value
         }
     }
     

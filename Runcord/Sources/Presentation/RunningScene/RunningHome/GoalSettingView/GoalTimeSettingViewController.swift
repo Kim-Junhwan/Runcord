@@ -9,8 +9,13 @@ import Foundation
 
 class GoalTimeSettingViewController: BaseGoalSettingViewController {
     
-    init() {
+    init(time: Time) {
         super.init(goalType: .time)
+        if time.hour > 0 {
+            self.goalLabelBindingTextField.text = time.formatedTimeToString(format: .goalTimeSettingFormat)
+        } else {
+            self.goalLabelBindingTextField.text = String(time.minute)
+        }
         timeBind()
     }
     

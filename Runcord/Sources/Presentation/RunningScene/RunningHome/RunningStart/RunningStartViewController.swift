@@ -103,10 +103,9 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     }
     
     @objc func presentTimeGoalSettingView() {
-        let vc = GoalTimeSettingViewController()
+        let vc = GoalTimeSettingViewController(time: viewModel.goalTimeValue)
         let nvc = UINavigationController(rootViewController: vc)
         nvc.modalPresentationStyle = .fullScreen
-        vc.goalLabelBindingTextField.text = viewModel.goalTimeValue
         vc.setGoalTime = { time in
             self.viewModel.setGoalTime(time: time)
         }

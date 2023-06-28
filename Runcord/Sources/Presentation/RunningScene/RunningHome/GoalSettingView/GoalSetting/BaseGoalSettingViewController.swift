@@ -49,6 +49,7 @@ class BaseGoalSettingViewController: UIViewController {
     init(goalType: GoalType) {
         self.goalType = goalType
         super.init(nibName: nil, bundle: nil)
+        setBindingTextField()
     }
     
     required init?(coder: NSCoder) {
