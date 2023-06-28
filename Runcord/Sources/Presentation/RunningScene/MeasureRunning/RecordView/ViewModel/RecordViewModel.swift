@@ -21,10 +21,9 @@ class RecordViewModel: NSObject {
     
     // MARK: - Timer Properties
     private var timer: Timer?
-    let timerText: BehaviorRelay<String> = BehaviorRelay(value: "00:00:00")
-    let totalRunningSecond: BehaviorRelay<Int> = BehaviorRelay(value: 0)
+    let runningTime: BehaviorRelay<Time> = BehaviorRelay(value: Time())
     var isRunning: Bool = false
-    let runningDistance: BehaviorRelay<Float> = BehaviorRelay(value: 0.0)
+    let runningDistance: BehaviorRelay<Distance> = BehaviorRelay(value: Distance(value: 0.0))
     let locationService: LocationService
     
     // MARK: - Goal Properties
@@ -82,15 +81,7 @@ class RecordViewModel: NSObject {
     }
     
     @objc private func timerCallBack() {
-        totalRunningSecond.accept(totalRunningSecond.value + 1)
-        setTimerText()
-    }
-    
-    private func setTimerText() {
-        let hours = totalRunningSecond.value / 3600
-        let minutes = (totalRunningSecond.value % 3600) / 60
-        let seconds = totalRunningSecond.value % 60
-        timerText.accept("\(String(format: "%02d", hours)):\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))")
+        runningTime.accept(Time(seconds: runningTime.value.totalSecond+1))
     }
     
     // MARK: - Location Method
@@ -109,24 +100,24 @@ class RecordViewModel: NSObject {
     private func updateRunningRecord(updatedLocation: CLLocation) {
         if let lastCoordinator = self.route.value.last {
             let moveDistance = self.calculateBetweenTwoCoordinatesDistanceKilometer(lastCoordinator, updatedLocation)
-            self.runningDistance.accept(self.runningDistance.value + moveDistance)
+            self.runningDistance.accept(Distance(value: Double(self.runningDistance.value.value + moveDistance)))
             self.speedCount += 1
             self.totalSpeed.accept(self.totalSpeed.value + (Double(moveDistance * 3600)))
         }
     }
     
-    private func calculateBetweenTwoCoordinatesDistanceKilometer(_ firstCoordinate: CLLocation, _ secondCoordinate: CLLocation) -> Float {
+    private func calculateBetweenTwoCoordinatesDistanceKilometer(_ firstCoordinate: CLLocation, _ secondCoordinate: CLLocation) -> Double {
         let distance = firstCoordinate.distance(from: secondCoordinate)
         let kmDistance = distance/1000
-        return Float(kmDistance)
+        return Double(kmDistance)
     }
     
     // MARK: - Coordinating
     
     func showSaveRecordView() {
         let runningPath = route.value.map { $0.coordinate }.map { RunningRoute(longitude: $0.longitude, latitude: $0.latitude) }
-        //let runningRecord = RunningRecord(date: startDate, goalDistance: goalDistance, goalTime: goalTime, runningDistance: Double(runningDistance.value), runningTime: totalRunningSecond.value, averageSpeed: totalSpeed.value / Double(speedCount), runningPath: runningPath, imageRecords: imageList)
-        //actions.showSaveRunningRecordView(runningRecord)
+        let runningRecord = RunningRecord(date: startDate, goalDistance: goalDistance.value, goalTime: goalTime.totalSecond, runningDistance: runningDistance.value.value, runningTime: runningTime.value.totalSecond, averageSpeed: totalSpeed.value / Double(speedCount), runningPath: runningPath, imageRecords: imageList)
+        actions.showSaveRunningRecordView(runningRecord)
     }
     
     deinit {

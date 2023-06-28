@@ -87,6 +87,7 @@ class RecordViewController: UIViewController {
             recordRunningView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         recordRunningView.completeButton.delegate = self
+        recordRunningView.completeButton.duringGestureTime = 2
         recordRunningView.pauseAndPlayButton.addTarget(self, action: #selector(playOrPauseButtonAction), for: .touchUpInside)
     }
     
@@ -160,20 +161,15 @@ class RecordViewController: UIViewController {
     
     // MARK: - bind
     private func bind() {
-        viewModel.timerText.asDriver()
-            .drive(recordRunningView.runningTimerLabel.rx
-                .text)
-            .disposed(by: disposeBag)
-
-        viewModel.totalRunningSecond.subscribe { currentTime in
-            self.recordRunningView.goalTimeProgressView.setCurrentValue(current: Double(currentTime))
-        }
-        .disposed(by: disposeBag)
+        viewModel.runningTime.asDriver().drive(with: self) { owner, time in
+            owner.recordRunningView.runningTimerLabel.text = time.formatedTimeToString(format: .hourMinuteSecond)
+            owner.recordRunningView.goalTimeProgressView.setCurrentValue(current: Double(time.totalSecond))
+        }.disposed(by: disposeBag)
 
         viewModel.runningDistance.asDriver()
             .drive(onNext: { distance in
-                self.recordRunningView.runningDistanceLabel.text = String(format: "%.2f", distance)
-                self.recordRunningView.goalDistanceProgressView.setCurrentValue(current: Double(distance))
+                self.recordRunningView.runningDistanceLabel.text = distance.formattedDistanceToString(type: .defaultFormat)
+                self.recordRunningView.goalDistanceProgressView.setCurrentValue(current: distance.value)
             })
             .disposed(by: disposeBag)
 
