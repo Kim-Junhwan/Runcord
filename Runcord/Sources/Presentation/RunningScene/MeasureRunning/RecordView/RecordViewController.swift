@@ -56,8 +56,8 @@ class RecordViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         readyView.startPrepare(completion: startMeasureRunning)
-        recordRunningView.setGoalTimeProgressBar(maxValue: Double(viewModel.goalTime))
-        recordRunningView.setGoalDistanceProgressBar(maxValue: viewModel.goalDistance)
+        recordRunningView.setGoalTimeProgressBar(goalTime: viewModel.goalTime)
+        recordRunningView.setGoalDistanceProgressBar(goalDistance: viewModel.goalDistance)
     }
     
     func startMeasureRunning() {

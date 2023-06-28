@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 
 struct RunningStartViewModelActions {
-    let showRecordView: (Int, Double) -> Void
+    let showRecordView: (Time, Distance) -> Void
 }
 
 class RunningStartViewModel {
@@ -52,6 +52,6 @@ class RunningStartViewModel {
     }
     
     func presentRecordView() {
-        
+        actions.showRecordView(goalTime.value, goalDistance.value)
     }
 }

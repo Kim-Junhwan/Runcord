@@ -28,8 +28,8 @@ class RecordViewModel: NSObject {
     let locationService: LocationService
     
     // MARK: - Goal Properties
-    var goalTime: Int
-    var goalDistance: Double
+    var goalTime: Time
+    var goalDistance: Distance
     
     // MARK: - Route Properties
     private let route: BehaviorRelay<[CLLocation]> = BehaviorRelay(value: [])
@@ -58,7 +58,7 @@ class RecordViewModel: NSObject {
     
     let disposeBag = DisposeBag()
     
-    init(goalTime: Int, goalDistance: Double, locationService: LocationService, actions: RecordViewModelActions) {
+    init(goalTime: Time, goalDistance: Distance, locationService: LocationService, actions: RecordViewModelActions) {
         self.goalTime = goalTime
         self.goalDistance = goalDistance
         self.locationService = locationService
@@ -125,8 +125,8 @@ class RecordViewModel: NSObject {
     
     func showSaveRecordView() {
         let runningPath = route.value.map { $0.coordinate }.map { RunningRoute(longitude: $0.longitude, latitude: $0.latitude) }
-        let runningRecord = RunningRecord(date: startDate, goalDistance: goalDistance, goalTime: goalTime, runningDistance: Double(runningDistance.value), runningTime: totalRunningSecond.value, averageSpeed: totalSpeed.value / Double(speedCount), runningPath: runningPath, imageRecords: imageList)
-        actions.showSaveRunningRecordView(runningRecord)
+        //let runningRecord = RunningRecord(date: startDate, goalDistance: goalDistance, goalTime: goalTime, runningDistance: Double(runningDistance.value), runningTime: totalRunningSecond.value, averageSpeed: totalSpeed.value / Double(speedCount), runningPath: runningPath, imageRecords: imageList)
+        //actions.showSaveRunningRecordView(runningRecord)
     }
     
     deinit {

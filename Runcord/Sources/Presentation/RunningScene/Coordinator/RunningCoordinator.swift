@@ -27,7 +27,7 @@ final class RunningCoordinator: Coordinator {
         self.navigationController.pushViewController(runningStartVC, animated: false)
     }
     
-    func showRecordRunningView(goalTime: Int, goalDistance: Double) {
+    func showRecordRunningView(goalTime: Time, goalDistance: Distance) {
         let actions = RecordViewModelActions(showSaveRunningRecordView: showSaveRecordView, showRunningRecordMapView: showRunningRecordMapView)
         let recordViewModel = injector.resolve(RecordViewModel.self, argument: goalTime, arg2: goalDistance, arg3: actions)
         let recordRunningViewController = injector.resolve(RecordViewController.self, argument: recordViewModel)

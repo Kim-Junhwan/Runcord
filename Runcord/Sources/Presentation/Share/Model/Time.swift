@@ -11,6 +11,12 @@ struct Time {
     
     private let seconds: Int
     
+    var totalSecond: Int {
+        get {
+            return seconds
+        }
+    }
+    
     var hour: Int {
         get {
             return seconds / 3600

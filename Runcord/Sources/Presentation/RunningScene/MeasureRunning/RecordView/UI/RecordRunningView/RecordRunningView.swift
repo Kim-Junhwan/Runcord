@@ -43,15 +43,16 @@ class RecordRunningView: UIView {
         completeButton.layer.cornerRadius = completeButton.frame.height / 2
     }
     
-    func setGoalDistanceProgressBar(maxValue: Double) {
-        goalDistanceProgressView.setMaxValue(max: maxValue)
+    func setGoalDistanceProgressBar(goalDistance: Distance) {
+        goalDistanceProgressView.setMaxValue(max: goalDistance.value)
         goalDistanceProgressView.currentUserFigureLabel.text = "🏃"
         goalDistanceProgressView.reversecurrentUserFigureLabel()
         goalDistanceProgressView.setCurrentValue(current: .zero)
     }
     
-    func setGoalTimeProgressBar(maxValue: Double) {
-        goalTimeProgressView.setMaxValue(max: maxValue)
+    func setGoalTimeProgressBar(goalTime: Time) {
+        
+        goalTimeProgressView.setMaxValue(max: Double(goalTime.totalSecond))
         goalTimeProgressView.currentUserFigureLabel.text = "⏰"
         goalTimeProgressView.setCurrentValue(current: .zero)
     }
