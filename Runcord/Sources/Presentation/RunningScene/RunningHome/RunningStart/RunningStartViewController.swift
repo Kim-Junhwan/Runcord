@@ -10,6 +10,11 @@ import MapKit
 import RxSwift
 
 class RunningStartViewController: UIViewController, LocationAlertable {
+    
+    private enum StringFormat {
+        static let timeFormat: String = "%02d"
+    }
+    
     var locationService: LocationService
     
     @IBOutlet weak var mapView: MKMapView!
@@ -51,8 +56,8 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         
         viewModel.goalTime.subscribe { time in
             guard let time = time.element else { return }
-            self.goalHourLabel.text = String(format: "%02d", time.hour)
-            self.goalMinuteLabel.text = String(format: "%02d", time.minute)
+            self.goalHourLabel.text = String(format: StringFormat.timeFormat, time.hour)
+            self.goalMinuteLabel.text = String(format: StringFormat.timeFormat, time.minute)
         }.disposed(by: disposeBag)
     }
     
@@ -116,20 +121,4 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         print("deinit runningStart view")
     }
     
-}
-
-extension RunningStartViewController: CLLocationManagerDelegate {
-    
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        switch manager.authorizationStatus {
-        case .authorizedAlways, .authorizedWhenInUse:
-            setMapUserTracking()
-        case .restricted, .denied:
-            setMapUserUnTracking()
-        case .notDetermined:
-            manager.requestWhenInUseAuthorization()
-        default:
-            break
-        }
-    }
 }
