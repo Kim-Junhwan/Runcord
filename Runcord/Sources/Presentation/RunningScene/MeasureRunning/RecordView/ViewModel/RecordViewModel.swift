@@ -45,9 +45,9 @@ class RecordViewModel: NSObject {
     
     // MARK: - Speed Average
     private var speedCount = 0
-    private let totalSpeed: BehaviorRelay<Speed> = BehaviorRelay(value: Speed.zero)
+    private let currentSpeed: BehaviorRelay<Speed> = BehaviorRelay(value: Speed.zero)
     var averageSpeedDriver: Driver<Speed> {
-        return totalSpeed.scan(Speed.zero){ $0 + $1 }.map{ Speed(value: $0.value / Double(self.speedCount)) }.asDriver(onErrorJustReturn: Speed.zero)
+        return currentSpeed.scan(Speed.zero){ $0 + $1 }.map{ Speed(value: $0.value / Double(self.speedCount)) }.asDriver(onErrorJustReturn: Speed.zero)
     }
     
     // MARK: - Taked Imagies
@@ -101,8 +101,7 @@ class RecordViewModel: NSObject {
             let moveDistance = self.calculateBetweenTwoCoordinatesDistanceKilometer(lastCoordinator, updatedLocation)
             self.runningDistance.accept(Distance(value: Double(self.runningDistance.value.value + moveDistance)))
             self.speedCount += 1
-            self.totalSpeed.accept(Speed(value: Double(moveDistance * 3600)))
-            
+            self.currentSpeed.accept(Speed(value: Double(moveDistance * 3600)))
         }
     }
     
