@@ -25,9 +25,9 @@ class RecordViewModel: NSObject {
     
     // MARK: - Timer Properties
     private var timer: Timer?
-    let runningTime: BehaviorRelay<Time> = BehaviorRelay(value: Time())
+    let runningTime: BehaviorRelay<Time> = BehaviorRelay(value: Time.zero)
     var isRunning: Bool = false
-    let runningDistance: BehaviorRelay<Distance> = BehaviorRelay(value: Distance(value: 0.0))
+    let runningDistance: BehaviorRelay<Distance> = BehaviorRelay(value: Distance.zero)
     let locationService: LocationService
     
     // MARK: - Goal Properties
