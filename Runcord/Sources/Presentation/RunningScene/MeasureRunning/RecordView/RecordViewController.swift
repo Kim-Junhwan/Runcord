@@ -13,10 +13,12 @@ class RecordViewController: UIViewController {
     
     private enum Metric {
         static let mapHeightMultiplier: CGFloat = 0.3
+        static let readyDelayTime: Int = 5
     }
     
     private enum AnimationMetric {
         static let mapAnimationTime: CGFloat = 0.2
+        static let completeButtonGestureTime: Int = 2
     }
     
     private let recordRunningView: RecordRunningView = {
@@ -26,7 +28,7 @@ class RecordViewController: UIViewController {
     }()
     
     private let readyView: ReadyView = {
-        let readyView = ReadyView(readyTime: 5)
+        let readyView = ReadyView(readyTime: Metric.readyDelayTime)
         readyView.translatesAutoresizingMaskIntoConstraints = false
         return readyView
     }()
@@ -37,7 +39,7 @@ class RecordViewController: UIViewController {
         return customMapView
     }()
     
-    private lazy var runningMapViewHeightConstraint = runningMapView.heightAnchor.constraint(equalToConstant: 0)
+    private lazy var runningMapViewHeightConstraint = runningMapView.heightAnchor.constraint(equalToConstant: .zero)
     
     // MARK: - Properties
     var viewModel: RecordViewModel
@@ -87,7 +89,7 @@ class RecordViewController: UIViewController {
             recordRunningView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         recordRunningView.completeButton.delegate = self
-        recordRunningView.completeButton.duringGestureTime = 2
+        recordRunningView.completeButton.duringGestureTime = AnimationMetric.completeButtonGestureTime
         recordRunningView.pauseAndPlayButton.addTarget(self, action: #selector(playOrPauseButtonAction), for: .touchUpInside)
     }
     
@@ -180,7 +182,7 @@ class RecordViewController: UIViewController {
         }).disposed(by: disposeBag)
 
         viewModel.averageSpeedDriver
-            .map({ String(format: "%.2f", $0.value) })
+            .map { $0.formattedSpeedToString(type: .defaultFormat) }
             .drive(recordRunningView.averageSpeedLabel.rx.text).disposed(by: disposeBag)
     }
     
