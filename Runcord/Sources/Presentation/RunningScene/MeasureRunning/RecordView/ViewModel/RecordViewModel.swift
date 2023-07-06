@@ -19,6 +19,9 @@ class RecordViewModel: NSObject {
     
     enum Metric {
         static let speed: Double = .zero
+        static let speedUnit: Double = 3600.0
+        static let coordinateConvertUnit: Double = 1000.0
+        static let timerDelayTime: Double = 1.0
     }
     
     let actions: RecordViewModelActions
@@ -70,7 +73,7 @@ class RecordViewModel: NSObject {
     // MARK: - Timer Method
     func startTimer() {
         isRunning = true
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: Metric.timerDelayTime, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
     }
     
     func stopTimer() {
@@ -105,13 +108,13 @@ class RecordViewModel: NSObject {
             let moveDistance = self.calculateBetweenTwoCoordinatesDistanceKilometer(lastCoordinator, updatedLocation)
             self.runningDistance.accept(Distance(value: Double(self.runningDistance.value.value + moveDistance)))
             self.speedCount += 1
-            self.totalSpeed.accept(totalSpeed.value + Speed(value: Double(moveDistance * 3600)))
+            self.totalSpeed.accept(totalSpeed.value + Speed(value: Double(moveDistance * Metric.speedUnit)))
         }
     }
     
     private func calculateBetweenTwoCoordinatesDistanceKilometer(_ firstCoordinate: CLLocation, _ secondCoordinate: CLLocation) -> Double {
         let distance = firstCoordinate.distance(from: secondCoordinate)
-        let kmDistance = distance/1000
+        let kmDistance = distance/Metric.coordinateConvertUnit
         return Double(kmDistance)
     }
     
