@@ -25,4 +25,8 @@ struct Speed {
     static func + (lhs: Speed, rhs: Speed) -> Speed {
         return Speed(value: lhs.value + rhs.value)
     }
+    
+    func formattedSpeedToString(type: SpeedForamtType) -> String {
+        return String(format: type.speedFormatter, value)
+    }
 }
