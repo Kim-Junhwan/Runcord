@@ -45,9 +45,9 @@ class RecordViewModel: NSObject {
     
     // MARK: - Speed Average
     private var speedCount = 0
-    private let currentSpeed: BehaviorRelay<Speed> = BehaviorRelay(value: Speed.zero)
+    private let totalSpeed: BehaviorRelay<Speed> = BehaviorRelay(value: Speed.zero)
     var averageSpeedDriver: Driver<Speed> {
-        return currentSpeed.scan(Speed.zero){ $0 + $1 }.map{
+        return totalSpeed.map{
             if self.speedCount == 0 {
                 return Speed.zero
             }
@@ -105,7 +105,7 @@ class RecordViewModel: NSObject {
             let moveDistance = self.calculateBetweenTwoCoordinatesDistanceKilometer(lastCoordinator, updatedLocation)
             self.runningDistance.accept(Distance(value: Double(self.runningDistance.value.value + moveDistance)))
             self.speedCount += 1
-            self.currentSpeed.accept(Speed(value: Double(moveDistance * 3600)))
+            self.totalSpeed.accept(totalSpeed.value + Speed(value: Double(moveDistance * 3600)))
         }
     }
     
@@ -119,7 +119,7 @@ class RecordViewModel: NSObject {
     
     func showSaveRecordView() {
         let runningPath = route.value.map { $0.coordinate }.map { RunningRoute(longitude: $0.longitude, latitude: $0.latitude) }
-        let runningRecord = RunningRecord(date: startDate, goalDistance: goalDistance.value, goalTime: goalTime.totalSecond, runningDistance: runningDistance.value.value, runningTime: runningTime.value.totalSecond, averageSpeed: 0, runningPath: runningPath, imageRecords: imageList)
+        let runningRecord = RunningRecord(date: startDate, goalDistance: goalDistance.value, goalTime: goalTime.totalSecond, runningDistance: runningDistance.value.value, runningTime: runningTime.value.totalSecond, averageSpeed: totalSpeed.value.value/Double(speedCount), runningPath: runningPath, imageRecords: imageList)
         actions.showSaveRunningRecordView(runningRecord)
     }
     
