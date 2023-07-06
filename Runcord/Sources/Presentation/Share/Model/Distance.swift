@@ -14,6 +14,10 @@ struct Distance {
         }
     }
     
+    static var zero: Distance {
+        return Distance(value: 0.0)
+    }
+    
     init(value: Double) {
         self._value = value
     }

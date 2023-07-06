@@ -35,6 +35,10 @@ struct Time {
         }
     }
     
+    static var zero: Time {
+        return Time()
+    }
+    
     init(seconds: Int = 0, minute: Int = 0, hour: Int = 0) {
         let totalSeconds = seconds + (60*minute) + (3600*hour)
         self.seconds = totalSeconds
