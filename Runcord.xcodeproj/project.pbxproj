@@ -75,6 +75,7 @@
 		C7BA067C29A25AF100D2227A /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C7BA067B29A25AF100D2227A /* NotoSansKR-Bold.otf */; };
 		C7BA067E29A25B6B00D2227A /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C7BA067D29A25B6B00D2227A /* NotoSansKR-Medium.otf */; };
 		C7C5934F2A55C3A80011A6DB /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C5934E2A55C3A80011A6DB /* Speed.swift */; };
+		C7C593592A571DDE0011A6DB /* SpeedForamtType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C593582A571DDE0011A6DB /* SpeedForamtType.swift */; };
 		C7DCA6FD2A19FF2D00B419BA /* DetailRunningRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA6FC2A19FF2D00B419BA /* DetailRunningRecordView.swift */; };
 		C7DCA6FF2A19FF5700B419BA /* DetailRunningRecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7DCA6FE2A19FF5700B419BA /* DetailRunningRecordView.xib */; };
 		C7DCA7022A1A1DD100B419BA /* DetailRunninRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA7012A1A1DD100B419BA /* DetailRunninRecordViewController.swift */; };
@@ -196,6 +197,7 @@
 		C7BA067B29A25AF100D2227A /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		C7BA067D29A25B6B00D2227A /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		C7C5934E2A55C3A80011A6DB /* Speed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speed.swift; sourceTree = "<group>"; };
+		C7C593582A571DDE0011A6DB /* SpeedForamtType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedForamtType.swift; sourceTree = "<group>"; };
 		C7DCA6FC2A19FF2D00B419BA /* DetailRunningRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRunningRecordView.swift; sourceTree = "<group>"; };
 		C7DCA6FE2A19FF5700B419BA /* DetailRunningRecordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRunningRecordView.xib; sourceTree = "<group>"; };
 		C7DCA7012A1A1DD100B419BA /* DetailRunninRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRunninRecordViewController.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 			children = (
 				C7480F3C2A42FCC700256952 /* TimeFormatType.swift */,
 				C7480F402A43424A00256952 /* DistanceFormatType.swift */,
+				C7C593582A571DDE0011A6DB /* SpeedForamtType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1241,6 +1244,7 @@
 				C7B3DA532A0BD4C000B370B6 /* CustomRouteMapImageView.swift in Sources */,
 				C7663E8129ABA5720046068B /* GoalSettingLabelStackView.swift in Sources */,
 				C7595B752A24EF9600DF0A0F /* LongPressGestureButton.swift in Sources */,
+				C7C593592A571DDE0011A6DB /* SpeedForamtType.swift in Sources */,
 				C7DCA7052A1A74AF00B419BA /* RunningSaveButton.swift in Sources */,
 				C72B3BE42A039CF80051EB61 /* ImageAnnotation.swift in Sources */,
 				C78B04522A12701600FBEC91 /* RunningRecordTableViewCell.swift in Sources */,
