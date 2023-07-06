@@ -17,6 +17,10 @@ struct RecordViewModelActions {
 
 class RecordViewModel: NSObject {
     
+    enum Metric {
+        static let speed: Double = .zero
+    }
+    
     let actions: RecordViewModelActions
     
     // MARK: - Timer Properties
@@ -41,14 +45,9 @@ class RecordViewModel: NSObject {
     
     // MARK: - Speed Average
     private var speedCount = 0
-    private let totalSpeed: BehaviorRelay<Double> = BehaviorRelay(value: 0.0)
-    var averageSpeedDriver: Driver<Double> {
-        return totalSpeed.map { speed in
-            if self.speedCount > 0 {
-                return self.totalSpeed.value / Double(self.speedCount)
-            }
-            return speed
-        }.asDriver(onErrorJustReturn: 0.0)
+    private let totalSpeed: BehaviorRelay<Speed> = BehaviorRelay(value: Speed.zero)
+    var averageSpeedDriver: Driver<Speed> {
+        return totalSpeed.scan(Speed.zero){ $0 + $1 }.map{ Speed(value: $0.value / Double(self.speedCount)) }.asDriver(onErrorJustReturn: Speed.zero)
     }
     
     // MARK: - Taked Imagies
@@ -102,7 +101,8 @@ class RecordViewModel: NSObject {
             let moveDistance = self.calculateBetweenTwoCoordinatesDistanceKilometer(lastCoordinator, updatedLocation)
             self.runningDistance.accept(Distance(value: Double(self.runningDistance.value.value + moveDistance)))
             self.speedCount += 1
-            self.totalSpeed.accept(self.totalSpeed.value + (Double(moveDistance * 3600)))
+            self.totalSpeed.accept(Speed(value: Double(moveDistance * 3600)))
+            
         }
     }
     
@@ -116,7 +116,7 @@ class RecordViewModel: NSObject {
     
     func showSaveRecordView() {
         let runningPath = route.value.map { $0.coordinate }.map { RunningRoute(longitude: $0.longitude, latitude: $0.latitude) }
-        let runningRecord = RunningRecord(date: startDate, goalDistance: goalDistance.value, goalTime: goalTime.totalSecond, runningDistance: runningDistance.value.value, runningTime: runningTime.value.totalSecond, averageSpeed: totalSpeed.value / Double(speedCount), runningPath: runningPath, imageRecords: imageList)
+        let runningRecord = RunningRecord(date: startDate, goalDistance: goalDistance.value, goalTime: goalTime.totalSecond, runningDistance: runningDistance.value.value, runningTime: runningTime.value.totalSecond, averageSpeed: 0, runningPath: runningPath, imageRecords: imageList)
         actions.showSaveRunningRecordView(runningRecord)
     }
     

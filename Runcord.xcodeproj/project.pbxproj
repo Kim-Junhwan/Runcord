@@ -74,6 +74,7 @@
 		C7B3DA532A0BD4C000B370B6 /* CustomRouteMapImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3DA522A0BD4C000B370B6 /* CustomRouteMapImageView.swift */; };
 		C7BA067C29A25AF100D2227A /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C7BA067B29A25AF100D2227A /* NotoSansKR-Bold.otf */; };
 		C7BA067E29A25B6B00D2227A /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C7BA067D29A25B6B00D2227A /* NotoSansKR-Medium.otf */; };
+		C7C5934F2A55C3A80011A6DB /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C5934E2A55C3A80011A6DB /* Speed.swift */; };
 		C7DCA6FD2A19FF2D00B419BA /* DetailRunningRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA6FC2A19FF2D00B419BA /* DetailRunningRecordView.swift */; };
 		C7DCA6FF2A19FF5700B419BA /* DetailRunningRecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7DCA6FE2A19FF5700B419BA /* DetailRunningRecordView.xib */; };
 		C7DCA7022A1A1DD100B419BA /* DetailRunninRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA7012A1A1DD100B419BA /* DetailRunninRecordViewController.swift */; };
@@ -194,6 +195,7 @@
 		C7B3DA522A0BD4C000B370B6 /* CustomRouteMapImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRouteMapImageView.swift; sourceTree = "<group>"; };
 		C7BA067B29A25AF100D2227A /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		C7BA067D29A25B6B00D2227A /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		C7C5934E2A55C3A80011A6DB /* Speed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speed.swift; sourceTree = "<group>"; };
 		C7DCA6FC2A19FF2D00B419BA /* DetailRunningRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRunningRecordView.swift; sourceTree = "<group>"; };
 		C7DCA6FE2A19FF5700B419BA /* DetailRunningRecordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRunningRecordView.xib; sourceTree = "<group>"; };
 		C7DCA7012A1A1DD100B419BA /* DetailRunninRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRunninRecordViewController.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 			children = (
 				C7480F372A42A8D700256952 /* Time.swift */,
 				C7480F392A42B13800256952 /* Distance.swift */,
+				C7C5934E2A55C3A80011A6DB /* Speed.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1229,6 +1232,7 @@
 				C79608B52A1FAB6D0021E619 /* RunningRecordUseCase.swift in Sources */,
 				C724D7022A1FC521004DD422 /* DefaultRunningRecordRepository.swift in Sources */,
 				C7DE67F62998E4D300C824A9 /* TabBarCoordinator.swift in Sources */,
+				C7C5934F2A55C3A80011A6DB /* Speed.swift in Sources */,
 				C751528029B79981003D8987 /* SaveRecordRunningViewController.swift in Sources */,
 				C7480F3D2A42FCC700256952 /* TimeFormatType.swift in Sources */,
 				C7A5AFEA29D6A34E00E4D851 /* AuthorizationManager.swift in Sources */,

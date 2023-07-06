@@ -180,7 +180,7 @@ class RecordViewController: UIViewController {
         }).disposed(by: disposeBag)
 
         viewModel.averageSpeedDriver
-            .map({ String(format: "%.2f", $0) })
+            .map({ String(format: "%.2f", $0.value) })
             .drive(recordRunningView.averageSpeedLabel.rx.text).disposed(by: disposeBag)
     }
     
