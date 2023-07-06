@@ -47,7 +47,11 @@ class RecordViewModel: NSObject {
     private var speedCount = 0
     private let currentSpeed: BehaviorRelay<Speed> = BehaviorRelay(value: Speed.zero)
     var averageSpeedDriver: Driver<Speed> {
-        return currentSpeed.scan(Speed.zero){ $0 + $1 }.map{ Speed(value: $0.value / Double(self.speedCount)) }.asDriver(onErrorJustReturn: Speed.zero)
+        return currentSpeed.scan(Speed.zero){ $0 + $1 }.map{
+            if self.speedCount == 0 {
+                return Speed.zero
+            }
+            return Speed(value: $0.value / Double(self.speedCount)) }.asDriver(onErrorJustReturn: Speed.zero)
     }
     
     // MARK: - Taked Imagies
