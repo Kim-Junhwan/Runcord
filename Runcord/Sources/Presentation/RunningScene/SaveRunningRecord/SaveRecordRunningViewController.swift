@@ -10,6 +10,10 @@ import CoreLocation
 
 class SaveRecordRunningViewController: DetailRunningRecordBaseViewController, Alertable {
     
+    private enum Metric {
+        static let buttonHeight: Double = 50.0
+    }
+    
     private enum Title {
         static let closeAlertTitle: String = "러닝이 저장되지 않습니다"
         static let closeAlertMessage: String = "해당 러닝 기록을 저장하지 않습니다."
@@ -22,7 +26,7 @@ class SaveRecordRunningViewController: DetailRunningRecordBaseViewController, Al
     lazy var saveButton: RunningSaveButton = {
         let button = RunningSaveButton()
         button.addTarget(self, action: #selector(tapSaveButton), for: .touchUpInside)
-        button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        button.heightAnchor.constraint(equalToConstant: Metric.buttonHeight).isActive = true
         return button
     }()
     
