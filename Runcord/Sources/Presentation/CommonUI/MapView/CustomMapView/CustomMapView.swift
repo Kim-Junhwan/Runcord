@@ -71,6 +71,18 @@ class CustomMapView: UIView {
         return CLLocationCoordinate2D(latitude: centerLat, longitude: centerLon)
     }
     
+    func mapViewIsZoomEnabled(_ bool: Bool) {
+        mapView.isZoomEnabled = bool
+    }
+    
+    func mapViewIsScroolEnabled(_ bool: Bool) {
+        mapView.isScrollEnabled = bool
+    }
+    
+    func mapViewSetUserTrackingMode() {
+        mapView.setUserTrackingMode(.follow, animated: false)
+    }
+    
 }
 
 extension CustomMapView: MKMapViewDelegate {

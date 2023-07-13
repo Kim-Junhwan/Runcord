@@ -96,9 +96,9 @@ class RecordViewController: UIViewController {
     // MARK: - Set MapView
     private func setMapView() {
         setMapViewTabGesture()
-        runningMapView.mapView.isScrollEnabled = false
-        runningMapView.mapView.isZoomEnabled = false
-        runningMapView.mapView.setUserTrackingMode(.follow, animated: true)
+        runningMapView.mapViewIsScroolEnabled(false)
+        runningMapView.mapViewIsZoomEnabled(false)
+        runningMapView.mapViewSetUserTrackingMode()
         view.addSubview(runningMapView)
         NSLayoutConstraint.activate([
             runningMapView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -128,8 +128,8 @@ class RecordViewController: UIViewController {
         transition.dismissCompletion = { [weak self] in
             guard let self = self else { return }
             self.runningMapView.removeConstraints(runningMapView.constraints)
-            self.runningMapView.mapView.isScrollEnabled = false
-            self.runningMapView.mapView.isZoomEnabled = false
+            self.runningMapView.mapViewIsZoomEnabled(false)
+            self.runningMapView.mapViewIsScroolEnabled(false)
             self.view.addSubview(runningMapView)
             NSLayoutConstraint.activate([
                 runningMapView.topAnchor.constraint(equalTo: view.topAnchor),
