@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol RecordRunningViewDelegate: AnyObject {
+    func completeRunning()
+    func playOrPauseAction()
+}
+
 class RecordRunningView: UIView {
     
     @IBOutlet weak var pauseAndPlayButton: UIButton!
@@ -16,6 +21,8 @@ class RecordRunningView: UIView {
     @IBOutlet weak var goalDistanceProgressView: GoalProcessView!
     @IBOutlet weak var goalTimeProgressView: GoalProcessView!
     @IBOutlet weak var averageSpeedLabel: UILabel!
+    
+    weak var delegate: RecordRunningViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,5 +70,20 @@ class RecordRunningView: UIView {
     
     func setButtonPauseImage() {
         pauseAndPlayButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+    }
+    
+    func setCompleteButtonDelay(delayTime: Double) {
+        completeButton.duringGestureTime = delayTime
+    }
+    
+    
+    @IBAction func playAndPauseButtonAction(_ sender: UIButton) {
+        delegate?.playOrPauseAction()
+    }
+}
+
+extension RecordRunningView: PressGestureButtonDelegate {
+    func animationComplete() {
+        delegate?.completeRunning()
     }
 }

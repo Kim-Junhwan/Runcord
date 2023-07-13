@@ -18,7 +18,7 @@ class RecordViewController: UIViewController {
     
     private enum AnimationMetric {
         static let mapAnimationTime: CGFloat = 0.2
-        static let completeButtonGestureTime: Int = 2
+        static let completeButtonDelayTime: Double = 2.0
     }
     
     private let recordRunningView: RecordRunningView = {
@@ -88,9 +88,8 @@ class RecordViewController: UIViewController {
             recordRunningView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             recordRunningView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        recordRunningView.completeButton.delegate = self
-        recordRunningView.completeButton.duringGestureTime = AnimationMetric.completeButtonGestureTime
-        recordRunningView.pauseAndPlayButton.addTarget(self, action: #selector(playOrPauseButtonAction), for: .touchUpInside)
+        recordRunningView.delegate = self
+        recordRunningView.setCompleteButtonDelay(delayTime: AnimationMetric.completeButtonDelayTime)
     }
     
     // MARK: - Set MapView
@@ -188,15 +187,7 @@ class RecordViewController: UIViewController {
     
     // MARK: - Action Method
     @objc private func playOrPauseButtonAction() {
-        if viewModel.isRunning {
-            viewModel.stopTimer()
-            showPauseStatusView {
-                self.runningMapView.mapView.setUserTrackingMode(.follow, animated: true)
-            }
-            return
-        }
-        viewModel.startTimer()
-        showPlayStatusView()
+        
     }
     
     private func showPauseStatusView( completion: @escaping () -> Void) {
@@ -238,10 +229,25 @@ extension RecordViewController: UIViewControllerTransitioningDelegate {
     }
 }
 
-extension RecordViewController: PressGestureButtonDelegate {
-    func animationComplete() {
+extension RecordViewController: RecordRunningViewDelegate {
+    
+    func completeRunning() {
         dismiss(animated: false) {
             self.viewModel.showSaveRecordView()
         }
+    }
+    
+    func playOrPauseAction() {
+        if viewModel.isRunning {
+            recordRunningView.setButtonPlayImage()
+            viewModel.stopTimer()
+            showPauseStatusView {
+                self.runningMapView.mapView.setUserTrackingMode(.follow, animated: true)
+            }
+            return
+        }
+        recordRunningView.setButtonPauseImage()
+        viewModel.startTimer()
+        showPlayStatusView()
     }
 }

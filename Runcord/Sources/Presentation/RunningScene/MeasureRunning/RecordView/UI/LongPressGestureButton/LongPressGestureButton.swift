@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol PressGestureButtonDelegate {
+protocol PressGestureButtonDelegate: AnyObject {
     func animationComplete()
 }
 
@@ -26,14 +26,14 @@ class LongPressGestureButton: UIButton, CAAnimationDelegate {
         static let end: Float = 1.0
     }
     
-    var delegate: PressGestureButtonDelegate?
+    weak var delegate: PressGestureButtonDelegate?
     
     let sliceLayer = CAShapeLayer()
-    var duringGestureTime: Int?
+    var duringGestureTime: Double?
     var startEngle: CGFloat = GestureMetric.startEngle
     var endAngle: CGFloat = GestureMetric.endEngle
     
-    init(gestureTime: Int) {
+    init(gestureTime: Double) {
         self.duringGestureTime = gestureTime
         super.init(frame: .zero)
         setUp()

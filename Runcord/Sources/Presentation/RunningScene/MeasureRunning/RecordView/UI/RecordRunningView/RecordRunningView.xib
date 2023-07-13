@@ -153,6 +153,9 @@
                                                                 <imageReference key="image" image="pause.fill" catalog="system" symbolScale="default"/>
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="44"/>
                                                             </buttonConfiguration>
+                                                            <connections>
+                                                                <action selector="playAndPauseButtonAction:" destination="-1" eventType="touchUpInside" id="aYb-qK-BP3"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhY-E1-NUR" customClass="LongPressGestureButton" customModule="Runcord" customModuleProvider="target">
                                                             <rect key="frame" x="145" y="0.0" width="90" height="90"/>
