@@ -37,6 +37,7 @@ class RecordRunningView: UIView {
     private func commonInit() {
         guard let view = Bundle.main.loadNibNamed("RecordRunningView", owner: self, options: nil)?.first as? UIView else { return }
         view.frame = bounds
+        completeButton.delegate = self
         addSubview(view)
     }
     
@@ -75,7 +76,6 @@ class RecordRunningView: UIView {
     func setCompleteButtonDelay(delayTime: Double) {
         completeButton.duringGestureTime = delayTime
     }
-    
     
     @IBAction func playAndPauseButtonAction(_ sender: UIButton) {
         delegate?.playOrPauseAction()
