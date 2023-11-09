@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSMotionUsageDescription</key>
+	<string>보다 정확한 러닝 측저을 위해 해당 디바이스의 모션 장치를 사용합니다.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>카메라를 사용합니다.</string>
 	<key>UIAppFonts</key>
