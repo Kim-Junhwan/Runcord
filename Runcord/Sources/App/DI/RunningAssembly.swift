@@ -7,6 +7,7 @@
 
 import Swinject
 import CoreLocation
+import CoreMotion
 
 struct RunningAssembly: Assembly {
     func assemble(container: Container) {
@@ -14,9 +15,14 @@ struct RunningAssembly: Assembly {
             return DefaultLocationService(locationManager: CLLocationManager())
         }.inObjectScope(.container)
         
+        container.register(CMMotionActivityManager.self) { _ in
+            return CMMotionActivityManager()
+        }.inObjectScope(.container)
+        
         container.register(RunningStartViewController.self) { resolver, actions in
             let locationService = resolver.resolve(LocationService.self)!
-            return RunningStartViewController(viewModel: RunningStartViewModel(actions: actions), locationService: locationService)
+            let activityManager = resolver.resolve(CMMotionActivityManager.self)!
+            return RunningStartViewController(viewModel: RunningStartViewModel(actions: actions), locationService: locationService, activityManager: activityManager)
         }
         
         container.register(SaveRecordRunningViewController.self) { resolver, runningRecord in

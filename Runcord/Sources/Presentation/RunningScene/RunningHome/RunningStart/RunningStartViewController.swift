@@ -5,17 +5,19 @@
 //  Created by JunHwan Kim on 2023/03/30.
 //
 
+import CoreMotion
 import UIKit
 import MapKit
 import RxSwift
 
-class RunningStartViewController: UIViewController, LocationAlertable {
+class RunningStartViewController: UIViewController, LocationAlertable, ActivityAlertable{
     
     private enum StringFormat {
         static let timeFormat: String = "%02d"
     }
     
-    var locationService: LocationService
+    let locationService: LocationService
+    let activityManager: CMMotionActivityManager
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var goalStackView: UIStackView!
@@ -35,6 +37,7 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         setGoalView()
         bind()
         setLocationManager()
+        checkActivityMotionAuthorization {}
     }
     
     func setLocationManager() {
@@ -61,9 +64,10 @@ class RunningStartViewController: UIViewController, LocationAlertable {
         }.disposed(by: disposeBag)
     }
     
-    init(viewModel: RunningStartViewModel, locationService: LocationService) {
+    init(viewModel: RunningStartViewModel, locationService: LocationService, activityManager: CMMotionActivityManager) {
         self.viewModel = viewModel
         self.locationService = locationService
+        self.activityManager = activityManager
         super.init(nibName: String(describing: RunningStartViewController.self), bundle: nil)
     }
 
@@ -87,7 +91,9 @@ class RunningStartViewController: UIViewController, LocationAlertable {
     
     @IBAction func tabStartButton(_ sender: Any) {
         checkLocationAuthorization {
-            viewModel.presentRecordView()
+            checkActivityMotionAuthorization {
+                viewModel.presentRecordView()
+            }
         }
     }
     

@@ -93,6 +93,7 @@
 		C7ECCB772A1495B200E81AB0 /* RunningRecordStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB762A1495B200E81AB0 /* RunningRecordStorage.swift */; };
 		C7ECCB7A2A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB792A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift */; };
 		C7ECCB7D2A160B9D00E81AB0 /* RunningRecordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ECCB7C2A160B9D00E81AB0 /* RunningRecordListViewModel.swift */; };
+		C7F3B8632B00F47A009E7585 /* MotionAlertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F3B8622B00F47A009E7585 /* MotionAlertable.swift */; };
 		C7F95B2E29AF803200C69D1B /* RunningStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F95B2D29AF803200C69D1B /* RunningStartViewModel.swift */; };
 		D3BF4C1EAF7E2662EFB5DD5C /* Pods_RuncordTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F4E49B23A18F2DB926C672 /* Pods_RuncordTests.framework */; };
 /* End PBXBuildFile section */
@@ -215,6 +216,7 @@
 		C7ECCB762A1495B200E81AB0 /* RunningRecordStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordStorage.swift; sourceTree = "<group>"; };
 		C7ECCB792A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunningRecordEntity+Mapping.swift"; sourceTree = "<group>"; };
 		C7ECCB7C2A160B9D00E81AB0 /* RunningRecordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningRecordListViewModel.swift; sourceTree = "<group>"; };
+		C7F3B8622B00F47A009E7585 /* MotionAlertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionAlertable.swift; sourceTree = "<group>"; };
 		C7F95B2D29AF803200C69D1B /* RunningStartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningStartViewModel.swift; sourceTree = "<group>"; };
 		C8E83F46D38D17331033544B /* Pods-RunningCrew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningCrew.release.xcconfig"; path = "Target Support Files/Pods-RunningCrew/Pods-RunningCrew.release.xcconfig"; sourceTree = "<group>"; };
 		D0BCB0478C25AB8849DDAF93 /* Pods-RunningCrewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningCrewTests.release.xcconfig"; path = "Target Support Files/Pods-RunningCrewTests/Pods-RunningCrewTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -639,6 +641,7 @@
 		C7811F7829A258CE00801E6B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C7F3B8612B00D152009E7585 /* ActivityService */,
 				C70792D72A215C9F005236DF /* App */,
 				C7DE67EF2998DF5D00C824A9 /* Common */,
 				C79608B62A1FAE380021E619 /* Data */,
@@ -736,6 +739,7 @@
 				C7A5AFE729D69F7900E4D851 /* AuthorizationAlertable.swift */,
 				C7A5AFE929D6A34E00E4D851 /* AuthorizationManager.swift */,
 				C7A5AFEC29D6ADB400E4D851 /* LocationAlertable.swift */,
+				C7F3B8622B00F47A009E7585 /* MotionAlertable.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -905,6 +909,13 @@
 				C7ECCB7C2A160B9D00E81AB0 /* RunningRecordListViewModel.swift */,
 			);
 			path = RunningRecordListViewModel;
+			sourceTree = "<group>";
+		};
+		C7F3B8612B00D152009E7585 /* ActivityService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ActivityService;
 			sourceTree = "<group>";
 		};
 		C7F95B2B29AF7F8A00C69D1B /* RunningStart */ = {
@@ -1232,6 +1243,7 @@
 				C7ECCB752A148A8600E81AB0 /* CoreDataStorage.swift in Sources */,
 				C751527C29B34224003D8987 /* RecordViewModel.swift in Sources */,
 				C7F95B2E29AF803200C69D1B /* RunningStartViewModel.swift in Sources */,
+				C7F3B8632B00F47A009E7585 /* MotionAlertable.swift in Sources */,
 				C79608B52A1FAB6D0021E619 /* RunningRecordUseCase.swift in Sources */,
 				C724D7022A1FC521004DD422 /* DefaultRunningRecordRepository.swift in Sources */,
 				C7DE67F62998E4D300C824A9 /* TabBarCoordinator.swift in Sources */,
