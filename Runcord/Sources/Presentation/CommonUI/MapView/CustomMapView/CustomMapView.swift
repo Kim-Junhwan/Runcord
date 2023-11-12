@@ -92,6 +92,8 @@ extension CustomMapView: MKMapViewDelegate {
         let renderer = MKPolylineRenderer(polyline: polyLine)
         renderer.strokeColor = .tabBarSelect
         renderer.lineWidth = OverlayMetric.runningRouteWidth
+        renderer.lineJoin = .round
+        renderer.lineCap = .round
         renderer.alpha = OverlayMetric.runningRouteAlpha
         return renderer
     }

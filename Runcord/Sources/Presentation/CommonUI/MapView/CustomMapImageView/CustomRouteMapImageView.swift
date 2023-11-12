@@ -32,6 +32,8 @@ class CustomRouteMapImageView: UIImageView {
                     path.addLine(to: point)
                 }
                 path.lineWidth = OverlayMetric.runningRouteWidth
+                path.lineCapStyle = .round
+                path.lineJoinStyle = .round
                 UIColor.tabBarSelect.setStroke()
                 path.stroke()
             }
