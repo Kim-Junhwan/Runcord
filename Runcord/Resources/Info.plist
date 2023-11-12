@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSMotionUsageDescription</key>
-	<string>앱이 정확한 러닝 데이터를 측정하기 위해 기기의 센서를 활용합니다. 해당 데이터는 러닝 데이터를 저장 및 경로 및 사진의 위치를 표시하기위해 사용되며, 로컬 데이터 베이스에 저장됩니다.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>사진을 촬영하여 첨부 및 지도에 표시하는 기능 사용을 위해 카메라를 사용 할 수 있도록 허용합니다.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>NotoSansKR-Bold.otf</string>

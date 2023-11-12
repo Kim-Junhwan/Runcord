@@ -1426,15 +1426,14 @@
 				DEVELOPMENT_TEAM = SBAHW5F54N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Runcord/Resources/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "사진을 촬영하여 게시물에 사진을 첨부하는 기능 사용을 위해 카메라에 접근하도록 허용합니다.";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자의 위치를 받습니다.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진을 촬영하여 게시물에 사진을 첨부하는 기능 사용을 위해 사진 라이브러리에 접근하도록 허용합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "러닝데이터 측정을 위해 위치데이터를 활용합니다. 러닝 경로, 속도, 달린 거리를 측정하기위해 데이터가 사용되며, 데이터는 해당 기기에 저장됩니다.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "앱이 정확한 러닝 데이터를 측정하기 위해 기기의 센서를 활용합니다. 해당 데이터는 러닝 데이터를 저장 및 경로 및 사진의 위치를 표시하기위해 사용되며, 로컬 데이터 베이스에 저장됩니다";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진을 촬영하여 게시물에 사진을 첨부하는 기능 사용을 위해 사진 라이브러리에 접근하도록 허용합니다";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1443,9 +1442,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kimjunhwan.Runcord;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1460,15 +1462,14 @@
 				DEVELOPMENT_TEAM = SBAHW5F54N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Runcord/Resources/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "사진을 촬영하여 게시물에 사진을 첨부하는 기능 사용을 위해 카메라에 접근하도록 허용합니다.";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "사용자의 위치를 받습니다.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치를 받습니다.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진을 촬영하여 게시물에 사진을 첨부하는 기능 사용을 위해 사진 라이브러리에 접근하도록 허용합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "러닝데이터 측정을 위해 위치데이터를 활용합니다. 러닝 경로, 속도, 달린 거리를 측정하기위해 데이터가 사용되며, 데이터는 해당 기기에 저장됩니다.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "앱이 정확한 러닝 데이터를 측정하기 위해 기기의 센서를 활용합니다. 해당 데이터는 러닝 데이터를 저장 및 경로 및 사진의 위치를 표시하기위해 사용되며, 로컬 데이터 베이스에 저장됩니다";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진을 촬영하여 게시물에 사진을 첨부하는 기능 사용을 위해 사진 라이브러리에 접근하도록 허용합니다";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1477,9 +1478,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kimjunhwan.Runcord;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
