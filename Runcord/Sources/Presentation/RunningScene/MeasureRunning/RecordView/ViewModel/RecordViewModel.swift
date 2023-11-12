@@ -73,6 +73,9 @@ class RecordViewModel: NSObject {
     // MARK: - Timer Method
     func startTimer() {
         isRunning = true
+        if timer != nil {
+            timer?.invalidate()
+        }
         timer = Timer.scheduledTimer(timeInterval: Metric.timerDelayTime, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
     }
     
