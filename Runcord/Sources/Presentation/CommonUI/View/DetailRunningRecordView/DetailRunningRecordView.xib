@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -47,7 +47,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="449" height="974"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zla-Kn-EEW">
-                            <rect key="frame" x="24" y="0.0" width="395" height="801.66666666666663"/>
+                            <rect key="frame" x="24" y="0.0" width="395" height="830.66666666666663"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="t7z-HY-LLr">
                                     <rect key="frame" x="0.0" y="0.0" width="395" height="40"/>
@@ -146,7 +146,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="0HU-Wk-F9V">
-                                    <rect key="frame" x="0.0" y="50" width="395" height="751.66666666666663"/>
+                                    <rect key="frame" x="0.0" y="50" width="395" height="780.66666666666663"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="teX-5C-beC">
                                             <rect key="frame" x="0.0" y="0.0" width="192.66666666666666" height="140"/>
@@ -310,15 +310,29 @@
                                                 </stackView>
                                             </subviews>
                                         </stackView>
-                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tXr-TM-7iI" customClass="CustomRouteMapImageView" customModule="Runcord" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="356.66666666666674" width="395" height="395"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1eu-cx-aBL">
+                                            <rect key="frame" x="0.0" y="356.66666666666674" width="395" height="424"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지도를 클릭해서 찍은 사진을 확인 할 수 있습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Or7-Cu-ZzA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="395" height="19"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="13"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tXr-TM-7iI" customClass="CustomRouteMapImageView" customModule="Runcord" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="29" width="395" height="395"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="tXr-TM-7iI" secondAttribute="height" multiplier="1:1" id="GLA-U9-OOW"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="tXr-TM-7iI" secondAttribute="height" multiplier="1:1" id="GLA-U9-OOW"/>
+                                                <constraint firstItem="tXr-TM-7iI" firstAttribute="width" secondItem="1eu-cx-aBL" secondAttribute="width" id="JpU-Kg-Ioj"/>
                                             </constraints>
-                                        </imageView>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="tXr-TM-7iI" firstAttribute="width" secondItem="0HU-Wk-F9V" secondAttribute="width" id="U5i-C9-eAL"/>
+                                        <constraint firstItem="1eu-cx-aBL" firstAttribute="width" secondItem="0HU-Wk-F9V" secondAttribute="width" id="E8i-HD-Wa1"/>
                                         <constraint firstItem="Qbn-S2-cLB" firstAttribute="leading" secondItem="0HU-Wk-F9V" secondAttribute="leading" id="mk4-VZ-Tad"/>
                                     </constraints>
                                 </stackView>
