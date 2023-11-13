@@ -39,6 +39,8 @@ class RunningStartViewModel {
         }
     }
     
+    var locationEnable: Bool = false
+    
     init(actions: RunningStartViewModelActions) {
         self.actions = actions
     }

@@ -12,6 +12,11 @@ import RxSwift
 
 class RunningStartViewController: UIViewController, LocationAlertable, ActivityAlertable{
     
+    private enum NonLocationIssueAlertMessage {
+        static let title = "위치를 확인 할 수 없습니다"
+        static let message = "현재 사용자의 위치를 확인 할 수 없습니다. 다시 시도해주십시오"
+    }
+    
     private enum StringFormat {
         static let timeFormat: String = "%02d"
     }
@@ -44,6 +49,7 @@ class RunningStartViewController: UIViewController, LocationAlertable, ActivityA
         switch locationService.getAuthorizationStatus() {
         case .hasAuthorization:
             setMapUserTracking()
+            locationService.requestLocation()
         case .notYet:
             locationService.requestAuthorization()
         default:
@@ -52,6 +58,14 @@ class RunningStartViewController: UIViewController, LocationAlertable, ActivityA
     }
     
     private func bind() {
+        locationService.locationError.subscribe(with: self) { owner, _ in
+            owner.viewModel.locationEnable = false
+        }.disposed(by: disposeBag)
+        
+        locationService.currentLocationSubject.subscribe(with: self) { owner, _ in
+            owner.viewModel.locationEnable = true
+        }.disposed(by: disposeBag)
+        
         viewModel.goalDistance.subscribe { distance in
             guard let distance = distance.element else { return }
             self.goalDistanceLabel.text = distance.formattedDistanceToString(type: .defaultFormat)
@@ -92,6 +106,10 @@ class RunningStartViewController: UIViewController, LocationAlertable, ActivityA
     @IBAction func tabStartButton(_ sender: Any) {
         checkLocationAuthorization {
             checkActivityMotionAuthorization {
+                if !viewModel.locationEnable {
+                    showIssueAlert(title: NonLocationIssueAlertMessage.title, message: NonLocationIssueAlertMessage.message)
+                    return
+                }
                 viewModel.presentRecordView()
             }
         }

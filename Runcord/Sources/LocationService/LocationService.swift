@@ -6,11 +6,11 @@
 //
 
 import CoreLocation
-import CoreMotion
 import RxSwift
 
 protocol LocationService: AuthorizationManager {
     var currentLocationSubject: BehaviorSubject<CLLocation?> { get }
+    var locationError: PublishSubject<Error> { get }
     var locationAuthorizationSubject: BehaviorSubject<CLAuthorizationStatus> { get }
     func requestLocation()
     func stopUpdateLocation()
@@ -19,7 +19,6 @@ protocol LocationService: AuthorizationManager {
 final class DefaultLocationService: NSObject, LocationService {
     
     private let locationManager: CLLocationManager
-    private let motionManager = CMMotionActivityManager()
     
     init(locationManager: CLLocationManager) {
         self.locationManager = locationManager
@@ -30,6 +29,7 @@ final class DefaultLocationService: NSObject, LocationService {
     }
     
     let currentLocationSubject: BehaviorSubject<CLLocation?> = BehaviorSubject(value: nil)
+    var locationError: PublishSubject<Error> = .init()
     let locationAuthorizationSubject: BehaviorSubject<CLAuthorizationStatus> = BehaviorSubject(value: .denied)
     
     func requestLocation() {
@@ -51,6 +51,7 @@ final class DefaultLocationService: NSObject, LocationService {
     
     func requestAuthorization() {
         locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     func stopUpdateLocation() {
@@ -62,26 +63,11 @@ extension DefaultLocationService: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentLocation = locations.last else { return }
-        motionManager.startActivityUpdates(to: .main) { [weak self] activity in
-            guard let activity = activity else { return }
-            print(activity.running)
-            print(activity.walking)
-            if activity.running || activity.walking{
-                if !activity.stationary {
-                    self?.locationManager.startUpdatingLocation()
-                    self?.currentLocationSubject.onNext(currentLocation)
-                } else {
-                    self?.locationManager.stopUpdatingLocation()
-                }
-            } else {
-                self?.locationManager.stopUpdatingLocation()
-            }
-        }
-        
+        currentLocationSubject.onNext(currentLocation)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        currentLocationSubject.onError(error)
+        locationError.onNext(error)
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {

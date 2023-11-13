@@ -18,4 +18,11 @@ extension Alertable where Self: UIViewController {
         alert.addAction(defaultAction)
         self.present(alert, animated: true)
     }
+    
+    func showIssueAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(ok)
+        self.present(alert, animated: true)
+    }
 }
