@@ -53,10 +53,6 @@ class RecordViewController: UIViewController {
         bind()
         setMapViewDismissCompletion()
         setReadyViewLayout()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         readyView.startPrepare(completion: startMeasureRunning)
         recordRunningView.setGoalTimeProgressBar(goalTime: viewModel.goalTime)
         recordRunningView.setGoalDistanceProgressBar(goalDistance: viewModel.goalDistance)
