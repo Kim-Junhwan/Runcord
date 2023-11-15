@@ -15,13 +15,13 @@ struct RunningAssembly: Assembly {
             return DefaultLocationService(locationManager: CLLocationManager())
         }.inObjectScope(.container)
         
-        container.register(CMMotionActivityManager.self) { _ in
-            return CMMotionActivityManager()
+        container.register(MotionService.self) { _ in
+            return CMMotionActivityManagerMotionService()
         }.inObjectScope(.container)
         
         container.register(RunningStartViewController.self) { resolver, actions in
             let locationService = resolver.resolve(LocationService.self)!
-            let activityManager = resolver.resolve(CMMotionActivityManager.self)!
+            let activityManager = resolver.resolve(MotionService.self)!
             return RunningStartViewController(viewModel: RunningStartViewModel(actions: actions), locationService: locationService, activityManager: activityManager)
         }
         

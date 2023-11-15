@@ -61,7 +61,7 @@ class RecordViewModel: NSObject {
     
     let disposeBag = DisposeBag()
     
-    init(goalTime: Time, goalDistance: Distance, locationService: LocationService, actions: RecordViewModelActions) {
+    init(goalTime: Time, goalDistance: Distance, locationService: LocationService , actions: RecordViewModelActions) {
         self.goalTime = goalTime
         self.goalDistance = goalDistance
         self.locationService = locationService

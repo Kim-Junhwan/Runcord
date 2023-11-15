@@ -70,6 +70,7 @@
 		C7A5AFE829D69F7900E4D851 /* AuthorizationAlertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5AFE729D69F7900E4D851 /* AuthorizationAlertable.swift */; };
 		C7A5AFEA29D6A34E00E4D851 /* AuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5AFE929D6A34E00E4D851 /* AuthorizationManager.swift */; };
 		C7A5AFED29D6ADB400E4D851 /* LocationAlertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5AFEC29D6ADB400E4D851 /* LocationAlertable.swift */; };
+		C7A936722B050A9500E2EA8B /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A936712B050A9500E2EA8B /* MotionService.swift */; };
 		C7AD00EC29D1E1A6001D275E /* DesignedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AD00EB29D1E1A6001D275E /* DesignedTabBarController.swift */; };
 		C7B3DA532A0BD4C000B370B6 /* CustomRouteMapImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B3DA522A0BD4C000B370B6 /* CustomRouteMapImageView.swift */; };
 		C7BA067C29A25AF100D2227A /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C7BA067B29A25AF100D2227A /* NotoSansKR-Bold.otf */; };
@@ -193,6 +194,7 @@
 		C7A5AFE729D69F7900E4D851 /* AuthorizationAlertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationAlertable.swift; sourceTree = "<group>"; };
 		C7A5AFE929D6A34E00E4D851 /* AuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationManager.swift; sourceTree = "<group>"; };
 		C7A5AFEC29D6ADB400E4D851 /* LocationAlertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAlertable.swift; sourceTree = "<group>"; };
+		C7A936712B050A9500E2EA8B /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
 		C7AD00EB29D1E1A6001D275E /* DesignedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignedTabBarController.swift; sourceTree = "<group>"; };
 		C7B3DA522A0BD4C000B370B6 /* CustomRouteMapImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRouteMapImageView.swift; sourceTree = "<group>"; };
 		C7BA067B29A25AF100D2227A /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
@@ -641,11 +643,11 @@
 		C7811F7829A258CE00801E6B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C7F3B8612B00D152009E7585 /* ActivityService */,
 				C70792D72A215C9F005236DF /* App */,
 				C7DE67EF2998DF5D00C824A9 /* Common */,
 				C79608B62A1FAE380021E619 /* Data */,
 				C79608AF2A1F9FB00021E619 /* Domain */,
+				C7A936702B050A8100E2EA8B /* MotionService */,
 				C72B3BD92A0109E90051EB61 /* LocationService */,
 				C7DE67EE2998DF2900C824A9 /* Presentation */,
 				C7DE67F02998DF6300C824A9 /* TabBar */,
@@ -742,6 +744,14 @@
 				C7F3B8622B00F47A009E7585 /* MotionAlertable.swift */,
 			);
 			path = Authorization;
+			sourceTree = "<group>";
+		};
+		C7A936702B050A8100E2EA8B /* MotionService */ = {
+			isa = PBXGroup;
+			children = (
+				C7A936712B050A9500E2EA8B /* MotionService.swift */,
+			);
+			path = MotionService;
 			sourceTree = "<group>";
 		};
 		C7AD00EA29D1E175001D275E /* DesignedTabBar */ = {
@@ -909,13 +919,6 @@
 				C7ECCB7C2A160B9D00E81AB0 /* RunningRecordListViewModel.swift */,
 			);
 			path = RunningRecordListViewModel;
-			sourceTree = "<group>";
-		};
-		C7F3B8612B00D152009E7585 /* ActivityService */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ActivityService;
 			sourceTree = "<group>";
 		};
 		C7F95B2B29AF7F8A00C69D1B /* RunningStart */ = {
@@ -1195,6 +1198,7 @@
 			files = (
 				C75DECFA29AE7E7D00A4EC47 /* RecordViewController.swift in Sources */,
 				C7ECCB7D2A160B9D00E81AB0 /* RunningRecordListViewModel.swift in Sources */,
+				C7A936722B050A9500E2EA8B /* MotionService.swift in Sources */,
 				C7ECCB7A2A14AFE500E81AB0 /* RunningRecordEntity+Mapping.swift in Sources */,
 				C7A5AFE829D69F7900E4D851 /* AuthorizationAlertable.swift in Sources */,
 				C7DE67FD2999301800C824A9 /* RunningCoordinator.swift in Sources */,

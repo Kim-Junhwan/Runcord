@@ -22,7 +22,7 @@ class RunningStartViewController: UIViewController, LocationAlertable, ActivityA
     }
     
     let locationService: LocationService
-    let activityManager: CMMotionActivityManager
+    var activityManager: MotionService
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var goalStackView: UIStackView!
@@ -78,7 +78,7 @@ class RunningStartViewController: UIViewController, LocationAlertable, ActivityA
         }.disposed(by: disposeBag)
     }
     
-    init(viewModel: RunningStartViewModel, locationService: LocationService, activityManager: CMMotionActivityManager) {
+    init(viewModel: RunningStartViewModel, locationService: LocationService, activityManager: MotionService) {
         self.viewModel = viewModel
         self.locationService = locationService
         self.activityManager = activityManager
