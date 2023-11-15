@@ -171,9 +171,7 @@ class RecordViewController: UIViewController {
             .disposed(by: disposeBag)
 
         viewModel.routeDriver.drive(onNext: { route in
-            if let lastCoordinate = route.first, let currentCoordinate = route.last {
-                self.runningMapView.mapView.updateUserRoute(lastCoordinate: lastCoordinate, newCoordinate: currentCoordinate)
-            }
+            self.runningMapView.drawRoute(routeList: route.map{$0.coordinate})
         }).disposed(by: disposeBag)
 
         viewModel.averageSpeedDriver

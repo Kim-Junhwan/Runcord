@@ -41,8 +41,6 @@ class RecordViewModel: NSObject {
     private let route: BehaviorRelay<[CLLocation]> = BehaviorRelay(value: [])
     var routeDriver: Driver<[CLLocation]> {
         return route
-            .filter { $0.count >= 2 }
-            .map { $0.suffix(2) }
             .asDriver(onErrorJustReturn: [])
     }
     

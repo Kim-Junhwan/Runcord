@@ -38,6 +38,11 @@ class CustomMapView: UIView {
     }
     
     func drawRoute(routeList: [CLLocationCoordinate2D]) {
+        guard let polyline = mapView.overlays.first(where: { $0 is MKPolyline }) else {
+            mapView.drawRoute(routeCoordinators: routeList)
+            return
+        }
+        mapView.removeOverlay(polyline)
         mapView.drawRoute(routeCoordinators: routeList)
     }
     
