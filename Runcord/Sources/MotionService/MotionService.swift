@@ -16,13 +16,21 @@ enum RunningState {
 
 protocol MotionService: AuthorizationManager {
     var userMoveStateSubject: PublishSubject<RunningState> { get }
+    var moveDistance: PublishSubject<Double> { get }
+    var averageSpeed: PublishSubject<Double> { get }
+    func startActivityUpdate()
 }
 
 final class CMMotionActivityManagerMotionService: MotionService {
     
     private let motionManager = CMMotionActivityManager()
+    private let pedoMeter = CMPedometer()
     
     var userMoveStateSubject: PublishSubject<RunningState> = .init()
+    var moveDistance: PublishSubject<Double> = .init()
+    var averageSpeed: PublishSubject<Double> = .init()
+    
+    init() {}
     
     func getAuthorizationStatus() -> AuthorizationStatus {
         switch CMMotionActivityManager.authorizationStatus() {
@@ -41,9 +49,23 @@ final class CMMotionActivityManagerMotionService: MotionService {
         motionManager.startActivityUpdates(to: .main) { _ in }
     }
     
-    init() {}
-    
-    private func startActivityUpdate() {
+    func startActivityUpdate() {
+        if CMPedometer.isDistanceAvailable() {
+            pedoMeter.startUpdates(from: Date()) { [weak self] data, error in
+                if let error {
+                    print(error)
+                    return
+                }
+                guard let data, let distance = data.distance?.doubleValue, let avrSpeed = data.averageActivePace?.doubleValue else { return }
+                self?.moveDistance.onNext(distance)
+                self?.averageSpeed.onNext(avrSpeed)
+//                print("currentSpeed \(data.currentPace)")
+//                print("speed \(data.averageActivePace)")
+//                print("step \(data.numberOfSteps)")
+//                print("distance \(data.distance)")
+            }
+        }
+        
         motionManager.startActivityUpdates(to: .main) { [weak self] activity in
             guard let activity else { return }
             if activity.running || activity.walking {

@@ -24,6 +24,7 @@ final class DefaultLocationService: NSObject, LocationService {
         self.locationManager = locationManager
         super.init()
         locationManager.delegate = self
+        locationManager.distanceFilter = 5
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationAuthorizationSubject.onNext(locationManager.authorizationStatus)
     }
