@@ -8,6 +8,7 @@
 import UIKit
 
 protocol AuthorizationAlertable: Alertable {
+    func checkAuthorization(authorizationManager: AuthorizationManager, title: String, message: String, completion: () -> Void)
 }
 
 extension AuthorizationAlertable where Self: UIViewController {
