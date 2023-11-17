@@ -165,14 +165,13 @@ class RecordViewController: UIViewController {
         }.disposed(by: disposeBag)
 
         viewModel.runningDistance.asDriver()
-            .drive(onNext: { distance in
-                self.recordRunningView.runningDistanceLabel.text = distance.formattedDistanceToString(type: .defaultFormat)
-                self.recordRunningView.goalDistanceProgressView.setCurrentValue(current: distance.value)
-            })
-            .disposed(by: disposeBag)
+            .drive(with: self, onNext: { owner, distance in
+                owner.recordRunningView.runningDistanceLabel.text = distance.formattedDistanceToString(type: .defaultFormat)
+                owner.recordRunningView.goalDistanceProgressView.setCurrentValue(current: distance.value)
+            }).disposed(by: disposeBag)
 
-        viewModel.routeDriver.drive(onNext: { route in
-            self.runningMapView.drawRoute(routeList: route.map{$0.coordinate})
+        viewModel.routeDriver.drive(with: self, onNext: { owner, route in
+            owner.runningMapView.drawRoute(routeList: route.map{$0.coordinate})
         }).disposed(by: disposeBag)
 
         viewModel.averageSpeedDriver

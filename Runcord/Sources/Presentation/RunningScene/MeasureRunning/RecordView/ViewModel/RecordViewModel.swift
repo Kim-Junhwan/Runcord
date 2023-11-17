@@ -30,8 +30,11 @@ class RecordViewModel: NSObject {
     private var timer: Timer?
     let runningTime: BehaviorRelay<Time> = BehaviorRelay(value: Time.zero)
     var isRunning: Bool = false
+    private var lastDistance: Double = 0
+    private var runningDistanceValue: Double = 0
     let runningDistance: BehaviorRelay<Distance> = BehaviorRelay(value: Distance.zero)
     let locationService: LocationService
+    let motionService: MotionService
     
     // MARK: - Goal Properties
     var goalTime: Time
@@ -45,14 +48,9 @@ class RecordViewModel: NSObject {
     }
     
     // MARK: - Speed Average
-    private var speedCount = 0
-    private let totalSpeed: BehaviorRelay<Speed> = BehaviorRelay(value: Speed.zero)
+    private let averageSpeed: BehaviorSubject<Speed> = .init(value: .init(value: .zero))
     var averageSpeedDriver: Driver<Speed> {
-        return totalSpeed.map{
-            if self.speedCount == 0 {
-                return Speed.zero
-            }
-            return Speed(value: $0.value / Double(self.speedCount)) }.asDriver(onErrorJustReturn: Speed.zero)
+        return averageSpeed.asDriver(onErrorJustReturn: .init(value: .zero))
     }
     
     // MARK: - Taked Imagies
@@ -61,10 +59,11 @@ class RecordViewModel: NSObject {
     
     let disposeBag = DisposeBag()
     
-    init(goalTime: Time, goalDistance: Distance, locationService: LocationService , actions: RecordViewModelActions) {
+    init(goalTime: Time, goalDistance: Distance, locationService: LocationService , motionService: MotionService, actions: RecordViewModelActions) {
         self.goalTime = goalTime
         self.goalDistance = goalDistance
         self.locationService = locationService
+        self.motionService = motionService
         self.actions = actions
     }
     
@@ -74,11 +73,14 @@ class RecordViewModel: NSObject {
         if timer != nil {
             timer?.invalidate()
         }
+        motionService.startMove()
         timer = Timer.scheduledTimer(timeInterval: Metric.timerDelayTime, target: self, selector: #selector(timerCallBack), userInfo: nil, repeats: true)
     }
     
     func stopTimer() {
         isRunning = false
+        motionService.stopMove()
+        runningDistanceValue = lastDistance
         timer?.invalidate()
     }
     
@@ -94,23 +96,34 @@ class RecordViewModel: NSObject {
     // MARK: - Location Method
     func startTrackUserLocation() {
         locationService.requestLocation()
+        Observable.combineLatest(locationService.currentLocationSubject.compactMap{$0}, motionService.userMoveStateSubject)
+            .subscribe(with: self) { owner, value in
+                let userStatus = value.1
+                let runningCoordi = value.0
+                if owner.isRunning && userStatus == .isMove {
+                    owner.route.accept(owner.route.value+[runningCoordi])
+                }
+            }.disposed(by: disposeBag)
+        
         locationService.currentLocationSubject
             .compactMap { $0 }
             .subscribe(with: self) { owner, currentLocation in
-                if owner.isRunning {
-                    owner.updateRunningRecord(updatedLocation: currentLocation)
-                }
                 owner.route.accept(owner.route.value+[currentLocation])
             }.disposed(by: disposeBag)
-    }
-    
-    private func updateRunningRecord(updatedLocation: CLLocation) {
-        if let lastCoordinator = self.route.value.last {
-            let moveDistance = self.calculateBetweenTwoCoordinatesDistanceKilometer(lastCoordinator, updatedLocation)
-            self.runningDistance.accept(Distance(value: Double(self.runningDistance.value.value + moveDistance)))
-            self.speedCount += 1
-            self.totalSpeed.accept(totalSpeed.value + Speed(value: Double(moveDistance * Metric.speedUnit)))
-        }
+        
+        motionService.moveDistance.subscribe(with: self) { owner, distance in
+            if owner.isRunning {
+                let moveDistance = (distance * 0.001) + owner.runningDistanceValue
+                owner.lastDistance = moveDistance
+                owner.runningDistance.accept(.init(value: moveDistance))
+            }
+        }.disposed(by: disposeBag)
+        
+        motionService.averageSpeed.subscribe(with: self) { owner, avrSpeed in
+            if owner.isRunning {
+                owner.averageSpeed.onNext(.init(value: (1.0/avrSpeed) * 1.60934))
+            }
+        }.disposed(by: disposeBag)
     }
     
     private func calculateBetweenTwoCoordinatesDistanceKilometer(_ firstCoordinate: CLLocation, _ secondCoordinate: CLLocation) -> Double {
@@ -123,12 +136,14 @@ class RecordViewModel: NSObject {
     
     func showSaveRecordView() {
         let runningPath = route.value.map { $0.coordinate }.map { RunningRoute(longitude: $0.longitude, latitude: $0.latitude) }
-        let runningRecord = RunningRecord(date: startDate, goalDistance: goalDistance.value, goalTime: goalTime.totalSecond, runningDistance: runningDistance.value.value, runningTime: runningTime.value.totalSecond, averageSpeed: totalSpeed.value.value/Double(speedCount), runningPath: runningPath, imageRecords: imageList)
+        let avrSpeed = try? averageSpeed.value().value
+        let runningRecord = RunningRecord(date: startDate, goalDistance: goalDistance.value, goalTime: goalTime.totalSecond, runningDistance: runningDistance.value.value, runningTime: runningTime.value.totalSecond, averageSpeed: avrSpeed ?? 0.0, runningPath: runningPath, imageRecords: imageList)
         actions.showSaveRunningRecordView(runningRecord)
     }
     
     deinit {
         locationService.stopUpdateLocation()
+        motionService.stopMove()
         print("deinit record viewModel")
     }
 }

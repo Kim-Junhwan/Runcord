@@ -30,8 +30,7 @@ class RunningRecordMapViewModel {
             .subscribe(with: self) { owner, currentLocation in
                 let currentLocationCoordinate = currentLocation.coordinate
                 owner.imageList.accept(owner.imageList.value+[ImageInfo(latitude: currentLocationCoordinate.latitude, longitude: currentLocationCoordinate.longitude, image: image, saveTime: Date())])
-            }
-            .disposed(by: disposeBag)
+            }.dispose()
     }
     
 }
