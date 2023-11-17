@@ -63,6 +63,7 @@ class RecordViewController: UIViewController {
         self.recordRunningView.isHidden = false
         self.viewModel.startTimer()
         self.viewModel.startTrackUserLocation()
+        self.viewModel.motionService.startActivityUpdate()
     }
     
     // MARK: - Initalizer
