@@ -14,7 +14,7 @@ enum RunningState {
     case stop
 }
 
-protocol MotionService: AuthorizationManager {
+protocol MotionService: AuthorizationManager, AnyObject {
     var userMoveStateSubject: PublishSubject<RunningState> { get }
     var moveDistance: PublishSubject<Double> { get }
     var averageSpeed: PublishSubject<Double> { get }

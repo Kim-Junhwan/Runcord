@@ -8,7 +8,7 @@
 import CoreLocation
 import RxSwift
 
-protocol LocationService: AuthorizationManager {
+protocol LocationService: AuthorizationManager, AnyObject {
     var currentLocationSubject: BehaviorSubject<CLLocation?> { get }
     var locationError: PublishSubject<Error> { get }
     var locationAuthorizationSubject: BehaviorSubject<CLAuthorizationStatus> { get }

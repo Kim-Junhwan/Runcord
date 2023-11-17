@@ -27,14 +27,14 @@ class RecordViewModel: NSObject {
     let actions: RecordViewModelActions
     
     // MARK: - Timer Properties
-    private var timer: Timer?
+    private weak var timer: Timer?
     let runningTime: BehaviorRelay<Time> = BehaviorRelay(value: Time.zero)
     var isRunning: Bool = false
     private var lastDistance: Double = 0
     private var runningDistanceValue: Double = 0
     let runningDistance: BehaviorRelay<Distance> = BehaviorRelay(value: Distance.zero)
-    let locationService: LocationService
-    let motionService: MotionService
+    unowned var locationService: LocationService
+    unowned var motionService: MotionService
     
     // MARK: - Goal Properties
     var goalTime: Time

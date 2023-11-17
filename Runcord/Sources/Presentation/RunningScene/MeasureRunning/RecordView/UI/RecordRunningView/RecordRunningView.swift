@@ -80,6 +80,10 @@ class RecordRunningView: UIView {
     @IBAction func playAndPauseButtonAction(_ sender: UIButton) {
         delegate?.playOrPauseAction()
     }
+    
+    deinit {
+        print("deinit RecordView")
+    }
 }
 
 extension RecordRunningView: PressGestureButtonDelegate {
