@@ -186,10 +186,6 @@ class RunningRecordMapViewController: UIViewController {
         imagePicker.delegate = self
         present(imagePicker, animated: true)
     }
-    
-    deinit {
-        print("deinit RunningMapView")
-    }
 }
 
 extension RunningRecordMapViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

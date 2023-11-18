@@ -141,9 +141,9 @@ class RecordViewModel: NSObject {
         actions.showSaveRunningRecordView(runningRecord)
     }
     
-    deinit {
+    func prepareDeinit() {
         locationService.stopUpdateLocation()
         motionService.stopMove()
-        print("deinit record viewModel")
+        timer?.invalidate()
     }
 }

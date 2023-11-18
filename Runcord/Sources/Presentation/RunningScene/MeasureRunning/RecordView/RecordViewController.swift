@@ -204,7 +204,7 @@ class RecordViewController: UIViewController {
     
     // MARK: - deinit
     deinit {
-        print("deinit RecordView")
+        viewModel.prepareDeinit()
     }
 }
 
@@ -226,8 +226,8 @@ extension RecordViewController: UIViewControllerTransitioningDelegate {
 extension RecordViewController: RecordRunningViewDelegate {
     
     func completeRunning() {
-        dismiss(animated: false) {
-            self.viewModel.showSaveRecordView()
+        dismiss(animated: false) { [weak self] in
+            self?.viewModel.showSaveRecordView()
         }
     }
     
