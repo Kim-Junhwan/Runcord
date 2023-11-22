@@ -58,6 +58,13 @@ Runcord는 러닝 도중에 찍고 싶은 사진을 찍고
 
 ## 위치가 튀는 문제
 
+기존 러닝 경로, 현재 사용자의 평균 속도, 달린 거리를 측정하는 방식은 CLLocationManager의 위치 데이터를 통해 계산하는 방식으로 구현.
+하지만 GPS 정확도가 떨어지거나 현재 위치가 막 움직이는 경우 좌표가 갑자기 크게 움직여서 가만히 있는데도 경로가 마구 그려지거나, 달린 속도와 거리가 튀는 문제가 발생
+
+<img src = "https://github.com/Kim-Junhwan/Runcord/assets/58679737/4842d0c6-fdc1-473b-80f0-615f1f912f2f" width="200">
+<img src = "https://github.com/Kim-Junhwan/Runcord/assets/58679737/85be4547-0a86-481c-9b6e-057cb47680cf" width="200">
+
+이 문제를 해결하기 위해 CoreMotion의 CMPedoMeter과 CMMotionActivity를 이용하여 해결함. CMMotionActivity를 이용하여 사용자가 현재 정지 상태인지, 이동중인 상태인지를 값을 전달해서 이동중인 상태에서만 러닝 데이터 업데이트를 수행하도록 변경. CMPedoMeter를 이용해서 사용자의 평균 속도, 이동 거리를 업데이트 하는 방식으로 변경
 
 ## 장시간 러닝시 과도한 리소스 사용 문제
 
