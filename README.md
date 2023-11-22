@@ -52,6 +52,33 @@ Runcord는 러닝 도중에 찍고 싶은 사진을 찍고
 - Domain 계층: 앱의 비즈니스 로직을 담당합니다. 해당 프로젝트의 경우에는 러닝 기록을 DB에서 CREATE, READ, DELETE 하는것이 주 로직입니다. UseCase, Repository Protocol, Entity를 가지고 있습니다.
 - Presentation 계층: UI 로직 관련 책임을 가지고 있습니다.
 
-## 프로젝트 진행중 겪었던 문제
+# 트러블 슈팅 및 
 
-### [UILabel BaseLine 문제](https://sandclock-itblog.tistory.com/163)
+## [UILabel BaseLine 문제](https://sandclock-itblog.tistory.com/163)
+
+## 위치가 튀는 문제
+
+
+## 장시간 러닝시 과도한 리소스 사용 문제
+
+러닝을 3시간 정도 한 결과 (시뮬레이터 cityRun 기준) 리소스가 다음과 같이 과도하게 많이 사용됨을 확인.
+- CPU 사용량: 297,438%
+- 메모리 사용량: 1.68GB 
+<img src = "https://github.com/Kim-Junhwan/Runcord/assets/58679737/db15c89a-8154-4294-8b38-b5accb1d620a" width="400">
+<img src = "https://github.com/Kim-Junhwan/Runcord/assets/58679737/c08a5b0c-961f-47c3-9ee1-1c0eab09ffd9" width="400" >
+<br>
+매초마다 위치에 관한 데이터가 쌓이므로 이로 인해 메모리가 과도하게 사용되는 것으로 처음엔 생각했으나 계산을 해보니 172.8KB (10800(3시간을 초로 변경) * 16바이트(위경도 Double 타입 크기))의 메모리 공간만 차지하므로 다른 곳에 문제가 있을 것으로 판단하고 기존 경로를 그리는 방식에 변경을 줌. 
+
+### 기존 방식
+새로운 위치를 받을때마다 마지막으로 받은 위치 데이터와 받은 위치데이터를 이용하여 새로운 MKPolyline을 생성하여 경로를 그리는 방식
+
+### 개선한 방식
+새로운 위치를 받으면 기존 MKPolyline 객체 삭제, 새로운 MKPolyline이 현재 받은 모든 경로가져서 지도상에 표시. 하나의 MKPolyline만을 이용하는 방식으로 개선
+
+### 결과
+개선하기 전보다 3배 더 긴 시간을(9시간)을 러닝을 해도 리소스 사용량이 안정적
+- CPU 사용량: 9%
+- 메모리 사용량: 285MB
+<img src = "https://github.com/Kim-Junhwan/Runcord/assets/58679737/0e819499-5e91-4da6-a806-ca39ce865849" width="500">
+<img src = "https://github.com/Kim-Junhwan/Runcord/assets/58679737/dfc2b23d-1c13-4304-a149-27b4b5246217" width="500">
+
