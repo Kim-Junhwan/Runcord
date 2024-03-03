@@ -52,7 +52,7 @@ Runcord는 러닝 도중에 찍고 싶은 사진을 찍고
 - Domain 계층: 앱의 비즈니스 로직을 담당합니다. 해당 프로젝트의 경우에는 러닝 기록을 DB에서 CREATE, READ, DELETE 하는것이 주 로직입니다. UseCase, Repository Protocol, Entity를 가지고 있습니다.
 - Presentation 계층: UI 로직 관련 책임을 가지고 있습니다.
 
-# 트러블 슈팅 및 
+# 트러블 슈팅 
 
 ## [UILabel BaseLine 문제](https://sandclock-itblog.tistory.com/163)
 
